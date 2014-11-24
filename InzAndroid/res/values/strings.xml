@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">InzAndroid</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="offBtn">Off</string>
+    <string name="txtView"/>
+    <string name="txtEdit">Wprowadz swój numer</string>
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#423F4A</color>
+    <color name="textColor">#9f9da4</color>
+
+</resources>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>Insert</servlet-name>
+		<servlet-class>pl.javastart.servlets.InsertIntoDB</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Insert</servlet-name>
+		<url-pattern>/insert</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Authentication</servlet-name>
+		<servlet-class>pl.javastart.servlets.CheckIsExistsDeliverer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Authentication</servlet-name>
+		<url-pattern>/authentication</url-pattern>
+	</servlet-mapping>
+		
+	<servlet>
+		<servlet-name>Test</servlet-name>
+		<servlet-class>pl.javastart.servlets.InDeliverer</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+		
+	<servlet>
+		<servlet-name>Sprawdz</servlet-name>
+		<servlet-class>pl.javastart.servlets.Sprawdz</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Sprawdz</servlet-name>
+		<url-pattern>/sprawdz</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Index</servlet-name>
+		<servlet-class>pl.javastart.servlets.Index</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Index</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Zamowienie</servlet-name>
+		<servlet-class>pl.javastart.servlets.Zamowienie</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Zamowienie</servlet-name>
+		<url-pattern>/zamowienie</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Info</servlet-name>
+		<servlet-class>pl.javastart.servlets.Info</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Info</servlet-name>
+		<url-pattern>/info</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>logowanie</servlet-name>
+		<servlet-class>pl.javastart.servlets.Logowanie</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>logowanie</servlet-name>
+		<url-pattern>/logowanie</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

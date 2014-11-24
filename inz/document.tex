@@ -7,6 +7,17 @@
 \usepackage[utf8]{inputenc} %kodowanie znakow, zalezne od systemu
 \usepackage[T1]{fontenc} %poprawne skladanie polskich czcionek
 
+%listingi
+\usepackage{listings}
+\usepackage{color}
+\definecolor{zielony}{rgb}{0,0.6,0}
+\definecolor{innyZielony}{rgb}{0.5,0.7,0}
+\renewcommand{\lstlistingname}{Listing}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}% 
+
+%kolor do komentarzy, uwag, przypomnienie
+\definecolor{komentarz}{rgb}{1,0,0}
+
 %pakiety do grafiki
 \usepackage{graphicx}
 \usepackage{subfigure}
@@ -46,6 +57,13 @@
 %tutaj zaczyna sie wlasciwa tresc dokumentu
 \begin{document}
 
+\lstdefinestyle{listJava}{language=Java, breaklines=true,
+commentstyle=\color{zielony},frame=single, numbers=left, stepnumber=1,
+numbersep=5pt}
+\lstdefinestyle{listPython}{language=Python, breaklines=true,
+commentstyle=\color{innyZielony},frame=single, numbers=left, stepnumber=1,
+numbersep=5pt}
+
 \bibliographystyle{plabbrv} %tylko gdy uzywamy BibTeXa, ustawia polski styl bibliografii
 
 \maketitle %polecenie generujace strone tytulowa
@@ -55,65 +73,186 @@
 
 %ponizej znajduje sie przykladowa tresc dalszej czesci dokumentu, zainteresowanych zachecam do rozszyfrowania frazy "Lorem ipsum" :)
 \chapter{Wstęp i cel pracy}
+
 Współcześnie coraz więcej osób korzysta z możliwości zakupów przez internet,
 niesie to za sobą wiele korzyści. Często zakupiony towar jest tańszy, unikalny,
 bądz niedostępny w stacjonarnym sklepie czy poprostu jest to wygodniejsza forma
-zakupów. //Moze cos o tym, ze dokumenty// Z tych powodów ludzie zamawijący
-usługi kurierskie chcieliby dostać jak najwyższą jakość. Zwiększenie jakości tej
-usługi może nastąpić poprzez szybsze dostarczenie przesyłki, tańszy jej koszt,
-czy na przykład możliwość sprawdzenia, w jakim dokładnie miejscu ona się
-znajduje. Taka funkcjonalność usługi kurierskiej nie należy do wymaganej
+zakupów. Oprócz wyżej wymienionych zakupów itotnym twoarem przewożonym
+są dokumenty, często szybko potrzebne. Z tych powodów ludzie zamawijący usługi 
+kurierskie chcieliby dostać jak najwyższą jakość. Zwiększenie jakości tej
+usługi może nastąpić poprzez skrócenie czasu dostarczenia przesyłki(co
+fizycznie już jest nie osiągalne), tańszy jej koszt, czy na przykład możliwość
+sprawdzenia, w jakim dokładnie miejscu ona się znajduje. Taka funkcjonalność 
+usługi kurierskiej nie należy do jakości wymaganej i koniecznej, ale znacznie
+poniesie popyt i prestiż firmy kurierskiej, która zdecyduje się na taką
+dodatkowa funkcjonalność. Z punktu widzenia klienta odczuwany jest komfort
+informacji, gdzie jest przesyłka, dzięki temu klient może zaplnaować sobie
+dzień, w którym nastąpi dostarczenie. 
 
+Przedstawiany tu projekt rozwija aktualną funkcjonalność firm kurierskich o
+graficzne przedstawienie, w formie mapy, aktualnej lokalizacji przesyłki. Taka
+forma prezentacji jest prosta w odbiorze i dużo bardziej czytelna niż wyniki
+jakie prezentowane są aktualnie w formie tabel, w których zawarte są miejsca
+odbicia przesyłki. Ponadto praca próbuje rozwiązać problem jaki istnieje w
+estymacji czasu dostraczaniu przesyłki do adresata, esytmacja czasu
+dostarczenia jest bardzo niedokładna(ogólna) lub jej nie ma.
 
-
- że wszyscy wysyłają i odbierają i każdy z nich chce jak najszybciej
-otrzymać swoją przesyłkę. Niecierpliwią się ludzie a tak widzą gdzie ona jest, jest to dodatkowe rozwinięcie funkcjonalności firmy, 
-nie jest konieczne ale może zaplusować. Fajne graficzne, proste w odbiorze przedstawienie danych (bo mapa).
-Zainterowanie zakupami przez internet jest duże-ciągle zwiększające się dlatego, że przez internet jest wygotnie i nierzadko taniej. 
-Niniejsza praca próbuje rozwiązań problem braku dokładnej lokalizacji przesyłki, a ponadto w znaczny sposób ułatwi estymację czasu otrzymania przesyłki 
-przed adresata.  
-Największym problemem jest brak lub słaba estymacja czasu kiedy paczka dotrze do adresata.
-http://www.lokalizacja.info/pl/testy/monitoring/gdzie-jest-moja-paczka-test-firm-kurierskich.html#.VEzCPVS988o
+\emph{\color{komentarz}
+Projekt został zrealizowany z wykorzystaniem takich
+technologi jak:
+język programowania Java, system operacyjny Android, baza danych MySQL, Google Apps.
+http://www.lokalizacja.info/pl/testy/monitoring/gdzie-jest-moja-paczka-test-firm-kurierskich.html\#.VEzCPVS988o
 Firmy kurierskie maja najprawdopodobniej system „windows ce/mobile” na swoich urządzenia. Ja ze względu na brak takiego urządzenia (mobilnego z windowsem) 
 zrealizuje zadanie na androidzie.
+}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{obr.jpg}
+\caption{podpisisi}
+\end{figure}
 \chapter{Rozwiązanie - prezentacja wyników}
+
+
+Nie tylko gps do lokalizacji, bo także odbicia na czytnikach u kurierów 
+Projekt opiera się 
+
+schemat - wejscie (adnroid) - środek system - wyjscie www z mapka
+
+Tu udaje kod
+\lstset{style=listJava}
+\begin{lstlisting}[caption={to jest podpis}]
+class Srass {
+	public kupaGowna() {
+	} //takakaka
+}
+\end{lstlisting}
+\lstset{style=listPython}
+\begin{lstlisting}[caption={to jest podpis drugiego}]
+class Srass {
+	public kupaGowna() {
+	} //takakaka
+}
+\end{lstlisting}
+
+Udałam kod
 \chapter{Wykorzystane technologie}
-ogólnie: model MVC...
-	ogólnie korzystać powinno z bazy danych firmy, to nie zakres tej pracy oraz wyświetlać to w  witrynie, będzie tylko mapka z napisem. Łaczy się z google – 
-	pobiera stamtąd mapy/drogi, a z gps pojazdy który ma daną przesyłkę na pokładzie do systemu trafiają jego szerokość i dłg geograficzna i wyznacza się 
-	gdzie ona jest.
-	Nie tylko gps do lokalizacji, bo także odbicia na czytnikach u kurierów 
+
+Zrealizowany tu projekt bazuje na nowoczesnych technologiach.
+Skorzystano z mobilnego urządzenia - telefonu komórkowego z systemem
+Android, bazy danych do przechowywania inforamcji, a także serweru, który to
+łączy wszystkie elementy w jedną spójną całość. Głównym językiem
+programowania wykorzystanym w projekcie jest język Java, dzięki któremu
+zrelizowano aplikację mobilną, obsługę servletu, bazy danych, odpytywania i
+parsowania odpowiedzi serwera Google o widok mapy i odległośći pomiędzy dwoma
+punktami, a także obsługa witryny http. Całą oplikację stworzono za pomocą IDE
+Eclipse z odpowiednimi dodatkami.
+\emph{\color{komentarz}logo Javy}
 
 \section{Java}
-Blala blalla jksajBLABLALBLABLABLALBLA 
-dfdsv
-\section{JavaScritp}
-\section{db}
 
-BLABLALBLA
-\section{Android}
-BLABLALBLABLABLALBLABLABLALBLABLABLALBLA 
-
+Java jest obiektowym językiem programowania ogólnego przeznaczenia.
+Charakteryzuje się silnym ukierunkowaniem na obiektowość oraz niezależnością i
+przenoszalnośćią kodu od architekty.Oprócz wyżej wymieniowych założeniami języka
+Java jest prostota, sieciowość, niezawodność, bezpieczność, interpretowalność, wysokowydajny,
+wielowątkowy, dynamiczny oraz niezależny od architektury. 
 \begin{itemize}
-\item Mauris nonummy lorem at orci.
-\item Donec accumsan aliquam libero.
-\item Donec fringilla ultricies diam.
-\item Nulla venenatis est non ligula.
-\item Morbi in mi convallis dolor accumsan egestas.
-\item Sed euismod nibh in nulla.
-\item Sed rhoncus lorem at lectus.
-\item Pellentesque fermentum rutrum dui.
+  \item Prosty - założeniami autorów języka Java było aby programista bez
+  specjalnych szkoleń mógł od razu zacząć pisać w języku Java. Skłądnia została
+  oczyszczona (w stostunku do C++) o arytmetykę wskaźnikową, struktury, unie,
+  przeciążanie operatorów itd.
+  \item Zorientowany obiektowo
+  \item Sieciowy - Java poasiada bbiliotekę, która w przystępny sposób umożlwia
+  pracę z protokałami http, TCP/IP, ftp
+  \item Niezawodny - szczególnie skupiono się na wykrywaniu ewentualnych
+  problemów, zapobieganiu sytuacjom, w których może błąd nastąpić oraz
+  sprawdzaniu błedów podczas działania programu
+  \item Bezpieczny - Java może służyć do zastosowań sieciowych, z tego powodu
+  zadbano o możwlie najlepsze zabezpieczenie przed wirusami i ingerexją osób
+  trzecich.
+  \item Niezależny od architektury - Java kompilowana jest do kodu pośredniego
+  (bajtoweg), który następnie jest interpretowany na maszynie wirutalnej Javy,
+  która jest dostosowana do odpowiedniego systemu. Maszyna wirtualna Javy(JVM)
+  jest zdolna wykonywać program z kodu pośredniego. Z tego powodu jeżyk Java
+  stosowany jest na wielu urządzeniach oraz różnych systemach operacyjnych.
+  Niestyty konsekwencją przenoszalności kodu jest jego wolniejsze wykonanie.
+  \item Przenośny - Java posiada ściśle określone rozmiary typów danych i nie ma
+  możliwości zmiany rozmiaru przez proramiste przez co nie następuje np. zmiana
+  kolejności bajtów
+  \item Interpretowany - \ldots
+  \item Wysokowydajny - istnieje możliwość tłumaczenia kodu bajtowego w locie,
+  co zwiększa szybkość ładowania się programu
+  \item Wielowątkowy - pozwala na interaktywność między procesami, a także pracę
+  w czasie rzeczywistym
+  \item Dynamiczny - obiekty w Javie można zmieniać w zależności od
+  zmieniającego się środowiska oraz możliwy jest wgląd we wszystkie obiekty, a
+  nawet dodawać nowe metody
 \end{itemize}
-BLABLALBLA 
 
-Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec justo diam, auctor vitae, consectetuer sed, aliquet non, lectus. 
-Suspendisse id lectus. Integer fermentum metus non felis. Praesent dui augue, auctor non, congue sed, aliquam vel, quam. Fusce et ligula dignissim sapien 
-congue scelerisque. Phasellus tincidunt. Aliquam tempus, leo sollicitudin commodo aliquam, neque nisl nonummy ante, ac tristique lacus odio nec libero. Cras 
-nec nisl sed erat commodo eleifend. Vivamus tellus. Fusce nec nibh ut neque malesuada feugiat. Nam molestie volutpat lacus. Aliquam sollicitudin nunc at 
-turpis. Maecenas lectus quam, aliquam nec, aliquet eget, porta non, massa. Duis viverra nonummy mauris.
+Język Java wywodzi się z języków C++ i C, wykorzystuje wiele potrzebnych i
+użytecznych funkcjonalności tych języków, z nieużytecznych, trudnych lub
+pwoowdujących często błędy zrezygnowano. Język Java umożliwia dziedziczenie, a ponadto wszystkie obiekty Javy
+są pochodną obiektu bazwego. Jednakże Java nie umożliwa dziedziczenia wielobazowego, dlatego do Javy wprowadzono interfejsy - abstrakcyjny typ, który posiada jedynie opracje, ale
+nie posiada danych, z tego powodu można tylko implementować interfejs i nie
+można utworzyć obiektów tego typu. Język Java umożliwia pisanie aplikacji
+stacjonarnych, webowych czy mobilnych. Język Java ma rozbudowaną obsługę
+wyjątków. Posiada dobrze rozbudowanego GarbageCollector (odśmieciacza)
+\cite{java.doc}.
+\subsection{podpodrozdział}
+
 \section{Servlet}
-pierupierdu
+
+Serwlety są to aplikacje działające na serwerze WWW korzystające z języka Java.
+Sewrwlety mają zapewniać budowanie aplikacji internetowych niezależnych od
+platformy. Serwlet umożliwia korzystanie z baz danych i http. Z tego powodu
+wykrozystywane są do budowania interaktywnych aplikacji internetowych. 
+
+W projekcie skorzystano z serwletu Tomcat Apache, który jest open source'owy i
+korzysta z licencji Apache. Serwer Apache obsługuje www za pomocą protokołu
+http, jest otwarty, zapewnia wielowątkowość, skalowalność, bezpieczeństwo,
+kontrolę dostępu \cite{apache.wiki}. \emph{\color{komentarz} tu obrazek apache i
+tomcat \cite{apache.tomcat}}
+
+\section{Technologie internetowe}
+
+W przedstawionym w tej pracy projekcie korzystano z technologi internetowych,
+które obsługiwały interakcję z użytkownikiem oraz `strony www`. Skorzystano
+z takich technologii jak:
+\begin{itemize}
+  \item JavaScript - jest to skryptowy jezyk programowania stosowany do
+  tworzenia stron internetowych, zapewnia interakcję z użytkownikiem\cite{javascript.wiki}
+  \item XML - jesto to język znaczników przeznaczony do reprezenowania danych w
+  strukturyzowany sposób \cite{xml.wiki}
+  \item Protokół http - 
+  \item \ldots
+\end{itemize}
+\section{db - MySQL}
+
+W projakcie do przechowywania danych skorzystano z baz danych. Baza danych
+pozwala w ustrukturyzowany sposób kolekcjonować dane niezbędnę do działania
+programów. Przechowywane dane mogą być o dwolnonym formacie i strukturze.
+Systemem, który zarządzał bazą danych w projekcie był MySQL.
+
+\section{Android}
+
+Android jest systemem wykorzystywanym na platformach mobilnych. Android
+jest systemem operacyjnym z rodziny Linux, oparty na jądrze Linux. Android
+umożliwia tworzenie aplikacji na wiele urządzeń, optymalizacji podlega plik xml,
+gdzie można dostosować aplikację do konkretnych urządzeń. Najnowższą wersją
+systemu jest Android Lollipop 5.0. 
+
+Rozpoczęcie pracy z Androidem zaczyna się od instalacji środowiska, może to być
+Eclipse z dodatkiem SDK Android lub Android Studio. A samo tworzenie aplikacji
+od projektu interfejsu użytkownika, następnie dopiero oprogramowuje się obsługę
+oraz logikę aplikacji, ostatnim etapem jest testowanie aplikacji.
+\cite{developer.android}
+\emph{\color{komentarz}napisac o tym, ze android oddelegowuje zadania, taki
+obrazek ze strony}
+
 \section{Google apps - mapy}
+
+Firma Google udostępnia korzystanie deweloperom ze swoich produktów
+\cite{developer.google}. W swoim projekcie korzystałam z Google Maps Api. 
 
 \chapter{Możliwość rozwinięcia w przyszłości}
 Aplikację można „podpiąć” pod prawdziwe urządzenia jakie posiadają kurierzy – te na których się człowiek podpisuje – ale konieczne będzie 
@@ -123,9 +262,6 @@ zrefakturyzowanie(?)/zmienie kodu pod system, który mają tam zainstalowany.
 	Normalnie kurierzy urzywają kolektorów danych.
 
 \chapter{Wnioski i podsumowanie}
-\appendix
-\chapter{BLABLALBLA}
-BLABLALBLABLABLALBLABLABLALBLABLABLALBLABLABLALBLABLABLALBLA
 \addcontentsline{toc}{chapter}{Bibliografia} %utworzenie w spisie tresci pozycji Bibliografia
 \bibliography{bibliografia} % wstawia bibliografie korzystajac z
 % pliku bibliografia.bib - dotyczy BibTeXa, jezeli nie korzystamy z BibTeXa nalezy uzyc otoczenia thebibliography
@@ -133,4 +269,5 @@ BLABLALBLABLABLALBLABLABLALBLABLABLALBLABLABLALBLABLABLALBLA
 %opcjonalnie moze sie tu pojawic spis rysunkow i tabel
 \listoffigures
 \listoftables
+\lstlistoflistings
 \end{document}
