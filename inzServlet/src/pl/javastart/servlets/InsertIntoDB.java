@@ -25,17 +25,14 @@ public class InsertIntoDB extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("dopost Insert");
 		try {
 			id = req.getParameter("ID");
 			longitude = req.getParameter("longitude");
 			latitude = req.getParameter("latitude");
 			date = req.getParameter("timestamp");
 			activ = req.getParameter("activ");
-			System.out.println(id + " " + longitude + " " + latitude + " "
-					+ date + activ);
 		} catch (Exception ex) {
-			System.out.println("Problem in message reading");
+			ex.printStackTrace();
 		}
 		insertIntoJDBC();
 	}
@@ -48,7 +45,6 @@ public class InsertIntoDB extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		out.write(id + " " + longitude + " " + latitude + " " + date + " "
 				+ activ);
-		System.out.println("doget Insert");
 
 	}
 
@@ -74,19 +70,16 @@ public class InsertIntoDB extends HttpServlet {
 					+ longitude
 					+ ",'"
 					+ date
-					+ "'"
+					+ "',"
 					+ activ
 					+ ") on duplicate key update latitude=values(latitude),"
 					+ " longitude=values(longitude), timePos=values(timePos), activ=values(activ)";
-			System.out.println("commend " + sqlInsert);
 			stmt.executeUpdate(sqlInsert);
 			conn.close();
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println(e.toString());
 		}
-		System.out.println("\n\n" + sqlInsert);
 		return false;
 	}
 
@@ -116,11 +109,9 @@ public class InsertIntoDB extends HttpServlet {
 					+ sCityCode
 					+ ") on duplicate key update nameUser=values(nameUser),"
 					+ " streetUser=values(streetUser), cityUser=values(cityUser), cityCodeUser=values(cityCodeUser);";
-			System.out.println("commend " + sqlInsert);
 			stmt.executeUpdate(sqlInsert);
 			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			Date date = new Date(System.currentTimeMillis());
-			System.out.println(date + "   " + df.format(date));
 			sqlInsert = "insert into deli.parcel (id,fromUserId,addresseeName,addresseeStreet,addresseeCity,addresseeCityCode, sendTime, deliverer, base) values"
 					+ "(null,last_insert_id(),"
 					+ aName
@@ -133,15 +124,12 @@ public class InsertIntoDB extends HttpServlet {
 					+ ",'"
 					+ df.format(date)
 					+ "',0,0);";
-			System.out.println("commend " + sqlInsert);
 			stmt.executeUpdate(sqlInsert);
 			conn.close();
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
-			System.out.println(e.toString());
 		}
-		System.out.println("\n\n" + sqlInsert);
 		return false;
 	}
 }

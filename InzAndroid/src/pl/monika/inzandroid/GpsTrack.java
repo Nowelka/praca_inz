@@ -15,11 +15,10 @@ public class GpsTrack implements LocationListener {
 
 	private static final float minDistance = 10; // meters
 	private static final long minTime = 1000;// miliseconds
-	private boolean gpsStatus = false;
-	private boolean gpsy;
-
-	private double latitude;
-	private double longitude;
+	private boolean gpsEnable = false;
+	private boolean gpsLocated = false;
+	private double latitude = 0.0;
+	private double longitude = 0.0;
 
 	public GpsTrack(Context context) {
 		this.context = context;
@@ -32,11 +31,7 @@ public class GpsTrack implements LocationListener {
 
 		// sprawdza czy jest wlaczony
 		isGpsEnable();
-		gpsy = locationManager
-				.isProviderEnabled(LocationManager.KEY_PROVIDER_ENABLED);
-		System.out.println(gpsStatus + " <- stat; gps ->" + gpsy);
-		// smieszne oszustwo musi byc string string i zeby zrobic string to " "
-		// + ...
+		isGpsLocated();
 
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
 				minTime, minDistance, (android.location.LocationListener) this);
@@ -53,11 +48,19 @@ public class GpsTrack implements LocationListener {
 
 	}
 
+	// sprawdza czy wlaczony jest gps
 	public boolean isGpsEnable() {
-		gpsStatus = locationManager
+		gpsEnable = locationManager
 				.isProviderEnabled(LocationManager.GPS_PROVIDER);
-		return gpsStatus;
+		return gpsEnable;
 
+	}
+
+	// sprawdza czy ustalona lokalizacja
+	public boolean isGpsLocated() {
+		gpsLocated = locationManager
+				.isProviderEnabled(LocationManager.KEY_PROVIDER_ENABLED);
+		return gpsLocated;
 	}
 
 	@Override
@@ -82,12 +85,8 @@ public class GpsTrack implements LocationListener {
 		this.longitude = longitude;
 	}
 
-	public boolean isGpsStatus() {
-		return gpsStatus;
-	}
-
 	public void setGpsStatus(boolean gpsStatus) {
-		this.gpsStatus = gpsStatus;
+		this.gpsEnable = gpsStatus;
 	}
 
 	@Override
