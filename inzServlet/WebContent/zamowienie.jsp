@@ -64,9 +64,15 @@
 	<!-- Main -->
 	<div id="main">
 		<div class="container">
-			<font size="30em">Zgłoszenie przesyłki<br></font><br>
-			<br>
+			<%
+				if (request.getAttribute("nrPracel") != null) {
+			%><font size="30em">Przyjęto zgłoszenie przesyłki ${nrPracel}<br></font><br>
+			<%
+				} else {
+			%>
+			<font size="30em">Zgłoszenie przesyłki<br></font><br> <br>
 			<div id="content" class="container">
+
 
 				<div class="row">
 
@@ -75,24 +81,15 @@
 							<h2>Nadawca</h2>
 						</header>
 						<form id="formularz" method="post" action="">
-						<div align="right">
-						<br>imie i nazwisko
-						
-							<input type="text" name="sName" />
-<!-- 						</form> -->
-						<br>ulica
-<!-- 						<form id="formularz" method="post" action=""> -->
-							<input type="text" name="sStreet" />
-<!-- 						</form> -->
-						<br>miasto
-<!-- 						<form id="formularz" method="post" action=""> -->
-							<input type="text" name="sCity" />
-<!-- 						</form> -->
-						<br>kod pocztowy
-<!-- 						<form id="formularz" method="post" action=""> -->
-							<input type="text" name="sCityCode" /> <br>
-<!-- 						</form> -->
-</div>
+							<div align="right">
+								<br>imie i nazwisko <input type="text" name="sName" />
+								<br>ulica
+								<input type="text" name="sStreet" />
+								<br>miasto
+								<input type="text" name="sCity" />
+								<br>kod pocztowy
+								<input type="text" name="sCityCode" /> <br>
+							</div>
 					</section>
 					<section class="4u">
 
@@ -100,26 +97,19 @@
 							<h2>Odbiorca</h2>
 						</header>
 						<div align="right">
-						<br>imie i nazwisko
-<!-- 						<form id="formularz" method="post" action=""> -->
+							<br>imie i nazwisko
 							<input type="text" name="aName" />
-<!-- 						</form> -->
-						<br>ulica
-<!-- 						<form id="formularz" method="post" action=""> -->
+							<br>ulica
 							<input type="text" name="aStreet" />
-<!-- 						</form> -->
-						<br>miasto
-<!-- 						<form id="formularz" method="post" action=""> -->
+							<br>miasto
 							<input type="text" name="aCity" />
-<!-- 						</form> -->
-						<br>kod pocztowy
-<!-- 						<form id="formularz" method="post" action=""> -->
+							<br>kod pocztowy
 							<input type="text" name="aCityCode" /> <br>
-							</div>
-							<br>
-							<div align="right">
-							<input type="submit" value="dodaj"/>
-							</div>
+						</div>
+						<br>
+						<div align="right">
+							<input type="submit" value="dodaj" />
+						</div>
 						</form>
 
 
@@ -128,6 +118,9 @@
 				</div>
 
 			</div>
+			<%
+				}
+			%>
 		</div>
 	</div>
 	<!-- /Main -->

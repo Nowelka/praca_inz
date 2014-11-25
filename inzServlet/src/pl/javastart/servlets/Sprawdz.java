@@ -24,14 +24,15 @@ public class Sprawdz extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		String id = req.getParameter("nr");
-		boolean b = false;
+		boolean isParcelExists = false;
 		System.out.println("post");
 		RequestDispatcher view = req.getRequestDispatcher("/sprawdz.jsp");
 
 		if (id != null && (Sth.isInteger(id)) == true) {
 			SearchParcel searchParcel = new SearchParcel(Integer.parseInt(id));
 			if (searchParcel.getIsParcelExists() == true) {
-				b = true;
+
+				isParcelExists = true;
 				req.setAttribute("id", id);
 				req.setAttribute("lat", searchParcel.getDelivererLatitude());
 				req.setAttribute("lon", searchParcel.getDelivererLongitude());
@@ -43,16 +44,18 @@ public class Sprawdz extends HttpServlet {
 								+ searchParcel.getRegisteredUserCityUser()
 								+ " "
 								+ searchParcel.getRegisteredUserCityCodeUser());
-				req.setAttribute("timeSend", searchParcel.getParcelSendTime());
+				req.setAttribute("timeSend", searchParcel.getParcelSendTime()
+						.substring(0, 16));
 				req.setAttribute("userName",
 						searchParcel.getParcelAddresseeName());
 				req.setAttribute("userAddr",
 						searchParcel.getParcelAddresseeStreet() + " "
 								+ searchParcel.getParcelAddresseeCity() + " "
 								+ searchParcel.getParcelAddresseeCityCode());
-				req.setAttribute("timeDelivery",
-						searchParcel.getParcelDeliveryTime());
-				req.setAttribute("lastTime", searchParcel.getDelivererTimePos());
+				req.setAttribute("timeDelivery", searchParcel
+						.getParcelSendTime().substring(0, 16));
+				req.setAttribute("lastTime", searchParcel.getDelivererTimePos()
+						.substring(0, 16));
 
 				if (searchParcel.getDelivererId() > 999000) {
 					searchParcel.selectBase(searchParcel.getDelivererId());
@@ -67,7 +70,7 @@ public class Sprawdz extends HttpServlet {
 		if (id == null || (Sth.isInteger(id)) == false)
 			req.setAttribute("msg", "Prosze podac poprawny numer przesylki");
 
-		req.setAttribute("b", b);
+		req.setAttribute("b", isParcelExists);
 		req.removeAttribute("nr");
 		view.forward(req, resp);
 	};

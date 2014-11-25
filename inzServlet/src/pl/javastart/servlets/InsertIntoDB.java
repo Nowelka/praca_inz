@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -83,9 +84,16 @@ public class InsertIntoDB extends HttpServlet {
 		return false;
 	}
 
-	public boolean insertOrderIntoJDBC(String sName, String sStreet,
+	public String insertOrderIntoJDBC(String sName, String sStreet,
 			String sCity, String sCityCode, String aName, String aStreet,
 			String aCity, String aCityCode) {
+
+		Date sendTime = new Date(System.currentTimeMillis());
+
+		DistanceMatrix matrix = new DistanceMatrix();
+		matrix.wyliczOdlegloscDistanceMatrix(sStreet, sCity, aStreet, aCity);
+		String deliveryTime = matrix.wyliczCzasDostarczenia(sendTime);
+
 		Connection conn = null;
 		Statement stmt = null;
 		String sqlInsert = "";
@@ -99,37 +107,45 @@ public class InsertIntoDB extends HttpServlet {
 					"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
 			stmt = conn.createStatement();
 			sqlInsert = "insert into deli.registeredUser (nameUser,streetUser,cityUser,cityCodeUser) values"
-					+ "("
+					+ "('"
 					+ sName
-					+ ","
+					+ "','"
 					+ sStreet
-					+ ","
+					+ "','"
 					+ sCity
-					+ ","
+					+ "','"
 					+ sCityCode
-					+ ") on duplicate key update nameUser=values(nameUser),"
+					+ "') on duplicate key update nameUser=values(nameUser),"
 					+ " streetUser=values(streetUser), cityUser=values(cityUser), cityCodeUser=values(cityCodeUser);";
+			System.out.println("1 " + sqlInsert);
 			stmt.executeUpdate(sqlInsert);
-			SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			Date date = new Date(System.currentTimeMillis());
-			sqlInsert = "insert into deli.parcel (id,fromUserId,addresseeName,addresseeStreet,addresseeCity,addresseeCityCode, sendTime, deliverer, base) values"
-					+ "(null,last_insert_id(),"
+
+			sqlInsert = "insert into deli.parcel (id,fromUserId,addresseeName,addresseeStreet,addresseeCity,addresseeCityCode, sendTime, deliveryTime, deliverer, base) values"
+					+ "(null,last_insert_id(),'"
 					+ aName
-					+ ","
+					+ "','"
 					+ aStreet
-					+ ","
+					+ "','"
 					+ aCity
-					+ ","
+					+ "','"
 					+ aCityCode
-					+ ",'"
-					+ df.format(date)
+					+ "','"
+					+ new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+							.format(sendTime)
+					+ "','"
+					+ deliveryTime
 					+ "',0,0);";
+			System.out.println("2 " + sqlInsert);
 			stmt.executeUpdate(sqlInsert);
+			ResultSet rs = stmt
+					.executeQuery("select last_insert_id() as last_id");
+			if (rs.next())
+				return rs.getString(1);
 			conn.close();
 			stmt.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return false;
+		return "";
 	}
 }
