@@ -34,7 +34,7 @@
 	width: 100%;
 	height: 400px;
 }
-#map-canvasD {
+#map-canvas-direction {
 	width: 100%;
 	height: 400px;
 }
@@ -208,10 +208,8 @@
 						</script>
 						
 					</div>
-
-					<!-- 					dfds -->
 					
-					<div id="map-canvasD">
+					<div id="map-canvas-direction">
 						<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 						<script>
 							var directionsDisplay;
@@ -227,7 +225,7 @@
 									center : latlon
 								};
 								map = new google.maps.Map(document
-										.getElementById('map-canvasD'),
+										.getElementById('map-canvas-direction'),
 										mapOptions);
 								directionsDisplay.setMap(map);
 								var marker = new google.maps.Marker(
@@ -268,7 +266,6 @@
 					<%
 							}
 						%>
-					<!-- 					dfdsf -->
 				</div>
 
 
