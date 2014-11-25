@@ -200,7 +200,7 @@
 											position : new google.maps.LatLng(
 													lat, lon),
 											map : map,
-											title : "Przesylka"
+											title : "Kurier"
 										});
 							}
 							google.maps.event.addDomListener(window, 'load',
@@ -230,6 +230,13 @@
 										.getElementById('map-canvasD'),
 										mapOptions);
 								directionsDisplay.setMap(map);
+								var marker = new google.maps.Marker(
+										{
+											position : new google.maps.LatLng(
+													lat, lon),
+											map : map,
+											title : "Kurier"
+										});
 							}
 
 							function calcRoute() {
