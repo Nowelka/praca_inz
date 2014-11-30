@@ -40,7 +40,7 @@
 					<div align="right">
 						<a href="logowanie"><font color="#FFFFFF" size="3em">Zaloguj</font></a>
 					</div>
-					<li><a href="index">Homepage</a></li>
+					<li><a href="index">Home</a></li>
 					<li class="active"><a href="zamowienie">Zlozenie
 							zamowienia</a></li>
 					<li><a href="sprawdz">Sprawdz przesylke</a></li>

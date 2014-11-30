@@ -1,13 +1,17 @@
 \contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p i cel pracy}{2}
 \contentsline {chapter}{\numberline {2}Rozwi\IeC {\k a}zanie - prezentacja wynik\IeC {\'o}w}{3}
-\contentsline {chapter}{\numberline {3}Wykorzystane technologie}{4}
-\contentsline {section}{\numberline {3.1}Java}{4}
-\contentsline {subsection}{\numberline {3.1.1}podpodrozdzia\IeC {\l }}{5}
-\contentsline {section}{\numberline {3.2}Servlet}{5}
-\contentsline {section}{\numberline {3.3}Technologie internetowe}{5}
-\contentsline {section}{\numberline {3.4}db - MySQL}{5}
-\contentsline {section}{\numberline {3.5}Android}{5}
-\contentsline {section}{\numberline {3.6}Google apps - mapy}{5}
-\contentsline {chapter}{\numberline {4}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{6}
-\contentsline {chapter}{\numberline {5}Wnioski i podsumowanie}{7}
-\contentsline {chapter}{Bibliografia}{7}
+\contentsline {section}{\numberline {2.1}Aplikacja na system Android}{3}
+\contentsline {chapter}{\numberline {3}Przygotowanie i uruchomienie aplikacji}{5}
+\contentsline {chapter}{\numberline {4}Wykorzystane technologie}{6}
+\contentsline {section}{\numberline {4.1}Java}{6}
+\contentsline {subsection}{\numberline {4.1.1}podpodrozdzia\IeC {\l }}{7}
+\contentsline {section}{\numberline {4.2}Wzorzec architektoniczny - MVC}{7}
+\contentsline {section}{\numberline {4.3}Servlet}{7}
+\contentsline {section}{\numberline {4.4}JSP - Java}{8}
+\contentsline {section}{\numberline {4.5}Technologie internetowe}{8}
+\contentsline {section}{\numberline {4.6}db - MySQL}{8}
+\contentsline {section}{\numberline {4.7}Android}{8}
+\contentsline {section}{\numberline {4.8}Google apps - mapy}{8}
+\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{9}
+\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{10}
+\contentsline {chapter}{Bibliografia}{10}

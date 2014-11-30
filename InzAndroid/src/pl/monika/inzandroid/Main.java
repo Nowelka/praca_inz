@@ -81,8 +81,8 @@ public class Main extends Activity {
 			public void onClick(View v) {
 				if (savedId != "")
 					try {
-						String tmp = new AuthenticationDeliverer().execute(
-								savedId, "0", "1").get();
+						/* String tmp = */new AuthenticationDeliverer()
+								.execute(savedId, "0", "1").get();
 					} catch (InterruptedException | ExecutionException e) {
 						e.printStackTrace();
 					}
@@ -197,14 +197,14 @@ public class Main extends Activity {
 			double lon = gps.getLongitude();
 			if (lat != 0.0 && lon != 0.0) {
 				Date date = new Date(System.currentTimeMillis());
-				SimpleDateFormat df = new SimpleDateFormat(
-						"yyyy-MM-dd HH:mm:ss");
 				textView.setText(lon + "\n" + lat + "\n" + date);
 				ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
 				pairs.add(new BasicNameValuePair("ID", savedId));
 				pairs.add(new BasicNameValuePair("longitude", lon + ""));
 				pairs.add(new BasicNameValuePair("latitude", lat + ""));
-				pairs.add(new BasicNameValuePair("timestamp", df.format(date)));
+				pairs.add(new BasicNameValuePair("timestamp",
+						new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+								.format(date)));
 				pairs.add(new BasicNameValuePair("activ", 1 + ""));
 				try {
 					httpPost.setEntity(new UrlEncodedFormEntity(pairs));

@@ -1,6 +1,10 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces podpisisi}}{2}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces podpisisi\relax }}{2}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Struktura programu aplikacji Android\relax }}{3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Schemat systemu Model-View-Controller model 2\cite {java.mvc.grafika}\relax }}{7}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Logo Apache i Apache Tomcat \cite {apache.org}\relax }}{7}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

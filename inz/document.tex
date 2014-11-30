@@ -6,6 +6,7 @@
 %\usepackage[polish]{babel}%alternatywnie do pakietu polski, wybrac jeden z nich
 \usepackage[utf8]{inputenc} %kodowanie znakow, zalezne od systemu
 \usepackage[T1]{fontenc} %poprawne skladanie polskich czcionek
+\usepackage{wrapfig}
 
 %listingi
 \usepackage{listings}
@@ -14,6 +15,9 @@
 \definecolor{innyZielony}{rgb}{0.5,0.7,0}
 \renewcommand{\lstlistingname}{Listing}% Listing -> Algorithm
 \renewcommand{\lstlistlistingname}{List of \lstlistingname s}% 
+\usepackage[justification=centering]{caption}
+\usepackage[pdftex]{graphicx}
+\usepackage{sidecap}
 
 %kolor do komentarzy, uwag, przypomnienie
 \definecolor{komentarz}{rgb}{1,0,0}
@@ -77,21 +81,21 @@ numbersep=5pt}
 Współcześnie coraz więcej osób korzysta z możliwości zakupów przez internet,
 niesie to za sobą wiele korzyści. Często zakupiony towar jest tańszy, unikalny,
 bądz niedostępny w stacjonarnym sklepie czy poprostu jest to wygodniejsza forma
-zakupów. Oprócz wyżej wymienionych zakupów itotnym twoarem przewożonym
+zakupów. Oprócz wyżej wymienionych zakupów istotnym towarem przewożonym
 są dokumenty, często szybko potrzebne. Z tych powodów ludzie zamawijący usługi 
 kurierskie chcieliby dostać jak najwyższą jakość. Zwiększenie jakości tej
 usługi może nastąpić poprzez skrócenie czasu dostarczenia przesyłki(co
 fizycznie już jest nie osiągalne), tańszy jej koszt, czy na przykład możliwość
-sprawdzenia, w jakim dokładnie miejscu ona się znajduje. Taka funkcjonalność 
-usługi kurierskiej nie należy do jakości wymaganej i koniecznej, ale znacznie
-poniesie popyt i prestiż firmy kurierskiej, która zdecyduje się na taką
-dodatkowa funkcjonalność. Z punktu widzenia klienta odczuwany jest komfort
-informacji, gdzie jest przesyłka, dzięki temu klient może zaplnaować sobie
-dzień, w którym nastąpi dostarczenie. 
+sprawdzenia, w jakim dokładnie miejscu ona się znajduje. Dokładna lokalizacja
+przesyłki - taka funkcjonalność usługi kurierskiej nie należy do jakości
+wymaganej i koniecznej, ale znacznie podniesie prestiż firmy
+kurierskiej, która zdecyduje się na taką dodatkową funkcjonalność. Z punktu
+widzenia klienta odczuwany jest komfort informacji, gdzie jest przesyłka, dzięki
+temu klient może zaplanować sobie dzień, w którym nastąpi dostarczenie. 
 
 Przedstawiany tu projekt rozwija aktualną funkcjonalność firm kurierskich o
 graficzne przedstawienie, w formie mapy, aktualnej lokalizacji przesyłki. Taka
-forma prezentacji jest prosta w odbiorze i dużo bardziej czytelna niż wyniki
+forma prezentacji jest prosta w odbiorze i bardziej czytelna niż wyniki
 jakie prezentowane są aktualnie w formie tabel, w których zawarte są miejsca
 odbicia przesyłki. Ponadto praca próbuje rozwiązać problem jaki istnieje w
 estymacji czasu dostraczaniu przesyłki do adresata, esytmacja czasu
@@ -114,10 +118,81 @@ zrealizuje zadanie na androidzie.
 \chapter{Rozwiązanie - prezentacja wyników}
 
 
-Nie tylko gps do lokalizacji, bo także odbicia na czytnikach u kurierów 
-Projekt opiera się 
+Zrealizowana aplikacja składa się z dwóch części, tj. aplikacji na adroida oraz
+serwera www. Serwer, czyli Servlet(aplet Javy) posiada połączenie z bazą
+danych, w której przechowywane są informacje o przesyłce, kurierach i
+klientach. 
+
+Aplikację zrealizowano w środowisku programistycnym Eclipse.
 
 schemat - wejscie (adnroid) - środek system - wyjscie www z mapka
+
+\emph{\color{komentarz} dopisac pierdół wstępowych\\oprócz tego dopisać jak
+testowałam to}
+\section{Aplikacja na system Android}
+
+
+Założeniem aplikacji mobilnej było lokalizowanie kuriera i wysyłanie jego
+pozycji na serwer, który zapisuje ją w bazie danych.
+Zasada działania aplikacji polega na odpytaniu kuriera o jego numer id, a
+następnie sprawdzeniu czy jest włączony GPS. Ponadto aplikacja wykrywa czy
+wprowadzono poprawne id oraz zapobiega zalogowaniu się dwóch kurierów na tym
+samym id. Po wpisaniu poprawnego id kuriera aplikacja zapamiętuje go i do
+automatycznie wysyła swoją pozycję.
+
+\begin{wrapfigure}{r}{0.5\textwidth}
+\centering
+\captionsetup{justification=centering,margin=1cm}
+\vspace{-20pt}
+\begin{center}
+\includegraphics[width=0.2\textwidth]{struktura_android.png}
+\end{center}
+\vspace{-20pt}
+  \caption{Struktura programu aplikacji Android}
+\vspace{-10pt}
+\label{android}
+\end{wrapfigure}
+
+Stworzenie aplikacji na system Android zostało rozpoczęte od doinstalowania
+pluginu ADT (Android Development Kit) do programu Eclipse. Na ADT składają się
+elementy Android SDK, gdzie SDK to Software Development Kit. Android SDK
+zawiera w sobie takie elementy jak Tools - służy do tworzenia aplikacji niezależnie od
+wersji systemu Android oraz Platform Tools - narzędzia stworzone pod kątem
+wersji systemu Android. W skłąd SDK Tools wchodzą taki funkcjie jak zarządznie
+projaektami, modułami czy maszynami wirualnymi, debugger, emulator. Natomiast
+Platform Tools zawiera biblioteki do systemu Android. Plugin ADT  korzysta
+z funckji Android SDK i pomaga tworzyć, budować, instalować oraz debugować
+aplikacje na system Android w środowisku Eclipse. W programie Eclipse tworzona
+jest z aplikacją odpowiednia struktura projektu [rys. \ref{android}], w której
+jest podział na klasy zawierające logikę aplikacji (scr), pliki generowane przez kompilator (gen),
+folder na pliki z zasobami (assets), pliki binarne(bin), dodatkowe biblioteki
+(libs) oraz folder na zasoby(res), którego odróżnia od assets to, że są
+generowane do pliku R.java (nie trzeba podawać lokalizacji zasobów tylko jego
+nazwę). W katalogu res również ustalana jest konfiguracja systemu - 
+,,AndroidManifest.xml'', layout (wygląd i ustawienie elementów na ekranie
+systemu Android), w podfolderach drawable pliki graficzne, w podfolderach values
+ciągi znaków(stringi, kolory) i ustawienia oraz w katalogu menu, w którym
+ustawiane są dostępne opcje menu.
+
+Projektowanie aplikacji Android zaczyna się od ustawienia layoutu aplikacji
+(/res/layout/activity\_main.xml). Zaprojektowany przez autora layout jest
+prosty i przejrzysty, ponieważ ma wykonywać bardzo podstawowe funkcjie. I tak
+zawiera w sobie pole do wpisywania id kuriera, pole wyświetlające komunikaty
+oraz przycisk wyłączający aplikację. Aplikacja została tak przemyślana, że
+aby ją wyłączyć trzeba użyć przycisku ,,Off'', pozostałe hardwar'owe przyciski
+nie wyłączają aplikacji, jedynie ją mimalizują. Takie właściwości zostały
+stworzone z myślą o tym, aby kurier podczas używania aplikacji tylko w świadomy
+sposób mógł ją zamknąć.
+
+
+
+
+
+
+ Nie tylko gps do lokalizacji, bo także odbicia
+na czytnikach u kurierów Projekt opiera się 
+
+
 
 Tu udaje kod
 \lstset{style=listJava}
@@ -136,6 +211,10 @@ class Srass {
 \end{lstlisting}
 
 Udałam kod
+\chapter{Przygotowanie i uruchomienie aplikacji}
+
+Że trzeba stworzyć androida, i servlet i bazę danych
+
 \chapter{Wykorzystane technologie}
 
 Zrealizowany tu projekt bazuje na nowoczesnych technologiach.
@@ -191,28 +270,80 @@ wielowątkowy, dynamiczny oraz niezależny od architektury.
 
 Język Java wywodzi się z języków C++ i C, wykorzystuje wiele potrzebnych i
 użytecznych funkcjonalności tych języków, z nieużytecznych, trudnych lub
-pwoowdujących często błędy zrezygnowano. Język Java umożliwia dziedziczenie, a ponadto wszystkie obiekty Javy
-są pochodną obiektu bazwego. Jednakże Java nie umożliwa dziedziczenia wielobazowego, dlatego do Javy wprowadzono interfejsy - abstrakcyjny typ, który posiada jedynie opracje, ale
-nie posiada danych, z tego powodu można tylko implementować interfejs i nie
-można utworzyć obiektów tego typu. Język Java umożliwia pisanie aplikacji
-stacjonarnych, webowych czy mobilnych. Język Java ma rozbudowaną obsługę
-wyjątków. Posiada dobrze rozbudowanego GarbageCollector (odśmieciacza)
-\cite{java.doc}.
+pwoowdujących często błędy zrezygnowano. Język Java umożliwia dziedziczenie, a
+ponadto wszystkie obiekty Javy są pochodną obiektu bazwego. Jednakże Java nie
+umożliwa dziedziczenia wielobazowego, dlatego do Javy wprowadzono interfejsy -
+abstrakcyjny typ, który posiada jedynie opracje, ale nie posiada danych, z tego
+powodu można tylko implementować interfejs i nie można utworzyć obiektów tego
+typu. Język Java umożliwia pisanie aplikacji stacjonarnych, webowych czy
+mobilnych. Język Java ma rozbudowaną obsługę wyjątków. Posiada dobrze
+rozbudowanego GarbageCollector (odśmieciacza) \cite{java.doc}.
 \subsection{podpodrozdział}
+
+\section{Wzorzec architektoniczny - MVC}
+
+W projekcie do zorganizowania struktury aplikacji serwerowej został zastosowany
+wzorzec architektoniczny MVC (Model-View-Controller). W modelu tym Model jest
+odpowiedzialny za przehcowywanie logiki, z której korzystają inne składowe
+systemu. Kolejną częścią składową tej struktury jest Widok, który to jest
+odpowiedzialny za funkcje prezentacji w ramach interfejsu użytkownika, ale
+także może posiadać swoją logikę. Ostatnim elementem systemu jest Kontroler,
+który spaja dwie wcześniejsze cześći. Kontroler odpowiada za przepływ danych
+od/do użytkownika, reakcję systemu w zależności od zachowania użytkownika,
+kontroler także zarządza Modelem i Widokiem. Takiej strukturze jest jasno
+zdefiniowane, która część systemu pełni jakie funkcjie. Taka struktura
+architektoniczna jest najczęściej stosowana w aplikacjiach www, gdzie widać
+wyraźną grnicę pomiędzy widokiem i modelem, a kontrolerem jest serwer, który
+obsługuje informacje płynące z widoku (z http), odpowiednio formuje model i
+przekazuje go do widoku. \cite{java.mvc}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{model2.jpg}
+\caption{Schemat systemu Model-View-Controller model 2\cite{java.mvc.grafika}}
+\label{MVC2}
+\end{figure}
+
+Autor w swojej pracy użył modelu MVC2 [rys. \ref{MVC2}]
+Uzasadnieniem użycia tego wzorca jest ułatwiona organizacja aplikacji, w której
+istnieje interfejs graficzny użytkownika. Dzięki niemu w prosty logiczny sposób
+można było rozdzielić logikę, kontrolę i widok. Kontenerem z [rys. \ref{MVC2}]
+jest opisany w kolejnym podrozdziale Servlet.
 
 \section{Servlet}
 
 Serwlety są to aplikacje działające na serwerze WWW korzystające z języka Java.
-Sewrwlety mają zapewniać budowanie aplikacji internetowych niezależnych od
+Serwlety mają zapewniać budowanie aplikacji internetowych niezależnych od
 platformy. Serwlet umożliwia korzystanie z baz danych i http. Z tego powodu
 wykrozystywane są do budowania interaktywnych aplikacji internetowych. 
+\begin{wrapfigure}{r}{0.5\textwidth}
+\label{apache}
+\centering
+\captionsetup{justification=centering,margin=1cm}
+\vspace{-20pt}
+\begin{center}
+\subfigure {
+	\includegraphics[width=8ex\textwidth]{feather.png}
+}
+\subfigure{
+	\includegraphics[width=8ex\textwidth]{tomcat.png}
+}
+\end{center}
+\vspace{-20pt}
+\caption{Logo Apache i Apache Tomcat \cite{apache.org}}
+\vspace{-10pt}
+\end{wrapfigure}
 
-W projekcie skorzystano z serwletu Tomcat Apache, który jest open source'owy i
-korzysta z licencji Apache. Serwer Apache obsługuje www za pomocą protokołu
+open source'owy i korzysta z licencji Apache. Serwer Apache obsługuje www za pomocą protokołu
+W projekcie skorzystano z serwletu Tomcat Apache [rys. \ref{apache}], który jest
 http, jest otwarty, zapewnia wielowątkowość, skalowalność, bezpieczeństwo,
-kontrolę dostępu \cite{apache.wiki}. \emph{\color{komentarz} tu obrazek apache i
-tomcat \cite{apache.tomcat}}
+kontrolę dostępu \cite{apache.wiki}. 
 
+
+Wybór Tomcate Apache na serwer podyktowany był przez wybór jako głównego języka
+aplikacji - Javy. Serwlet jest dość popularnym narzędziem, co pomogło także w
+uruchomieniu i skonfigurowaniu go.
+\section{JSP - Java}
 \section{Technologie internetowe}
 
 W przedstawionym w tej pracy projekcie korzystano z technologi internetowych,
@@ -228,10 +359,15 @@ z takich technologii jak:
 \end{itemize}
 \section{db - MySQL}
 
-W projakcie do przechowywania danych skorzystano z baz danych. Baza danych
+W projekcie do przechowywania danych skorzystano z baz danych. Baza danych
 pozwala w ustrukturyzowany sposób kolekcjonować dane niezbędnę do działania
-programów. Przechowywane dane mogą być o dwolnonym formacie i strukturze.
-Systemem, który zarządzał bazą danych w projekcie był MySQL.
+programów. Przechowywane dane mogą być o dowolnonym formacie i strukturze.
+
+Systemem, do zarządzania bazą danych w projekcie był MySQL. Jest opensource'owe
+rozwiązanie do zarządzania relacyjnymi bazami danych. Charakteryzuje się takimi
+cechami jak szybki, wielowątkowy dostęp z możliwośćią obsłużenia dużej ilości
+użytkowników. Serwer MySQL może być stosowany do systemów, w których znajdują
+się dane o znaczeniu krytycznym lub te systemy są mocno obciążane. \cite{Mysql.com} 
 
 \section{Android}
 

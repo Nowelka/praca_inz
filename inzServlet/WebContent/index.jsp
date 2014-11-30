@@ -40,7 +40,7 @@
 					<a href="logowanie"><font color="#FFFFFF" size="3em">Zaloguj</font></a>
 				</div>
 				<ul>
-					<li class="active"><a href="index">Homepage</a></li>
+					<li class="active"><a href="index">Home</a></li>
 					<li><a href="zamowienie">Zlozenie zamowienia</a></li>
 					<li><a href="sprawdz">Sprawdz przesylke</a></li>
 					<li><a href="info">O firmie</a></li>
@@ -75,14 +75,14 @@
 
 			<div class="row">
 				<section class="6u">
-					<a href="#" class="image full"><img src="images/tir.jpg" alt=""></a>
+					<a href="#" class="image full"><img src="images/autko.jpg" alt=""></a>
 					<header>
 						<h2>Swietnie jezdza</h2>
 					</header>
 					<p>Brum brum brum... brum</p>
 				</section>
 				<section class="6u">
-					<a href="#" class="image full"><img src="images/tir.jpg" alt=""></a>
+					<a href="#" class="image full"><img src="images/autko2.jpg" alt=""></a>
 					<header>
 						<h2>Swietnie daja</h2>
 					</header>

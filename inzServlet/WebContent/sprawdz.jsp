@@ -64,7 +64,7 @@
 				<h1>
 					<a href="#">Firma transportowa</a>
 				</h1>
-				<span class="tag">Twój czas</span>
+<!-- 				<span class="tag">Twój czas</span> -->
 			</div>
 		</div>
 	</div>
@@ -160,8 +160,8 @@
 
 				<!-- Content -->
 				<div id="content" class="8u skel-cell-important">
-					<div id="map-canvas">
-						<!-- Polaczenie z googleapis, pobranie mapy, wyznaczenie markera i wyswietlenie mapy -->
+				<!-- 	<div id="map-canvas">
+						Polaczenie z googleapis, pobranie mapy, wyznaczenie markera i wyswietlenie mapy
 						<script
 							src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
 
@@ -207,11 +207,13 @@
 									initialize);
 						</script>
 						
-					</div>
+					</div> -->
 					
 					<div id="map-canvas-direction">
 						<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 						<script>
+						var lat = "${lat}";
+						var lon = "${lon}";
 							var directionsDisplay;
 							var directionsService = new google.maps.DirectionsService();
 							var map;
@@ -254,6 +256,7 @@
 																.setDirections(response);
 													}
 												});
+								
 							}
 
 							google.maps.event.addDomListener(window, 'load',
@@ -278,11 +281,11 @@
 	<div id="tweet">
 		<div class="container">
 			<section>
-				<blockquote>&ldquo;cycat cycat&rdquo;</blockquote>
+				<blockquote><!-- &ldquo;cycat cycat&rdquo; --></blockquote>
 			</section>
 		</div>
 	</div>
-	<!-- /Tweet -->
+	<!-- /Tweet -->	
 
 	<!-- Footer -->
 	<div id="footer">
