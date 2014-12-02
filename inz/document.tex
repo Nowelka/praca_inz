@@ -6,29 +6,72 @@
 %\usepackage[polish]{babel}%alternatywnie do pakietu polski, wybrac jeden z nich
 \usepackage[utf8]{inputenc} %kodowanie znakow, zalezne od systemu
 \usepackage[T1]{fontenc} %poprawne skladanie polskich czcionek
-\usepackage{wrapfig}
+
 
 %listingi
 \usepackage{listings}
 \usepackage{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+%\usepackage{mathdots}
+
 \definecolor{zielony}{rgb}{0,0.6,0}
 \definecolor{innyZielony}{rgb}{0.5,0.7,0}
-\renewcommand{\lstlistingname}{Listing}% Listing -> Algorithm
-\renewcommand{\lstlistlistingname}{List of \lstlistingname s}% 
-\usepackage[justification=centering]{caption}
-\usepackage[pdftex]{graphicx}
-\usepackage{sidecap}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\definecolor{xmlString}{RGB}{200,16,0}
+\definecolor{violet}{RGB}{80,33,97}
+\definecolor{darkblue}{RGB}{15,1,255}
+\definecolor{darkred}{RGB}{161,0,0}
+
+\lstset{ %
+  backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
+  basicstyle=\footnotesize,        % the size of the fonts that are used for the code
+  breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+  breaklines=true,                 % sets automatic line breaking
+  captionpos=b,                    % sets the caption-position to bottom
+  commentstyle=\color{mygray},    % comment style
+  deletekeywords={...},            % if you want to delete keywords from the given language
+  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+  extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
+  frame=single,                    % adds a frame around the code
+  keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+  keywordstyle=\color{darkred}\textbf,       % keyword style
+  morekeywords={},            % if you want to add more keywords to the set
+  numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+  numbersep=5pt,                   % how far the line-numbers are from the code
+  numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+  rulecolor=\color{black},         % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. comments (green here))
+  showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+  showstringspaces=false,          % underline spaces within strings only
+  showtabs=false,                  % show tabs within strings adding particular underscores
+  stepnumber=1,                    % the step between two line-numbers. If it's
+  % 1, each line will be numbered
+  stringstyle=\color{blue},     % string literal style
+  tabsize=2,                       % sets default tabsize to 2 spaces
+  %identifierstyle=\color{blue},
+  %title=\lstname,                   % show the filename of files included with
+  % \lstinputlisting; also try caption instead of title
+  keywordstyle=[3]{\color{darkblue!50!black}},
+  escapeinside={(*@}{@*)}
+}
+
+
+
 
 %kolor do komentarzy, uwag, przypomnienie
 \definecolor{komentarz}{rgb}{1,0,0}
-
+ 
 %pakiety do grafiki
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{psfrag}
+\usepackage[justification=centering]{caption}
+\usepackage{wrapfig}
 
 %pakiety dodajace duzo dodatkowych polecen matematycznych
-\usepackage{amsmath}
+\usepackage{amsmath} 
 \usepackage{amsfonts}
 
 %pakiety wspomagajace i poprawiajace skladanie tabel
@@ -61,12 +104,12 @@
 %tutaj zaczyna sie wlasciwa tresc dokumentu
 \begin{document}
 
-\lstdefinestyle{listJava}{language=Java, breaklines=true,
-commentstyle=\color{zielony},frame=single, numbers=left, stepnumber=1,
-numbersep=5pt}
-\lstdefinestyle{listPython}{language=Python, breaklines=true,
-commentstyle=\color{innyZielony},frame=single, numbers=left, stepnumber=1,
-numbersep=5pt}
+% \lstdefinestyle{listJava}{language=Java, breaklines=true,
+% commentstyle=\color{zielony},frame=single, numbers=left, stepnumber=1,
+% numbersep=5pt}
+% \lstdefinestyle{listPython}{language=Python, breaklines=true,
+% commentstyle=\color{innyZielony},frame=single, numbers=left, stepnumber=1,
+% numbersep=5pt}
 
 \bibliographystyle{plabbrv} %tylko gdy uzywamy BibTeXa, ustawia polski styl bibliografii
 
@@ -128,30 +171,30 @@ Aplikację zrealizowano w środowisku programistycnym Eclipse.
 schemat - wejscie (adnroid) - środek system - wyjscie www z mapka
 
 \emph{\color{komentarz} dopisac pierdół wstępowych\\oprócz tego dopisać jak
-testowałam to}
+testowałam to\\dorzucić schemat sysemu}
 \section{Aplikacja na system Android}
 
-
 Założeniem aplikacji mobilnej było lokalizowanie kuriera i wysyłanie jego
-pozycji na serwer, który zapisuje ją w bazie danych.
-Zasada działania aplikacji polega na odpytaniu kuriera o jego numer id, a
-następnie sprawdzeniu czy jest włączony GPS. Ponadto aplikacja wykrywa czy
-wprowadzono poprawne id oraz zapobiega zalogowaniu się dwóch kurierów na tym
-samym id. Po wpisaniu poprawnego id kuriera aplikacja zapamiętuje go i do
-automatycznie wysyła swoją pozycję.
+pozycji na serwer, który zapisuje ją w bazie danych. 
 
-\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{wrapfigure}{r}{0.4\textwidth}
 \centering
-\captionsetup{justification=centering,margin=1cm}
-\vspace{-20pt}
+\captionsetup{justification=centering,margin=0cm}
+\vspace{-30pt}
 \begin{center}
-\includegraphics[width=0.2\textwidth]{struktura_android.png}
+\includegraphics[width=.3\textwidth]{struktura_android.png}
 \end{center}
 \vspace{-20pt}
   \caption{Struktura programu aplikacji Android}
 \vspace{-10pt}
 \label{android}
 \end{wrapfigure}
+
+Zasada działania aplikacji polega na odpytaniu kuriera o jego numer id, a
+następnie sprawdzeniu czy jest włączony GPS. Ponadto aplikacja wykrywa czy
+wprowadzono poprawne id oraz zapobiega zalogowaniu się dwóch kurierów na tym
+samym id. Po wpisaniu poprawnego id kuriera aplikacja zapamiętuje go i do
+automatycznie wysyła swoją pozycję.
 
 Stworzenie aplikacji na system Android zostało rozpoczęte od doinstalowania
 pluginu ADT (Android Development Kit) do programu Eclipse. Na ADT składają się
@@ -176,41 +219,281 @@ ustawiane są dostępne opcje menu.
 
 Projektowanie aplikacji Android zaczyna się od ustawienia layoutu aplikacji
 (/res/layout/activity\_main.xml). Zaprojektowany przez autora layout jest
-prosty i przejrzysty, ponieważ ma wykonywać bardzo podstawowe funkcjie. I tak
-zawiera w sobie pole do wpisywania id kuriera, pole wyświetlające komunikaty
-oraz przycisk wyłączający aplikację. Aplikacja została tak przemyślana, że
-aby ją wyłączyć trzeba użyć przycisku ,,Off'', pozostałe hardwar'owe przyciski
+prosty i przejrzysty, ponieważ ma wykonywać bardzo podstawowe funkcjie [rys.
+\ref{androidViewOK}]. I tak zawiera w sobie pole do wpisywania id kuriera,
+pole wyświetlające komunikaty oraz przycisk wyłączający aplikację. Aplikacja została
+tak przemyślana, że aby ją wyłączyć trzeba użyć przycisku ,,Off'', pozostałe hardwar'owe przyciski
 nie wyłączają aplikacji, jedynie ją mimalizują. Takie właściwości zostały
 stworzone z myślą o tym, aby kurier podczas używania aplikacji tylko w świadomy
 sposób mógł ją zamknąć.
 
 
+\begin{figure}[h]
+\centering
+\subfigure[Główny ekran aplikacji, oczekuje na wprowadzenie id kuriera]{
+\includegraphics[width=30ex]{andWprowadz.png}
+}
+\subfigure[Gdy nie jest włączona sieć komórkowa lub wifi na ekranie pokazuje
+się komunikat i zostaje zablokowane pole do wprowadzania id]{
+\includegraphics[width=30ex]{andWifi.png}
+}
+\subfigure[Komunikat o poprawnie wpisanym id]{
+\includegraphics[width=30ex]{andID.png}
+}
+\subfigure[Informacje o niewłączonym GPS]{
+\includegraphics[width=30ex]{andGPS.png}
+}
+\subfigure[System czeka na ustalenie lokalizacji]{
+\includegraphics[width=30ex]{andCzeka.png}
+}
+\subfigure[System lokalizuje i wyswietla informacje o lokalizacji i czasie
+odzytu]{
+\includegraphics[width=30ex]{andLokal.png}
+}
+\caption{Ekrany Androida }
+\label{androidViewOK}
+\end{figure}
+
+Autor przewidział również odpowiednie zachowanie aplikacji, gdy kurier próbuje
+zalogować się na nie istniejące w bazie id lub na id, które jest już zajęte -
+tzn. na które już zalogował się inny kurier [rys. \ref{androidViewNOTOK}]. 
+Oprócz wyżej wymienionych zachowań aplikacji, w pasku statusu na telefonie
+wyświetlana jest ikona podczas włączonej aplikacji a także w
+powiadomieniach [rys. \ref{androidViewtask}].
+
+\begin{figure}
+\centering
+\captionsetup{justification=centering,margin=1cm}
+
+\subfigure[systuacja gdy jest już zajęte id lub nie istnieje]{
+\includegraphics[width=25ex]{andJuzzalog.png}
+\includegraphics[width=25ex]{andNiema.png}
+\label{androidViewNOTOK}
+}
+\subfigure[status telfonu]{
+\includegraphics[width=25ex]{andBarNie.png}
+\includegraphics[width=25ex]{andBarZal.png}
+\label{androidViewtask}
+}
+\vspace{-10pt}
+ \caption{Struktura programu aplikacji Android}
+\vspace{-10pt}
+
+\end{figure}
+
+Kolejnym krokiem było nadanie odpowiednich uprawnien aplikacji, do tego służy
+plik ,,AndroidManifest.xml''. Aplikacja zostały przyznane uprawnienia do
+sprawdzania stautusu sieci komórkowej oraz wifi, sprawdzania statusu sygnału
+GPS, a także do korzystania z wyżej wymienionych [listing \ref{manifest}].
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lstset{language=XML,
+ keywords=[0]{uses,permission},
+ keywordstyle=[0]{\color{green!50!black}},
+ stringstyle=\color{blue}
+ }
+\begin{lstlisting}[caption=Nadanie uprawnień aplikacji Android,label=manifest]
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+\end{lstlisting}
 
 
+Po przygotowaniu wyglądu aplikacji oraz nadaniu jej uprawnień można przejść
+do oprogramowania logiki aplikacji. Klasa główna, która zajmuje się obsługą
+aplikacji dziedziczy po klasie Activity. Klasa Ativity zajmuje się obsługą
+interakcji pomiędzy użytkownikiem a urządzeniem. Klasa ta tworzy okno aplikacji
+oraz na przykład umieszcza ustawione wcześniej przyciski interfejsu użytkownika.
+Znajdują się w niej takie metody jak onCreate(), onDestroy(), onStart(), onStop()
+i inne. Metodę onCreate() należy przesłonić, jeśli mają być zainiciowane
+wcześniej wspomniane przyciski i pola z layoutu. Autor w swojej aplikacji nadaje
+właściwość dla przycisku, która ma po kliknięciu go w dowolnym momencie
+działania aplikacji wywoałać zamknięcie aplikacji. Takie zachowanie osiąga się
+poprzez wywołanie na rzecz niego metody public void
+setOnClickListener(View.OnClickListener l)[listing \ref{button}].
+
+\lstset{language=Java,firstnumber=72,stepnumber=1,keywords=[3]{button,savedId}}
+\begin{lstlisting}[caption=Ustawienie właściwości przycisku
+``Off'',label=button]
+button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				if (savedId != "")
+						new AuthenticationDeliverer()
+								.execute(savedId, "0", "0").get();
+				savedId = "";
+				onDestroy();
+			}
+		});
+\end{lstlisting}
+
+Na listingu \ref{button} widać zmienną savedID, jest pole klasy, które
+zapisywane jest wpisanym przez kuriera jego id. Gdy użytkownik wyłącza aplikację
+system sprawdza czy savedId nie jest puste i w przypadku gdy savedId posiada
+jakąś wartość tworzony jest nowy obiekt AuthenticationDeliverer() z odpowiednimi
+parametrami - nazwa zmiennej, status aktywności oraz status logowania. Klasa
+AuthenticationDeliverer() dziedziczy po AsyncTask (umożliwia tworzenie nowego
+wątku i pozwala na wykonywanie operacji w tle). Parametry z jakimi tworzony jest
+nowy obiekt to id kuriera, status aktywności oraz jego logowanie lub
+wylogowywanie[listing. \ref{AuthentictionDeliverer}]. Status aktywności to informacja
+wysyłana do serwera (zapisywana w bazie danych) mówiąca o tym, czy kurier będzie ustawiał swój status na aktywny
+czy nieaktywny - czy rozpoczyna pracę czy ją kończy. Status aktywności
+sprawdzany jest ze statusem w bazie danych, jeśli kurier próbuje się zalogować,
+ale w bazie jest już ktoś zalogowany na ten id pojawi się komunikat o
+zalogowanym już kurierze o tym numerze [rys. \ref{androidViewNOTOK}]. Natomiast
+trzeci parametr mówi o tym, czy kurier się zalogowuje ,,1'' czy wylogowuje ,,0''
+z aplikacji. Na rzecz klasy AuthenticationDeliverer() wywołane zostają metody:
+execute() - nakazuje wykonanie zadania, get() - oczekuje, aż zadanie zostanie
+wykonane.
+
+\lstset{language=Java,firstnumber=31,stepnumber=1,keywords=[3]{httpClient,localhost,httpPostAuthentication,httpGetAuthentication,httpResponse}}
+\begin{lstlisting}[caption=klasa
+AuthenticationDeliverer metoda doInBackground,label=AuthentictionDeliverer]
+@Override 
+protected String doInBackground(String... params) {
+		ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
+		pairs.add(new BasicNameValuePair("ID", params[0]));
+		pairs.add(new BasicNameValuePair("activ", params[1]));
+		pairs.add(new BasicNameValuePair("logout", params[2]));
+
+		httpPostAuthentication.setEntity(new UrlEncodedFormEntity(pairs));
+		
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+					httpClient.execute(httpPostAuthentication);
+			}
+		}).start();
+		httpResponse = (new DefaultHttpClient())
+				.execute(httpGetAuthentication);
+		String entityStr = EntityUtils.toString(httpResponse.getEntity());
+		if (entityStr.contains("logIn"))
+			return "logIn";
+		else if (entityStr.contains("busy"))
+			return "busy";
+		else if (entityStr.contains("false"))
+			return "false";
+		else if (entityStr.contains("logOut"))
+			return "logOut";
+		return "";
+\end{lstlisting}
+
+Po zainicjalizowaniu pola edycji zostaje wywołana na rzecz niego metoda public
+void addTextChangedListener(TextWatcher watcher), która oczekuje, aż w polu
+tekstowym użytkownik wpisze odpowiedni ciąg znaków, systemowo dozowolone są
+tylko cyfry.
+W tym przypadku wykorzystano metodę abstract void afterTextChanged(Editable s) z interfejsu
+TextWatcher. Po wpisaniu przez kuriera czterech cyfr następuje weryfikacja
+wpisanego id. Po pozytywnym przejściu weryfikacji id kuriera aplikacja sprawdza
+czy w urządzeniu jest włączony moduł GPS. Gdy spełnione zostaną wszystkie
+warunki uruchamiany jest handler, który zczytuje pozycję kuriera i wysyła ją na
+serwer wraz z datą, w której nastąpił odczyt. 
+
+Odczyt pozycji GPS dostępny jest dzięki użyciu klasy LocationManager, która
+zapewnia dostęp do lokalizacji systemu. LocationManager należy zainicjalizować
+klasą Context (umożliwia dostęp do zasobów systemu i informacjię o nim),
+natomiast getSystemService jest do kontroli pobierania lokalizacji. Następnie
+ustawiono z jaką częstotliowścią ma być odczytywana zmiana pozycji. Po wykonaniu
+tych czynność następuje zapytanie o ostatnią znaną pozycję. Całą
+procedurę odczytu pozycji GPS pokazano na listingu \ref{GpsTrack}.
+
+\lstset{language=Java,firstnumber=31,stepnumber=1,keywords=[3]{locationManager,context,minTime,minDistance,location,longitude,latitude}}
+\begin{lstlisting}[caption=Pobieranie lokalizacji,label=GpsTrack]
+public Location getLocation() {
+		locationManager = (LocationManager) context
+				.getSystemService(Context.LOCATION_SERVICE);
+
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+				minTime, minDistance, (android.location.LocationListener) this);
+
+		if (locationManager != null) {
+			location = locationManager
+					.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+			if (location != null) {
+				longitude = location.getLongitude();
+				latitude = location.getLatitude();
+			}
+		}
+		return location;
+	}
+\end{lstlisting}
+
+Ostatnią istotną częścią jaka realizowana jest na systemie Android to połączenie
+z serwerem. Nim zostanie nawiązane połączenie konieczne jest przygotowanie
+treści wiadomości jaka ma zostać wysłana na adres serwer. Następuje to poprzez
+wpisanie par ciągów znaków, w tym jedna część to identyfikator, a druga to jego
+wartość, do tablicy. Na jej podstawie wystosowany jest url httpPost i wykonywany
+na kliencie http (tutaj na Servlecie). Taka wiadomość może wyglądać w tym
+przypadku tak:
+\begin{flushright}
+\texttt{http://192.168.1.2:8080/inzServlet/insert?ID=0130\&longitude=50.3545\&latitude=11.3483
+\\$\hookrightarrow$\&timestamp=2014-11-25+15:14:55\&activ=1}
+\end{flushright}
+
+\lstset{language=Java,firstnumber=55,stepnumber=1,keywords=[3]{savedId,
+httpClient, httpPost}}
+\begin{lstlisting}[caption=Przygotowanie wiadomości do wysłania na
+serwer oraz wysłanie jej,label=polaczenieSerwer] 
+	private String localhost = "192.168.1.2:8080";
+	private HttpClient httpClient = new DefaultHttpClient();
+	private HttpPost httpPost = new HttpPost("http://" + localhost
+			+ "/inzServlet/insert");
+			
+(*@\centerline{\raisebox{-1pt}[0pt][0pt]{$\vdots$}}@*)
+(*@\lstset{language=Java,firstnumber=220}@*)
+		Date date = new Date(System.currentTimeMillis()); 
+		textView.setText(lon + "\n" + lat + "\n" + date); 
+		ArrayList<NameValuePair> pairs= new ArrayList<NameValuePair>(); 
+		pairs.add(new BasicNameValuePair("ID", savedId));
+		pairs.add(new BasicNameValuePair("longitude", lon + ""));
+		pairs.add(new BasicNameValuePair("latitude", lat + ""));
+		pairs.add(new BasicNameValuePair("timestamp",
+				new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)));
+		pairs.add(new BasicNameValuePair("activ", 1 + ""));
+		httpPost.setEntity(new UrlEncodedFormEntity(pairs));
+		
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				httpClient.execute(httpPost);
+			}).start();
+		}
+\end{lstlisting}
+
+W powyższym paragrafie zostały opisane kluczowe funkcje klas zaimplementowanych
+na systemie Android. W opisie i w listingach ominięto obsługę wyjątków. 
+
+\section{Serwer}
+
+W niniejszej pracy skorzystano możliwości rozszerzenie języka Java o funkcjie
+serwera WWW. Przez takie wykorzystanie języka Java takie serwer nazywany jest
+wtedy Serwletem - aplet Javy. Zadaniem serwera było obsłużenie klientów firmy
+kurierskiej, którzy wpisując numer swojej przesyłki mogili sprawdzić gdzie ona
+się aktualnie znajduje. Oprócz tej funkcji serwlet też jest pośrednikiem
+między aplikacją mobilną a bazą danych.
+
+Rozpoczęcie pracy z servletem wymagało zainstowanie dodatków do środowiska
+Eclipse:
+\begin{itemize}
+  \item Eclipse Java EE Developer Tools
+  \item Eclipse Java Web Developer Tools
+  \item Eclipse Web Developer Tools
+  \item JST Server Adapters
+  \item JST Server Adapters Extensions
+\end{itemize}
+Po zainstalowaniu dodatków należało skonfiguować środowisko, w tym celu należało
+stworzyć nowy lokalny serwer. Autor skorzystał z popularnego serwera Apache
+Tomcat wersji 7.0. A następnie utworzono nowy dynamiczny projekt sieciowy
+(\textsl{Dynamic Web Project}). 
+
+
+\section{Baza danych}
+blblb
 
 
  Nie tylko gps do lokalizacji, bo także odbicia
 na czytnikach u kurierów Projekt opiera się 
 
-
-
-Tu udaje kod
-\lstset{style=listJava}
-\begin{lstlisting}[caption={to jest podpis}]
-class Srass {
-	public kupaGowna() {
-	} //takakaka
-}
-\end{lstlisting}
-\lstset{style=listPython}
-\begin{lstlisting}[caption={to jest podpis drugiego}]
-class Srass {
-	public kupaGowna() {
-	} //takakaka
-}
-\end{lstlisting}
-
-Udałam kod
 \chapter{Przygotowanie i uruchomienie aplikacji}
 
 Że trzeba stworzyć androida, i servlet i bazę danych
@@ -316,17 +599,16 @@ Serwlety są to aplikacje działające na serwerze WWW korzystające z języka J
 Serwlety mają zapewniać budowanie aplikacji internetowych niezależnych od
 platformy. Serwlet umożliwia korzystanie z baz danych i http. Z tego powodu
 wykrozystywane są do budowania interaktywnych aplikacji internetowych. 
-\begin{wrapfigure}{r}{0.5\textwidth}
+\begin{wrapfigure}{r}{0.3\textwidth}
 \label{apache}
 \centering
-\captionsetup{justification=centering,margin=1cm}
+\captionsetup{justification=centering,margin=0.5cm}
 \vspace{-20pt}
 \begin{center}
 \subfigure {
-	\includegraphics[width=8ex\textwidth]{feather.png}
-}
-\subfigure{
-	\includegraphics[width=8ex\textwidth]{tomcat.png}
+	\includegraphics[width=10ex]{feather.png}
+
+	\includegraphics[width=10ex]{tomcat.png}
 }
 \end{center}
 \vspace{-20pt}

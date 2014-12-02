@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
-import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
@@ -26,10 +25,7 @@ public class AuthenticationDeliverer extends AsyncTask<String, Void, String> {
 			+ localhost + "/inzServlet/authentication");
 	private HttpGet httpGetAuthentication = new HttpGet("http://" + localhost
 			+ "/inzServlet/authentication");
-
-	HttpClient httpClientA;
-	HttpResponse httpResponseA;
-	HttpEntity entityA;
+	private HttpResponse httpResponse;
 
 	@Override
 	protected String doInBackground(String... params) {
@@ -56,11 +52,10 @@ public class AuthenticationDeliverer extends AsyncTask<String, Void, String> {
 			}
 		}).start();
 		try {
-			httpClientA = new DefaultHttpClient();
-			httpResponseA = httpClientA.execute(httpGetAuthentication);
-			entityA = httpResponseA.getEntity();
-			String entityStr = EntityUtils.toString(entityA);
-			if (entityStr.contains("logIn")) // ????????????
+			httpResponse = (new DefaultHttpClient())
+					.execute(httpGetAuthentication);
+			String entityStr = EntityUtils.toString(httpResponse.getEntity());
+			if (entityStr.contains("logIn"))
 				return "logIn";
 			else if (entityStr.contains("busy"))
 				return "busy";

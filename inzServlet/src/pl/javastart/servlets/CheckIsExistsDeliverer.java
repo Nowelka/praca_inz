@@ -51,14 +51,20 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		}
-		try (Connection conn = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
-				Statement stmt = conn.createStatement();) {
+		Connection conn;
+		try {
+			conn = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
+
+			Statement stmt = conn.createStatement();
 			strSelect = "select * from deli.deliverer where id=" + id;
 			ResultSet rset = stmt.executeQuery(strSelect);
+			System.out.println(rset.toString() + "  " + strSelect);
 			while (rset.next()) {
+
 				delivererId = rset.getInt("id");
 				delivererActiv = rset.getBoolean("activ");
+				System.out.println(delivererId + "  " + delivererActiv);
 			}
 
 			if (delivererId > 0) {
@@ -72,7 +78,7 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 					return "logIn";
 				} else if (delivererActiv == true) {
 
-					if (logout.equals("1")) {
+					if (logout.equals("0")) {
 						sqlInsert = " update deli.deliverer set activ=0 where id="
 								+ id;
 						System.out.println("CHECK commend " + sqlInsert);
@@ -80,7 +86,7 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 						conn.close();
 						stmt.close();
 						return "logOut";
-					} else if (logout.equals("0")) {
+					} else if (logout.equals("1")) {
 						conn.close();
 						stmt.close();
 						return "busy";
@@ -88,8 +94,8 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 				}
 			} else
 				return "false";
-
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "";

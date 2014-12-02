@@ -6,8 +6,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 
-//import com.google.android.gms.location.LocationListener;
-
 public class GpsTrack implements LocationListener {
 	private Context context;
 	private Location location;
@@ -29,13 +27,9 @@ public class GpsTrack implements LocationListener {
 		locationManager = (LocationManager) context
 				.getSystemService(Context.LOCATION_SERVICE);
 
-		// sprawdza czy jest wlaczony
-		isGpsEnable();
-		isGpsLocated();
-
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
 				minTime, minDistance, (android.location.LocationListener) this);
-		// ^tu sie cos przed this pojawilo
+
 		if (locationManager != null) {
 			location = locationManager
 					.getLastKnownLocation(LocationManager.GPS_PROVIDER);
@@ -45,7 +39,6 @@ public class GpsTrack implements LocationListener {
 			}
 		}
 		return location;
-
 	}
 
 	// sprawdza czy wlaczony jest gps
@@ -89,19 +82,16 @@ public class GpsTrack implements LocationListener {
 		this.gpsEnable = gpsStatus;
 	}
 
-	@Override
 	public void onStatusChanged(String provider, int status, Bundle extras) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void onProviderEnabled(String provider) {
 		// TODO Auto-generated method stub
 
 	}
 
-	@Override
 	public void onProviderDisabled(String provider) {
 		// TODO Auto-generated method stub
 
