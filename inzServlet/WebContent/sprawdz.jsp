@@ -85,12 +85,11 @@
 								<input type="text" name="nr" /> <input type="submit"
 									value="sprawdź" />
 							</form>
-							${msg}
 						</header>
 
 						<%
-							if (request.getAttribute("b") != null
-									&& request.getAttribute("b").equals(true)) {
+							if (request.getAttribute("isParcelExists") != null
+									&& request.getAttribute("isParcelExists").equals(true)) {
 						%>
 						<table width="100%">
 
@@ -267,6 +266,12 @@
 
 					</div>
 					<%
+							}
+							else {
+								%>
+								<br>
+							${msg} ${id}
+							<% 
 							}
 						%>
 				</div>

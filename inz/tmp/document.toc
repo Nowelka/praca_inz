@@ -2,18 +2,18 @@
 \contentsline {chapter}{\numberline {2}Rozwi\IeC {\k a}zanie - prezentacja wynik\IeC {\'o}w}{3}
 \contentsline {section}{\numberline {2.1}Aplikacja na system Android}{3}
 \contentsline {section}{\numberline {2.2}Serwer}{7}
-\contentsline {section}{\numberline {2.3}Baza danych}{7}
-\contentsline {chapter}{\numberline {3}Przygotowanie i uruchomienie aplikacji}{8}
-\contentsline {chapter}{\numberline {4}Wykorzystane technologie}{9}
-\contentsline {section}{\numberline {4.1}Java}{9}
-\contentsline {subsection}{\numberline {4.1.1}podpodrozdzia\IeC {\l }}{10}
-\contentsline {section}{\numberline {4.2}Wzorzec architektoniczny - MVC}{10}
-\contentsline {section}{\numberline {4.3}Servlet}{10}
-\contentsline {section}{\numberline {4.4}JSP - Java}{11}
-\contentsline {section}{\numberline {4.5}Technologie internetowe}{11}
-\contentsline {section}{\numberline {4.6}db - MySQL}{11}
-\contentsline {section}{\numberline {4.7}Android}{11}
-\contentsline {section}{\numberline {4.8}Google apps - mapy}{11}
-\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{12}
-\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{13}
-\contentsline {chapter}{Bibliografia}{13}
+\contentsline {section}{\numberline {2.3}Baza danych}{9}
+\contentsline {chapter}{\numberline {3}Przygotowanie i uruchomienie aplikacji}{11}
+\contentsline {chapter}{\numberline {4}Wykorzystane technologie}{12}
+\contentsline {section}{\numberline {4.1}Java}{12}
+\contentsline {subsection}{\numberline {4.1.1}podpodrozdzia\IeC {\l }}{13}
+\contentsline {section}{\numberline {4.2}Wzorzec architektoniczny - MVC}{13}
+\contentsline {section}{\numberline {4.3}Servlet}{13}
+\contentsline {section}{\numberline {4.4}JSP - Java}{14}
+\contentsline {section}{\numberline {4.5}Technologie internetowe}{14}
+\contentsline {section}{\numberline {4.6}db - MySQL}{14}
+\contentsline {section}{\numberline {4.7}Android}{14}
+\contentsline {section}{\numberline {4.8}Google apps - mapy}{14}
+\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{15}
+\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{16}
+\contentsline {chapter}{Bibliografia}{16}

@@ -53,7 +53,7 @@ public class Sprawdz extends HttpServlet {
 								+ searchParcel.getParcelAddresseeCity() + " "
 								+ searchParcel.getParcelAddresseeCityCode());
 				req.setAttribute("timeDelivery", searchParcel
-						.getParcelSendTime().substring(0, 16));
+						.getParcelDeliveryTime().substring(0, 16));
 				req.setAttribute("lastTime", searchParcel.getDelivererTimePos()
 						.substring(0, 16));
 
@@ -64,13 +64,16 @@ public class Sprawdz extends HttpServlet {
 							"Przesylka w bazie "
 									+ searchParcel.getCentreNameCentre());
 				}
-			} else
-				req.setAttribute("msg", "Nie mamy takiej przesylki w bazie");
+			} else {
+				req.setAttribute("msg",
+						"Nie mamy przesylki w bazie o numerze: ");
+				req.setAttribute("id", id);
+			}
 		}
 		if (id == null || (Sth.isInteger(id)) == false)
 			req.setAttribute("msg", "Prosze podac poprawny numer przesylki");
 
-		req.setAttribute("b", isParcelExists);
+		req.setAttribute("isParcelExists", isParcelExists);
 		req.removeAttribute("nr");
 		view.forward(req, resp);
 	};

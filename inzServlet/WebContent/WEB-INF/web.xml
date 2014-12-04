@@ -46,7 +46,7 @@
 	
 	<servlet>
 		<servlet-name>Index</servlet-name>
-		<servlet-class>pl.javastart.servlets.Index</servlet-class>
+		<jsp-file>/index.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Index</servlet-name>
@@ -64,7 +64,7 @@
 	
 	<servlet>
 		<servlet-name>Info</servlet-name>
-		<servlet-class>pl.javastart.servlets.Info</servlet-class>
+		<jsp-file>/info.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Info</servlet-name>
@@ -73,7 +73,7 @@
 	
 	<servlet>
 		<servlet-name>logowanie</servlet-name>
-		<servlet-class>pl.javastart.servlets.Logowanie</servlet-class>
+		<jsp-file>/logowanie.jsp</jsp-file>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>logowanie</servlet-name>

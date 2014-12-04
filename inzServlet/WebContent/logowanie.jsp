@@ -38,7 +38,7 @@
 			<nav id="nav">
 				<ul>
 					<div align="right">
-						<a href="logowanie"><font color="#FFFFFF" size="3em">Zaloguj</font></a>
+						<a href="logowanie"><font color="#FFFFFF" size="3em" align="right">Zaloguj</font></a>
 					</div>
 					<li><a href="index">Home</a></li>
 					<li class="active"><a href="zamowienie">Zlozenie

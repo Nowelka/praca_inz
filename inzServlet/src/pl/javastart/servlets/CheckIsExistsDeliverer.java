@@ -43,7 +43,7 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 
 	String selectFromDB(String id) {
 		String sqlInsert = "";
-		String strSelect = "";
+		String stringSelect = "";
 		int delivererId = -1;
 		boolean delivererActiv = false;
 		try {
@@ -51,30 +51,30 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 		} catch (ClassNotFoundException e1) {
 			e1.printStackTrace();
 		}
-		Connection conn;
+
 		try {
-			conn = DriverManager.getConnection(
+			Connection connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
 
-			Statement stmt = conn.createStatement();
-			strSelect = "select * from deli.deliverer where id=" + id;
-			ResultSet rset = stmt.executeQuery(strSelect);
-			System.out.println(rset.toString() + "  " + strSelect);
-			while (rset.next()) {
+			Statement statement = connection.createStatement();
+			stringSelect = "select * from deli.deliverer where id=" + id;
+			ResultSet resultSet = statement.executeQuery(stringSelect);
+			System.out.println(resultSet.toString() + "  " + stringSelect);
+			while (resultSet.next()) {
 
-				delivererId = rset.getInt("id");
-				delivererActiv = rset.getBoolean("activ");
+				delivererId = resultSet.getInt("id");
+				delivererActiv = resultSet.getBoolean("activ");
 				System.out.println(delivererId + "  " + delivererActiv);
 			}
 
 			if (delivererId > 0) {
 				if (delivererActiv == false) {
-					sqlInsert = " update deli.deliverer set activ=" + activ
-							+ " where id=" + id;
+					sqlInsert = " update deli.deliverer set activ=1 where id="
+							+ id;
 					System.out.println("CHECK commend " + sqlInsert);
-					stmt.executeUpdate(sqlInsert);
-					conn.close();
-					stmt.close();
+					statement.executeUpdate(sqlInsert);
+					connection.close();
+					statement.close();
 					return "logIn";
 				} else if (delivererActiv == true) {
 
@@ -82,13 +82,13 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 						sqlInsert = " update deli.deliverer set activ=0 where id="
 								+ id;
 						System.out.println("CHECK commend " + sqlInsert);
-						stmt.executeUpdate(sqlInsert);
-						conn.close();
-						stmt.close();
+						statement.executeUpdate(sqlInsert);
+						connection.close();
+						statement.close();
 						return "logOut";
 					} else if (logout.equals("1")) {
-						conn.close();
-						stmt.close();
+						connection.close();
+						statement.close();
 						return "busy";
 					}
 				}

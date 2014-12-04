@@ -58,7 +58,7 @@
 }
 
 
-
+\usepackage{url}
 
 %kolor do komentarzy, uwag, przypomnienie
 \definecolor{komentarz}{rgb}{1,0,0}
@@ -472,6 +472,19 @@ kurierskiej, którzy wpisując numer swojej przesyłki mogili sprawdzić gdzie o
 się aktualnie znajduje. Oprócz tej funkcji serwlet też jest pośrednikiem
 między aplikacją mobilną a bazą danych.
 
+\begin{wrapfigure}{r}{0.4\textwidth}
+\centering
+\captionsetup{justification=centering,margin=0cm}
+\vspace{-10pt}
+\begin{center}
+\includegraphics[width=.3\textwidth]{strukturaServlet.png}
+\end{center}
+\vspace{-10pt}
+  \caption{Struktura Servletu}
+\vspace{-60pt}
+\label{servlet}
+\end{wrapfigure}
+
 Rozpoczęcie pracy z servletem wymagało zainstowanie dodatków do środowiska
 Eclipse:
 \begin{itemize}
@@ -483,9 +496,163 @@ Eclipse:
 \end{itemize}
 Po zainstalowaniu dodatków należało skonfiguować środowisko, w tym celu należało
 stworzyć nowy lokalny serwer. Autor skorzystał z popularnego serwera Apache
-Tomcat wersji 7.0. A następnie utworzono nowy dynamiczny projekt sieciowy
-(\textsl{Dynamic Web Project}). 
+Tomcat wersji 7.0. Serwer jest dostępny pod adresem localhost:8080. 
 
+Po skonfigurowaniu środowiska można było prystąpić do utworzenia nowego
+dynamicznego projektu sieciowego (\textsl{Dynamic Web Project}). W strukturze
+projektu najważniejsze są dwa foldery [rys.\ref{servlet}], jeden zawierający w
+sobie klasy Javy, drugi zawierający obsługę, wygląd stron servletu. W tymże
+folderze znajduje się plik ,,web.xml'', w którym definuje zachowanie serwera w
+zależności od tego jaki adres został wpisany w przeglądarkę. 
+
+\lstset{language=XML,firstnumber=1,stepnumber=1}
+\begin{lstlisting}[caption=Przykladowy ,label=webxml]
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<servlet>
+		<servlet-name>Sprawdz</servlet-name>
+		<servlet-class>pl.javastart.servlets.Sprawdz</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Sprawdz</servlet-name>
+		<url-pattern>/sprawdz</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>Index</servlet-name>
+		<jsp-file>/index.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Index</servlet-name>
+		<url-pattern>/index</url-pattern>
+	</servlet-mapping>
+\end{lstlisting}
+
+Na powyższym listingu widać ustawienie strony startowej
+(\texttt{<welcome-file-list>}), tzn. gdy w polu adresy wpisany jest
+http://localhost:8080/inzServlet uruchamia się strona główna aplikacji webowej -
+index.jsp. W następnej liniach jest załadowanie klasy
+Javy(\texttt{pl.javastart.servlets.Sprawdz}) do servletu pod nazwą
+\texttt{Sprawdz} i zmapowanie tej klasy pod adres
+http://localhost:8080/inzServlet/sprawdz. Pokazany tu sposób dotyczy wszystkich
+używanych przez Servlet klas Javy, w podobny sposób można zadeklarować użycie
+pliku *.jsp (różnica polega na zamianie identyfikatora <servlet-class> na
+<jsp-file>). 
+
+Każda klasa Javy, która rozszerza Servlet posiada dwie istotne metody do obsługi
+stronc serwera - doPost i doGet, obydwie przyjmuję argument typu
+HttpServletRequest i HttpServletResponse.
+Metody mają zapewniać komunikację pomiędzy serwerem a klientem. Argument
+HttpServletRequest zawiera żądanie klienta do wykonania na serwlecie, natomiast
+HttpServletResponse jest odpowiedziom serwera na żadanie klienta. Wspomniana
+metoda doGet obsługuje żadania jakie powstały w nagłówku http - pobiera
+parametry i przetwarza je - obsługuje żadania typu request. Metoda doPost
+również obsługuje żadanie powstałe z uzupełnienia formularzy. 
+
+Ważną klasą w projekcie jest klasa obsługująca bazę danych. Klasa do obsługi
+bazy danych musi składać się z następujących poleceń: załadowanie sterownika
+bazy danych, nawiązanie połączenia z bazą, pobranie/zapisanie danych, zamknięcie
+połączenia. Przykładem obsługi bazy danych jest poniższy litning [listing
+\ref{checkisexistsdeveloper}]. Przedstawiona metoda sprawdza czy istnieje w
+bazie dany kurier. Sprawdzenie istnienia kuriera realizowane jest przez
+zapytanie \texttt{"select * from deli.deliverer where id=" + id}, gdzie id jest
+identyfikatorem kuriera. Po wykonaniu zapytania pod \texttt{ResultSet}
+zapisywane są dane pobrane z bazy danych, z nich wyszukiwane są potrzebne infrmacje, czyli
+id kuriera oraz jego status aktywności. Id pobierane jest tylko w celu
+spradzenia czy w bazie istnieje kurier, niestety nie ma metody dla
+\texttt{ResultSet} która sprawdzałaby czy wynik zapytania jest pusty. Po
+uzyskaniu wyniku, że kurier istnieje sprawdzana jest jego aktywność, gdy kurier
+jest nie aktywny a funkcja była wywoływana w ceu zalogowania systemu
+przygotowywane jest zapytanie o zaktualizowanie danych dla tego kuriera i
+ustawieniu jego aktywności na stan aktywny (true). Natomiast gdy aktywność
+id kuriera jest true, a kurier pragnie się zalogować (metoda została wykonana
+dla zalogowania do systemu) metoda zwraca ciąg ,,busy'' - informuje o zajętości id.
+W momencie wylogowywania kuriera (kiedy akywność == true) a logout wynosi 0 to
+przygotowywana jest komenta aktualizująca bazę danych i pod wskazaną krotkę o
+numerze id zapisywana wartość 0 dla activ.
+
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{id,activ, logout}}
+\begin{lstlisting}[caption=Przykład
+połączenia z bazą danych na przykładzie metody sprawdzającej
+istnienie kuriera oraz jego stan,label=checkisexistsdeveloper] 
+Class.forName("com.mysql.jdbc.Driver");
+
+Connection connection = DriverManager.getConnection(
+		"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
+Statement statement = connection.createStatement();
+stringSelect = "select * from deli.deliverer where id=" + id;
+ResultSet resultSet = statement.executeQuery(stringSelect);
+
+while (resultSet.next()) {
+	delivererId = resultSet.getInt("id");
+	delivererActiv = resultSet.getBoolean("activ");
+} 
+if (delivererId > 0) {
+	if (delivererActiv == false) {
+		sqlInsert = " update deli.deliverer set activ=1 where id=" + id;
+		statement.executeUpdate(sqlInsert);
+		connection.close();
+		statement.close();
+		return "logIn";
+	} else if (delivererActiv == true) {
+		if (logout.equals("0")) {
+			sqlInsert = " update deli.deliverer set activ=0 where id=" + id;
+			statement.executeUpdate(sqlInsert);
+			connection.close();
+			statement.close();
+			return "logOut";
+		} else if (logout.equals("1")) {
+			connection.close();
+			statement.close();
+			return "busy";
+		}
+	}
+} else
+	return "false";
+\end{lstlisting}
+
+Projekt dążył do ustworzeia przyjaznego dla użytkownika-klienta widoku
+lokalizacji przesyłki. Do osiągnięcia tego celu użyto zmodyfikowanego prez
+autora darmowego szablonu pobranego z internetu [cite{}]. W zakładce ,,SPRAWDZ
+PRZESYLKE'' wpisywany jest numer przesyłki jaką klient chce sprawdzić [rys.
+\ref{sprawdz}]. Wpisany ciąg znaków jest sprawdzany pod kątem poprawności.
+Sprawdzane jest czy ciąg w formularzu jest liczbowy i czy istnieje taka
+przesyłka. Gdy w bazie nie istnieje przesyłka pojawia się odpowiedni komunikat
+informujący o nie istniejącej przesyłce [rys. \ref{niema}]. Gdy użytkownik
+wprowadzi poprawny numer przesyłki zostaną wyśiwetlone takie informacje, jak
+nadawca, odbiorca, czas nadania i czas odbioru oraz ostanie zczytane położenie
+przesyłki. Ponadto wyświetlana jest mapa pokazująca jak trasę pokona przesyłka -
+znaczniki A - B. Na mapie dodatkowo pokazany jest znacznik, który wyznacza
+pozycję kuriera z daną przesyłką - znacznik ,,kurier''.
+
+Istotną częścią projektu było zaprojektowanie strony, na której
+klient może sprawdzać status swojej przesyłki zrealizowane jest to poprzez utworzenie pliku
+*.jsp, i przypisanie jej adresu http.
+
+\begin{figure}[ht!]
+\centering
+\captionsetup{justification=centering,margin=1cm}
+\subfigure[bla]{
+\includegraphics[width=100ex]{sprawdz.png}
+\label{sprawdz}
+}
+\subfigure[labb]{
+\includegraphics[width=100ex]{przyklad.png}
+\label{pokaz}
+}
+\subfigure[babal]{
+\includegraphics[width=100ex]{nieMaPrzesylki.png}
+\label{niema}
+}
+\caption{Struktura programu aplikacji Android}
+\end{figure}
+
+W podrozdziale Servlet nie pokazano obłsugi wyjątków, a przedstawione listingi
+są kluczowe do zrozumienia działania Servletu. Układ graficzny aplikacji webowej
+został pobrany ze strony z darmowymi szablonami
+{\textit{http://templated.co/linear}}.
 
 \section{Baza danych}
 blblb
