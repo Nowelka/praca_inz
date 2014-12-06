@@ -50,8 +50,8 @@ public class InsertIntoDB extends HttpServlet {
 	}
 
 	public boolean insertIntoJDBC() {
-		Connection conn = null;
-		Statement stmt = null;
+		Connection connection = null;
+		Statement statement = null;
 		String sqlInsert = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -59,9 +59,9 @@ public class InsertIntoDB extends HttpServlet {
 			e1.printStackTrace();
 		}
 		try {
-			conn = DriverManager.getConnection(
+			connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
-			stmt = conn.createStatement();
+			statement = connection.createStatement();
 			sqlInsert = "insert into deli.deliverer (id,latitude,longitude,timePos, activ) values"
 					+ "("
 					+ id
@@ -75,9 +75,14 @@ public class InsertIntoDB extends HttpServlet {
 					+ activ
 					+ ") on duplicate key update latitude=values(latitude),"
 					+ " longitude=values(longitude), timePos=values(timePos), activ=values(activ)";
-			stmt.executeUpdate(sqlInsert);
-			conn.close();
-			stmt.close();
+			statement.executeUpdate(sqlInsert);
+
+			sqlInsert = "update deli.parcel set timePos='" + date
+					+ "' where deliverer=" + id;
+			statement.executeUpdate(sqlInsert);
+
+			connection.close();
+			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -90,12 +95,13 @@ public class InsertIntoDB extends HttpServlet {
 
 		Date sendTime = new Date(System.currentTimeMillis());
 
-		DistanceMatrix matrix = new DistanceMatrix();
-		matrix.wyliczOdlegloscDistanceMatrix(sStreet, sCity, aStreet, aCity);
-		String deliveryTime = matrix.wyliczCzasDostarczenia(sendTime);
+		DistanceMatrix distanceMatrix = new DistanceMatrix();
+		distanceMatrix.wyliczOdlegloscDistanceMatrix(sStreet, sCity, aStreet,
+				aCity);
+		String deliveryTime = distanceMatrix.wyliczCzasDostarczenia(sendTime);
 
-		Connection conn = null;
-		Statement stmt = null;
+		Connection connection = null;
+		Statement statement = null;
 		String sqlInsert = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -103,9 +109,9 @@ public class InsertIntoDB extends HttpServlet {
 			e1.printStackTrace();
 		}
 		try {
-			conn = DriverManager.getConnection(
+			connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
-			stmt = conn.createStatement();
+			statement = connection.createStatement();
 			sqlInsert = "insert into deli.registeredUser (nameUser,streetUser,cityUser,cityCodeUser) values"
 					+ "('"
 					+ sName
@@ -117,8 +123,7 @@ public class InsertIntoDB extends HttpServlet {
 					+ sCityCode
 					+ "') on duplicate key update nameUser=values(nameUser),"
 					+ " streetUser=values(streetUser), cityUser=values(cityUser), cityCodeUser=values(cityCodeUser);";
-			System.out.println("1 " + sqlInsert);
-			stmt.executeUpdate(sqlInsert);
+			statement.executeUpdate(sqlInsert);
 
 			sqlInsert = "insert into deli.parcel (id,fromUserId,addresseeName,addresseeStreet,addresseeCity,addresseeCityCode, sendTime, deliveryTime, deliverer, base) values"
 					+ "(null,last_insert_id(),'"
@@ -135,14 +140,13 @@ public class InsertIntoDB extends HttpServlet {
 					+ "','"
 					+ deliveryTime
 					+ "',0,0);";
-			System.out.println("2 " + sqlInsert);
-			stmt.executeUpdate(sqlInsert);
-			ResultSet rs = stmt
+			statement.executeUpdate(sqlInsert);
+			ResultSet resultSet = statement
 					.executeQuery("select last_insert_id() as last_id");
-			if (rs.next())
-				return rs.getString(1);
-			conn.close();
-			stmt.close();
+			if (resultSet.next())
+				return resultSet.getString(1);
+			connection.close();
+			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

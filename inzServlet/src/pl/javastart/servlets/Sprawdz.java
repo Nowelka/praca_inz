@@ -54,15 +54,13 @@ public class Sprawdz extends HttpServlet {
 								+ searchParcel.getParcelAddresseeCityCode());
 				req.setAttribute("timeDelivery", searchParcel
 						.getParcelDeliveryTime().substring(0, 16));
-				req.setAttribute("lastTime", searchParcel.getDelivererTimePos()
+				req.setAttribute("lastTime", searchParcel.getParcelTimePos()
 						.substring(0, 16));
 
 				if (searchParcel.getDelivererId() > 999000) {
 					searchParcel.selectBase(searchParcel.getDelivererId());
-					req.setAttribute(
-							"msg",
-							"Przesylka w bazie "
-									+ searchParcel.getCentreNameCentre());
+					req.setAttribute("msg", "Przesylka w bazie: "
+							+ searchParcel.getCentreNameCentre());
 				}
 			} else {
 				req.setAttribute("msg",

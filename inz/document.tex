@@ -24,8 +24,11 @@
 \definecolor{violet}{RGB}{80,33,97}
 \definecolor{darkblue}{RGB}{15,1,255}
 \definecolor{darkred}{RGB}{161,0,0}
+\definecolor{greenJSP}{RGB}{25,154,12}
+\definecolor{violetJSP}{RGB}{109,18,56}
 
 \lstset{ %
+  language=Java,
   backgroundcolor=\color{white},   % choose the background color; you must add \usepackage{color} or \usepackage{xcolor}
   basicstyle=\footnotesize,        % the size of the fonts that are used for the code
   breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
@@ -33,7 +36,6 @@
   captionpos=b,                    % sets the caption-position to bottom
   commentstyle=\color{mygray},    % comment style
   deletekeywords={...},            % if you want to delete keywords from the given language
-  escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
   extendedchars=true,              % lets you use non-ASCII characters; for 8-bits encodings only, does not work with UTF-8
   frame=single,                    % adds a frame around the code
   keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
@@ -54,9 +56,11 @@
   %title=\lstname,                   % show the filename of files included with
   % \lstinputlisting; also try caption instead of title
   keywordstyle=[3]{\color{darkblue!50!black}},
+  keywordstyle=[4]{\color{greenJSP!50!black}\textbf},
+  keywordstyle=[5]{\color{violetJSP!50!black}\textbf},
   escapeinside={(*@}{@*)}
 }
-
+\newcommand{\CodeSymbol}[1]{\textcolor{greenJSP}{#1}\textbf}
 
 \usepackage{url}
 
@@ -82,7 +86,7 @@
 
 %pakiet wypisujacy na marginesie etykiety rownan i rysunkow zdefiniowanych przez \label{}, chcac wygenerowac finalna wersje dokumentu wystarczy usunac 
 %ponizsza linie
-\usepackage{showlabels}
+%\usepackage{showlabels}
 
 %definicje wlasnych polecen
 \newcommand{\R}{I\!\!R} %symbol liczb rzeczywistych, dziala tylko w trybie matematycznym
@@ -103,13 +107,6 @@
 
 %tutaj zaczyna sie wlasciwa tresc dokumentu
 \begin{document}
-
-% \lstdefinestyle{listJava}{language=Java, breaklines=true,
-% commentstyle=\color{zielony},frame=single, numbers=left, stepnumber=1,
-% numbersep=5pt}
-% \lstdefinestyle{listPython}{language=Python, breaklines=true,
-% commentstyle=\color{innyZielony},frame=single, numbers=left, stepnumber=1,
-% numbersep=5pt}
 
 \bibliographystyle{plabbrv} %tylko gdy uzywamy BibTeXa, ustawia polski styl bibliografii
 
@@ -302,16 +299,16 @@ GPS, a także do korzystania z wyżej wymienionych [listing \ref{manifest}].
 
 Po przygotowaniu wyglądu aplikacji oraz nadaniu jej uprawnień można przejść
 do oprogramowania logiki aplikacji. Klasa główna, która zajmuje się obsługą
-aplikacji dziedziczy po klasie Activity. Klasa Ativity zajmuje się obsługą
-interakcji pomiędzy użytkownikiem a urządzeniem. Klasa ta tworzy okno aplikacji
+aplikacji dziedziczy po klasie \texttt{Activity}. Klasa \texttt{Ativity} zajmuje
+się obsługą interakcji pomiędzy użytkownikiem a urządzeniem. Klasa ta tworzy okno aplikacji
 oraz na przykład umieszcza ustawione wcześniej przyciski interfejsu użytkownika.
-Znajdują się w niej takie metody jak onCreate(), onDestroy(), onStart(), onStop()
-i inne. Metodę onCreate() należy przesłonić, jeśli mają być zainiciowane
-wcześniej wspomniane przyciski i pola z layoutu. Autor w swojej aplikacji nadaje
+Znajdują się w niej takie metody jak \texttt{onCreate()}, \texttt{onDestroy()},
+\texttt{onStart()}, \texttt{onStop()} i inne. Metodę \texttt{onCreate()} należy
+przesłonić, jeśli mają być zainiciowane wcześniej wspomniane przyciski i pola z layoutu. Autor w swojej aplikacji nadaje
 właściwość dla przycisku, która ma po kliknięciu go w dowolnym momencie
 działania aplikacji wywoałać zamknięcie aplikacji. Takie zachowanie osiąga się
-poprzez wywołanie na rzecz niego metody public void
-setOnClickListener(View.OnClickListener l)[listing \ref{button}].
+poprzez wywołanie na rzecz niego metody \texttt{public void
+setOnClickListener(View.OnClickListener l)}[listing \ref{button}].
 
 \lstset{language=Java,firstnumber=72,stepnumber=1,keywords=[3]{button,savedId}}
 \begin{lstlisting}[caption=Ustawienie właściwości przycisku
@@ -327,13 +324,13 @@ button.setOnClickListener(new View.OnClickListener() {
 		});
 \end{lstlisting}
 
-Na listingu \ref{button} widać zmienną savedID, jest pole klasy, które
-zapisywane jest wpisanym przez kuriera jego id. Gdy użytkownik wyłącza aplikację
-system sprawdza czy savedId nie jest puste i w przypadku gdy savedId posiada
-jakąś wartość tworzony jest nowy obiekt AuthenticationDeliverer() z odpowiednimi
-parametrami - nazwa zmiennej, status aktywności oraz status logowania. Klasa
-AuthenticationDeliverer() dziedziczy po AsyncTask (umożliwia tworzenie nowego
-wątku i pozwala na wykonywanie operacji w tle). Parametry z jakimi tworzony jest
+Na listingu \ref{button} widać zmienną \texttt{savedID}, jest pole klasy, które
+zapisywane jest wpisanym przez kuriera jego \texttt{id}. Gdy użytkownik wyłącza
+aplikację system sprawdza czy \texttt{savedId} nie jest puste i w przypadku gdy
+\texttt{savedId} posiada jakąś wartość tworzony jest nowy obiekt
+\texttt{AuthenticationDeliverer()} z odpowiednimi parametrami - nazwa zmiennej, status aktywności oraz status logowania. Klasa
+\texttt{AuthenticationDeliverer()} dziedziczy po \texttt{AsyncTask} (umożliwia
+tworzenie nowego wątku i pozwala na wykonywanie operacji w tle). Parametry z jakimi tworzony jest
 nowy obiekt to id kuriera, status aktywności oraz jego logowanie lub
 wylogowywanie[listing. \ref{AuthentictionDeliverer}]. Status aktywności to informacja
 wysyłana do serwera (zapisywana w bazie danych) mówiąca o tym, czy kurier będzie ustawiał swój status na aktywny
@@ -343,8 +340,8 @@ ale w bazie jest już ktoś zalogowany na ten id pojawi się komunikat o
 zalogowanym już kurierze o tym numerze [rys. \ref{androidViewNOTOK}]. Natomiast
 trzeci parametr mówi o tym, czy kurier się zalogowuje ,,1'' czy wylogowuje ,,0''
 z aplikacji. Na rzecz klasy AuthenticationDeliverer() wywołane zostają metody:
-execute() - nakazuje wykonanie zadania, get() - oczekuje, aż zadanie zostanie
-wykonane.
+\texttt{execute()} - nakazuje wykonanie zadania, \texttt{get()} - oczekuje, aż
+zadanie zostanie wykonane.
 
 \lstset{language=Java,firstnumber=31,stepnumber=1,keywords=[3]{httpClient,localhost,httpPostAuthentication,httpGetAuthentication,httpResponse}}
 \begin{lstlisting}[caption=klasa
@@ -431,7 +428,7 @@ przypadku tak:
 \end{flushright}
 
 \lstset{language=Java,firstnumber=55,stepnumber=1,keywords=[3]{savedId,
-httpClient, httpPost}}
+httpClient, httpPost,localhost}}
 \begin{lstlisting}[caption=Przygotowanie wiadomości do wysłania na
 serwer oraz wysłanie jej,label=polaczenieSerwer] 
 	private String localhost = "192.168.1.2:8080";
@@ -481,8 +478,8 @@ między aplikacją mobilną a bazą danych.
 \end{center}
 \vspace{-10pt}
   \caption{Struktura Servletu}
-\vspace{-60pt}
 \label{servlet}
+\vspace{-60pt}
 \end{wrapfigure}
 
 Rozpoczęcie pracy z servletem wymagało zainstowanie dodatków do środowiska
@@ -506,7 +503,7 @@ folderze znajduje się plik ,,web.xml'', w którym definuje zachowanie serwera w
 zależności od tego jaki adres został wpisany w przeglądarkę. 
 
 \lstset{language=XML,firstnumber=1,stepnumber=1}
-\begin{lstlisting}[caption=Przykladowy ,label=webxml]
+\begin{lstlisting}[caption=Fragment pliku web.xml,label=webxml]
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
@@ -538,16 +535,17 @@ Javy(\texttt{pl.javastart.servlets.Sprawdz}) do servletu pod nazwą
 \texttt{Sprawdz} i zmapowanie tej klasy pod adres
 http://localhost:8080/inzServlet/sprawdz. Pokazany tu sposób dotyczy wszystkich
 używanych przez Servlet klas Javy, w podobny sposób można zadeklarować użycie
-pliku *.jsp (różnica polega na zamianie identyfikatora <servlet-class> na
-<jsp-file>). 
+pliku *.jsp (różnica polega na zamianie identyfikatora \texttt{<servlet-class>}
+na \texttt{<jsp-file>}). 
 
 Każda klasa Javy, która rozszerza Servlet posiada dwie istotne metody do obsługi
-stronc serwera - doPost i doGet, obydwie przyjmuję argument typu
-HttpServletRequest i HttpServletResponse.
+stronc serwera - \texttt{doPost} i \texttt{doGet}, obydwie przyjmuję argument
+typu \texttt{HttpServletRequest} i \texttt{HttpServletResponse}.
 Metody mają zapewniać komunikację pomiędzy serwerem a klientem. Argument
-HttpServletRequest zawiera żądanie klienta do wykonania na serwlecie, natomiast
-HttpServletResponse jest odpowiedziom serwera na żadanie klienta. Wspomniana
-metoda doGet obsługuje żadania jakie powstały w nagłówku http - pobiera
+\texttt{HttpServletRequest} zawiera żądanie klienta do wykonania na serwlecie,
+natomiast \texttt{HttpServletResponse} jest odpowiedziom serwera na żadanie
+klienta.
+Wspomniana metoda \texttt{doGet} obsługuje żadania jakie powstały w nagłówku http - pobiera
 parametry i przetwarza je - obsługuje żadania typu request. Metoda doPost
 również obsługuje żadanie powstałe z uzupełnienia formularzy. 
 
@@ -560,23 +558,23 @@ bazie dany kurier. Sprawdzenie istnienia kuriera realizowane jest przez
 zapytanie \texttt{"select * from deli.deliverer where id=" + id}, gdzie id jest
 identyfikatorem kuriera. Po wykonaniu zapytania pod \texttt{ResultSet}
 zapisywane są dane pobrane z bazy danych, z nich wyszukiwane są potrzebne infrmacje, czyli
-id kuriera oraz jego status aktywności. Id pobierane jest tylko w celu
+id kuriera oraz jego status aktywności. \texttt{Id} pobierane jest tylko w celu
 spradzenia czy w bazie istnieje kurier, niestety nie ma metody dla
 \texttt{ResultSet} która sprawdzałaby czy wynik zapytania jest pusty. Po
 uzyskaniu wyniku, że kurier istnieje sprawdzana jest jego aktywność, gdy kurier
 jest nie aktywny a funkcja była wywoływana w ceu zalogowania systemu
 przygotowywane jest zapytanie o zaktualizowanie danych dla tego kuriera i
-ustawieniu jego aktywności na stan aktywny (true). Natomiast gdy aktywność
-id kuriera jest true, a kurier pragnie się zalogować (metoda została wykonana
-dla zalogowania do systemu) metoda zwraca ciąg ,,busy'' - informuje o zajętości id.
-W momencie wylogowywania kuriera (kiedy akywność == true) a logout wynosi 0 to
-przygotowywana jest komenta aktualizująca bazę danych i pod wskazaną krotkę o
-numerze id zapisywana wartość 0 dla activ.
+ustawieniu jego aktywności na stan aktywny (\texttt{true}). Natomiast gdy
+aktywność id kuriera jest \texttt{true}, a kurier pragnie się zalogować (metoda została
+wykonana dla zalogowania do systemu) metoda zwraca ciąg ,,busy'' - informuje o zajętości id.
+W momencie wylogowywania kuriera (kiedy akywność == \texttt{true}) a
+\texttt{logout} wynosi 0 to przygotowywana jest komenta aktualizująca bazę
+danych i pod wskazaną krotkę o numerze id zapisywana wartość 0 dla activ.
 
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{id,activ, logout}}
-\begin{lstlisting}[caption=Przykład
-połączenia z bazą danych na przykładzie metody sprawdzającej
-istnienie kuriera oraz jego stan,label=checkisexistsdeveloper] 
+\begin{lstlisting}[caption=Połączenia z bazą danych na przykładzie metody
+sprawdzającej istnienie kuriera oraz jego stan
+używanej przez aplikację mobilną,label=checkisexistsdeveloper]
 Class.forName("com.mysql.jdbc.Driver");
 
 Connection connection = DriverManager.getConnection(
@@ -615,8 +613,9 @@ if (delivererId > 0) {
 
 Projekt dążył do ustworzeia przyjaznego dla użytkownika-klienta widoku
 lokalizacji przesyłki. Do osiągnięcia tego celu użyto zmodyfikowanego prez
-autora darmowego szablonu pobranego z internetu [cite{}]. W zakładce ,,SPRAWDZ
-PRZESYLKE'' wpisywany jest numer przesyłki jaką klient chce sprawdzić [rys.
+autora darmowego szablonu pobranego z internetu \cite{szablon}. W zakładce
+\texttt{SPRAWDZ PRZESYLKE} wpisywany jest numer przesyłki jaką klient chce
+sprawdzić [rys.
 \ref{sprawdz}]. Wpisany ciąg znaków jest sprawdzany pod kątem poprawności.
 Sprawdzane jest czy ciąg w formularzu jest liczbowy i czy istnieje taka
 przesyłka. Gdy w bazie nie istnieje przesyłka pojawia się odpowiedni komunikat
@@ -627,27 +626,237 @@ przesyłki. Ponadto wyświetlana jest mapa pokazująca jak trasę pokona przesy�
 znaczniki A - B. Na mapie dodatkowo pokazany jest znacznik, który wyznacza
 pozycję kuriera z daną przesyłką - znacznik ,,kurier''.
 
-Istotną częścią projektu było zaprojektowanie strony, na której
-klient może sprawdzać status swojej przesyłki zrealizowane jest to poprzez utworzenie pliku
-*.jsp, i przypisanie jej adresu http.
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90ex]{sprawdz.png}
+\caption{Diagram ERD zaprojektowanej bazy danych}
+\label{sprawdz}
+\end{figure}
 
 \begin{figure}[ht!]
 \centering
-\captionsetup{justification=centering,margin=1cm}
-\subfigure[bla]{
-\includegraphics[width=100ex]{sprawdz.png}
-\label{sprawdz}
-}
-\subfigure[labb]{
-\includegraphics[width=100ex]{przyklad.png}
+\includegraphics[width=90ex]{przyklad.png}
+\caption{Diagram ERD zaprojektowanej bazy danych}
 \label{pokaz}
-}
-\subfigure[babal]{
-\includegraphics[width=100ex]{nieMaPrzesylki.png}
-\label{niema}
-}
-\caption{Struktura programu aplikacji Android}
 \end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90ex]{nieMaPrzesylki.png}
+\caption{Diagram ERD zaprojektowanej bazy danych}
+\label{niema}
+\end{figure}
+
+Istotną częścią projektu było zaprojektowanie strony, na której
+klient może sprawdzać status swojej przesyłki zrealizowane jest to poprzez utworzenie pliku
+*.jsp, i przypisanie jej adresu http. Ogólny zarys pliku sprawdz.jsp jest
+pobrany z szablonu \cite{szablon}, autor zmienił jedynie ciało (main) pliku. Z
+formularza [rys. \ref{sprawdz}] pobierany jest numer poszukiwanej przesyłki
+[listing \ref{sprawdzjsp} linie \ref{sprawdzjsp1}-\ref{sprawdzjsp2}] i ustawiany jako
+post formularza i przesyłany do klasy Java servletu. W tej klasie po
+pobraniu danych z bazy danych zwracane są wartości dotyczące istnienia przesyłki
+o wskazanym id. Najpierw sprawdzane jest, we fragmencie kodu Javy w instrukcji
+warunkowej, czy przesyłka istnieje \texttt{isParcelExists}. Gdy przesyłka
+nie zostanie odnaleziona w bazie lub wpisany ciąg w formularzu jest niepoprawny
+wyświetlana jest wiadmość [listing \ref{sprawdzjsp} linia \ref{sprawdzjsp6}]
+dotycząca błednego id. Natomiast gdy wpisany id jest bezbłędne w tabeli [rys.
+\ref{pokaz}] zostają wypisane dane dotyczące przesyłki oraz mapa. Linia \ref{sprawdzjsp5}
+listingu \ref{sprawdzjsp} jest miejscem użycia JavySciprt'owego kodu
+google.maps. W danych wejściowych zmienna msg oznacza wiadomość dotyczącą
+niepoprawnie wpisanego numeru przesyłki lub jeśli przesyłka została poprawnie
+wpisana, ale jej ostatnie położenie jest zarejestrowane w centrali to w tabeli
+w wierszu ,,Ostatnie zarejestrowane położenie'' pojawia się dodatkowa informacje
+o przebywaniu przesyłki w centrali.
+
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[4]{script,
+div,section,
+table,td,tr,h2,form,input,br},keywords=[5]{width,id,method,action,type,name,value,style}}
+\begin{lstlisting}[caption=Ciało pliku JavaServlet Pages -
+sprawdz.jsp,label=sprawdzjsp] 
+(*@\label{sprawdzjsp1}@*)<h2>Wpisz nr przesylki</h2> 
+	<form id="formularz" method="post" action=""> 
+	<input type="text" name="nr" /> <input type="submit" value="sprawdz" />
+</form> (*@\label{sprawdzjsp2}@*)
+(*@\hspace{4ex}{\raisebox{-1pt}[0pt][0pt]{$\vdots$}}@*)
+(*@\label{sprawdzjsp3}@*)<%
+if (request.getAttribute("isParcelExists") != null &&
+request.getAttribute("isParcelExists").equals(true)) {
+%>
+(*@\label{sprawdzjsp4}@*)<table style="width:100%">
+	<tr>
+		<td><% out.print("Numer przesylki"); %></td>
+		<td>${id}</td>
+	</tr>
+	<tr>
+		<td><% out.print("Nadawca"); %></td>
+		<td>${regUserName}<br> ${regUserAddr} </td>
+	</tr>
+	<tr>
+		<td><% out.print("Czas nadania"); %></td>
+		<td>${timeSend}</td>
+	</tr>
+	<tr>
+		<td><% out.print("Odbiorca"); %></td>
+		<td>${userName}<br> ${userAddr} </td>
+	</tr>
+	<tr>
+		<td><% out.print("Planowany czas"); %><br> <% out.print("dostarczenia"); %>
+		</td>
+		<td>${timeDelivery}</td>
+	</tr>
+	<tr>
+		<td><% out.print("Ostatnie zarejestrowane"); %><br>
+			<% out.print("polozenie"); %></td>
+		<td>${lastTime}<br>${msg}</td>
+	</tr>
+</table>
+(*@\hspace{4ex}{\raisebox{-1pt}[0pt][0pt]{$\vdots$}}@*)
+(*@\label{sprawdzjsp5}@*)<div id="mapka"> </div>
+(*@\hspace{4ex}{\raisebox{-1pt}[0pt][0pt]{$\vdots$}}@*)
+<%
+}
+(*@\label{sprawdzjsp6}@*)else {
+%>
+<br> ${msg} ${id}
+<% 
+}
+%>
+\end{lstlisting}
+
+Na podstawie źródła \cite{developer.google.maps} powstał kod, który wyświetla
+mapę ze znacznikami. Z danych metody post pobierane są wartości lat i lon
+(szereokość i długość geograficzna) dla kuriera oraz wartości
+\texttt{regUserAddr} i \texttt{userAddr} oznaczające adres nadawcy i odbiorcy. W
+skrypcie tworzony jest nowy obiekt klasy DirectionsRenderer, który jest odpowiedzialny
+wypełnienie(renderowanie) wyświetlanej mapy oraz tworozny jest nowy obiekt
+\texttt{DirectionsService}, który jest wylicza trasę pomiędzy punktami.
+Do obiektu \texttt{directionsRenderer} przypisywane jest umiejscowienie elementu
+ukłądzie strony przez pobranie jego id oraz możlwie jest ustawienie parametrów mapy.
+Kolejnym krokiem jest utworzenie znacznika na pozycji kuriera i dodanie jej do
+mapy. Ostatim etapem jest wyliczenie trasy pomiędzy dwoma punktami, adresem
+nadacy a adresem odbiorcy.
+
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[4]{script,
+div,section, table},morekeywords={var, function},keywords=[5]{id,src}}
+\begin{lstlisting}[caption=Kody JavaScript'owy pobierający mapę z
+serwera Google,label=mapsJS] 
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> 
+<script>
+	var lat = "${lat}";
+	var lon = "${lon}";
+	var start = "${regUserAddr}";
+	var end = "${userAddr}";
+	var directionsRenderer = new google.maps.DirectionsRenderer();
+	var directionsService = new google.maps.DirectionsService();
+	var map;
+
+	function initialize() {
+		map = new google.maps.Map(document.getElementById('mapka'));
+		directionsRenderer.setMap(map);
+		new google.maps.Marker({
+			position : new google.maps.LatLng(lat, lon),
+			map : map,
+			title : "Kurier"
+		});
+		var request = {
+			origin : start,
+			destination : end,
+			travelMode : google.maps.TravelMode.DRIVING
+		};
+		directionsService.route(request, function(response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsRenderer.setDirections(response);
+			}
+		});
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+\end{lstlisting}
+
+Klasa Javy Sprawdz.java obsługująca sprawdz.jsp tworzy nowy obiekt klasy
+SearchParcel i podbiera od niego potrzebne dane do wyświetlenia na stronie i
+przesyła je metodą doPost. Klasa SearchParcel.java przedstawiona jest na
+listingu \ref{searchparcel.java}. Klasa otwiera połączenie z bazą danych,
+następnie wykonując komendy mySQL pobiera dane dotyczące przesyłki, następnie
+posiadając już id kuriera, który przewozi tą przesyłkę, pobiera jego położenie,
+oraz pobiera z bazy informacje o nadawcy (zarejestrownaym użytkowniku). Ostanim
+krokiem jest zamknięcie połączenia z bazą danych.
+
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{parcelId,
+parcelFromUserId,parcelAddresseeName,parcelAddresseeStreet,
+parcelAddresseeCity,parcelAddresseeCityCode,parcelSendTime,
+parcelDeliveryTime,parcelDeliverer,isParcelExists,delivererId,
+delivererLatitude,delivererLongitude,delivererTimePos,parcelFromUserId,
+registeredUserId,registeredUserNameUser,registeredUserStreetUser,
+registeredUserCityUser,registeredUserCityCodeUser,parcelTimePos}} 
+\begin{lstlisting}[caption=Klasa reprezentująca
+połączenie z bazą danych i pobierająca wszystkie dane o
+przesyłce,label=searchparcel.java]
+public SearchParcel(int _nrParcel) {
+	selectFromDB(_nrParcel); 
+}
+
+void selectFromDB(int nrParcel) {
+	String strSelect = "";
+	try {
+		Class.forName("com.mysql.jdbc.Driver");
+	} catch (ClassNotFoundException e) {
+		e.printStackTrace();
+	}
+	try {
+		Connection connection = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
+		Statement statement = connection.createStatement();
+		strSelect = "select * from deli.parcel where id=" + nrParcel;
+		ResultSet resultSet = statement.executeQuery(strSelect);
+		while (resultSet.next()) {
+			isParcelExists = true;
+			parcelId = resultSet.getInt("id");
+			parcelFromUserId = resultSet.getInt("fromUserId");
+			parcelAddresseeName = resultSet.getString("addresseeName");
+			parcelAddresseeStreet = resultSet.getString("addresseeStreet");
+			parcelAddresseeCity = resultSet.getString("addresseeCity");
+			parcelAddresseeCityCode = resultSet
+					.getString("addresseeCityCode");
+			parcelSendTime = resultSet.getString("sendTime");
+			parcelTimePos = resultSet.getString("timePos");
+			parcelDeliveryTime = resultSet.getString("deliveryTime");
+			parcelDeliverer = resultSet.getInt("deliverer");
+		}
+		if (isParcelExists == true) {
+			strSelect = "select * from deli.deliverer where id="
+					+ parcelDeliverer;
+			resultSet = statement.executeQuery(strSelect);
+			while (resultSet.next()) {
+				delivererId = resultSet.getInt("id");
+				delivererLatitude = resultSet.getDouble("latitude");
+				delivererLongitude = resultSet.getDouble("longitude");
+				delivererTimePos = resultSet.getString("timePos");
+			}
+			strSelect = "select * from deli.registeredUser where id="
+					+ parcelFromUserId;
+			resultSet = statement.executeQuery(strSelect);
+			while (resultSet.next()) {
+				registeredUserId = resultSet.getInt("id");
+				registeredUserNameUser = resultSet.getString("nameUser");
+				registeredUserStreetUser = resultSet
+						.getString("streetUser");
+				registeredUserCityUser = resultSet.getString("cityUser");
+				registeredUserCityCodeUser = resultSet
+						.getString("cityCodeUser");
+			}
+		}
+		connection.close();
+		statement.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
+\end{lstlisting}
+
+Wyznaczanie przybliżonego czasu dostawy zrealizowano korzystjąc (to i więcej już
+o servlecie nie trzeba)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 W podrozdziale Servlet nie pokazano obłsugi wyjątków, a przedstawione listingi
 są kluczowe do zrozumienia działania Servletu. Układ graficzny aplikacji webowej
@@ -655,15 +864,58 @@ został pobrany ze strony z darmowymi szablonami
 {\textit{http://templated.co/linear}}.
 
 \section{Baza danych}
-blblb
 
+W przedstawionym projekcie konieczne było uworzenie bazy danych, która
+przechowuje dane dotczyące kurierów, przesyłek, klientów, centrali kurierskich.
+W tym celu stworzono 4 tabele. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=70ex]{ERD.png}
+\caption{Diagram ERD zaprojektowanej bazy danych}
+\label{ERD}
+\end{figure}
+
+Na rysunky \ref{ERD} przedstawiono diagram ERD pokazujący tabele oraz połączenia
+pomiędzy tabelami. Każda z tabel ma swój klucz głowny \texttt{id}. Tabela
+\texttt{parcel} (przesyłka) zawiera w sobie dwa obce klucze (\texttt{foreign
+key}) odwołują się one do: \texttt{deliverer.id} - klucz głowny
+tabeli kurier oraz \texttt{registeredUser.id} - klucz głowny tabeli użytkownika zarejestrowanego,
+czyli tego który złożył zamówienie na przesyłkę. Tabela centre, która ma
+zawierać wpisy dotyczące nazwy, ulicy, miasta zawiera w sobie obcy klucz do
+tabeli deliverer. Wybrano takie rozwiązanie ponieważ w tabeli \texttt{deliverer}
+są podawane długość i szerokość geograficzna, które w łatwy sposób powiązano z
+tabelą \texttt{centre}.
 
  Nie tylko gps do lokalizacji, bo także odbicia
 na czytnikach u kurierów Projekt opiera się 
 
 \chapter{Przygotowanie i uruchomienie aplikacji}
 
-Że trzeba stworzyć androida, i servlet i bazę danych
+Do utworzyć opisywany w tej pracy projekt należy zacząć od isntalacji IDE
+Eclipse,  najprościej jest zacząć od instalacji Eclipse ADT z dodatkiem Android
+SDK \cite{eclipse}, po jego instalacji w widoku Eclipse pojawi się ikona
+,,Android SDK Manager''. Po załadowaniu się menegera należy wybrać conajmniej
+SDK Tools, SDK Platform-tools, SDK Build-tools (najwyższą dostępną wersję), oraz w
+folderzez z ostatnią wersją systemu Android X.X zaznaczyć SDK Platform i
+emulator do obrazu systemu Android (ARM EABI v7a System Image), ponadto na
+potrzeby tego projektu konieczne jest zainstalowanie Google Repository i Google
+Play services z folderu Extras.
+
+Następnym krokiem jest zainstalowanie serwera Apache Tomcat w IDE Eclipse.
+Dodanie serwera relizauje się od otworzenia zakładki
+Window>Preferences>Server>Runtine Enviroment i tam należy dodać (add) Apache
+Tomcat również w najnowszej wersji. Serwer będzie już wtedy zainstolowany. 
+
+Autor korzysta z systemu operacyjnego Linux dystrybucja Ubuntu, więc zostanie
+opisana instalacja \emph{\color{komentarz}\ldots Darku opisz, ja nie wiem jak,
+bo Ty mi to zrobiłeś :*}
+
+Jeśli w IDE Eclipse nie ma dodanych odpowiednich perspektywn trzeba je dodać
+(Open Perspective) będzie potrzebna perspektywa ,,Java'' oraz ,,SQL Explorer''.
+Po spełnieniu wszyscich poprzednio wymieninionych kroków można eksportować
+projekty. Import projektów wybiera się w zakładce File>Import>Existing Projects
+Into Workspace
 
 \chapter{Wykorzystane technologie}
 

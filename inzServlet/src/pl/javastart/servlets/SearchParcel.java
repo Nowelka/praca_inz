@@ -17,6 +17,7 @@ public class SearchParcel {
 	private String parcelAddresseeCity;
 	private String parcelAddresseeCityCode;
 	private String parcelSendTime;
+	private String parcelTimePos;
 	private String parcelDeliveryTime;
 	private int parcelDeliverer;
 
@@ -41,117 +42,85 @@ public class SearchParcel {
 		String strSelect = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-		// odnalezienie przesylki o nrParcel
-		try (Connection conn = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
-				Statement stmt = conn.createStatement();) {
+		// odnalezienie przesylki o id=nrParcel
+		try {
+			Connection connection = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
+			Statement statement = connection.createStatement();
 			strSelect = "select * from deli.parcel where id=" + nrParcel;
-			// System.out.println("SQL query is: " + strSelect);
-
-			ResultSet rset = stmt.executeQuery(strSelect);
-			// System.out.println("the records selected are:");
-
-			while (rset.next()) {
+			ResultSet resultSet = statement.executeQuery(strSelect);
+			while (resultSet.next()) {
 				isParcelExists = true;
-				parcelId = rset.getInt("id");
-				parcelFromUserId = rset.getInt("fromUserId");
-				parcelAddresseeName = rset.getString("addresseeName");
-				parcelAddresseeStreet = rset.getString("addresseeStreet");
-				parcelAddresseeCity = rset.getString("addresseeCity");
-				parcelAddresseeCityCode = rset.getString("addresseeCityCode");
-				parcelSendTime = rset.getString("sendTime");
-				setParcelDeliveryTime(rset.getString("deliveryTime"));
-				parcelDeliverer = rset.getInt("deliverer");
-				// System.out.println(parcelId + " " + parcelFromUserId + " "
-				// + parcelAddresseeName + " " + parcelAddresseeStreet
-				// + " " + parcelAddresseeCity + " "
-				// + parcelAddresseeCityCode + " " + parcelSendTime + " "
-				// + parcelDeliverer + "\n");
+				parcelId = resultSet.getInt("id");
+				parcelFromUserId = resultSet.getInt("fromUserId");
+				parcelAddresseeName = resultSet.getString("addresseeName");
+				parcelAddresseeStreet = resultSet.getString("addresseeStreet");
+				parcelAddresseeCity = resultSet.getString("addresseeCity");
+				parcelAddresseeCityCode = resultSet
+						.getString("addresseeCityCode");
+				parcelSendTime = resultSet.getString("sendTime");
+				parcelTimePos = resultSet.getString("timePos");
+				parcelDeliveryTime = resultSet.getString("deliveryTime");
+				parcelDeliverer = resultSet.getInt("deliverer");
 			}
+
+			// jesli przesylka istnieje
+			if (isParcelExists == true) {
+				// odnalezienie dostawcy ktory ma w swoim posiadaniu przesylke
+				// nrParcel
+				strSelect = "select * from deli.deliverer where id="
+						+ parcelDeliverer;
+				resultSet = statement.executeQuery(strSelect);
+				while (resultSet.next()) {
+					delivererId = resultSet.getInt("id");
+					delivererLatitude = resultSet.getDouble("latitude");
+					delivererLongitude = resultSet.getDouble("longitude");
+					delivererTimePos = resultSet.getString("timePos");
+				}
+				// odnalezienie nadawcy przesylki nrParcel
+				strSelect = "select * from deli.registeredUser where id="
+						+ parcelFromUserId;
+				resultSet = statement.executeQuery(strSelect);
+				while (resultSet.next()) {
+					registeredUserId = resultSet.getInt("id");
+					registeredUserNameUser = resultSet.getString("nameUser");
+					registeredUserStreetUser = resultSet
+							.getString("streetUser");
+					registeredUserCityUser = resultSet.getString("cityUser");
+					registeredUserCityCodeUser = resultSet
+							.getString("cityCodeUser");
+				}
+			}
+			connection.close();
+			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		// odnalezienie dostawcy ktory ma w swoim posiadaniu przesylke nrParcel
-		try (Connection conn = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
-				Statement stmt = conn.createStatement();) {
-			strSelect = "select * from deli.deliverer where id="
-					+ parcelDeliverer;
-			// System.out.println("SQL query is: " + strSelect);
-
-			ResultSet rset = stmt.executeQuery(strSelect);
-			// System.out.println("the records selected are:");
-
-			while (rset.next()) {
-				delivererId = rset.getInt("id");
-				delivererLatitude = rset.getDouble("latitude");
-				delivererLongitude = rset.getDouble("longitude");
-				delivererTimePos = rset.getString("timePos");
-				// System.out.println(delivererId + " " + delivererLatitude +
-				// " "
-				// + delivererLongitude + " " + delivererTimePos + "\n");
-				// os w stylu, ze jesli 999... to Centre
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-
-		// odnalezienie nadawcy przesylki nrParcel
-		try (Connection conn = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
-				Statement stmt = conn.createStatement();) {
-			strSelect = "select * from deli.registeredUser where id="
-					+ parcelFromUserId;
-			// System.out.println("SQL query is: " + strSelect);
-
-			ResultSet rset = stmt.executeQuery(strSelect);
-			// System.out.println("the records selected are:");
-
-			while (rset.next()) {
-				registeredUserId = rset.getInt("id");
-				registeredUserNameUser = rset.getString("nameUser");
-				registeredUserStreetUser = rset.getString("streetUser");
-				registeredUserCityUser = rset.getString("cityUser");
-				registeredUserCityCodeUser = rset.getString("cityCodeUser");
-				// System.out.println(registeredUserId + " "
-				// + registeredUserNameUser + " "
-				// + registeredUserStreetUser + " "
-				// + registeredUserCityUser + " "
-				// + registeredUserCityCodeUser + "\n");
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
 	}
 
 	public void selectBase(int _nrBase) {
 		String strSelect = "";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
 		// odnalezienie przesylki o nrParcel
-		try (Connection conn = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
-				Statement stmt = conn.createStatement();) {
-			strSelect = "select * from deli.Centre where id=" + _nrBase;
-			// System.out.println("SQL query is: " + strSelect);
-
-			ResultSet rset = stmt.executeQuery(strSelect);
-			// System.out.println("the records selected are:");
-
-			while (rset.next()) {
-				// centreId = rset.getInt("id");
-				centreNameCentre = rset.getString("nameCentre");
-				// centreStreetCentre = rset.getString("streetCentre");
-				// centreCityCentre = rset.getString("cityCentre");
-				// centreCityCodeCentre = rset.getString("cityCodeCentre");
+		try {
+			Connection connection = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
+			Statement statement = connection.createStatement();
+			strSelect = "select * from deli.centre where id=" + _nrBase;
+			ResultSet resultSet = statement.executeQuery(strSelect);
+			while (resultSet.next()) {
+				centreNameCentre = resultSet.getString("nameCentre");
 			}
+			connection.close();
+			statement.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -318,6 +287,14 @@ public class SearchParcel {
 
 	public void setCentreNameCentre(String centreNameCentre) {
 		this.centreNameCentre = centreNameCentre;
+	}
+
+	public String getParcelTimePos() {
+		return parcelTimePos;
+	}
+
+	public void setParcelTimePos(String parcelTimePos) {
+		this.parcelTimePos = parcelTimePos;
 	}
 
 }

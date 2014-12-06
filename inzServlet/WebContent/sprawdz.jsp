@@ -34,7 +34,8 @@
 	width: 100%;
 	height: 400px;
 }
-#map-canvas-direction {
+
+#mapka {
 	width: 100%;
 	height: 400px;
 }
@@ -64,7 +65,7 @@
 				<h1>
 					<a href="#">Firma transportowa</a>
 				</h1>
-<!-- 				<span class="tag">Twój czas</span> -->
+				<!-- 				<span class="tag">Twój czas</span> -->
 			</div>
 		</div>
 	</div>
@@ -83,7 +84,7 @@
 							<h2>Wpisz nr przesylki</h2>
 							<form id="formularz" method="post" action="">
 								<input type="text" name="nr" /> <input type="submit"
-									value="sprawdź" />
+									value="sprawdz" />
 							</form>
 						</header>
 
@@ -91,7 +92,7 @@
 							if (request.getAttribute("isParcelExists") != null
 									&& request.getAttribute("isParcelExists").equals(true)) {
 						%>
-						<table width="100%">
+						<table style="width: 100%">
 
 							<tr>
 								<td>
@@ -108,7 +109,7 @@
 										out.print("Nadawca");
 									%>
 								</td>
-								<td>${regUserName}<br /> ${regUserAddr}
+								<td>${regUserName}<br> ${regUserAddr}
 								</td>
 							</tr>
 
@@ -127,7 +128,7 @@
 										out.print("Odbiorca");
 									%>
 								</td>
-								<td>${userName}<br /> ${userAddr}
+								<td>${userName}<br> ${userAddr}
 								</td>
 							</tr>
 
@@ -135,7 +136,7 @@
 								<td>
 									<%
 										out.print("Planowany czas");
-									%><br /> <%
+									%><br> <%
  	out.print("dostarczenia");
  %>
 								</td>
@@ -145,11 +146,11 @@
 								<td>
 									<%
 										out.print("Ostatnie zarejestrowane");
-									%><br /> <%
- 	out.print("położenie");
+									%><br> <%
+ 	out.print("polozenie");
  %>
 								</td>
-								<td>${lastTime}</td>
+								<td>${lastTime}<br>${msg}</td>
 							</tr>
 						</table>
 
@@ -159,7 +160,7 @@
 
 				<!-- Content -->
 				<div id="content" class="8u skel-cell-important">
-				<!-- 	<div id="map-canvas">
+					<!-- 	<div id="map-canvas">
 						Polaczenie z googleapis, pobranie mapy, wyznaczenie markera i wyswietlenie mapy
 						<script
 							src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
@@ -207,73 +208,15 @@
 						</script>
 						
 					</div> -->
-					
-					<div id="map-canvas-direction">
-						<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-						<script>
-						var lat = "${lat}";
-						var lon = "${lon}";
-							var directionsDisplay;
-							var directionsService = new google.maps.DirectionsService();
-							var map;
 
-							function initialize() {
-								directionsDisplay = new google.maps.DirectionsRenderer();
-								var latlon = new google.maps.LatLng("${lat}",
-										"${lon}");
-								var mapOptions = {
-									zoom : 7,
-									center : latlon
-								};
-								map = new google.maps.Map(document
-										.getElementById('map-canvas-direction'),
-										mapOptions);
-								directionsDisplay.setMap(map);
-								var marker = new google.maps.Marker(
-										{
-											position : new google.maps.LatLng(
-													lat, lon),
-											map : map,
-											title : "Kurier"
-										});
-							}
-
-							function calcRoute() {
-								var start = "${regUserAddr}";
-								var end = "${userAddr}";
-								var request = {
-									origin : start,
-									destination : end,
-									travelMode : google.maps.TravelMode.DRIVING
-								};
-								directionsService
-										.route(
-												request,
-												function(response, status) {
-													if (status == google.maps.DirectionsStatus.OK) {
-														directionsDisplay
-																.setDirections(response);
-													}
-												});
-								
-							}
-
-							google.maps.event.addDomListener(window, 'load',
-									initialize);
-							google.maps.event.addDomListener(window, 'load',
-									calcRoute);
-						</script>
-
-					</div>
+					<div id="mapka"></div>
 					<%
-							}
-							else {
-								%>
-								<br>
-							${msg} ${id}
-							<% 
-							}
-						%>
+						} else {
+					%>
+					<br> ${msg} ${id}
+					<%
+						}
+					%>
 				</div>
 
 
@@ -286,11 +229,13 @@
 	<div id="tweet">
 		<div class="container">
 			<section>
-				<blockquote><!-- &ldquo;cycat cycat&rdquo; --></blockquote>
+				<blockquote>
+					<!-- &ldquo;cycat cycat&rdquo; -->
+				</blockquote>
 			</section>
 		</div>
 	</div>
-	<!-- /Tweet -->	
+	<!-- /Tweet -->
 
 	<!-- Footer -->
 	<div id="footer">
@@ -315,6 +260,41 @@
 		</div>
 	</div>
 
+
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<script>
+		var lat = "${lat}";
+		var lon = "${lon}";
+		var start = "${regUserAddr}";
+		var end = "${userAddr}";
+		var directionsRenderer = new google.maps.DirectionsRenderer();
+		var directionsService = new google.maps.DirectionsService();
+		var map;
+
+		function initialize() {
+			map = new google.maps.Map(document.getElementById('mapka'));
+			directionsRenderer.setMap(map);
+			new google.maps.Marker({
+				position : new google.maps.LatLng(lat, lon),
+				map : map,
+				title : "Kurier"
+			});
+
+			var request = {
+				origin : start,
+				destination : end,
+				travelMode : google.maps.TravelMode.DRIVING
+			};
+			directionsService.route(request, function(response, status) {
+				if (status == google.maps.DirectionsStatus.OK) {
+					directionsRenderer.setDirections(response);
+				}
+			});
+
+		}
+
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 
 </body>
 </html>

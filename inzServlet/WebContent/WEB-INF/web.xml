@@ -80,13 +80,4 @@
 		<url-pattern>/logowanie</url-pattern>
 	</servlet-mapping>
 	
-	<servlet>
-		<servlet-name>goo</servlet-name>
-		<jsp-file>/goo.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>goo</servlet-name>
-		<url-pattern>/goo</url-pattern>
-	</servlet-mapping>
-	
 </web-app>

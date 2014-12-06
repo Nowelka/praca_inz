@@ -20,6 +20,16 @@
 \newblock \url{https://docs.oracle.com/javase/specs/jls/se8/html/index.html}.
 \newblock [Online; dostęp 16.11.2014].
 
+\bibitem{eclipse}
+{eclipse with adnroid sdk}.
+\newblock \url{https://developer.android.com/sdk/index.html}.
+\newblock [Online; dostęp 11.11.2014].
+
+\bibitem{developer.google.maps}
+{Google}.
+\newblock \url{https://developers.google.com/maps/documentation/webservices/}.
+\newblock [Online; dostęp 16.11.2014].
+
 \bibitem{developer.google}
 {Google}.
 \newblock \url{http://developer.google.com}.
@@ -45,6 +55,11 @@
 {MySQL}.
 \newblock \url{http://dev.mysql.com/doc/refman/5.6/en/introduction.html}.
 \newblock [Online; dostęp 26.11.2014].
+
+\bibitem{szablon}
+{szablon}.
+\newblock \url{http://templated.co/linear}.
+\newblock [Online; dostęp 16.11.2014].
 
 \bibitem{xml.wiki}
 {xml wiki}.

@@ -16,13 +16,6 @@ public class Zamowienie extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		RequestDispatcher view = req.getRequestDispatcher("/zamowienie.jsp");
-
-		System.out.println("doget " + req.getParameter("sName")
-				+ req.getParameter("sStreet") + req.getParameter("sCity")
-				+ req.getParameter("sCityCode") + req.getParameter("aName")
-				+ req.getParameter("aStreet") + req.getParameter("aCity")
-				+ req.getParameter("aCityCode"));
-
 		view.forward(req, resp);
 	}
 
@@ -37,12 +30,6 @@ public class Zamowienie extends HttpServlet {
 				req.getParameter("aStreet"), req.getParameter("aCity"),
 				req.getParameter("aCityCode"));
 
-		System.out.println("dopost " + req.getParameter("sName") + " "
-				+ req.getParameter("sStreet") + " " + req.getParameter("sCity")
-				+ " " + req.getParameter("sCityCode") + " "
-				+ req.getParameter("aName") + " " + req.getParameter("aStreet")
-				+ " " + req.getParameter("aCity") + " "
-				+ req.getParameter("aCityCode"));
 		req.setAttribute("nrPracel", nrPracel);
 		view.forward(req, resp);
 
