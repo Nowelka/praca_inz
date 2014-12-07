@@ -3,7 +3,6 @@ package pl.javastart.servlets;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
@@ -33,8 +32,6 @@ public class DistanceMatrix {
 
 	public Double wyliczOdlegloscDistanceMatrix(String ulNadania,
 			String miastoNadania, String ulOdbioru, String miastoOdbioru) {
-		System.out.println(ulNadania + " " + miastoNadania + " <> " + ulOdbioru
-				+ " " + miastoOdbioru);
 		String urlPath = "";
 		try {
 			urlPath = "http://maps.googleapis.com/maps/api/distancematrix/xml?origins="
@@ -53,17 +50,10 @@ public class DistanceMatrix {
 		try {
 			document = DocumentBuilderFactory.newInstance()
 					.newDocumentBuilder().parse(new URL(urlPath).openStream());
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (SAXException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ParserConfigurationException e) {
+		} catch (SAXException | IOException | ParserConfigurationException e) {
 			e.printStackTrace();
 		}
 		String str = toString(document);
-		System.out.println(str);
 		String tmp = str.substring(str.indexOf("status>") + "status>".length(),
 				str.indexOf("</status"));
 
@@ -82,15 +72,12 @@ public class DistanceMatrix {
 		int days = 1;
 
 		// zamiana inta na date
-		String datee = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+		/* String datee = */new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 				.format(new Date(czasPomiedzyDwomaPunktami * 1000L));
 		//
 		// pobranie godziny z daty
-		System.out.println();
 		Calendar calendar = GregorianCalendar.getInstance();
 		calendar.setTime(sendTime);
-		System.out.println(sendTime + "   "
-				+ calendar.get(Calendar.HOUR_OF_DAY));
 		//
 		// ustawienie dni dostarczania
 		// godzina nadania po 18
@@ -111,11 +98,6 @@ public class DistanceMatrix {
 		if (czasPomiedzyDwomaPunktami > 20000) {
 			days++;
 		}
-
-		System.out.println(datee + "  dnie " + days);
-		System.out.println(odlegloscPomiedzyDwomaPunktami + "  "
-				+ czasPomiedzyDwomaPunktami);
-
 		calendar.add(Calendar.DAY_OF_MONTH, days);
 		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar
 				.getTime());
@@ -134,8 +116,8 @@ public class DistanceMatrix {
 
 			transformer.transform(new DOMSource(doc), new StreamResult(sw));
 			return sw.toString();
-		} catch (Exception ex) {
-			throw new RuntimeException("Error converting to String", ex);
+		} catch (Exception e) {
+			throw new RuntimeException("Error converting to String", e);
 		}
 	}
 }

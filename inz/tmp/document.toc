@@ -3,17 +3,17 @@
 \contentsline {section}{\numberline {2.1}Aplikacja na system Android}{3}
 \contentsline {section}{\numberline {2.2}Serwer}{7}
 \contentsline {section}{\numberline {2.3}Baza danych}{13}
-\contentsline {chapter}{\numberline {3}Przygotowanie i uruchomienie aplikacji}{14}
-\contentsline {chapter}{\numberline {4}Wykorzystane technologie}{15}
-\contentsline {section}{\numberline {4.1}Java}{15}
-\contentsline {subsection}{\numberline {4.1.1}podpodrozdzia\IeC {\l }}{16}
-\contentsline {section}{\numberline {4.2}Wzorzec architektoniczny - MVC}{16}
-\contentsline {section}{\numberline {4.3}Servlet}{16}
-\contentsline {section}{\numberline {4.4}JSP - Java}{17}
-\contentsline {section}{\numberline {4.5}Technologie internetowe}{17}
-\contentsline {section}{\numberline {4.6}db - MySQL}{17}
-\contentsline {section}{\numberline {4.7}Android}{17}
-\contentsline {section}{\numberline {4.8}Google apps - mapy}{17}
-\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{18}
-\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{19}
-\contentsline {chapter}{Bibliografia}{19}
+\contentsline {chapter}{\numberline {3}Przygotowanie i uruchomienie aplikacji}{15}
+\contentsline {chapter}{\numberline {4}Wykorzystane technologie}{16}
+\contentsline {section}{\numberline {4.1}Java}{16}
+\contentsline {subsection}{\numberline {4.1.1}podpodrozdzia\IeC {\l }}{17}
+\contentsline {section}{\numberline {4.2}Wzorzec architektoniczny - MVC}{17}
+\contentsline {section}{\numberline {4.3}Servlet}{17}
+\contentsline {section}{\numberline {4.4}JSP - Java}{18}
+\contentsline {section}{\numberline {4.5}Technologie internetowe}{18}
+\contentsline {section}{\numberline {4.6}db - MySQL}{18}
+\contentsline {section}{\numberline {4.7}Android}{18}
+\contentsline {section}{\numberline {4.8}Google apps - mapy}{19}
+\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{20}
+\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{21}
+\contentsline {chapter}{Bibliografia}{21}

@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.http.NameValuePair;
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpPost;
@@ -77,7 +76,6 @@ public class InDeliverer extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("doget InDeliverer");
 		PrintWriter out = resp.getWriter();
 		for (PairsLatLon pll : l) {
 			out.write(pll.toString() + "\n");
@@ -101,7 +99,6 @@ public class InDeliverer extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
-		System.out.println("dopost InDeliverer");
 	}
 
 	HttpPost httpPost;
@@ -111,34 +108,23 @@ public class InDeliverer extends HttpServlet {
 		String localhost = "192.168.1.2:8080";
 		String url = "http://" + localhost + "/inzServlet/insert";
 		try {
-
-			// System.out.println("p1");
 			httpPost = new HttpPost(url);
-			httpClient = HttpClientBuilder.create().build();// new
-			// DefaultHttpClient();
-			// System.out.println("p2");
+			httpClient = HttpClientBuilder.create().build();
 			ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
 			pairs.add(new BasicNameValuePair("ID", id + ""));
 			pairs.add(new BasicNameValuePair("longitude", lon + ""));
 			pairs.add(new BasicNameValuePair("latitude", lat + ""));
 			pairs.add(new BasicNameValuePair("timestamp", "2014-11-25 15:12:32"));
-			// System.out.println("p3");
-
 			httpPost.setEntity(new UrlEncodedFormEntity(pairs));
-			// System.out.println("p4");
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
 		}
 		new Thread(new Runnable() {
 
 			@Override
 			public void run() {
 				try {
-					/* HttpResponse httpResponse = */httpClient
-							.execute(httpPost);
-					// System.out.println("p5");
-				} catch (ClientProtocolException e) {
-					e.printStackTrace();
+					httpClient.execute(httpPost);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

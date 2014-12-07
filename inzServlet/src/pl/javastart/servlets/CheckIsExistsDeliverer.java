@@ -26,9 +26,8 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 			id = req.getParameter("ID");
 			activ = req.getParameter("activ");
 			logout = req.getParameter("logout");
-			System.out.println("dopost " + id + "  " + activ + "  " + logout);
-		} catch (Exception ex) {
-			System.out.println("Problem in message reading");
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -38,7 +37,6 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 		PrintWriter out = resp.getWriter();
 		String tmp = selectFromDB(id);
 		out.println(tmp);
-		System.out.println("doget " + id + "  " + tmp);
 	}
 
 	String selectFromDB(String id) {
@@ -48,10 +46,9 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 		boolean delivererActiv = false;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e1) {
-			e1.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
 		}
-
 		try {
 			Connection connection = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
@@ -59,19 +56,15 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 			Statement statement = connection.createStatement();
 			stringSelect = "select * from deli.deliverer where id=" + id;
 			ResultSet resultSet = statement.executeQuery(stringSelect);
-			System.out.println(resultSet.toString() + "  " + stringSelect);
 			while (resultSet.next()) {
-
 				delivererId = resultSet.getInt("id");
 				delivererActiv = resultSet.getBoolean("activ");
-				System.out.println(delivererId + "  " + delivererActiv);
 			}
 
 			if (delivererId > 0) {
 				if (delivererActiv == false) {
 					sqlInsert = " update deli.deliverer set activ=1 where id="
 							+ id;
-					System.out.println("CHECK commend " + sqlInsert);
 					statement.executeUpdate(sqlInsert);
 					connection.close();
 					statement.close();
@@ -81,7 +74,6 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 					if (logout.equals("0")) {
 						sqlInsert = " update deli.deliverer set activ=0 where id="
 								+ id;
-						System.out.println("CHECK commend " + sqlInsert);
 						statement.executeUpdate(sqlInsert);
 						connection.close();
 						statement.close();
@@ -95,10 +87,8 @@ public class CheckIsExistsDeliverer extends HttpServlet {
 			} else
 				return "false";
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return "";
-
 	}
 }

@@ -73,6 +73,7 @@
 \usepackage{psfrag}
 \usepackage[justification=centering]{caption}
 \usepackage{wrapfig}
+\usepackage{lipsum}
 
 %pakiety dodajace duzo dodatkowych polecen matematycznych
 \usepackage{amsmath} 
@@ -283,7 +284,6 @@ plik ,,AndroidManifest.xml''. Aplikacja zostały przyznane uprawnienia do
 sprawdzania stautusu sieci komórkowej oraz wifi, sprawdzania statusu sygnału
 GPS, a także do korzystania z wyżej wymienionych [listing \ref{manifest}].
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lstset{language=XML,
  keywords=[0]{uses,permission},
  keywordstyle=[0]{\color{green!50!black}},
@@ -507,7 +507,6 @@ zależności od tego jaki adres został wpisany w przeglądarkę.
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
-
 	<servlet>
 		<servlet-name>Sprawdz</servlet-name>
 		<servlet-class>pl.javastart.servlets.Sprawdz</servlet-class>
@@ -516,7 +515,6 @@ zależności od tego jaki adres został wpisany w przeglądarkę.
 		<servlet-name>Sprawdz</servlet-name>
 		<url-pattern>/sprawdz</url-pattern>
 	</servlet-mapping>
-	
 	<servlet>
 		<servlet-name>Index</servlet-name>
 		<jsp-file>/index.jsp</jsp-file>
@@ -717,11 +715,76 @@ request.getAttribute("isParcelExists").equals(true)) {
 }
 (*@\label{sprawdzjsp6}@*)else {
 %>
-<br> ${msg} ${id}
+(*@\label{sprawdzjsp7}@*)<br> ${msg} ${id}
 <% 
 }
 %>
 \end{lstlisting}
+
+Natomiast ustawianie parametrów umieszczonych w \$\{\ldots\} zrealizowano
+poprzez klasę rozszerzającą Servlet. Na listingu \ref{sprawdz.java} przedstawiono metodę
+\texttt{doPost()} klasy \texttt{Sprawdz.java}, która odpowiada za uzpułenianie
+pliku JSP \texttt{sprawdz.jsp} danymi dotyczącymi przesyłki, które są
+wyświetlane w widoku strony dla klienta. Klasa \texttt{Sprawdz} tworzy nowy
+obiekt klasy \texttt{SearchParcel} wywołując ją z argumentem id przesyłki.
+Obiekt klasy \texttt{Searchparcel} odczytuje bazę danych i przypisuje
+wartości zmiennym (lisitnig \ref{searchparcel.java}). Następnie sprawdzane jest
+w instrukcji warunkowej if czy taka przesyłka istnieje i wprowadzone znaki są
+typu integer, jeśli nie istniej to w zależności od tego jaki błąd wystąpił
+przygotowywana jest wiaomość zwrotna dotycząca błędu. Natomiast jeśli przesyłka
+istnieje ustawiane są parametry zwrotne
+\texttt{req.setAttribute(``\ldots'',\ldots)}. Warto zwrócić uwagę na to, że
+pierwszy argument \texttt{setAttribute} musi być zgodny z oczekiwaną nazwą
+zmiennej w pliku JSP, w inny wypadku nie zostanie przypisana wartość z klasy
+Javy do JSP. Na przykład argumenty z listingu \ref{sprawdzjsp} z linii
+\ref{sprawdzjsp7} muszą się zgadzać argumentą z listnigu \ref{sprawdz.java} z
+linii \ref{sprawdzjava1}-\ref{sprawdzjava2}.
+
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{}} 
+\begin{lstlisting}[caption=Fragment klasy Sprawdz.Java\,
+metoda doPost(),label=sprawdz.java]
+protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+			throws ServletException, IOException {
+	String id = req.getParameter("nr");
+	boolean isParcelExists = false;
+	RequestDispatcher view = req.getRequestDispatcher("/sprawdz.jsp");
+	if (id != null && (Sth.isInteger(id)) == true) {
+		SearchParcel searchParcel = new SearchParcel(Integer.parseInt(id));
+		if (searchParcel.getIsParcelExists() == true) {
+			isParcelExists = true;
+			req.setAttribute("id", id);
+			req.setAttribute("lat", searchParcel.getDelivererLatitude());
+			req.setAttribute("lon", searchParcel.getDelivererLongitude());
+			req.setAttribute("regUserName",	searchParcel.getRegisteredUserNameUser());
+			req.setAttribute("regUserAddr",	searchParcel.getRegisteredUserStreetUser() +
+					" " + searchParcel.getRegisteredUserCityUser() + " " +
+			searchParcel.getRegisteredUserCityCodeUser()); 
+			req.setAttribute("timeSend", searchParcel.getParcelSendTime().substring(0, 16));
+			req.setAttribute("userName", searchParcel.getParcelAddresseeName());
+			req.setAttribute("userAddr", searchParcel.getParcelAddresseeStreet() + " " +
+					searchParcel.getParcelAddresseeCity() + " "	+ 
+					searchParcel.getParcelAddresseeCityCode());
+			req.setAttribute("timeDelivery", searchParcel .getParcelDeliveryTime()
+					.substring(0, 16)); 
+			req.setAttribute("lastTime", searchParcel.getParcelTimePos().substring(0, 16));
+			if (searchParcel.getDelivererId() > 999000) {
+				searchParcel.selectBase(searchParcel.getDelivererId());
+				req.setAttribute("msg", "Przesylka w bazie: "
+						+ searchParcel.getCentreNameCentre());
+			}
+		} else {
+			(*@\label{sprawdzjava1}@*)req.setAttribute("msg", "Nie mamy przesylki w bazie
+					o numerze: "); 
+			(*@\label{sprawdzjava2}@*)req.setAttribute("id", id); }
+	}
+	if (id == null || (Sth.isInteger(id)) == false)
+		req.setAttribute("msg", "Prosze podac poprawny numer
+		przesylki"); req.setAttribute("isParcelExists", isParcelExists);
+	req.removeAttribute("nr");
+	view.forward(req, resp);
+};
+\end{lstlisting}
+
 
 Na podstawie źródła \cite{developer.google.maps} powstał kod, który wyświetla
 mapę ze znacznikami. Z danych metody post pobierane są wartości lat i lon
@@ -813,7 +876,8 @@ void selectFromDB(int nrParcel) {
 			isParcelExists = true;
 			parcelId = resultSet.getInt("id");
 			parcelFromUserId = resultSet.getInt("fromUserId");
-			parcelAddresseeName = resultSet.getString("addresseeName");
+			parcelAddresseeName = resultSet.getString("addresseeName");req.setAttribute("regUserName",
+						searchParcel.getRegisteredUserNameUser());
 			parcelAddresseeStreet = resultSet.getString("addresseeStreet");
 			parcelAddresseeCity = resultSet.getString("addresseeCity");
 			parcelAddresseeCityCode = resultSet
@@ -915,7 +979,7 @@ Jeśli w IDE Eclipse nie ma dodanych odpowiednich perspektywn trzeba je dodać
 (Open Perspective) będzie potrzebna perspektywa ,,Java'' oraz ,,SQL Explorer''.
 Po spełnieniu wszyscich poprzednio wymieninionych kroków można eksportować
 projekty. Import projektów wybiera się w zakładce File>Import>Existing Projects
-Into Workspace
+Into Workspace.
 
 \chapter{Wykorzystane technologie}
 
@@ -928,7 +992,6 @@ zrelizowano aplikację mobilną, obsługę servletu, bazy danych, odpytywania i
 parsowania odpowiedzi serwera Google o widok mapy i odległośći pomiędzy dwoma
 punktami, a także obsługa witryny http. Całą oplikację stworzono za pomocą IDE
 Eclipse z odpowiednimi dodatkami.
-\emph{\color{komentarz}logo Javy}
 
 \section{Java}
 
@@ -937,11 +1000,20 @@ Charakteryzuje się silnym ukierunkowaniem na obiektowość oraz niezależności
 przenoszalnośćią kodu od architekty.Oprócz wyżej wymieniowych założeniami języka
 Java jest prostota, sieciowość, niezawodność, bezpieczność, interpretowalność, wysokowydajny,
 wielowątkowy, dynamiczny oraz niezależny od architektury. 
+
 \begin{itemize}
-  \item Prosty - założeniami autorów języka Java było aby programista bez
+  \item  \parbox[t]{\dimexpr\textwidth-\leftmargin}{
+      \vspace{-2.5mm}
+    \begin{wrapfigure}{R}{0.3\textwidth}
+	\centering
+	\includegraphics[width=0.18\textwidth]{javaEE.png}
+	\caption{\label{javaEE}Logo Java EE.}
+	\end{wrapfigure}
+  Prosty - założeniami autorów języka Java było aby programista bez
   specjalnych szkoleń mógł od razu zacząć pisać w języku Java. Skłądnia została
   oczyszczona (w stostunku do C++) o arytmetykę wskaźnikową, struktury, unie,
-  przeciążanie operatorów itd.
+  przeciążanie operatorów itd. 
+	}
   \item Zorientowany obiektowo
   \item Sieciowy - Java poasiada bbiliotekę, która w przystępny sposób umożlwia
   pracę z protokałami http, TCP/IP, ftp
@@ -979,7 +1051,7 @@ abstrakcyjny typ, który posiada jedynie opracje, ale nie posiada danych, z tego
 powodu można tylko implementować interfejs i nie można utworzyć obiektów tego
 typu. Język Java umożliwia pisanie aplikacji stacjonarnych, webowych czy
 mobilnych. Język Java ma rozbudowaną obsługę wyjątków. Posiada dobrze
-rozbudowanego GarbageCollector (odśmieciacza) \cite{java.doc}.
+rozbudowanego \texttt{GarbageCollector} (odśmieciacza) \cite{java.doc}.
 \subsection{podpodrozdział}
 
 \section{Wzorzec architektoniczny - MVC}
@@ -1009,7 +1081,7 @@ przekazuje go do widoku. \cite{java.mvc}
 Autor w swojej pracy użył modelu MVC2 [rys. \ref{MVC2}]
 Uzasadnieniem użycia tego wzorca jest ułatwiona organizacja aplikacji, w której
 istnieje interfejs graficzny użytkownika. Dzięki niemu w prosty logiczny sposób
-można było rozdzielić logikę, kontrolę i widok. Kontenerem z [rys. \ref{MVC2}]
+można było rozdzielić logikę, kontrolę i widok. Kontrolerem z [rys. \ref{MVC2}]
 jest opisany w kolejnym podrozdziale Servlet.
 
 \section{Servlet}
@@ -1018,33 +1090,51 @@ Serwlety są to aplikacje działające na serwerze WWW korzystające z języka J
 Serwlety mają zapewniać budowanie aplikacji internetowych niezależnych od
 platformy. Serwlet umożliwia korzystanie z baz danych i http. Z tego powodu
 wykrozystywane są do budowania interaktywnych aplikacji internetowych. 
-\begin{wrapfigure}{r}{0.3\textwidth}
-\label{apache}
-\centering
-\captionsetup{justification=centering,margin=0.5cm}
-\vspace{-20pt}
-\begin{center}
-\subfigure {
-	\includegraphics[width=10ex]{feather.png}
 
-	\includegraphics[width=10ex]{tomcat.png}
-}
-\end{center}
-\vspace{-20pt}
-\caption{Logo Apache i Apache Tomcat \cite{apache.org}}
+\begin{wrapfigure}{r}{0.3\textwidth}
+\centering
 \vspace{-10pt}
+\subfigure {
+\includegraphics[width=10ex]{feather.png}
+\includegraphics[width=10ex]{tomcat.png}
+}
+\caption{\label{apache}Logo apache i apache tomcat.}
+\vspace{-35pt}
 \end{wrapfigure}
 
-open source'owy i korzysta z licencji Apache. Serwer Apache obsługuje www za pomocą protokołu
-W projekcie skorzystano z serwletu Tomcat Apache [rys. \ref{apache}], który jest
-http, jest otwarty, zapewnia wielowątkowość, skalowalność, bezpieczeństwo,
-kontrolę dostępu \cite{apache.wiki}. 
-
+Serwer Apache obsługuje www za pomocą protokołu. Wybrana w projekcie dystrybucja
+to serwlet Tomcat Apache [rys. \ref{apache}], który jest http, jest otwarty,
+zapewnia wielowątkowość, skalowalność, bezpieczeństwo oraz kontrolę dostępu
+\cite{apache.wiki}.
 
 Wybór Tomcate Apache na serwer podyktowany był przez wybór jako głównego języka
 aplikacji - Javy. Serwlet jest dość popularnym narzędziem, co pomogło także w
 uruchomieniu i skonfigurowaniu go.
 \section{JSP - Java}
+
+JSP (ang. JAvaServer Pages) jest to technologia, dzięki której możliwe jest
+dynamiczne tworzenie stron webowych. JSP bazuje na językach znacznikowych, np.
+html, xml oraz innych. Technologia ta jest kompatybilna z servletami (Apache
+Tomcat, i innymi).
+
+To właśnie wprowadzenie plików JSP wymaga korzystanie z wcześniej
+opisanego modelu MVC [rys. \ref{MVC2}]. W dodatku JSP oprócz użycia języków
+skryptowych umożliwia przeplatanie ich z językiem Java. Wtedy kod, który będzie
+napisany w Javie musi być wzięt w znaki <\% \ldots \%>, np. fragment z listingu
+\ref{sprawdzjsp}:
+
+\texttt{<\% out.print("Nadawca"); \%> \$\{regUserName\}
+\$\{regUserAddr\}}
+Natomiast frazy ujęte w znaki \$\{\ldots\} służą do dostępu (pobrania
+i/lub wysyłania) do danych i funkcji, które powstały w obiektach Javy. Żeby
+przekazać taką wartość z klasy Javy, klasa ta musi rozszerzać Servlet
+(\texttt{extends HttpServlet}) ustawiać taki parametr jaki jest pomiędzy
+nawiasami \{\} korzystając z HttpServletRequest, jako przykład podano fragment z
+listingu \ref{}:
+
+\texttt{req.setAttribute("regUserName",
+						searchParcel.getRegisteredUserNameUser());}
+
 \section{Technologie internetowe}
 
 W przedstawionym w tej pracy projekcie korzystano z technologi internetowych,
@@ -1053,6 +1143,7 @@ z takich technologii jak:
 \begin{itemize}
   \item JavaScript - jest to skryptowy jezyk programowania stosowany do
   tworzenia stron internetowych, zapewnia interakcję z użytkownikiem\cite{javascript.wiki}
+  \item HTML - 
   \item XML - jesto to język znaczników przeznaczony do reprezenowania danych w
   strukturyzowany sposób \cite{xml.wiki}
   \item Protokół http - 

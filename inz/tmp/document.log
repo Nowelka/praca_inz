@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.11.14)  7 DEC 2014 00:13
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.11.14)  7 DEC 2014 03:56
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -444,6 +444,11 @@ Package caption Info: subfigure package is loaded.
 \WF@everypar=\toks18
 Package: wrapfig 2003/01/31  v 3.6
 )
+(/usr/share/texmf-texlive/tex/latex/lipsum/lipsum.sty
+Package: lipsum 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
+File: lipsum.dtx 2005/01/26 v1.0 150 paragraphs of Lorem Ipsum dummy text
+\c@lips@count=\count105
+)
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip49
@@ -464,13 +469,13 @@ Package: amsbsy 1999/11/29 v1.2d
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count105
+\inf@bad=\count106
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count106
-\leftroot@=\count107
+\uproot@=\count107
+\leftroot@=\count108
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count108
-\DOTSCASE@=\count109
+\classnum@=\count109
+\DOTSCASE@=\count110
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
@@ -479,15 +484,15 @@ LaTeX Info: Redefining \cdots on input line 467.
 \big@size=\dimen121
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count110
-\c@MaxMatrixCols=\count111
+\macc@depth=\count111
+\c@MaxMatrixCols=\count112
 \dotsspace@=\muskip11
-\c@parentequation=\count112
-\dspbrk@lvl=\count113
+\c@parentequation=\count113
+\dspbrk@lvl=\count114
 \tag@help=\toks20
-\row@=\count114
-\column@=\count115
-\maxfields@=\count116
+\row@=\count115
+\column@=\count116
+\maxfields@=\count117
 \andhelp@=\toks21
 \eqnshift@=\dimen122
 \alignsep@=\dimen123
@@ -511,7 +516,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 )
 (/usr/share/texmf-texlive/tex/latex/supertabular/supertabular.sty
 Package: supertabular 2004/02/20 v4.1e the supertabular environment
-\c@tracingst=\count117
+\c@tracingst=\count118
 \ST@wd=\dimen128
 \ST@rightskip=\skip52
 \ST@leftskip=\skip53
@@ -543,51 +548,51 @@ Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
 \TX@old@col=\dimen143
 \TX@target=\dimen144
 \TX@delta=\dimen145
-\TX@cols=\count118
+\TX@cols=\count119
 \TX@ftn=\toks25
 )
 (/usr/share/texmf-texlive/tex/latex/tools/hhline.sty
 Package: hhline 1994/05/23 v2.03 Table rule package (DPC)
 )
-\c@theorem=\count119
+\c@theorem=\count120
  (./document.aux)
 \openout1 = `document.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-\c@lstlisting=\count120
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+\c@lstlisting=\count121
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count121
+\scratchcounter=\count122
 \scratchdimen=\dimen146
 \scratchbox=\box32
-\nofMPsegments=\count122
-\nofMParguments=\count123
+\nofMPsegments=\count123
+\nofMParguments=\count124
 \everyMPshowfont=\toks26
-\MPscratchCnt=\count124
+\MPscratchCnt=\count125
 \MPscratchDim=\dimen147
-\MPnumerator=\count125
+\MPnumerator=\count126
 \everyMPtoPDFconversion=\toks27
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: supertabular package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\@temphbadness=\count126
-\@tempvbadness=\count127
+\@temphbadness=\count127
+\@tempvbadness=\count128
 \@temphfuzz=\skip57
 \@temptextwidth=\skip58
 \@temptextheight=\skip59
@@ -596,35 +601,35 @@ Package caption Info: End \AtBeginDocument code.
 \@tempheadsep=\skip62
 \@tempoddsidemargin=\skip63
 \@tempevensidemargin=\skip64
-LaTeX Font Info:    Try loading font information for OML+plm on input line 113.
+LaTeX Font Info:    Try loading font information for OML+plm on input line 114.
 
  (/usr/share/texmf-texlive/tex/latex/polski/omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 113
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 114
 .
 
 (/usr/share/texmf-texlive/tex/latex/polski/omsplsy.fd
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 113
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 114
 .
 
 (/usr/share/texmf-texlive/tex/latex/polski/omxplex.fd
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <10> on input line 113.
+(Font)              <10> on input line 114.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <7> on input line 113.
+(Font)              <7> on input line 114.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <5> on input line 113.
-LaTeX Font Info:    Try loading font information for U+msa on input line 113.
+(Font)              <5> on input line 114.
+LaTeX Font Info:    Try loading font information for U+msa on input line 114.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 113.
+LaTeX Font Info:    Try loading font information for U+msb on input line 114.
 
 (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
@@ -649,7 +654,7 @@ Non-PDF special ignored!
 ]
 Rozdzia\PlPrIeC {\l } 1.
 
-Overfull \hbox (24.71877pt too wide) in paragraph at lines 151--152
+Overfull \hbox (24.71877pt too wide) in paragraph at lines 152--153
 \T1/cmr/m/it/10 ope-ra-cyj-ny An-dro-id, ba-za da-nych My-SQL, Go-ogle Apps. ht
 tp://www.lokalizacja.info/pl/testy/monitoring/gdzie-
  []
@@ -737,7 +742,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 
 [7 <./strukturaServlet.png>]
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 583.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 581.
  [8]
 <sprawdz.png, id=66, 1472.50125pt x 600.2425pt>
 File: sprawdz.png Graphic file (type png)
@@ -751,32 +756,38 @@ File: nieMaPrzesylki.png Graphic file (type png)
 [9 <./sprawdz.png>] [10 <./przyklad.png> <./nieMaPrzesylki.png>] [11] [12]
 <ERD.png, id=85, 620.3175pt x 557.08125pt>
 File: ERD.png Graphic file (type png)
- <use ERD.png> [13 <./ERD.png (PNG copy)>]
+ <use ERD.png> [13] [14 <./ERD.png (PNG copy)>]
 Rozdzia\PlPrIeC {\l } 3.
-[14
+[15
 
 
 ]
 Rozdzia\PlPrIeC {\l } 4.
-[15
+<javaEE.png, id=95, 103.38625pt x 42.1575pt>
+File: javaEE.png Graphic file (type png)
+ <use javaEE.png> [16
 
 
-] <model2.jpg, id=95, 405.76593pt x 228.10219pt>
+ <./javaEE.png>] <model2.jpg, id=100, 405.76593pt x 228.10219pt>
 File: model2.jpg Graphic file (type jpg)
  <use model2.jpg>
-<feather.png, id=96, 356.33125pt x 111.41624pt>
+<feather.png, id=101, 356.33125pt x 111.41624pt>
 File: feather.png Graphic file (type png)
  <use feather.png>
-<tomcat.png, id=97, 207.174pt x 147.752pt>
+<tomcat.png, id=102, 207.174pt x 147.752pt>
 File: tomcat.png Graphic file (type png)
- <use tomcat.png> [16 <./model2.jpg> <./feather.png> <./tomcat.png>] [17]
+ <use tomcat.png> [17 <./model2.jpg> <./feather.png> <./tomcat.png>]
+
+LaTeX Warning: Reference `' on page 18 undefined on input line 1133.
+
+[18] [19]
 Rozdzia\PlPrIeC {\l } 5.
-[18
+[20
 
 
 ]
 Rozdzia\PlPrIeC {\l } 6.
-(./document.bbl [19
+(./document.bbl [21
 
 
 ]
@@ -786,63 +797,67 @@ Underfull \hbox (badness 1147) in paragraph at lines 55--58
 p
  []
 
-) [20
+) [22
 
 
 ] (./document.lof)
 \tf@lof=\write5
 \openout5 = `document.lof'.
 
- [21
+ [23
 
 
 ] (./document.lot)
 \tf@lot=\write6
 \openout6 = `document.lot'.
 
- [22
+ [24
 
 
 ] (./document.lol)
 \tf@lol=\write7
 \openout7 = `document.lol'.
 
- [23
+ [25
 
 
 ]
-(./document.aux) ) 
+(./document.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6538 strings out of 495026
- 86622 string characters out of 1181801
- 408867 words of memory out of 3000000
- 9558 multiletter control sequences out of 15000+50000
+ 6760 strings out of 495026
+ 89570 string characters out of 1181801
+ 500484 words of memory out of 3000000
+ 9775 multiletter control sequences out of 15000+50000
  26775 words of font info for 61 fonts, out of 3000000 for 9000
  48 hyphenation exceptions out of 8191
  36i,15n,49p,306b,1718s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx120
-0.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk>{/
-usr/share/texmf-texlive/fonts/enc/dvips/pl/plms.enc}{/usr/share/texmf-texlive/f
-onts/enc/dvips/pl/plmi.enc} </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/e
-c/ecbx0800.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000
-.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> </
-home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/monik
-a/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/monika/.texmf-v
-ar/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/monika/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecti1000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/j
-knappen/ec/ecrm1000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec
-/ecbx1000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.
-600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </h
-ome/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/monika
-/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1728.600pk> </home/monika/.texmf-va
-r/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plmi10.pf
-b></usr/share/texmf-texlive/fonts/type1/public/pl/plsy10.pfb></usr/share/texmf-
-texlive/fonts/type1/public/pl/plsy8.pfb>
-Output written on document.pdf (24 pages, 4736865 bytes).
+ </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/
+monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk>{/usr/share/texmf-
+texlive/fonts/enc/dvips/pl/plms.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/p
+l/plmi.enc} </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0800.600pk
+> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/m
+onika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> </home/monika/.tex
+mf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/monika/.texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/monika/.texmf-var/fonts/pk/ljfo
+ur/jknappen/ec/ecbx1440.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappe
+n/ec/ecti1000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1
+000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk>
+ </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/mo
+nika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/monika/.texm
+f-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/monika/.texmf-var/font
+s/pk/ljfour/jknappen/ec/eccc1728.600pk> </home/monika/.texmf-var/fonts/pk/ljfou
+r/jknappen/ec/ecrm2074.600pk></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy
+8.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plmi10.pfb></usr/share/te
+xmf-texlive/fonts/type1/public/pl/plsy10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/pl/plsy8.pfb>
+Output written on document.pdf (26 pages, 4759982 bytes).
 PDF statistics:
- 853 PDF objects out of 1000 (max. 8388607)
+ 878 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 

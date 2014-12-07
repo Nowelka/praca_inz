@@ -16,7 +16,6 @@ public class Sprawdz extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
 			throws ServletException, IOException {
 		RequestDispatcher view = req.getRequestDispatcher("/sprawdz.jsp");
-		System.out.println("get");
 		view.forward(req, resp);
 	}
 
@@ -25,13 +24,10 @@ public class Sprawdz extends HttpServlet {
 			throws ServletException, IOException {
 		String id = req.getParameter("nr");
 		boolean isParcelExists = false;
-		System.out.println("post");
 		RequestDispatcher view = req.getRequestDispatcher("/sprawdz.jsp");
-
 		if (id != null && (Sth.isInteger(id)) == true) {
 			SearchParcel searchParcel = new SearchParcel(Integer.parseInt(id));
 			if (searchParcel.getIsParcelExists() == true) {
-
 				isParcelExists = true;
 				req.setAttribute("id", id);
 				req.setAttribute("lat", searchParcel.getDelivererLatitude());
