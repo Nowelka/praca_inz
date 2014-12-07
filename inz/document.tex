@@ -121,9 +121,9 @@
 
 Współcześnie coraz więcej osób korzysta z możliwości zakupów przez internet,
 niesie to za sobą wiele korzyści. Często zakupiony towar jest tańszy, unikalny,
-bądz niedostępny w stacjonarnym sklepie czy poprostu jest to wygodniejsza forma
+bądź niedostępny w stacjonarnym sklepie czy po prostu jest to wygodniejsza forma
 zakupów. Oprócz wyżej wymienionych zakupów istotnym towarem przewożonym
-są dokumenty, często szybko potrzebne. Z tych powodów ludzie zamawijący usługi 
+są dokumenty, często szybko potrzebne. Z tych powodów ludzie zamawiający usługi 
 kurierskie chcieliby dostać jak najwyższą jakość. Zwiększenie jakości tej
 usługi może nastąpić poprzez skrócenie czasu dostarczenia przesyłki(co
 fizycznie już jest nie osiągalne), tańszy jej koszt, czy na przykład możliwość
@@ -139,7 +139,7 @@ graficzne przedstawienie, w formie mapy, aktualnej lokalizacji przesyłki. Taka
 forma prezentacji jest prosta w odbiorze i bardziej czytelna niż wyniki
 jakie prezentowane są aktualnie w formie tabel, w których zawarte są miejsca
 odbicia przesyłki. Ponadto praca próbuje rozwiązać problem jaki istnieje w
-estymacji czasu dostraczaniu przesyłki do adresata, esytmacja czasu
+estymacji czasu dostarczaniu przesyłki do adresata, estymacja czasu
 dostarczenia jest bardzo niedokładna(ogólna) lub jej nie ma.
 
 \emph{\color{komentarz}
@@ -159,17 +159,17 @@ zrealizuje zadanie na androidzie.
 \chapter{Rozwiązanie - prezentacja wyników}
 
 
-Zrealizowana aplikacja składa się z dwóch części, tj. aplikacji na adroida oraz
+Zrealizowana aplikacja składa się z dwóch części, tj. aplikacji na androida oraz
 serwera www. Serwer, czyli Servlet(aplet Javy) posiada połączenie z bazą
 danych, w której przechowywane są informacje o przesyłce, kurierach i
 klientach. 
 
-Aplikację zrealizowano w środowisku programistycnym Eclipse.
+Aplikację zrealizowano w środowisku programistycznym Eclipse.
 
-schemat - wejscie (adnroid) - środek system - wyjscie www z mapka
+schemat - wejście (android) - środek system - wyjście www z mapka
 
-\emph{\color{komentarz} dopisac pierdół wstępowych\\oprócz tego dopisać jak
-testowałam to\\dorzucić schemat sysemu}
+\emph{\color{komentarz} dopisać pierdół wstępowych\\oprócz tego dopisać jak
+testowałam to\\dorzucić schemat systemu}
 \section{Aplikacja na system Android}
 
 Założeniem aplikacji mobilnej było lokalizowanie kuriera i wysyłanie jego
@@ -199,10 +199,10 @@ pluginu ADT (Android Development Kit) do programu Eclipse. Na ADT składają si�
 elementy Android SDK, gdzie SDK to Software Development Kit. Android SDK
 zawiera w sobie takie elementy jak Tools - służy do tworzenia aplikacji niezależnie od
 wersji systemu Android oraz Platform Tools - narzędzia stworzone pod kątem
-wersji systemu Android. W skłąd SDK Tools wchodzą taki funkcjie jak zarządznie
-projaektami, modułami czy maszynami wirualnymi, debugger, emulator. Natomiast
+wersji systemu Android. W skład SDK Tools wchodzą taki funkcje jak zarządzanie
+projektami, modułami czy maszynami wirtualnymi, debugger, emulator. Natomiast
 Platform Tools zawiera biblioteki do systemu Android. Plugin ADT  korzysta
-z funckji Android SDK i pomaga tworzyć, budować, instalować oraz debugować
+z funkcji Android SDK i pomaga tworzyć, budować, instalować oraz debugować
 aplikacje na system Android w środowisku Eclipse. W programie Eclipse tworzona
 jest z aplikacją odpowiednia struktura projektu [rys. \ref{android}], w której
 jest podział na klasy zawierające logikę aplikacji (scr), pliki generowane przez kompilator (gen),
@@ -211,17 +211,17 @@ folder na pliki z zasobami (assets), pliki binarne(bin), dodatkowe biblioteki
 generowane do pliku R.java (nie trzeba podawać lokalizacji zasobów tylko jego
 nazwę). W katalogu res również ustalana jest konfiguracja systemu - 
 ,,AndroidManifest.xml'', layout (wygląd i ustawienie elementów na ekranie
-systemu Android), w podfolderach drawable pliki graficzne, w podfolderach values
+systemu Android), w podfolderach Drwale pliki graficzne, w podfolderach values
 ciągi znaków(stringi, kolory) i ustawienia oraz w katalogu menu, w którym
 ustawiane są dostępne opcje menu.
 
 Projektowanie aplikacji Android zaczyna się od ustawienia layoutu aplikacji
 (/res/layout/activity\_main.xml). Zaprojektowany przez autora layout jest
-prosty i przejrzysty, ponieważ ma wykonywać bardzo podstawowe funkcjie [rys.
+prosty i przejrzysty, ponieważ ma wykonywać bardzo podstawowe funkcje [rys.
 \ref{androidViewOK}]. I tak zawiera w sobie pole do wpisywania id kuriera,
 pole wyświetlające komunikaty oraz przycisk wyłączający aplikację. Aplikacja została
-tak przemyślana, że aby ją wyłączyć trzeba użyć przycisku ,,Off'', pozostałe hardwar'owe przyciski
-nie wyłączają aplikacji, jedynie ją mimalizują. Takie właściwości zostały
+tak przemyślana, że aby ją wyłączyć trzeba użyć przycisku ,,Off'', pozostałe hardware'owe przyciski
+nie wyłączają aplikacji, jedynie ją minimalizują. Takie właściwości zostały
 stworzone z myślą o tym, aby kurier podczas używania aplikacji tylko w świadomy
 sposób mógł ją zamknąć.
 
@@ -231,7 +231,7 @@ sposób mógł ją zamknąć.
 \subfigure[Główny ekran aplikacji, oczekuje na wprowadzenie id kuriera]{
 \includegraphics[width=30ex]{andWprowadz.png}
 }
-\subfigure[Gdy nie jest włączona sieć komórkowa lub wifi na ekranie pokazuje
+\subfigure[Gdy nie jest włączona sieć komórkowa lub WiFi na ekranie pokazuje
 się komunikat i zostaje zablokowane pole do wprowadzania id]{
 \includegraphics[width=30ex]{andWifi.png}
 }
@@ -244,8 +244,8 @@ się komunikat i zostaje zablokowane pole do wprowadzania id]{
 \subfigure[System czeka na ustalenie lokalizacji]{
 \includegraphics[width=30ex]{andCzeka.png}
 }
-\subfigure[System lokalizuje i wyswietla informacje o lokalizacji i czasie
-odzytu]{
+\subfigure[System lokalizuje i wyświetla informacje o lokalizacji i czasie
+odczytu]{
 \includegraphics[width=30ex]{andLokal.png}
 }
 \caption{Ekrany Androida }
@@ -263,12 +263,12 @@ powiadomieniach [rys. \ref{androidViewtask}].
 \centering
 \captionsetup{justification=centering,margin=1cm}
 
-\subfigure[systuacja gdy jest już zajęte id lub nie istnieje]{
+\subfigure[sytuacja gdy jest już zajęte id lub nie istnieje]{
 \includegraphics[width=25ex]{andJuzzalog.png}
 \includegraphics[width=25ex]{andNiema.png}
 \label{androidViewNOTOK}
 }
-\subfigure[status telfonu]{
+\subfigure[status telefonu]{
 \includegraphics[width=25ex]{andBarNie.png}
 \includegraphics[width=25ex]{andBarZal.png}
 \label{androidViewtask}
@@ -279,9 +279,9 @@ powiadomieniach [rys. \ref{androidViewtask}].
 
 \end{figure}
 
-Kolejnym krokiem było nadanie odpowiednich uprawnien aplikacji, do tego służy
+Kolejnym krokiem było nadanie odpowiednich uprawnień aplikacji, do tego służy
 plik ,,AndroidManifest.xml''. Aplikacja zostały przyznane uprawnienia do
-sprawdzania stautusu sieci komórkowej oraz wifi, sprawdzania statusu sygnału
+sprawdzania statusu sieci komórkowej oraz WiFi, sprawdzania statusu sygnału
 GPS, a także do korzystania z wyżej wymienionych [listing \ref{manifest}].
 
 \lstset{language=XML,
@@ -304,9 +304,9 @@ się obsługą interakcji pomiędzy użytkownikiem a urządzeniem. Klasa ta twor
 oraz na przykład umieszcza ustawione wcześniej przyciski interfejsu użytkownika.
 Znajdują się w niej takie metody jak \texttt{onCreate()}, \texttt{onDestroy()},
 \texttt{onStart()}, \texttt{onStop()} i inne. Metodę \texttt{onCreate()} należy
-przesłonić, jeśli mają być zainiciowane wcześniej wspomniane przyciski i pola z layoutu. Autor w swojej aplikacji nadaje
+przesłonić, jeśli mają być zainicjowane wcześniej wspomniane przyciski i pola z layoutu. Autor w swojej aplikacji nadaje
 właściwość dla przycisku, która ma po kliknięciu go w dowolnym momencie
-działania aplikacji wywoałać zamknięcie aplikacji. Takie zachowanie osiąga się
+działania aplikacji wywołać zamknięcie aplikacji. Takie zachowanie osiąga się
 poprzez wywołanie na rzecz niego metody \texttt{public void
 setOnClickListener(View.OnClickListener l)}[listing \ref{button}].
 
@@ -324,7 +324,7 @@ button.setOnClickListener(new View.OnClickListener() {
 		});
 \end{lstlisting}
 
-Na listingu \ref{button} widać zmienną \texttt{savedID}, jest pole klasy, które
+Na listingu \ref{button} widać zmienną \texttt{savedId}, jest pole klasy, które
 zapisywane jest wpisanym przez kuriera jego \texttt{id}. Gdy użytkownik wyłącza
 aplikację system sprawdza czy \texttt{savedId} nie jest puste i w przypadku gdy
 \texttt{savedId} posiada jakąś wartość tworzony jest nowy obiekt
@@ -377,20 +377,20 @@ protected String doInBackground(String... params) {
 
 Po zainicjalizowaniu pola edycji zostaje wywołana na rzecz niego metoda public
 void addTextChangedListener(TextWatcher watcher), która oczekuje, aż w polu
-tekstowym użytkownik wpisze odpowiedni ciąg znaków, systemowo dozowolone są
+tekstowym użytkownik wpisze odpowiedni ciąg znaków, systemowo dozwolone są
 tylko cyfry.
 W tym przypadku wykorzystano metodę abstract void afterTextChanged(Editable s) z interfejsu
 TextWatcher. Po wpisaniu przez kuriera czterech cyfr następuje weryfikacja
 wpisanego id. Po pozytywnym przejściu weryfikacji id kuriera aplikacja sprawdza
 czy w urządzeniu jest włączony moduł GPS. Gdy spełnione zostaną wszystkie
-warunki uruchamiany jest handler, który zczytuje pozycję kuriera i wysyła ją na
+warunki uruchamiany jest handler, który sczytuje pozycję kuriera i wysyła ją na
 serwer wraz z datą, w której nastąpił odczyt. 
 
 Odczyt pozycji GPS dostępny jest dzięki użyciu klasy LocationManager, która
 zapewnia dostęp do lokalizacji systemu. LocationManager należy zainicjalizować
-klasą Context (umożliwia dostęp do zasobów systemu i informacjię o nim),
+klasą Context (umożliwia dostęp do zasobów systemu i informację o nim),
 natomiast getSystemService jest do kontroli pobierania lokalizacji. Następnie
-ustawiono z jaką częstotliowścią ma być odczytywana zmiana pozycji. Po wykonaniu
+ustawiono z jaką częstotliwością ma być odczytywana zmiana pozycji. Po wykonaniu
 tych czynność następuje zapytanie o ostatnią znaną pozycję. Całą
 procedurę odczytu pozycji GPS pokazano na listingu \ref{GpsTrack}.
 
@@ -419,7 +419,7 @@ Ostatnią istotną częścią jaka realizowana jest na systemie Android to poł�
 z serwerem. Nim zostanie nawiązane połączenie konieczne jest przygotowanie
 treści wiadomości jaka ma zostać wysłana na adres serwer. Następuje to poprzez
 wpisanie par ciągów znaków, w tym jedna część to identyfikator, a druga to jego
-wartość, do tablicy. Na jej podstawie wystosowany jest url httpPost i wykonywany
+wartość, do tablicy. Na jej podstawie wystosowany jest URL httpPost i wykonywany
 na kliencie http (tutaj na Servlecie). Taka wiadomość może wyglądać w tym
 przypadku tak:
 \begin{flushright}
@@ -462,11 +462,11 @@ na systemie Android. W opisie i w listingach ominięto obsługę wyjątków.
 
 \section{Serwer}
 
-W niniejszej pracy skorzystano możliwości rozszerzenie języka Java o funkcjie
+W niniejszej pracy skorzystano możliwości rozszerzenie języka Java o funkcje
 serwera WWW. Przez takie wykorzystanie języka Java takie serwer nazywany jest
 wtedy Serwletem - aplet Javy. Zadaniem serwera było obsłużenie klientów firmy
-kurierskiej, którzy wpisując numer swojej przesyłki mogili sprawdzić gdzie ona
-się aktualnie znajduje. Oprócz tej funkcji serwlet też jest pośrednikiem
+kurierskiej, którzy wpisując numer swojej przesyłki mogli sprawdzić gdzie ona
+się aktualnie znajduje. Oprócz tej funkcji Servlet też jest pośrednikiem
 między aplikacją mobilną a bazą danych.
 
 \begin{wrapfigure}{r}{0.4\textwidth}
@@ -482,7 +482,7 @@ między aplikacją mobilną a bazą danych.
 \vspace{-60pt}
 \end{wrapfigure}
 
-Rozpoczęcie pracy z servletem wymagało zainstowanie dodatków do środowiska
+Rozpoczęcie pracy z servletem wymagało zainstalowanie dodatków do środowiska
 Eclipse:
 \begin{itemize}
   \item Eclipse Java EE Developer Tools
@@ -491,15 +491,15 @@ Eclipse:
   \item JST Server Adapters
   \item JST Server Adapters Extensions
 \end{itemize}
-Po zainstalowaniu dodatków należało skonfiguować środowisko, w tym celu należało
+Po zainstalowaniu dodatków należało skonfigurować środowisko, w tym celu należało
 stworzyć nowy lokalny serwer. Autor skorzystał z popularnego serwera Apache
 Tomcat wersji 7.0. Serwer jest dostępny pod adresem localhost:8080. 
 
-Po skonfigurowaniu środowiska można było prystąpić do utworzenia nowego
+Po skonfigurowaniu środowiska można było przystąpić do utworzenia nowego
 dynamicznego projektu sieciowego (\textsl{Dynamic Web Project}). W strukturze
 projektu najważniejsze są dwa foldery [rys.\ref{servlet}], jeden zawierający w
-sobie klasy Javy, drugi zawierający obsługę, wygląd stron servletu. W tymże
-folderze znajduje się plik ,,web.xml'', w którym definuje zachowanie serwera w
+sobie klasy Javy, drugi zawierający obsługę, wygląd stron Servletu. W tymże
+folderze znajduje się plik ,,web.xml'', w którym definiuje zachowanie serwera w
 zależności od tego jaki adres został wpisany w przeglądarkę. 
 
 \lstset{language=XML,firstnumber=1,stepnumber=1}
@@ -528,8 +528,8 @@ zależności od tego jaki adres został wpisany w przeglądarkę.
 Na powyższym listingu widać ustawienie strony startowej
 (\texttt{<welcome-file-list>}), tzn. gdy w polu adresy wpisany jest
 http://localhost:8080/inzServlet uruchamia się strona główna aplikacji webowej -
-index.jsp. W następnej liniach jest załadowanie klasy
-Javy(\texttt{pl.javastart.servlets.Sprawdz}) do servletu pod nazwą
+Index.jsp. W następnej liniach jest załadowanie klasy
+Javy(\texttt{pl.javastart.servlets.Sprawdz}) do Servletu pod nazwą
 \texttt{Sprawdz} i zmapowanie tej klasy pod adres
 http://localhost:8080/inzServlet/sprawdz. Pokazany tu sposób dotyczy wszystkich
 używanych przez Servlet klas Javy, w podobny sposób można zadeklarować użycie
@@ -537,36 +537,36 @@ pliku *.jsp (różnica polega na zamianie identyfikatora \texttt{<servlet-class>
 na \texttt{<jsp-file>}). 
 
 Każda klasa Javy, która rozszerza Servlet posiada dwie istotne metody do obsługi
-stronc serwera - \texttt{doPost} i \texttt{doGet}, obydwie przyjmuję argument
+stron serwera - \texttt{doPost} i \texttt{doGet}, obydwie przyjmuję argument
 typu \texttt{HttpServletRequest} i \texttt{HttpServletResponse}.
 Metody mają zapewniać komunikację pomiędzy serwerem a klientem. Argument
 \texttt{HttpServletRequest} zawiera żądanie klienta do wykonania na serwlecie,
-natomiast \texttt{HttpServletResponse} jest odpowiedziom serwera na żadanie
+natomiast \texttt{HttpServletResponse} jest odpowiedziom serwera na żądanie
 klienta.
-Wspomniana metoda \texttt{doGet} obsługuje żadania jakie powstały w nagłówku http - pobiera
-parametry i przetwarza je - obsługuje żadania typu request. Metoda doPost
-również obsługuje żadanie powstałe z uzupełnienia formularzy. 
+Wspomniana metoda \texttt{doGet} obsługuje żądania jakie powstały w nagłówku http - pobiera
+parametry i przetwarza je - obsługuje zadania typu request. Metoda doPost
+również obsługuje żądanie powstałe z uzupełnienia formularzy. 
 
 Ważną klasą w projekcie jest klasa obsługująca bazę danych. Klasa do obsługi
 bazy danych musi składać się z następujących poleceń: załadowanie sterownika
 bazy danych, nawiązanie połączenia z bazą, pobranie/zapisanie danych, zamknięcie
-połączenia. Przykładem obsługi bazy danych jest poniższy litning [listing
+połączenia. Przykładem obsługi bazy danych jest poniższy listing [listing
 \ref{checkisexistsdeveloper}]. Przedstawiona metoda sprawdza czy istnieje w
 bazie dany kurier. Sprawdzenie istnienia kuriera realizowane jest przez
 zapytanie \texttt{"select * from deli.deliverer where id=" + id}, gdzie id jest
 identyfikatorem kuriera. Po wykonaniu zapytania pod \texttt{ResultSet}
-zapisywane są dane pobrane z bazy danych, z nich wyszukiwane są potrzebne infrmacje, czyli
+zapisywane są dane pobrane z bazy danych, z nich wyszukiwane są potrzebne informacje, czyli
 id kuriera oraz jego status aktywności. \texttt{Id} pobierane jest tylko w celu
-spradzenia czy w bazie istnieje kurier, niestety nie ma metody dla
+sprawdzenia czy w bazie istnieje kurier, niestety nie ma metody dla
 \texttt{ResultSet} która sprawdzałaby czy wynik zapytania jest pusty. Po
 uzyskaniu wyniku, że kurier istnieje sprawdzana jest jego aktywność, gdy kurier
-jest nie aktywny a funkcja była wywoływana w ceu zalogowania systemu
+jest nie aktywny a funkcja była wywoływana w celu zalogowania systemu
 przygotowywane jest zapytanie o zaktualizowanie danych dla tego kuriera i
 ustawieniu jego aktywności na stan aktywny (\texttt{true}). Natomiast gdy
 aktywność id kuriera jest \texttt{true}, a kurier pragnie się zalogować (metoda została
 wykonana dla zalogowania do systemu) metoda zwraca ciąg ,,busy'' - informuje o zajętości id.
-W momencie wylogowywania kuriera (kiedy akywność == \texttt{true}) a
-\texttt{logout} wynosi 0 to przygotowywana jest komenta aktualizująca bazę
+W momencie wylogowywania kuriera (kiedy aktywność == \texttt{true}) a
+\texttt{logout} wynosi 0 to przygotowywana jest komenda aktualizująca bazę
 danych i pod wskazaną krotkę o numerze id zapisywana wartość 0 dla activ.
 
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{id,activ, logout}}
@@ -609,8 +609,8 @@ if (delivererId > 0) {
 	return "false";
 \end{lstlisting}
 
-Projekt dążył do ustworzeia przyjaznego dla użytkownika-klienta widoku
-lokalizacji przesyłki. Do osiągnięcia tego celu użyto zmodyfikowanego prez
+Projekt dążył do stworzenia przyjaznego dla użytkownika-klienta widoku
+lokalizacji przesyłki. Do osiągnięcia tego celu użyto zmodyfikowanego przez
 autora darmowego szablonu pobranego z internetu \cite{szablon}. W zakładce
 \texttt{SPRAWDZ PRZESYLKE} wpisywany jest numer przesyłki jaką klient chce
 sprawdzić [rys.
@@ -618,8 +618,8 @@ sprawdzić [rys.
 Sprawdzane jest czy ciąg w formularzu jest liczbowy i czy istnieje taka
 przesyłka. Gdy w bazie nie istnieje przesyłka pojawia się odpowiedni komunikat
 informujący o nie istniejącej przesyłce [rys. \ref{niema}]. Gdy użytkownik
-wprowadzi poprawny numer przesyłki zostaną wyśiwetlone takie informacje, jak
-nadawca, odbiorca, czas nadania i czas odbioru oraz ostanie zczytane położenie
+wprowadzi poprawny numer przesyłki zostaną wyświetlone takie informacje, jak
+nadawca, odbiorca, czas nadania i czas odbioru oraz ostanie sczytane położenie
 przesyłki. Ponadto wyświetlana jest mapa pokazująca jak trasę pokona przesyłka -
 znaczniki A - B. Na mapie dodatkowo pokazany jest znacznik, który wyznacza
 pozycję kuriera z daną przesyłką - znacznik ,,kurier''.
@@ -651,13 +651,13 @@ klient może sprawdzać status swojej przesyłki zrealizowane jest to poprzez ut
 pobrany z szablonu \cite{szablon}, autor zmienił jedynie ciało (main) pliku. Z
 formularza [rys. \ref{sprawdz}] pobierany jest numer poszukiwanej przesyłki
 [listing \ref{sprawdzjsp} linie \ref{sprawdzjsp1}-\ref{sprawdzjsp2}] i ustawiany jako
-post formularza i przesyłany do klasy Java servletu. W tej klasie po
+post formularza i przesyłany do klasy Java Servletu. W tej klasie po
 pobraniu danych z bazy danych zwracane są wartości dotyczące istnienia przesyłki
 o wskazanym id. Najpierw sprawdzane jest, we fragmencie kodu Javy w instrukcji
 warunkowej, czy przesyłka istnieje \texttt{isParcelExists}. Gdy przesyłka
 nie zostanie odnaleziona w bazie lub wpisany ciąg w formularzu jest niepoprawny
-wyświetlana jest wiadmość [listing \ref{sprawdzjsp} linia \ref{sprawdzjsp6}]
-dotycząca błednego id. Natomiast gdy wpisany id jest bezbłędne w tabeli [rys.
+wyświetlana jest wiadomość [listing \ref{sprawdzjsp} linia \ref{sprawdzjsp6}]
+dotycząca błędnego id. Natomiast gdy wpisany id jest bezbłędne w tabeli [rys.
 \ref{pokaz}] zostają wypisane dane dotyczące przesyłki oraz mapa. Linia \ref{sprawdzjsp5}
 listingu \ref{sprawdzjsp} jest miejscem użycia JavySciprt'owego kodu
 google.maps. W danych wejściowych zmienna msg oznacza wiadomość dotyczącą
@@ -723,21 +723,21 @@ request.getAttribute("isParcelExists").equals(true)) {
 
 Natomiast ustawianie parametrów umieszczonych w \$\{\ldots\} zrealizowano
 poprzez klasę rozszerzającą Servlet. Na listingu \ref{sprawdz.java} przedstawiono metodę
-\texttt{doPost()} klasy \texttt{Sprawdz.java}, która odpowiada za uzpułenianie
+\texttt{doPost()} klasy \texttt{Sprawdz.java}, która odpowiada za uzupełnianie
 pliku JSP \texttt{sprawdz.jsp} danymi dotyczącymi przesyłki, które są
 wyświetlane w widoku strony dla klienta. Klasa \texttt{Sprawdz} tworzy nowy
 obiekt klasy \texttt{SearchParcel} wywołując ją z argumentem id przesyłki.
 Obiekt klasy \texttt{Searchparcel} odczytuje bazę danych i przypisuje
-wartości zmiennym (lisitnig \ref{searchparcel.java}). Następnie sprawdzane jest
+wartości zmiennym (listing \ref{searchparcel.java}). Następnie sprawdzane jest
 w instrukcji warunkowej if czy taka przesyłka istnieje i wprowadzone znaki są
 typu integer, jeśli nie istniej to w zależności od tego jaki błąd wystąpił
-przygotowywana jest wiaomość zwrotna dotycząca błędu. Natomiast jeśli przesyłka
+przygotowywana jest wiadomość zwrotna dotycząca błędu. Natomiast jeśli przesyłka
 istnieje ustawiane są parametry zwrotne
 \texttt{req.setAttribute(``\ldots'',\ldots)}. Warto zwrócić uwagę na to, że
 pierwszy argument \texttt{setAttribute} musi być zgodny z oczekiwaną nazwą
 zmiennej w pliku JSP, w inny wypadku nie zostanie przypisana wartość z klasy
 Javy do JSP. Na przykład argumenty z listingu \ref{sprawdzjsp} z linii
-\ref{sprawdzjsp7} muszą się zgadzać argumentą z listnigu \ref{sprawdz.java} z
+\ref{sprawdzjsp7} muszą się zgadzać argument z listingu \ref{sprawdz.java} z
 linii \ref{sprawdzjava1}-\ref{sprawdzjava2}.
 
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{}} 
@@ -788,16 +788,16 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 
 Na podstawie źródła \cite{developer.google.maps} powstał kod, który wyświetla
 mapę ze znacznikami. Z danych metody post pobierane są wartości lat i lon
-(szereokość i długość geograficzna) dla kuriera oraz wartości
+(szerokość i długość geograficzna) dla kuriera oraz wartości
 \texttt{regUserAddr} i \texttt{userAddr} oznaczające adres nadawcy i odbiorcy. W
 skrypcie tworzony jest nowy obiekt klasy DirectionsRenderer, który jest odpowiedzialny
-wypełnienie(renderowanie) wyświetlanej mapy oraz tworozny jest nowy obiekt
+wypełnienie(renderowanie) wyświetlanej mapy oraz tworzony jest nowy obiekt
 \texttt{DirectionsService}, który jest wylicza trasę pomiędzy punktami.
-Do obiektu \texttt{directionsRenderer} przypisywane jest umiejscowienie elementu
-ukłądzie strony przez pobranie jego id oraz możlwie jest ustawienie parametrów mapy.
+Do obiektu \texttt{DirectionsRenderer} przypisywane jest umiejscowienie elementu
+układzie strony przez pobranie jego id oraz możliwe jest ustawienie parametrów mapy.
 Kolejnym krokiem jest utworzenie znacznika na pozycji kuriera i dodanie jej do
-mapy. Ostatim etapem jest wyliczenie trasy pomiędzy dwoma punktami, adresem
-nadacy a adresem odbiorcy.
+mapy. Ostatnim etapem jest wyliczenie trasy pomiędzy dwoma punktami, adresem
+nadawcy a adresem odbiorcy.
 
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[4]{script,
 div,section, table},morekeywords={var, function},keywords=[5]{id,src}}
@@ -842,7 +842,7 @@ przesyła je metodą doPost. Klasa SearchParcel.java przedstawiona jest na
 listingu \ref{searchparcel.java}. Klasa otwiera połączenie z bazą danych,
 następnie wykonując komendy mySQL pobiera dane dotyczące przesyłki, następnie
 posiadając już id kuriera, który przewozi tą przesyłkę, pobiera jego położenie,
-oraz pobiera z bazy informacje o nadawcy (zarejestrownaym użytkowniku). Ostanim
+oraz pobiera z bazy informacje o nadawcy (zarejestrowanym użytkowniku). Ostatnim
 krokiem jest zamknięcie połączenia z bazą danych.
 
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{parcelId,
@@ -918,19 +918,19 @@ void selectFromDB(int nrParcel) {
 }
 \end{lstlisting}
 
-Wyznaczanie przybliżonego czasu dostawy zrealizowano korzystjąc (to i więcej już
+Wyznaczanie przybliżonego czasu dostawy zrealizowano korzystając (to i więcej już
 o servlecie nie trzeba)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-W podrozdziale Servlet nie pokazano obłsugi wyjątków, a przedstawione listingi
+W podrozdziale Servlet nie pokazano obsługi wyjątków, a przedstawione listingi
 są kluczowe do zrozumienia działania Servletu. Układ graficzny aplikacji webowej
 został pobrany ze strony z darmowymi szablonami
 {\textit{http://templated.co/linear}}.
 
 \section{Baza danych}
 
-W przedstawionym projekcie konieczne było uworzenie bazy danych, która
-przechowuje dane dotczyące kurierów, przesyłek, klientów, centrali kurierskich.
+W przedstawionym projekcie konieczne było utworzenie bazy danych, która
+przechowuje dane dotyczące kurierów, przesyłek, klientów, centrali kurierskich.
 W tym celu stworzono 4 tabele. 
 
 \begin{figure}[ht!]
@@ -940,57 +940,57 @@ W tym celu stworzono 4 tabele.
 \label{ERD}
 \end{figure}
 
-Na rysunky \ref{ERD} przedstawiono diagram ERD pokazujący tabele oraz połączenia
-pomiędzy tabelami. Każda z tabel ma swój klucz głowny \texttt{id}. Tabela
+Na rysunku \ref{ERD} przedstawiono diagram ERD pokazujący tabele oraz połączenia
+pomiędzy tabelami. Każda z tabel ma swój klucz główny \texttt{id}. Tabela
 \texttt{parcel} (przesyłka) zawiera w sobie dwa obce klucze (\texttt{foreign
-key}) odwołują się one do: \texttt{deliverer.id} - klucz głowny
-tabeli kurier oraz \texttt{registeredUser.id} - klucz głowny tabeli użytkownika zarejestrowanego,
+key}) odwołują się one do: \texttt{deliverer.id} - klucz główny
+tabeli kurier oraz \texttt{registeredUser.id} - klucz główny tabeli użytkownika zarejestrowanego,
 czyli tego który złożył zamówienie na przesyłkę. Tabela centre, która ma
 zawierać wpisy dotyczące nazwy, ulicy, miasta zawiera w sobie obcy klucz do
 tabeli deliverer. Wybrano takie rozwiązanie ponieważ w tabeli \texttt{deliverer}
 są podawane długość i szerokość geograficzna, które w łatwy sposób powiązano z
 tabelą \texttt{centre}.
 
- Nie tylko gps do lokalizacji, bo także odbicia
+ Nie tylko GPS do lokalizacji, bo także odbicia
 na czytnikach u kurierów Projekt opiera się 
 
 \chapter{Przygotowanie i uruchomienie aplikacji}
 
-Do utworzyć opisywany w tej pracy projekt należy zacząć od isntalacji IDE
+Do utworzyć opisywany w tej pracy projekt należy zacząć od instalacji IDE
 Eclipse,  najprościej jest zacząć od instalacji Eclipse ADT z dodatkiem Android
 SDK \cite{eclipse}, po jego instalacji w widoku Eclipse pojawi się ikona
-,,Android SDK Manager''. Po załadowaniu się menegera należy wybrać conajmniej
+,,Android SDK Manager''. Po załadowaniu się menedżera należy wybrać co najmniej
 SDK Tools, SDK Platform-tools, SDK Build-tools (najwyższą dostępną wersję), oraz w
-folderzez z ostatnią wersją systemu Android X.X zaznaczyć SDK Platform i
+folderze z ostatnią wersją systemu Android X.X zaznaczyć SDK Platform i
 emulator do obrazu systemu Android (ARM EABI v7a System Image), ponadto na
 potrzeby tego projektu konieczne jest zainstalowanie Google Repository i Google
-Play services z folderu Extras.
+Play Services z folderu Extras.
 
 Następnym krokiem jest zainstalowanie serwera Apache Tomcat w IDE Eclipse.
-Dodanie serwera relizauje się od otworzenia zakładki
+Dodanie serwera realizuje się od otworzenia zakładki
 Window>Preferences>Server>Runtine Enviroment i tam należy dodać (add) Apache
-Tomcat również w najnowszej wersji. Serwer będzie już wtedy zainstolowany. 
+Tomcat również w najnowszej wersji. Serwer będzie już wtedy zainstalowany. 
 
 Autor korzysta z systemu operacyjnego Linux dystrybucja Ubuntu, więc zostanie
 opisana instalacja \emph{\color{komentarz}\ldots Darku opisz, ja nie wiem jak,
 bo Ty mi to zrobiłeś :*}
 
-Jeśli w IDE Eclipse nie ma dodanych odpowiednich perspektywn trzeba je dodać
+Jeśli w IDE Eclipse nie ma dodanych odpowiednich perspektyw trzeba je dodać
 (Open Perspective) będzie potrzebna perspektywa ,,Java'' oraz ,,SQL Explorer''.
-Po spełnieniu wszyscich poprzednio wymieninionych kroków można eksportować
-projekty. Import projektów wybiera się w zakładce File>Import>Existing Projects
+Po spełnieniu wszystkich poprzednio wymienionych kroków można eksportować
+projekty. Import projektów wybiera się w zakładce File>Import>Editing Project
 Into Workspace.
 
 \chapter{Wykorzystane technologie}
 
 Zrealizowany tu projekt bazuje na nowoczesnych technologiach.
 Skorzystano z mobilnego urządzenia - telefonu komórkowego z systemem
-Android, bazy danych do przechowywania inforamcji, a także serweru, który to
+Android, bazy danych do przechowywania informacji, a także serweru, który to
 łączy wszystkie elementy w jedną spójną całość. Głównym językiem
 programowania wykorzystanym w projekcie jest język Java, dzięki któremu
-zrelizowano aplikację mobilną, obsługę servletu, bazy danych, odpytywania i
-parsowania odpowiedzi serwera Google o widok mapy i odległośći pomiędzy dwoma
-punktami, a także obsługa witryny http. Całą oplikację stworzono za pomocą IDE
+zrealizowano aplikację mobilną, obsługę Servletu, bazy danych, odpytywania i
+parsowania odpowiedzi serwera Google o widok mapy i odległości pomiędzy dwoma
+punktami, a także obsługa witryny http. Całą aplikację stworzono za pomocą IDE
 Eclipse z odpowiednimi dodatkami.
 
 \section{Java}
@@ -1010,29 +1010,29 @@ wielowątkowy, dynamiczny oraz niezależny od architektury.
 	\caption{\label{javaEE}Logo Java EE.}
 	\end{wrapfigure}
   Prosty - założeniami autorów języka Java było aby programista bez
-  specjalnych szkoleń mógł od razu zacząć pisać w języku Java. Skłądnia została
-  oczyszczona (w stostunku do C++) o arytmetykę wskaźnikową, struktury, unie,
+  specjalnych szkoleń mógł od razu zacząć pisać w języku Java. Składnia została
+  oczyszczona (w stosunku do C++) o arytmetykę wskaźnikową, struktury, unie,
   przeciążanie operatorów itd. 
 	}
   \item Zorientowany obiektowo;
-  \item Sieciowy - Java poasiada bbiliotekę, która w przystępny sposób umożlwia
-  pracę z protokałami http, TCP/IP, ftp;
+  \item Sieciowy - Java posiada bibliotekę, która w przystępny sposób umożliwia
+  pracę z protokołami http, TCP/IP, FTP;
   \item Niezawodny - szczególnie skupiono się na wykrywaniu ewentualnych
   problemów, zapobieganiu sytuacjom, w których może błąd nastąpić oraz
-  sprawdzaniu błedów podczas działania programu;
+  sprawdzaniu błędów podczas działania programu;
   \item Bezpieczny - Java może służyć do zastosowań sieciowych, z tego powodu
-  zadbano o możwlie najlepsze zabezpieczenie przed wirusami i ingerexją osób
+  zadbano o możliwe najlepsze zabezpieczenie przed wirusami i ingerencja osób
   trzecich;
   \item Niezależny od architektury - Java kompilowana jest do kodu pośredniego
-  (bajtoweg), który następnie jest interpretowany na maszynie wirutalnej Javy,
+  (bajtowego), który następnie jest interpretowany na maszynie wirtualnej Javy,
   która jest dostosowana do odpowiedniego systemu. Maszyna wirtualna Javy(JVM)
   jest zdolna wykonywać program z kodu pośredniego. Z tego powodu jeżyk Java
   stosowany jest na wielu urządzeniach oraz różnych systemach operacyjnych.
-  Niestyty konsekwencją przenoszalności kodu jest jego wolniejsze wykonanie;
+  Niestety konsekwencją przenoszalności kodu jest jego wolniejsze wykonanie;
   \item Przenośny - Java posiada ściśle określone rozmiary typów danych i nie ma
-  możliwości zmiany rozmiaru przez proramiste przez co nie następuje np. zmiana
+  możliwości zmiany rozmiaru przez programistę przez co nie następuje np. zmiana
   kolejności bajtów;
-  \item Interpretowany - program nie jest kompilowany tylko przechowywnany w
+  \item Interpretowany - program nie jest kompilowany tylko przechowywany w
   postaci kodu źródłowego, podczas uruchomienia zostaje dopiero interpretowany i
   uruchamiany przez interpreter języka;
   \item Wysokowydajny - istnieje możliwość tłumaczenia kodu bajtowego w locie,
@@ -1046,10 +1046,10 @@ wielowątkowy, dynamiczny oraz niezależny od architektury.
 
 Język Java wywodzi się z języków C++ i C, wykorzystuje wiele potrzebnych i
 użytecznych funkcjonalności tych języków, z nieużytecznych, trudnych lub
-pwoowdujących często błędy zrezygnowano. Język Java umożliwia dziedziczenie, a
-ponadto wszystkie obiekty Javy są pochodną obiektu bazwego. Jednakże Java nie
-umożliwa dziedziczenia wielobazowego, dlatego do Javy wprowadzono interfejsy -
-abstrakcyjny typ, który posiada jedynie opracje, ale nie posiada danych, z tego
+powodujących często błędy zrezygnowano. Język Java umożliwia dziedziczenie, a
+ponadto wszystkie obiekty Javy są pochodną obiektu bazowego. Jednakże Java nie
+umożliwia dziedziczenia wielobazowego, dlatego do Javy wprowadzono interfejsy -
+abstrakcyjny typ, który posiada jedynie operacje, ale nie posiada danych, z tego
 powodu można tylko implementować interfejs i nie można utworzyć obiektów tego
 typu. Język Java umożliwia pisanie aplikacji stacjonarnych, webowych czy
 mobilnych. Język Java ma rozbudowaną obsługę wyjątków. Posiada dobrze
@@ -1060,16 +1060,16 @@ rozbudowanego \texttt{GarbageCollector} (odśmieciacza) \cite{java.doc}.
 
 W projekcie do zorganizowania struktury aplikacji serwerowej został zastosowany
 wzorzec architektoniczny MVC (Model-View-Controller). W modelu tym Model jest
-odpowiedzialny za przehcowywanie logiki, z której korzystają inne składowe
+odpowiedzialny za przechowywanie logiki, z której korzystają inne składowe
 systemu. Kolejną częścią składową tej struktury jest Widok, który to jest
 odpowiedzialny za funkcje prezentacji w ramach interfejsu użytkownika, ale
 także może posiadać swoją logikę. Ostatnim elementem systemu jest Kontroler,
-który spaja dwie wcześniejsze cześći. Kontroler odpowiada za przepływ danych
+który spaja dwie wcześniejsze części. Kontroler odpowiada za przepływ danych
 od/do użytkownika, reakcję systemu w zależności od zachowania użytkownika,
 kontroler także zarządza Modelem i Widokiem. Takiej strukturze jest jasno
-zdefiniowane, która część systemu pełni jakie funkcjie. Taka struktura
-architektoniczna jest najczęściej stosowana w aplikacjiach www, gdzie widać
-wyraźną grnicę pomiędzy widokiem i modelem, a kontrolerem jest serwer, który
+zdefiniowane, która część systemu pełni jakie funkcje. Taka struktura
+architektoniczna jest najczęściej stosowana w aplikacjach www, gdzie widać
+wyraźną granicę pomiędzy widokiem i modelem, a kontrolerem jest serwer, który
 obsługuje informacje płynące z widoku (z http), odpowiednio formuje model i
 przekazuje go do widoku. \cite{java.mvc}
 
@@ -1088,10 +1088,10 @@ jest opisany w kolejnym podrozdziale Servlet.
 
 \section{Servlet}
 
-Serwlety są to aplikacje działające na serwerze WWW korzystające z języka Java.
+Servlet są to aplikacje działające na serwerze WWW korzystające z języka Java.
 Serwlety mają zapewniać budowanie aplikacji internetowych niezależnych od
-platformy. Serwlet umożliwia korzystanie z baz danych i http. Z tego powodu
-wykrozystywane są do budowania interaktywnych aplikacji internetowych. 
+platformy. Servlet umożliwia korzystanie z baz danych i http. Z tego powodu
+wykorzystywane są do budowania interaktywnych aplikacji internetowych. 
 
 \begin{wrapfigure}{r}{0.3\textwidth}
 \centering
@@ -1105,25 +1105,25 @@ wykrozystywane są do budowania interaktywnych aplikacji internetowych.
 \end{wrapfigure}
 
 Serwer Apache obsługuje www za pomocą protokołu. Wybrana w projekcie dystrybucja
-to serwlet Tomcat Apache [rys. \ref{apache}], który jest http, jest otwarty,
+to Servlet Tomcat Apache [rys. \ref{apache}], który jest http, jest otwarty,
 zapewnia wielowątkowość, skalowalność, bezpieczeństwo oraz kontrolę dostępu
 \cite{apache.wiki}.
 
-Wybór Tomcate Apache na serwer podyktowany był przez wybór jako głównego języka
-aplikacji - Javy. Serwlet jest dość popularnym narzędziem, co pomogło także w
+Wybór Tomcat Apache na serwer podyktowany był przez wybór jako głównego języka
+aplikacji - Javy. Servlet jest dość popularnym narzędziem, co pomogło także w
 uruchomieniu i skonfigurowaniu go.
 
 \section{JSP - Java}
 
 JSP (ang. JAvaServer Pages) jest to technologia, dzięki której możliwe jest
 dynamiczne tworzenie stron webowych. JSP bazuje na językach znacznikowych, np.
-html, xml oraz innych. Technologia ta jest kompatybilna z servletami (Apache
+HTML, xml oraz innych. Technologia ta jest kompatybilna z servletami (Apache
 Tomcat, i innymi).
 
 To właśnie wprowadzenie plików JSP wymaga korzystanie z wcześniej
 opisanego modelu MVC [rys. \ref{MVC2}]. W dodatku JSP oprócz użycia języków
 skryptowych umożliwia przeplatanie ich z językiem Java. Wtedy kod, który będzie
-napisany w Javie musi być wzięt w znaki <\% \ldots \%>, np. fragment z listingu
+napisany w Javie musi być wzięty w znaki <\% \ldots \%>, np. fragment z listingu
 \ref{sprawdzjsp}:
 
 \texttt{<\% out.print("Nadawca"); \%> \$\{regUserName\}
@@ -1144,46 +1144,46 @@ W przedstawionym w tej pracy projekcie korzystano z technologi internetowych,
 które obsługiwały interakcję z użytkownikiem oraz `strony www`. Skorzystano
 z takich technologii jak:
 \begin{itemize}
-  \item JavaScript - jest to skryptowy jezyk programowania stosowany głównie do
+  \item JavaScript - jest to skryptowy język programowania stosowany głównie do
   tworzenia stron internetowych, zapewnia interakcję z
   użytkownikiem\cite{javascript.wiki}, służy do kontroli przeglądarki, zmiany
-  treśli strony. Skłądnia języka JavaScript jest zbudowana na podstawie języka
+  treści strony. Składnia języka JavaScript jest zbudowana na podstawie języka
   C. Język umożliwia dynamiczne typowanie oraz jest obiektowy;
-  \item HTML - jest to jeżyk znaczników służacy do tworzenia stron
-  internetowych. Język skłąda się z tagów umieszczonych w \texttt{<tag>},
+  \item HTML - jest to jeżyk znaczników służący do tworzenia stron
+  internetowych. Język składa się z tagów umieszczonych w \texttt{<tag>},
   elementy, np. napisy, umieszane są pomiędzy tagami \texttt{<tag> napis
   </tag>}, gdzie pierwszy znacznik jest tagiem oznaczającym początek, a drugi
   zamykającym. HTML jest budulcem strony internetowej, opisuje jej strukturę.
   HTML można osadzać w takich językach jak JavaScript, może odnosić się do
-  stylów CSS, który służy do definiowania wyglądu i uładu tekstu i innych na
+  stylów CSS, który służy do definiowania wyglądu i układu tekstu i innych na
   stronie;
-  \item XML - jest to język znaczników przeznaczony do reprezenowania danych w
+  \item XML - jest to język znaczników przeznaczony do reprezentowania danych w
   strukturyzowany sposób \cite{xml.wiki}. Tak jak HTML składa się ze znaczników
   <\ldots> i </\ldots> i tagów.
   \item Protokół http - jest podstawą do komunikacji danych w WWW, służy do
   wymiany i przesyłania. Funkcjonuje w trybie żądanie-odpowiedź w
   modelu klient-serwer, gdzie przykładowo przeglądarka jest klientem, a
-  aplikacja uruchomipna na komputerze serwerem. HTTP jest protokołem warstwy
-  apliacji, która zapewnia komunikację.
+  aplikacja uruchomiona na komputerze serwerem. HTTP jest protokołem warstwy
+  aplikacji, która zapewnia komunikację.
   \item \ldots
 \end{itemize}
 \section{db - MySQL}
 
 W projekcie do przechowywania danych skorzystano z baz danych. Baza danych
-pozwala w ustrukturyzowany sposób kolekcjonować dane niezbędnę do działania
-programów. Przechowywane dane mogą być o dowolnonym formacie i strukturze.
+pozwala w ustrukturyzowany sposób kolekcjonować dane niezbędne do działania
+programów. Przechowywane dane mogą być o dowolnym formacie i strukturze.
 
 Systemem, do zarządzania bazą danych w projekcie był MySQL. MySQL jest
 rozwijany przez firmę ORacle. Jest opensource'owe rozwiązanie do zarządzania
 relacyjnymi bazami danych. Charakteryzuje się takimi cechami jak szybki,
-wielowątkowy dostęp z możliwośćią obsłużenia dużej ilości użytkowników. Serwer
+wielowątkowy dostęp z możliwością obsłużenia dużej ilości użytkowników. Serwer
 MySQL może być stosowany do systemów, w których znajdują się dane o znaczeniu
 krytycznym lub te systemy są mocno obciążane \cite{Mysql.com}. 
 
 Język MySQL posiada takie typy danych jak signed/unsigned int, long, float,
 double, char, varchar, date, time, datetime, enum i inne. Język MySQL składa się
 z takich typów komend jak: DML (ang.
-Data Manipulation Language - dotyczące mainpulowania), DLL (ang. Data
+Data Manipulation Language - dotyczące manipulowania), DLL (ang. Data
 Defitnition Language) oraz DCL (ang. Data Control Language).
 Komendy DML:
 \begin{itemize}
@@ -1211,13 +1211,13 @@ Komendy DML:
         [, col\_name=expr] ... ];}
   
   \item \texttt{update} - aktualizuje kolumny istniejących wierszy,
-  strukutra użycia komendy:
+  struktura użycia komendy:
   
   \texttt{UPDATE table\_name
     SET col\_name1={expr1|DEFAULT} [, col\_name2={expr2|DEFAULT}] ...
     \newline[WHERE where\_condition];}
   
-  \item \texttt{delete} - usuwa pojedyńcze wiersze, użycie komendy:
+  \item \texttt{delete} - usuwa pojedyncze wiersze, użycie komendy:
   
   \texttt{DELETE FROM table\_name [WHERE where\_condition];}
   
@@ -1235,7 +1235,7 @@ Komendy DLL:
 \end{itemize}
 Komendy DML:
 \begin{itemize}
-  \item \texttt{commit} - komituje wpisaną transakcję, wrpowadzona zmiana jest
+  \item \texttt{commit} - komituje wpisaną transakcję, wprowadzona zmiana jest
   pernamenta,
   \item \texttt{rollback} - wycofuje ostatnią wpisaną transakcję.
 \end{itemize}
@@ -1249,8 +1249,8 @@ Android jest systemem wykorzystywanym na platformach mobilnych. Android
 jest systemem operacyjnym z rodziny Linux, oparty na jądrze Linux. Android
 umożliwia tworzenie aplikacji na wiele urządzeń, optymalizacji podlega plik xml,
 gdzie można dostosować aplikację do konkretnych urządzeń. Każdy proces
-uruchomiony na Adroidzie jest uruchamiany na mszynie wirtualnej i jest
-niezależny od pozostałych aplikacji. Najnowższą wersją systemu jest Android
+uruchomiony na Androidzie jest uruchamiany na maszynie wirtualnej i jest
+niezależny od pozostałych aplikacji. Najnowszą wersją systemu jest Android
 Lollipop 5.0.
 
 Rozpoczęcie pracy z Androidem zaczyna się od instalacji środowiska, może to być
@@ -1259,40 +1259,40 @@ od projektu interfejsu użytkownika, następnie dopiero oprogramowuje się obsł
 oraz logikę aplikacji, ostatnim etapem jest testowanie aplikacji.
 \cite{developer.android}. 
 
-System Android składa się z czterech podsstawoych elementów. 
+System Android składa się z czterech podstawowych elementów. 
 
 \begin{itemize}
   \item Activites - reprezentuje ekran użytkownika, np. aplikacja do obsługi
   emaila posiada jedną aktywność do listowania nowych emiali, a inną
   do pisania email. Aktywności implementuje się używając
   podklasę \texttt{Activity};
-  \item Services - jest to skłądnik aplikacji, który działa w tle, np. w
-  urządzeniu odtwrzana jest muzyka w tle, a użytkownik korzysta z innej
+  \item Services - jest to składnik aplikacji, który działa w tle, np. w
+  urządzeniu odtwarzana jest muzyka w tle, a użytkownik korzysta z innej
   aplikacji w tym czasie. Takie zachowanie aplikacji implementuje się za pomocą
   podklasy \texttt{Service};
   \item Content providers - służy do zarządzania wspólnymi danymi, a także
   danymi, które są prywatne dla danej aplikacji. Zarządzanie danymi
-  implemntuje się używając podklasy \texttt{ContentProvider};
-  \item Broadcast receivers - jest komponenentem systemu, który jest
-  odpowiedzialny za rozgłasznie informacji po systemie, np. infromacja o
-  niskim stnie baterii. Taką właściwość implementuje się korzystając z podklasy
+  implementuje się używając podklasy \texttt{ContentProvider};
+  \item Broadcast receivers - jest komponentem systemu, który jest
+  odpowiedzialny za rozgłaszanie informacji po systemie, np. informacja o
+  niskim stanie baterii. Taką właściwość implementuje się korzystając z podklasy
   \texttt{BroadcastReceiver}.
 \end{itemize}
 
-\emph{\color{komentarz}napisac o tym, ze android oddelegowuje zadania, taki
+\emph{\color{komentarz}napisać o tym, ze android oddelegowuje zadania, taki
 obrazek ze strony}
 
 \section{Google apps - mapy}
 
 Firma Google udostępnia korzystanie deweloperom ze swoich produktów
-\cite{developer.google}. W swoim projekcie korzystałam z Google Maps Api. 
+\cite{developer.google}. W swoim projekcie korzystałam z Google Maps API. 
 
 \chapter{Możliwość rozwinięcia w przyszłości}
 Aplikację można „podpiąć” pod prawdziwe urządzenia jakie posiadają kurierzy – te na których się człowiek podpisuje – ale konieczne będzie 
-zrefakturyzowanie(?)/zmienie kodu pod system, który mają tam zainstalowany.
-	Fajnie by było to wrzycić na prawdziwe tablety, można by sprzedawać/zarobić. Ogólnie koszt takiego urządzenia to byłoby tablet/telefon 
+zrefakturyzowanie(?)/zmianie kodu pod system, który mają tam zainstalowany.
+	Fajnie by było to wrzucić na prawdziwe tablety, można by sprzedawać/zarobić. Ogólnie koszt takiego urządzenia to byłoby tablet/telefon 
 	+ wycena za program.
-	Normalnie kurierzy urzywają kolektorów danych.
+	Normalnie kurierzy używają kolektorów danych.
 
 \chapter{Wnioski i podsumowanie}
 \addcontentsline{toc}{chapter}{Bibliografia} %utworzenie w spisie tresci pozycji Bibliografia

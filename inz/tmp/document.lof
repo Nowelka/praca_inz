@@ -4,14 +4,14 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Struktura programu aplikacji Android\relax }}{3}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Ekrany Androida \relax }}{4}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {G\IeC {\l }\IeC {\'o}wny ekran aplikacji, oczekuje na wprowadzenie id kuriera}}}{4}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Gdy nie jest w\IeC {\l }\IeC {\k a}czona sie\IeC {\'c} kom\IeC {\'o}rkowa lub wifi na ekranie pokazuje si\IeC {\k e} komunikat i zostaje zablokowane pole do wprowadzania id}}}{4}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Gdy nie jest w\IeC {\l }\IeC {\k a}czona sie\IeC {\'c} kom\IeC {\'o}rkowa lub WiFi na ekranie pokazuje si\IeC {\k e} komunikat i zostaje zablokowane pole do wprowadzania id}}}{4}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Komunikat o poprawnie wpisanym id}}}{4}
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Informacje o niew\IeC {\l }\IeC {\k a}czonym GPS}}}{4}
 \contentsline {subfigure}{\numberline {(e)}{\ignorespaces {System czeka na ustalenie lokalizacji}}}{4}
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {System lokalizuje i wyswietla informacje o lokalizacji i czasie odzytu}}}{4}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {System lokalizuje i wy\IeC {\'s}wietla informacje o lokalizacji i czasie odczytu}}}{4}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Struktura programu aplikacji Android\relax }}{5}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {systuacja gdy jest ju\IeC {\.z} zaj\IeC {\k e}te id lub nie istnieje}}}{5}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {status telfonu}}}{5}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {sytuacja gdy jest ju\IeC {\.z} zaj\IeC {\k e}te id lub nie istnieje}}}{5}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {status telefonu}}}{5}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Struktura Servletu\relax }}{7}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Diagram ERD zaprojektowanej bazy danych\relax }}{9}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Diagram ERD zaprojektowanej bazy danych\relax }}{10}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.11.14)  7 DEC 2014 20:45
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.11.14)  7 DEC 2014 21:23
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -823,7 +823,7 @@ p
 Here is how much of TeX's memory you used:
  6758 strings out of 495026
  89566 string characters out of 1181801
- 500480 words of memory out of 3000000
+ 500602 words of memory out of 3000000
  9773 multiletter control sequences out of 15000+50000
  26775 words of font info for 61 fonts, out of 3000000 for 9000
  48 hyphenation exceptions out of 8191
@@ -848,7 +848,7 @@ pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/
 amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plmi10.pf
 b></usr/share/texmf-texlive/fonts/type1/public/pl/plsy10.pfb></usr/share/texmf-
 texlive/fonts/type1/public/pl/plsy8.pfb>
-Output written on document.pdf (27 pages, 4747043 bytes).
+Output written on document.pdf (27 pages, 4747006 bytes).
 PDF statistics:
  886 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
