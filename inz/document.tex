@@ -1014,32 +1014,34 @@ wielowątkowy, dynamiczny oraz niezależny od architektury.
   oczyszczona (w stostunku do C++) o arytmetykę wskaźnikową, struktury, unie,
   przeciążanie operatorów itd. 
 	}
-  \item Zorientowany obiektowo
+  \item Zorientowany obiektowo;
   \item Sieciowy - Java poasiada bbiliotekę, która w przystępny sposób umożlwia
-  pracę z protokałami http, TCP/IP, ftp
+  pracę z protokałami http, TCP/IP, ftp;
   \item Niezawodny - szczególnie skupiono się na wykrywaniu ewentualnych
   problemów, zapobieganiu sytuacjom, w których może błąd nastąpić oraz
-  sprawdzaniu błedów podczas działania programu
+  sprawdzaniu błedów podczas działania programu;
   \item Bezpieczny - Java może służyć do zastosowań sieciowych, z tego powodu
   zadbano o możwlie najlepsze zabezpieczenie przed wirusami i ingerexją osób
-  trzecich.
+  trzecich;
   \item Niezależny od architektury - Java kompilowana jest do kodu pośredniego
   (bajtoweg), który następnie jest interpretowany na maszynie wirutalnej Javy,
   która jest dostosowana do odpowiedniego systemu. Maszyna wirtualna Javy(JVM)
   jest zdolna wykonywać program z kodu pośredniego. Z tego powodu jeżyk Java
   stosowany jest na wielu urządzeniach oraz różnych systemach operacyjnych.
-  Niestyty konsekwencją przenoszalności kodu jest jego wolniejsze wykonanie.
+  Niestyty konsekwencją przenoszalności kodu jest jego wolniejsze wykonanie;
   \item Przenośny - Java posiada ściśle określone rozmiary typów danych i nie ma
   możliwości zmiany rozmiaru przez proramiste przez co nie następuje np. zmiana
-  kolejności bajtów
-  \item Interpretowany - \ldots
+  kolejności bajtów;
+  \item Interpretowany - program nie jest kompilowany tylko przechowywnany w
+  postaci kodu źródłowego, podczas uruchomienia zostaje dopiero interpretowany i
+  uruchamiany przez interpreter języka;
   \item Wysokowydajny - istnieje możliwość tłumaczenia kodu bajtowego w locie,
-  co zwiększa szybkość ładowania się programu
+  co zwiększa szybkość ładowania się programu;
   \item Wielowątkowy - pozwala na interaktywność między procesami, a także pracę
-  w czasie rzeczywistym
+  w czasie rzeczywistym;
   \item Dynamiczny - obiekty w Javie można zmieniać w zależności od
   zmieniającego się środowiska oraz możliwy jest wgląd we wszystkie obiekty, a
-  nawet dodawać nowe metody
+  nawet dodawać nowe metody;
 \end{itemize}
 
 Język Java wywodzi się z języków C++ i C, wykorzystuje wiele potrzebnych i
@@ -1073,7 +1075,7 @@ przekazuje go do widoku. \cite{java.mvc}
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=90mm]{model2.jpg}
+\includegraphics[width=60mm]{jspModel.png}
 \caption{Schemat systemu Model-View-Controller model 2\cite{java.mvc.grafika}}
 \label{MVC2}
 \end{figure}
@@ -1093,13 +1095,13 @@ wykrozystywane są do budowania interaktywnych aplikacji internetowych.
 
 \begin{wrapfigure}{r}{0.3\textwidth}
 \centering
-\vspace{-10pt}
+%\vspace{-10pt}
 \subfigure {
 \includegraphics[width=10ex]{feather.png}
 \includegraphics[width=10ex]{tomcat.png}
 }
 \caption{\label{apache}Logo apache i apache tomcat.}
-\vspace{-35pt}
+%\vspace{-35pt}
 \end{wrapfigure}
 
 Serwer Apache obsługuje www za pomocą protokołu. Wybrana w projekcie dystrybucja
@@ -1110,6 +1112,7 @@ zapewnia wielowątkowość, skalowalność, bezpieczeństwo oraz kontrolę dost�
 Wybór Tomcate Apache na serwer podyktowany był przez wybór jako głównego języka
 aplikacji - Javy. Serwlet jest dość popularnym narzędziem, co pomogło także w
 uruchomieniu i skonfigurowaniu go.
+
 \section{JSP - Java}
 
 JSP (ang. JAvaServer Pages) jest to technologia, dzięki której możliwe jest
@@ -1130,7 +1133,7 @@ i/lub wysyłania) do danych i funkcji, które powstały w obiektach Javy. Żeby
 przekazać taką wartość z klasy Javy, klasa ta musi rozszerzać Servlet
 (\texttt{extends HttpServlet}) ustawiać taki parametr jaki jest pomiędzy
 nawiasami \{\} korzystając z HttpServletRequest, jako przykład podano fragment z
-listingu \ref{}:
+listingu \ref{sprawdz.java}:
 
 \texttt{req.setAttribute("regUserName",
 						searchParcel.getRegisteredUserNameUser());}
@@ -1141,12 +1144,27 @@ W przedstawionym w tej pracy projekcie korzystano z technologi internetowych,
 które obsługiwały interakcję z użytkownikiem oraz `strony www`. Skorzystano
 z takich technologii jak:
 \begin{itemize}
-  \item JavaScript - jest to skryptowy jezyk programowania stosowany do
-  tworzenia stron internetowych, zapewnia interakcję z użytkownikiem\cite{javascript.wiki}
-  \item HTML - 
-  \item XML - jesto to język znaczników przeznaczony do reprezenowania danych w
-  strukturyzowany sposób \cite{xml.wiki}
-  \item Protokół http - 
+  \item JavaScript - jest to skryptowy jezyk programowania stosowany głównie do
+  tworzenia stron internetowych, zapewnia interakcję z
+  użytkownikiem\cite{javascript.wiki}, służy do kontroli przeglądarki, zmiany
+  treśli strony. Skłądnia języka JavaScript jest zbudowana na podstawie języka
+  C. Język umożliwia dynamiczne typowanie oraz jest obiektowy;
+  \item HTML - jest to jeżyk znaczników służacy do tworzenia stron
+  internetowych. Język skłąda się z tagów umieszczonych w \texttt{<tag>},
+  elementy, np. napisy, umieszane są pomiędzy tagami \texttt{<tag> napis
+  </tag>}, gdzie pierwszy znacznik jest tagiem oznaczającym początek, a drugi
+  zamykającym. HTML jest budulcem strony internetowej, opisuje jej strukturę.
+  HTML można osadzać w takich językach jak JavaScript, może odnosić się do
+  stylów CSS, który służy do definiowania wyglądu i uładu tekstu i innych na
+  stronie;
+  \item XML - jest to język znaczników przeznaczony do reprezenowania danych w
+  strukturyzowany sposób \cite{xml.wiki}. Tak jak HTML składa się ze znaczników
+  <\ldots> i </\ldots> i tagów.
+  \item Protokół http - jest podstawą do komunikacji danych w WWW, służy do
+  wymiany i przesyłania. Funkcjonuje w trybie żądanie-odpowiedź w
+  modelu klient-serwer, gdzie przykładowo przeglądarka jest klientem, a
+  aplikacja uruchomipna na komputerze serwerem. HTTP jest protokołem warstwy
+  apliacji, która zapewnia komunikację.
   \item \ldots
 \end{itemize}
 \section{db - MySQL}
@@ -1155,25 +1173,112 @@ W projekcie do przechowywania danych skorzystano z baz danych. Baza danych
 pozwala w ustrukturyzowany sposób kolekcjonować dane niezbędnę do działania
 programów. Przechowywane dane mogą być o dowolnonym formacie i strukturze.
 
-Systemem, do zarządzania bazą danych w projekcie był MySQL. Jest opensource'owe
-rozwiązanie do zarządzania relacyjnymi bazami danych. Charakteryzuje się takimi
-cechami jak szybki, wielowątkowy dostęp z możliwośćią obsłużenia dużej ilości
-użytkowników. Serwer MySQL może być stosowany do systemów, w których znajdują
-się dane o znaczeniu krytycznym lub te systemy są mocno obciążane. \cite{Mysql.com} 
+Systemem, do zarządzania bazą danych w projekcie był MySQL. MySQL jest
+rozwijany przez firmę ORacle. Jest opensource'owe rozwiązanie do zarządzania
+relacyjnymi bazami danych. Charakteryzuje się takimi cechami jak szybki,
+wielowątkowy dostęp z możliwośćią obsłużenia dużej ilości użytkowników. Serwer
+MySQL może być stosowany do systemów, w których znajdują się dane o znaczeniu
+krytycznym lub te systemy są mocno obciążane \cite{Mysql.com}. 
+
+Język MySQL posiada takie typy danych jak signed/unsigned int, long, float,
+double, char, varchar, date, time, datetime, enum i inne. Język MySQL składa się
+z takich typów komend jak: DML (ang.
+Data Manipulation Language - dotyczące mainpulowania), DLL (ang. Data
+Defitnition Language) oraz DCL (ang. Data Control Language).
+Komendy DML:
+\begin{itemize}
+  \item \texttt{select} - służy do otrzymywania wierszy z wybranych tabeli,
+  najpopularniejsza forma użycia komendy \texttt{select}:
+    
+  \texttt{SELECT select\_expr [, select\_expr] [FROM table\_name] [WHERE
+  where\_condition];}
+  
+  \item \texttt{insert} - komenda ta wstawia nowe wiersze do istniejącej tabeli,
+  istnieją trzy przypadki użycia tej komendy:
+  
+  \texttt{INSERT [INTO] table\_name [(col\_name,...)]
+    {VALUES | VALUE} ({expr | DEFAULT},...),\newline (...), ...
+    [ ON DUPLICATE KEY UPDATE
+      col\_name=expr
+        [, col\_name=expr] ... ];} 
+  
+  \texttt{INSERT [INTO] table\_name SET col\_name={expr | DEFAULT}, ... [ ON
+  DUPLICATE KEY \newline UPDATE col\_name=expr [, col\_name=expr] ... ];}
+      
+   \texttt{INSERT [INTO] table\_name [(col\_name,...)]
+    SELECT ... \newline[ ON DUPLICATE KEY UPDATE
+      col\_name=expr
+        [, col\_name=expr] ... ];}
+  
+  \item \texttt{update} - aktualizuje kolumny istniejących wierszy,
+  strukutra użycia komendy:
+  
+  \texttt{UPDATE table\_name
+    SET col\_name1={expr1|DEFAULT} [, col\_name2={expr2|DEFAULT}] ...
+    \newline[WHERE where\_condition];}
+  
+  \item \texttt{delete} - usuwa pojedyńcze wiersze, użycie komendy:
+  
+  \texttt{DELETE FROM table\_name [WHERE where\_condition];}
+  
+  \item i inne
+\end{itemize}
+Komendy DLL:
+\begin{itemize}
+  \item \texttt{create} - komenda stosowana w połączeniu z database, function,
+  index, procedure, table, trigger, view. Komenda używana jest wtedy gdy chce
+  się dodać nową bazę danych czy tabelę. 
+  \item \texttt{alter} - komenda używana w połączeniu z database, table,
+  function, procedure oraz view. Służy do zmiany struktury bazy danych, tabeli,
+  \ldots, np można dodać lub usunąć kolumnę istniejącej tabeli.
+  \item \texttt{drop} - umożliwia usunięcie bazy danych i tabeli
+\end{itemize}
+Komendy DML:
+\begin{itemize}
+  \item \texttt{commit} - komituje wpisaną transakcję, wrpowadzona zmiana jest
+  pernamenta,
+  \item \texttt{rollback} - wycofuje ostatnią wpisaną transakcję.
+\end{itemize}
+
+Oprócz wyżej wymienionych MySQL posiada również inne komendy, jednak są one
+znacznie rzadziej wykorzystywane, dlatego nie zostały tutaj przytoczone.
 
 \section{Android}
 
 Android jest systemem wykorzystywanym na platformach mobilnych. Android
 jest systemem operacyjnym z rodziny Linux, oparty na jądrze Linux. Android
 umożliwia tworzenie aplikacji na wiele urządzeń, optymalizacji podlega plik xml,
-gdzie można dostosować aplikację do konkretnych urządzeń. Najnowższą wersją
-systemu jest Android Lollipop 5.0. 
+gdzie można dostosować aplikację do konkretnych urządzeń. Każdy proces
+uruchomiony na Adroidzie jest uruchamiany na mszynie wirtualnej i jest
+niezależny od pozostałych aplikacji. Najnowższą wersją systemu jest Android
+Lollipop 5.0.
 
 Rozpoczęcie pracy z Androidem zaczyna się od instalacji środowiska, może to być
 Eclipse z dodatkiem SDK Android lub Android Studio. A samo tworzenie aplikacji
 od projektu interfejsu użytkownika, następnie dopiero oprogramowuje się obsługę
 oraz logikę aplikacji, ostatnim etapem jest testowanie aplikacji.
-\cite{developer.android}
+\cite{developer.android}. 
+
+System Android składa się z czterech podsstawoych elementów. 
+
+\begin{itemize}
+  \item Activites - reprezentuje ekran użytkownika, np. aplikacja do obsługi
+  emaila posiada jedną aktywność do listowania nowych emiali, a inną
+  do pisania email. Aktywności implementuje się używając
+  podklasę \texttt{Activity};
+  \item Services - jest to skłądnik aplikacji, który działa w tle, np. w
+  urządzeniu odtwrzana jest muzyka w tle, a użytkownik korzysta z innej
+  aplikacji w tym czasie. Takie zachowanie aplikacji implementuje się za pomocą
+  podklasy \texttt{Service};
+  \item Content providers - służy do zarządzania wspólnymi danymi, a także
+  danymi, które są prywatne dla danej aplikacji. Zarządzanie danymi
+  implemntuje się używając podklasy \texttt{ContentProvider};
+  \item Broadcast receivers - jest komponenentem systemu, który jest
+  odpowiedzialny za rozgłasznie informacji po systemie, np. infromacja o
+  niskim stnie baterii. Taką właściwość implementuje się korzystając z podklasy
+  \texttt{BroadcastReceiver}.
+\end{itemize}
+
 \emph{\color{komentarz}napisac o tym, ze android oddelegowuje zadania, taki
 obrazek ze strony}
 

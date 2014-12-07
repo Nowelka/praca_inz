@@ -12,8 +12,8 @@
 \contentsline {section}{\numberline {4.4}JSP - Java}{18}
 \contentsline {section}{\numberline {4.5}Technologie internetowe}{18}
 \contentsline {section}{\numberline {4.6}db - MySQL}{18}
-\contentsline {section}{\numberline {4.7}Android}{18}
-\contentsline {section}{\numberline {4.8}Google apps - mapy}{19}
-\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{20}
-\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{21}
-\contentsline {chapter}{Bibliografia}{21}
+\contentsline {section}{\numberline {4.7}Android}{19}
+\contentsline {section}{\numberline {4.8}Google apps - mapy}{20}
+\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{21}
+\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{22}
+\contentsline {chapter}{Bibliografia}{22}

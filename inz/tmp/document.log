@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.11.14)  7 DEC 2014 03:56
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.11.14)  7 DEC 2014 20:45
 entering extended mode
  Source specials enabled.
  %&-line parsing enabled.
@@ -768,96 +768,89 @@ File: javaEE.png Graphic file (type png)
  <use javaEE.png> [16
 
 
- <./javaEE.png>] <model2.jpg, id=100, 405.76593pt x 228.10219pt>
-File: model2.jpg Graphic file (type jpg)
- <use model2.jpg>
+ <./javaEE.png>] <jspModel.png, id=100, 220.825pt x 252.945pt>
+File: jspModel.png Graphic file (type png)
+ <use jspModel.png>
 <feather.png, id=101, 356.33125pt x 111.41624pt>
 File: feather.png Graphic file (type png)
  <use feather.png>
 <tomcat.png, id=102, 207.174pt x 147.752pt>
 File: tomcat.png Graphic file (type png)
- <use tomcat.png> [17 <./model2.jpg> <./feather.png> <./tomcat.png>]
-
-LaTeX Warning: Reference `' on page 18 undefined on input line 1133.
-
-[18] [19]
+ <use tomcat.png> [17 <./jspModel.png>] [18 <./feather.png> <./tomcat.png>] [19
+] [20]
 Rozdzia\PlPrIeC {\l } 5.
-[20
+[21
 
 
 ]
 Rozdzia\PlPrIeC {\l } 6.
-(./document.bbl [21
+(./document.bbl [22
 
 
 ]
-Underfull \hbox (badness 1147) in paragraph at lines 55--58
+Underfull \hbox (badness 1147) in paragraph at lines 50--53
 [][]\T1/cmr/m/n/10 MySQL.  $\T1/cmtt/m/n/10 http : / / dev . mysql . com / doc 
 / refman / 5 . 6 / en / introduction . html$\T1/cmr/m/n/10 .  [On-li-ne; do-st¦
 p
  []
 
-) [22
+) [23
 
 
 ] (./document.lof)
 \tf@lof=\write5
 \openout5 = `document.lof'.
 
- [23
+ [24
 
 
 ] (./document.lot)
 \tf@lot=\write6
 \openout6 = `document.lot'.
 
- [24
+ [25
 
 
 ] (./document.lol)
 \tf@lol=\write7
 \openout7 = `document.lol'.
 
- [25
+ [26
 
 
 ]
-(./document.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+(./document.aux) ) 
 Here is how much of TeX's memory you used:
- 6760 strings out of 495026
- 89570 string characters out of 1181801
- 500484 words of memory out of 3000000
- 9775 multiletter control sequences out of 15000+50000
+ 6758 strings out of 495026
+ 89566 string characters out of 1181801
+ 500480 words of memory out of 3000000
+ 9773 multiletter control sequences out of 15000+50000
  26775 words of font info for 61 fonts, out of 3000000 for 9000
  48 hyphenation exceptions out of 8191
  36i,15n,49p,306b,1718s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/
-monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk>{/usr/share/texmf-
-texlive/fonts/enc/dvips/pl/plms.enc}{/usr/share/texmf-texlive/fonts/enc/dvips/p
-l/plmi.enc} </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0800.600pk
-> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000.600pk> </home/m
-onika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> </home/monika/.tex
-mf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/monika/.texmf-var/fon
-ts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/monika/.texmf-var/fonts/pk/ljfo
-ur/jknappen/ec/ecbx1440.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappe
-n/ec/ecti1000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1
-000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk>
- </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/mo
-nika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </home/monika/.texm
-f-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/monika/.texmf-var/font
-s/pk/ljfour/jknappen/ec/eccc1728.600pk> </home/monika/.texmf-var/fonts/pk/ljfou
-r/jknappen/ec/ecrm2074.600pk></usr/share/texmf-texlive/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy
-8.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plmi10.pfb></usr/share/te
-xmf-texlive/fonts/type1/public/pl/plsy10.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/pl/plsy8.pfb>
-Output written on document.pdf (26 pages, 4759982 bytes).
+ </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx120
+0.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsl1000.600pk>{/
+usr/share/texmf-texlive/fonts/enc/dvips/pl/plms.enc}{/usr/share/texmf-texlive/f
+onts/enc/dvips/pl/plmi.enc} </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/e
+c/ecbx0800.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1000
+.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0500.600pk> </
+home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </home/monik
+a/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> </home/monika/.texmf-v
+ar/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/monika/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecti1000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/j
+knappen/ec/ecrm1000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec
+/ecbx1000.600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.
+600pk> </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2074.600pk> </h
+ome/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1440.600pk> </home/monika
+/.texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1728.600pk> </home/monika/.texmf-va
+r/fonts/pk/ljfour/jknappen/ec/ecrm2074.600pk></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmsy8.pfb></usr/share/texmf-texlive/fonts/type1/public/pl/plmi10.pf
+b></usr/share/texmf-texlive/fonts/type1/public/pl/plsy10.pfb></usr/share/texmf-
+texlive/fonts/type1/public/pl/plsy8.pfb>
+Output written on document.pdf (27 pages, 4747043 bytes).
 PDF statistics:
- 878 PDF objects out of 1000 (max. 8388607)
+ 886 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
