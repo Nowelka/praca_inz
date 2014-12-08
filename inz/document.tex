@@ -680,7 +680,7 @@ wyświetlana jest wiadomość [listing \ref{lst:sprawdz.jsp} linia
 \ref{lst:sprawdz.jsp6}] dotycząca błędnego id. Natomiast gdy wpisany id jest
 bezbłędne w tabeli [rys.
 \ref{fig:pokaz}] zostają wypisane dane dotyczące przesyłki oraz mapa. Linia
-\ref{lst:sprawdz.jsp5} listingu \ref{lst:sprawdz.jsp} jest miejscem użycia
+\ref{lst:sprawdz.jsp5} listingu \ref{lst:Sprawdz.jsp} jest miejscem użycia
 JavySciprt'owego kodu google.maps. W danych wejściowych zmienna msg oznacza wiadomość dotyczącą
 niepoprawnie wpisanego numeru przesyłki lub jeśli przesyłka została poprawnie
 wpisana, ale jej ostatnie położenie jest zarejestrowane w centrali to w tabeli
@@ -694,7 +694,7 @@ było tak że zdjęcie obok listingu}
 div,section,
 table,td,tr,h2,form,input,br},keywords=[5]{width,id,method,action,type,name,value,style}}
 \begin{lstlisting}[caption=Ciało pliku JavaServlet Pages -
-sprawdz.jsp,label=lst:sprawdz.jsp] 
+sprawdz.jsp,label=lst:Sprawdz.jsp] 
 (*@\label{lst:sprawdz.jsp1}@*)<h2>Wpisz nr przesylki</h2> 
 	<form id="formularz" method="post" action=""> 
 	<input type="text" name="nr" /> <input type="submit" value="sprawdz" />
@@ -1136,7 +1136,7 @@ To właśnie wprowadzenie plików JSP wymaga korzystanie z wcześniej
 opisanego modelu MVC [rys. \ref{fig:MVC2}]. W dodatku JSP oprócz użycia języków
 skryptowych umożliwia przeplatanie ich z językiem Java. Wtedy kod, który będzie
 napisany w Javie musi być wzięty w znaki <\% \ldots \%>, np. fragment z listingu
-\ref{lst:sprawdz.jsp}:
+\ref{lst:Sprawdz.jsp}:
 
 \texttt{<\% out.print("Nadawca"); \%> \$\{regUserName\}
 \$\{regUserAddr\}}
@@ -1295,8 +1295,64 @@ System Android składa się z czterech podstawowych elementów.
   \texttt{BroadcastReceiver}.
 \end{itemize}
 
-\emph{\color{komentarz}napisać o tym, ze android oddelegowuje zadania, taki
-obrazek ze strony}
+Wartą częścią do roziwnięcia jest element \texttt{Activity}. \texttt{Activity}
+jak już wcześniej wspomniano jest reprezentuje ekran użytkownika. Ekran oferuje
+współdziałanie z użytkownikiem, zazwyczaj okno aplikacji wypełnia cały ekran,
+ale może być tak naprawdę każdego rozmiaru, także może być pływające na wierzchu
+inncyh okien. 
+
+Taka aplikacja składa się z wielu cześci, które są ze sobą
+powiązane w luźny sposób. Zazwyczaj jedna część aplikacji jest ,,główna'',
+najczęściej ta, która jest pokazywana użytkownikowi przy uruchomieniu aplikacji.
+Następnie każde działanie wykonane na tym ekranie może uruchamiać inny ekran,
+proces czy działanie. Wtedy przy każdym uruchomieniu nowej działaności ,,stara''
+jest zatrzymywana i przechowywana na stosie - LIFO (ang. last in first out).
+Dzięki temu gdy użytkownik zapragnie wrócić do poprzedniej działaności (ekranu)
+przyciska przycisk wstecz i poprzednia działaność jest zdejmowana ze stosu.
+
+Utworzenie aplikacji typu \texttt{Activity} wymaga utworzenie podklasy
+\texttt{Activity}, w tej podklasie należy zaimplementować metody, które będą
+określały aplikację pomiędzy różnymi stanami cyklu jej życia. Mówiąc cykl życia
+aplikacji ma się na myśli tworzenie, zatrzymywanie, wznawianie, niszczenie.
+Najważniejszymi metodami do zaimplementowania są zatem metody
+\texttt{onCreate()} oraz \texttt{onPause()}. Metoda \texttt{onCreate()} jak sama
+nazwa wskazuje, określa stan aplikacji podczas jej tworzenia, natomiast metoda
+\texttt{onPause()} określa co się stanie z aplikacjią jeśli opuści ją użytkownk,
+co nie musi oznaczać, że aplikacja zostanie zakończona, zazwyczaj zachowywany
+jest wtedy aktualny stan.
+
+Oczywiście istotną kwestią jest zarządzanie życiem aplikacji. Aktywność może być
+zatem w jednym z trzech stanów: stan wznawiania, wstrzymanie oraz
+zatrzymania. Stan wznawiania określa stan aplikacji kiedy jest ona włączona i
+jest na głownym planie ekranu użytownika - ,,działa''. Stan wstrzymania dotyczny
+stanu, w którym aplikacja jest widoczna, ale nie jest na górze, może być
+częściowo widoczna na ekranie. Stan zatrzymania oznacza, że aplikacja jest
+całkowicie przysłonięta przez inne i działa w tle. W stanie wstrzymania i
+zatrzymania system w przypadku braku pamięci może zatrzymać aplikację.
+
+Na rysunku \ref{fig:andActivityLifecycle} przedstawiony został cykl życia
+aplikacji. Wspomniana metoda \texttt{onCreate()} tworzona jest zawsze wtedy, gdy
+aplikacja jest tworzona, w tym miejscu tworzy się widoki. Następną
+wywoływaną metodą jest \texttt{onStart()} powoduje pokazanie się aplikacji pod
+restarcie lub zatrzymaniu aplikacji. Metoda \texttt{onResume()} wywoływana jest
+zawsze po pauzie aplikacji i rozpoczyna interakcję z użytkownikiem, przywołuje
+aplikację na szczyt stosu. \texttt{onPause()} wywołwana w momencie, gdy
+aplikacja ma rozczpocząć inną czynność. Metoda \texttt{onStop()} zostaje użyta,
+gdy aplikacja ma się stać niewidoczna dla użytkonika, aplikacja po tym może być
+zniszczona, może zostać zamknięta jej aktywność lub może być zrestartowana.
+Ostatnią metodą przez zniszczeniem aplikacji jest \texttt{onDestroy()}, która
+jest metodą ostatnią jaka może zostać wykonana, wszystkie procesy są zamykane.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.55\textwidth]{andActivityLifecycle.png}
+\caption{Schemat cyklu życia aplikacji\cite{developer.android}}
+\label{fig:andActivityLifecycle}
+\end{figure}
+
+Przedstawiony na rysunku \ref{fig:andActivityLifecycle} schemat cyklu życia aplikacji w systemie
+Android jest oczwywiśćie podstawowy i może posiadać więcej funkcji, jednakże jest to ogólny
+schemat budowania aplikacji typu \texttt{Activity}.
 
 \section{Google apps - mapy}
 
@@ -1321,6 +1377,5 @@ na czytnikach u kurierów Projekt opiera się
 
 %opcjonalnie moze sie tu pojawic spis rysunkow i tabel
 \listoffigures
-\listoftables
 \lstlistoflistings
 \end{document}

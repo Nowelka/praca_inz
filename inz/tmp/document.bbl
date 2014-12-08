@@ -8,22 +8,22 @@
 \bibitem{apache.wiki}
 {Apache HTTP serwer}.
 \newblock \url{http://en.wikipedia.org/wiki/Apache_HTTP_Server}.
-\newblock [Online; dostęp 16.11.2014].
+\newblock \newline[Online; dostęp 16.11.2014].
 
 \bibitem{java.doc}
 {dokumentacj Javy}.
 \newblock \url{https://docs.oracle.com/javase/specs/jls/se8/html/index.html}.
-\newblock [Online; dostęp 16.11.2014].
+\newblock \newline[Online; dostęp 16.11.2014].
 
 \bibitem{eclipse}
 {eclipse with adnroid sdk}.
 \newblock \url{https://developer.android.com/sdk/index.html}.
-\newblock [Online; dostęp 11.11.2014].
+\newblock \newline[Online; dostęp 11.11.2014].
 
 \bibitem{developer.google.maps}
 {Google}.
 \newblock \url{https://developers.google.com/maps/documentation/webservices/}.
-\newblock [Online; dostęp 16.11.2014].
+\newblock \newline[Online; dostęp 16.11.2014].
 
 \bibitem{developer.google}
 {Google}.
@@ -34,12 +34,12 @@
 {Java MVC}.
 \newblock
   \url{http://www.oracle.com/technetwork/articles/javase/index-142890.html}.
-\newblock [Online; dostęp 26.11.2014].
+\newblock \newline[Online; dostęp 26.11.2014].
 
 \bibitem{java.mvc.grafika}
 {Java MVC}.
 \newblock \url{http://www.javatpoint.com/model-1-and-model-2-mvc-architecture}.
-\newblock [Online; dostęp 26.11.2014].
+\newblock \newline[Online; dostęp 26.11.2014].
 
 \bibitem{javascript.wiki}
 {JavaScript wiki}.
@@ -49,7 +49,7 @@
 \bibitem{Mysql.com}
 {MySQL}.
 \newblock \url{http://dev.mysql.com/doc/refman/5.6/en/introduction.html}.
-\newblock [Online; dostęp 26.11.2014].
+\newblock \newline[Online; dostęp 26.11.2014].
 
 \bibitem{szablon}
 {szablon}.

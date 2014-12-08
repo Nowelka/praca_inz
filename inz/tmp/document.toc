@@ -12,7 +12,7 @@
 \contentsline {section}{\numberline {4.5}Technologie internetowe}{19}
 \contentsline {section}{\numberline {4.6}db - MySQL}{20}
 \contentsline {section}{\numberline {4.7}Android}{21}
-\contentsline {section}{\numberline {4.8}Google apps - mapy}{21}
-\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{22}
-\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{23}
-\contentsline {chapter}{Bibliografia}{23}
+\contentsline {section}{\numberline {4.8}Google apps - mapy}{22}
+\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{23}
+\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{24}
+\contentsline {chapter}{Bibliografia}{24}
