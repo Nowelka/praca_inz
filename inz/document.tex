@@ -88,6 +88,7 @@
 %pakiet wypisujacy na marginesie etykiety rownan i rysunkow zdefiniowanych przez \label{}, chcac wygenerowac finalna wersje dokumentu wystarczy usunac 
 %ponizsza linie
 %\usepackage{showlabels}
+\sloppy
 
 %definicje wlasnych polecen
 \newcommand{\R}{I\!\!R} %symbol liczb rzeczywistych, dziala tylko w trybie matematycznym
@@ -135,8 +136,9 @@ widzenia klienta odczuwany jest komfort informacji, gdzie jest przesyłka, dzię
 temu klient może zaplanować sobie dzień, w którym nastąpi dostarczenie. 
 
 Przedstawiany tu projekt rozwija aktualną funkcjonalność firm kurierskich o
-graficzne przedstawienie, w formie mapy, aktualnej lokalizacji przesyłki. Taka
-forma prezentacji jest prosta w odbiorze i bardziej czytelna niż wyniki
+graficzne przedstawienie, w formie mapy, aktualnej lokalizacji przesyłki,
+poprzez lokalizowanie kuriera, który aktualnie w swoim samochodzie ją posiada.
+Taka forma prezentacji jest prosta w odbiorze i bardziej czytelna niż wyniki
 jakie prezentowane są aktualnie w formie tabel, w których zawarte są miejsca
 odbicia przesyłki. Ponadto praca próbuje rozwiązać problem jaki istnieje w
 estymacji czasu dostarczaniu przesyłki do adresata, estymacja czasu
@@ -146,7 +148,6 @@ dostarczenia jest bardzo niedokładna(ogólna) lub jej nie ma.
 Projekt został zrealizowany z wykorzystaniem takich
 technologi jak:
 język programowania Java, system operacyjny Android, baza danych MySQL, Google Apps.
-http://www.lokalizacja.info/pl/testy/monitoring/gdzie-jest-moja-paczka-test-firm-kurierskich.html\#.VEzCPVS988o
 Firmy kurierskie maja najprawdopodobniej system „windows ce/mobile” na swoich urządzenia. Ja ze względu na brak takiego urządzenia (mobilnego z windowsem) 
 zrealizuje zadanie na androidzie.
 }
@@ -156,43 +157,47 @@ zrealizuje zadanie na androidzie.
 \includegraphics[width=90mm]{obr.jpg}
 \caption{podpisisi}
 \end{figure}
+
 \chapter{Rozwiązanie - prezentacja wyników}
 
-
 Zrealizowana aplikacja składa się z dwóch części, tj. aplikacji na androida oraz
-serwera www. Serwer, czyli Servlet(aplet Javy) posiada połączenie z bazą
+serwera www. Serwer, czyli Servlet (aplet Javy) posiada połączenie z bazą
 danych, w której przechowywane są informacje o przesyłce, kurierach i
-klientach. 
+klientach. Aplikacja mobilna również posiada połączenie z bazą danych, jednakże
+połączenie to zrealizowano pośrednio. Aplikacja poprzez zapytania i odpowiedzi z
+serwera uzyskuje informacje o stanie bazy danych. 
 
+\begin{figure}[h]
+\centering
+\includegraphics[width=100ex]{StrukturaSystemu.png}
+\caption{Struktura systemu}
+\label{StrukturaSystemu}
+\end{figure}
+
+Ideę systemu zaprezentowano na rysunku \ref{StrukturaSystemu}.
 Aplikację zrealizowano w środowisku programistycznym Eclipse.
 
-schemat - wejście (android) - środek system - wyjście www z mapka
+\emph{\color{komentarz} komentarz: dopisać pierdół wstępowych}
 
-\emph{\color{komentarz} dopisać pierdół wstępowych\\oprócz tego dopisać jak
-testowałam to\\dorzucić schemat systemu}
+\newpage
 \section{Aplikacja na system Android}
 
 Założeniem aplikacji mobilnej było lokalizowanie kuriera i wysyłanie jego
-pozycji na serwer, który zapisuje ją w bazie danych. 
+pozycji na serwer, który zapisuje ją w bazie danych. Zasada działania aplikacji
+polega na odpytaniu kuriera o jego numer id, a następnie sprawdzeniu czy jest
+włączony GPS. Ponadto aplikacja wykrywa czy wprowadzono poprawne id oraz
+zapobiega zalogowaniu się dwóch kurierów na tym samym id. Po wpisaniu poprawnego
+id kuriera aplikacja zapamiętuje go i do automatycznie wysyła swoją pozycję.
 
 \begin{wrapfigure}{r}{0.4\textwidth}
 \centering
 \captionsetup{justification=centering,margin=0cm}
-\vspace{-30pt}
 \begin{center}
 \includegraphics[width=.3\textwidth]{struktura_android.png}
 \end{center}
-\vspace{-20pt}
-  \caption{Struktura programu aplikacji Android}
-\vspace{-10pt}
-\label{android}
+\caption{Struktura programu aplikacji Android}
+\label{fig:androidStruktura}
 \end{wrapfigure}
-
-Zasada działania aplikacji polega na odpytaniu kuriera o jego numer id, a
-następnie sprawdzeniu czy jest włączony GPS. Ponadto aplikacja wykrywa czy
-wprowadzono poprawne id oraz zapobiega zalogowaniu się dwóch kurierów na tym
-samym id. Po wpisaniu poprawnego id kuriera aplikacja zapamiętuje go i do
-automatycznie wysyła swoją pozycję.
 
 Stworzenie aplikacji na system Android zostało rozpoczęte od doinstalowania
 pluginu ADT (Android Development Kit) do programu Eclipse. Na ADT składają się
@@ -204,98 +209,78 @@ projektami, modułami czy maszynami wirtualnymi, debugger, emulator. Natomiast
 Platform Tools zawiera biblioteki do systemu Android. Plugin ADT  korzysta
 z funkcji Android SDK i pomaga tworzyć, budować, instalować oraz debugować
 aplikacje na system Android w środowisku Eclipse. W programie Eclipse tworzona
-jest z aplikacją odpowiednia struktura projektu [rys. \ref{android}], w której
-jest podział na klasy zawierające logikę aplikacji (scr), pliki generowane przez kompilator (gen),
+jest z aplikacją odpowiednia struktura projektu [rys. \ref{fig:androidStruktura}], w
+której jest podział na klasy zawierające logikę aplikacji (scr), pliki generowane przez kompilator (gen),
 folder na pliki z zasobami (assets), pliki binarne(bin), dodatkowe biblioteki
 (libs) oraz folder na zasoby(res), którego odróżnia od assets to, że są
 generowane do pliku R.java (nie trzeba podawać lokalizacji zasobów tylko jego
 nazwę). W katalogu res również ustalana jest konfiguracja systemu - 
 ,,AndroidManifest.xml'', layout (wygląd i ustawienie elementów na ekranie
-systemu Android), w podfolderach Drwale pliki graficzne, w podfolderach values
+systemu Android), w podfolderach Drawable pliki graficzne, w podfolderach values
 ciągi znaków(stringi, kolory) i ustawienia oraz w katalogu menu, w którym
 ustawiane są dostępne opcje menu.
 
 Projektowanie aplikacji Android zaczyna się od ustawienia layoutu aplikacji
 (/res/layout/activity\_main.xml). Zaprojektowany przez autora layout jest
 prosty i przejrzysty, ponieważ ma wykonywać bardzo podstawowe funkcje [rys.
-\ref{androidViewOK}]. I tak zawiera w sobie pole do wpisywania id kuriera,
+\ref{fig:androidViewOK}]. I tak zawiera w sobie pole do wpisywania id kuriera,
 pole wyświetlające komunikaty oraz przycisk wyłączający aplikację. Aplikacja została
 tak przemyślana, że aby ją wyłączyć trzeba użyć przycisku ,,Off'', pozostałe hardware'owe przyciski
 nie wyłączają aplikacji, jedynie ją minimalizują. Takie właściwości zostały
 stworzone z myślą o tym, aby kurier podczas używania aplikacji tylko w świadomy
 sposób mógł ją zamknąć.
 
-
-\begin{figure}[h]
-\centering
-\subfigure[Główny ekran aplikacji, oczekuje na wprowadzenie id kuriera]{
-\includegraphics[width=30ex]{andWprowadz.png}
-}
-\subfigure[Gdy nie jest włączona sieć komórkowa lub WiFi na ekranie pokazuje
-się komunikat i zostaje zablokowane pole do wprowadzania id]{
-\includegraphics[width=30ex]{andWifi.png}
-}
-\subfigure[Komunikat o poprawnie wpisanym id]{
-\includegraphics[width=30ex]{andID.png}
-}
-\subfigure[Informacje o niewłączonym GPS]{
-\includegraphics[width=30ex]{andGPS.png}
-}
-\subfigure[System czeka na ustalenie lokalizacji]{
-\includegraphics[width=30ex]{andCzeka.png}
-}
-\subfigure[System lokalizuje i wyświetla informacje o lokalizacji i czasie
-odczytu]{
-\includegraphics[width=30ex]{andLokal.png}
-}
-\caption{Ekrany Androida }
-\label{androidViewOK}
-\end{figure}
-
 Autor przewidział również odpowiednie zachowanie aplikacji, gdy kurier próbuje
 zalogować się na nie istniejące w bazie id lub na id, które jest już zajęte -
-tzn. na które już zalogował się inny kurier [rys. \ref{androidViewNOTOK}]. 
+tzn. na które już zalogował się inny kurier [rys. \ref{fig:androidViewNOTOK}]. 
 Oprócz wyżej wymienionych zachowań aplikacji, w pasku statusu na telefonie
 wyświetlana jest ikona podczas włączonej aplikacji a także w
-powiadomieniach [rys. \ref{androidViewtask}].
-
-\begin{figure}
-\centering
-\captionsetup{justification=centering,margin=1cm}
-
-\subfigure[sytuacja gdy jest już zajęte id lub nie istnieje]{
-\includegraphics[width=25ex]{andJuzzalog.png}
-\includegraphics[width=25ex]{andNiema.png}
-\label{androidViewNOTOK}
-}
-\subfigure[status telefonu]{
-\includegraphics[width=25ex]{andBarNie.png}
-\includegraphics[width=25ex]{andBarZal.png}
-\label{androidViewtask}
-}
-\vspace{-10pt}
- \caption{Struktura programu aplikacji Android}
-\vspace{-10pt}
-
-\end{figure}
+powiadomieniach [rys. \ref{fig:androidViewtask}].
 
 Kolejnym krokiem było nadanie odpowiednich uprawnień aplikacji, do tego służy
 plik ,,AndroidManifest.xml''. Aplikacja zostały przyznane uprawnienia do
 sprawdzania statusu sieci komórkowej oraz WiFi, sprawdzania statusu sygnału
-GPS, a także do korzystania z wyżej wymienionych [listing \ref{manifest}].
+GPS, a także do korzystania z wyżej wymienionych [listing \ref{lst:manifest}].
 
 \lstset{language=XML,
  keywords=[0]{uses,permission},
  keywordstyle=[0]{\color{green!50!black}},
  stringstyle=\color{blue}
  }
-\begin{lstlisting}[caption=Nadanie uprawnień aplikacji Android,label=manifest]
-	<uses-permission android:name="android.permission.INTERNET" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+\begin{lstlisting}[caption=Nadanie uprawnień aplikacji
+Android w pliku AndroidManifest.xml,label=lst:manifest] 
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 \end{lstlisting}
 
+\begin{figure}
+\centering
+\subfigure[Główny ekran aplikacji, oczekuje na wprowadzenie id kuriera]{
+\includegraphics[height=0.33\textheight]{andWprowadz.png}
+}
+\subfigure[Gdy nie jest włączona sieć komórkowa lub WiFi na ekranie pokazuje
+się komunikat i zostaje zablokowane pole do wprowadzania id]{
+\includegraphics[height=0.33\textheight]{andWifi.png}
+}
+\subfigure[Komunikat o poprawnie wpisanym id]{
+\includegraphics[height=0.33\textheight]{andID.png}
+}
+\subfigure[Informacje o niewłączonym GPS]{
+\includegraphics[height=0.33\textheight]{andGPS.png}
+}
+\subfigure[System czeka na ustalenie lokalizacji]{
+\includegraphics[height=0.33\textheight]{andCzeka.png}
+}
+\subfigure[System lokalizuje i wyświetla informacje o lokalizacji i czasie
+odczytu]{
+\includegraphics[height=0.33\textheight]{andLokal.png}
+}
+\caption{Ekrany Androida }
+\label{fig:androidViewOK}
+\vspace{-10pt}
+\end{figure}
 
 Po przygotowaniu wyglądu aplikacji oraz nadaniu jej uprawnień można przejść
 do oprogramowania logiki aplikacji. Klasa główna, która zajmuje się obsługą
@@ -308,71 +293,92 @@ przesłonić, jeśli mają być zainicjowane wcześniej wspomniane przyciski i p
 właściwość dla przycisku, która ma po kliknięciu go w dowolnym momencie
 działania aplikacji wywołać zamknięcie aplikacji. Takie zachowanie osiąga się
 poprzez wywołanie na rzecz niego metody \texttt{public void
-setOnClickListener(View.OnClickListener l)}[listing \ref{button}].
+setOnClickListener(View.OnClickListener l)}[listing \ref{lst:Main.button.java}].
 
-\lstset{language=Java,firstnumber=72,stepnumber=1,keywords=[3]{button,savedId}}
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{button,savedId}}
 \begin{lstlisting}[caption=Ustawienie właściwości przycisku
-``Off'',label=button]
-button.setOnClickListener(new View.OnClickListener() {
-			public void onClick(View v) {
-				if (savedId != "")
-						new AuthenticationDeliverer()
-								.execute(savedId, "0", "0").get();
-				savedId = "";
-				onDestroy();
-			}
-		});
+``Off'' w głównej klasie aplikacji mobilnej w
+metodzie onCreate(),label=lst:Main.button.java] 
+
+button.setOnClickListener(new View.OnClickListener() { 
+	public void onClick(View v) { 
+		if (savedId != "")
+			new AuthenticationDeliverer().execute(savedId, "0", "0").get();
+		savedId = "";
+		onDestroy();
+	}
+});
 \end{lstlisting}
 
-Na listingu \ref{button} widać zmienną \texttt{savedId}, jest pole klasy, które
-zapisywane jest wpisanym przez kuriera jego \texttt{id}. Gdy użytkownik wyłącza
+Na listingu \ref{lst:Main.button.java} widać zmienną \texttt{savedId},
+jest pole klasy, które zapisywane jest wpisanym przez kuriera jego \texttt{id}. Gdy użytkownik wyłącza
 aplikację system sprawdza czy \texttt{savedId} nie jest puste i w przypadku gdy
 \texttt{savedId} posiada jakąś wartość tworzony jest nowy obiekt
-\texttt{AuthenticationDeliverer()} z odpowiednimi parametrami - nazwa zmiennej, status aktywności oraz status logowania. Klasa
+\texttt{AuthenticationDeliverer()} z odpowiednimi parametrami - nazwa
+zmiennej, status aktywności oraz status logowania. Klasa
 \texttt{AuthenticationDeliverer()} dziedziczy po \texttt{AsyncTask} (umożliwia
-tworzenie nowego wątku i pozwala na wykonywanie operacji w tle). Parametry z jakimi tworzony jest
+tworzenie nowego wątku i pozwala na wykonywanie operacji w tle). 
+
+\begin{figure}[ht]
+\centering
+\captionsetup{justification=centering,margin=1cm}
+
+\subfigure[sytuacja gdy jest już zajęte id lub nie istnieje]{
+\includegraphics[width=25ex]{andJuzzalog.png}
+\includegraphics[width=25ex]{andNiema.png}
+\label{fig:androidViewNOTOK}
+}
+\subfigure[status telefonu]{
+\includegraphics[width=25ex]{andBarNie.png}
+\includegraphics[width=25ex]{andBarZal.png}
+\label{fig:androidViewtask}
+}
+\vspace{-10pt}
+ \caption{Informacje o zalogowanym/nieistniejącym id i statusbar}
+\vspace{-10pt}
+\end{figure}
+
+Parametry z jakimi tworzony jest
 nowy obiekt to id kuriera, status aktywności oraz jego logowanie lub
-wylogowywanie[listing. \ref{AuthentictionDeliverer}]. Status aktywności to informacja
-wysyłana do serwera (zapisywana w bazie danych) mówiąca o tym, czy kurier będzie ustawiał swój status na aktywny
+wylogowywanie[listing. \ref{lst:AuthentictionDeliverer.java}]. Status aktywności to
+informacja wysyłana do serwera (zapisywana w bazie danych) mówiąca o tym, czy kurier będzie ustawiał swój status na aktywny
 czy nieaktywny - czy rozpoczyna pracę czy ją kończy. Status aktywności
 sprawdzany jest ze statusem w bazie danych, jeśli kurier próbuje się zalogować,
 ale w bazie jest już ktoś zalogowany na ten id pojawi się komunikat o
-zalogowanym już kurierze o tym numerze [rys. \ref{androidViewNOTOK}]. Natomiast
-trzeci parametr mówi o tym, czy kurier się zalogowuje ,,1'' czy wylogowuje ,,0''
+zalogowanym już kurierze o tym numerze [rys. \ref{fig:androidViewNOTOK}].
+Natomiast trzeci parametr mówi o tym, czy kurier się zalogowuje ,,1'' czy wylogowuje ,,0''
 z aplikacji. Na rzecz klasy AuthenticationDeliverer() wywołane zostają metody:
 \texttt{execute()} - nakazuje wykonanie zadania, \texttt{get()} - oczekuje, aż
 zadanie zostanie wykonane.
 
-\lstset{language=Java,firstnumber=31,stepnumber=1,keywords=[3]{httpClient,localhost,httpPostAuthentication,httpGetAuthentication,httpResponse}}
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{httpClient,localhost,httpPostAuthentication,httpGetAuthentication,httpResponse}}
 \begin{lstlisting}[caption=klasa
-AuthenticationDeliverer metoda doInBackground,label=AuthentictionDeliverer]
-@Override 
+AuthenticationDeliverer metoda
+doInBackground,label=lst:AuthentictionDeliverer.java]
 protected String doInBackground(String... params) {
-		ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
-		pairs.add(new BasicNameValuePair("ID", params[0]));
-		pairs.add(new BasicNameValuePair("activ", params[1]));
-		pairs.add(new BasicNameValuePair("logout", params[2]));
-
-		httpPostAuthentication.setEntity(new UrlEncodedFormEntity(pairs));
-		
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-					httpClient.execute(httpPostAuthentication);
-			}
-		}).start();
-		httpResponse = (new DefaultHttpClient())
-				.execute(httpGetAuthentication);
-		String entityStr = EntityUtils.toString(httpResponse.getEntity());
-		if (entityStr.contains("logIn"))
-			return "logIn";
-		else if (entityStr.contains("busy"))
-			return "busy";
-		else if (entityStr.contains("false"))
-			return "false";
-		else if (entityStr.contains("logOut"))
-			return "logOut";
-		return "";
+	ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
+	pairs.add(new BasicNameValuePair("ID", params[0]));
+	pairs.add(new BasicNameValuePair("activ", params[1]));
+	pairs.add(new BasicNameValuePair("logout", params[2]));
+	httpPostAuthentication.setEntity(new UrlEncodedFormEntity(pairs));
+	new Thread(new Runnable() {
+		@Override
+		public void run() {
+				httpClient.execute(httpPostAuthentication);
+		}
+	}).start();
+	httpResponse = (new DefaultHttpClient()).execute(httpGetAuthentication);
+	String entityStr = EntityUtils.toString(httpResponse.getEntity());
+	if (entityStr.contains("logIn"))
+		return "logIn";
+	else if (entityStr.contains("busy"))
+		return "busy";
+	else if (entityStr.contains("false"))
+		return "false";
+	else if (entityStr.contains("logOut"))
+		return "logOut";
+	return "";
+}
 \end{lstlisting}
 
 Po zainicjalizowaniu pola edycji zostaje wywołana na rzecz niego metoda public
@@ -392,27 +398,26 @@ klasą Context (umożliwia dostęp do zasobów systemu i informację o nim),
 natomiast getSystemService jest do kontroli pobierania lokalizacji. Następnie
 ustawiono z jaką częstotliwością ma być odczytywana zmiana pozycji. Po wykonaniu
 tych czynność następuje zapytanie o ostatnią znaną pozycję. Całą
-procedurę odczytu pozycji GPS pokazano na listingu \ref{GpsTrack}.
+procedurę odczytu pozycji GPS pokazano na listingu \ref{lst:GpsTrack.java}.
 
 \lstset{language=Java,firstnumber=31,stepnumber=1,keywords=[3]{locationManager,context,minTime,minDistance,location,longitude,latitude}}
-\begin{lstlisting}[caption=Pobieranie lokalizacji,label=GpsTrack]
+\begin{lstlisting}[caption=Pobieranie lokalizacji
+kuriera metoda getLocation() z klasy GpsTrack,label=lst:GpsTrack.java]
+
 public Location getLocation() {
-		locationManager = (LocationManager) context
-				.getSystemService(Context.LOCATION_SERVICE);
-
-		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
-				minTime, minDistance, (android.location.LocationListener) this);
-
-		if (locationManager != null) {
-			location = locationManager
-					.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-			if (location != null) {
-				longitude = location.getLongitude();
-				latitude = location.getLatitude();
-			}
+	locationManager = (LocationManager) context
+			.getSystemService(Context.LOCATION_SERVICE);
+	locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+			minTime, minDistance, (android.location.LocationListener) this);
+	if (locationManager != null) {
+		location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+		if (location != null) {
+			longitude = location.getLongitude();
+			latitude = location.getLatitude();
 		}
-		return location;
 	}
+	return location;
+}
 \end{lstlisting}
 
 Ostatnią istotną częścią jaka realizowana jest na systemie Android to połączenie
@@ -427,34 +432,44 @@ przypadku tak:
 \\$\hookrightarrow$\&timestamp=2014-11-25+15:14:55\&activ=1}
 \end{flushright}
 
-\lstset{language=Java,firstnumber=55,stepnumber=1,keywords=[3]{savedId,
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{savedId,
 httpClient, httpPost,localhost}}
-\begin{lstlisting}[caption=Przygotowanie wiadomości do wysłania na
-serwer oraz wysłanie jej,label=polaczenieSerwer] 
-	private String localhost = "192.168.1.2:8080";
-	private HttpClient httpClient = new DefaultHttpClient();
-	private HttpPost httpPost = new HttpPost("http://" + localhost
-			+ "/inzServlet/insert");
-			
-(*@\centerline{\raisebox{-1pt}[0pt][0pt]{$\vdots$}}@*)
-(*@\lstset{language=Java,firstnumber=220}@*)
-		Date date = new Date(System.currentTimeMillis()); 
-		textView.setText(lon + "\n" + lat + "\n" + date); 
-		ArrayList<NameValuePair> pairs= new ArrayList<NameValuePair>(); 
-		pairs.add(new BasicNameValuePair("ID", savedId));
-		pairs.add(new BasicNameValuePair("longitude", lon + ""));
-		pairs.add(new BasicNameValuePair("latitude", lat + ""));
-		pairs.add(new BasicNameValuePair("timestamp",
-				new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)));
-		pairs.add(new BasicNameValuePair("activ", 1 + ""));
-		httpPost.setEntity(new UrlEncodedFormEntity(pairs));
-		
-		new Thread(new Runnable() {
-			@Override
-			public void run() {
-				httpClient.execute(httpPost);
+\begin{lstlisting}[caption=Metoda startSendGpsDate() klasy
+main.java. Metoda sprawdza stan sygnału GPS i przygotowuje wiadomość do
+wysłania na serwer oraz wysyła ją,label=lst:Main.startSendGpsDate.java]
+private String localhost = "192.168.1.2:8080";
+private HttpClient httpClient = new DefaultHttpClient();
+private HttpPost httpPost = new HttpPost("http://" + localhost
+		+ "/inzServlet/insert");
+(*@\centerline{\raisebox{0pt}[0pt][0pt]{$\vdots$}}@*)
+private void startSendGpsDate() {
+	if (gpsTrack.isGpsEnable()) {
+		gpsTrack.getLocation();
+		double lat = gpsTrack.getLatitude();
+		double lon = gpsTrack.getLongitude();
+		if (lat != 0.0 && lon != 0.0) {
+			Date date = new Date(System.currentTimeMillis());
+			textView.setText(lon + "\n" + lat + "\n" + date);
+			ArrayList<NameValuePair> pairs = new ArrayList<NameValuePair>();
+			pairs.add(new BasicNameValuePair("ID", savedId));
+			pairs.add(new BasicNameValuePair("longitude", lon + ""));
+			pairs.add(new BasicNameValuePair("latitude", lat + ""));
+			pairs.add(new BasicNameValuePair("timestamp",
+					new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)));
+			pairs.add(new BasicNameValuePair("activ", 1 + ""));
+			httpPost.setEntity(new UrlEncodedFormEntity(pairs));
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					httpClient.execute(httpPost);
+				}
 			}).start();
-		}
+		} else
+			textView.setText("Czekam na zlokalizowanie");
+	} else {
+		textView.setText("Wlacz gps");
+	}
+}
 \end{lstlisting}
 
 W powyższym paragrafie zostały opisane kluczowe funkcje klas zaimplementowanych
@@ -474,11 +489,11 @@ między aplikacją mobilną a bazą danych.
 \captionsetup{justification=centering,margin=0cm}
 \vspace{-10pt}
 \begin{center}
-\includegraphics[width=.3\textwidth]{strukturaServlet.png}
+\includegraphics[width=.35\textwidth]{strukturaServlet.png}
 \end{center}
 \vspace{-10pt}
-  \caption{Struktura Servletu}
-\label{servlet}
+  \caption{Struktura plików Servletu}
+\label{fig:servlet}
 \vspace{-60pt}
 \end{wrapfigure}
 
@@ -491,41 +506,19 @@ Eclipse:
   \item JST Server Adapters
   \item JST Server Adapters Extensions
 \end{itemize}
+
 Po zainstalowaniu dodatków należało skonfigurować środowisko, w tym celu należało
 stworzyć nowy lokalny serwer. Autor skorzystał z popularnego serwera Apache
 Tomcat wersji 7.0. Serwer jest dostępny pod adresem localhost:8080. 
 
 Po skonfigurowaniu środowiska można było przystąpić do utworzenia nowego
 dynamicznego projektu sieciowego (\textsl{Dynamic Web Project}). W strukturze
-projektu najważniejsze są dwa foldery [rys.\ref{servlet}], jeden zawierający w
-sobie klasy Javy, drugi zawierający obsługę, wygląd stron Servletu. W tymże
+projektu najważniejsze są dwa foldery [rys.\ref{fig:servlet}], jeden zawierający
+w sobie klasy Javy, drugi zawierający obsługę, wygląd stron Servletu. W tymże
 folderze znajduje się plik ,,web.xml'', w którym definiuje zachowanie serwera w
 zależności od tego jaki adres został wpisany w przeglądarkę. 
 
-\lstset{language=XML,firstnumber=1,stepnumber=1}
-\begin{lstlisting}[caption=Fragment pliku web.xml,label=webxml]
-	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
-	</welcome-file-list>
-	<servlet>
-		<servlet-name>Sprawdz</servlet-name>
-		<servlet-class>pl.javastart.servlets.Sprawdz</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Sprawdz</servlet-name>
-		<url-pattern>/sprawdz</url-pattern>
-	</servlet-mapping>
-	<servlet>
-		<servlet-name>Index</servlet-name>
-		<jsp-file>/index.jsp</jsp-file>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>Index</servlet-name>
-		<url-pattern>/index</url-pattern>
-	</servlet-mapping>
-\end{lstlisting}
-
-Na powyższym listingu widać ustawienie strony startowej
+Na poniższym listingu widać ustawienie strony startowej
 (\texttt{<welcome-file-list>}), tzn. gdy w polu adresy wpisany jest
 http://localhost:8080/inzServlet uruchamia się strona główna aplikacji webowej -
 Index.jsp. W następnej liniach jest załadowanie klasy
@@ -535,6 +528,29 @@ http://localhost:8080/inzServlet/sprawdz. Pokazany tu sposób dotyczy wszystkich
 używanych przez Servlet klas Javy, w podobny sposób można zadeklarować użycie
 pliku *.jsp (różnica polega na zamianie identyfikatora \texttt{<servlet-class>}
 na \texttt{<jsp-file>}). 
+
+\lstset{language=XML,firstnumber=1,stepnumber=1}
+\begin{lstlisting}[caption=Fragment pliku web.xml,label=lst:web.xml]
+<welcome-file-list>
+	<welcome-file>index.jsp</welcome-file>
+</welcome-file-list>
+<servlet>
+	<servlet-name>Sprawdz</servlet-name>
+	<servlet-class>pl.javastart.servlets.Sprawdz</servlet-class>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Sprawdz</servlet-name>
+	<url-pattern>/sprawdz</url-pattern>
+</servlet-mapping>
+<servlet>
+	<servlet-name>Index</servlet-name>
+	<jsp-file>/index.jsp</jsp-file>
+</servlet>
+<servlet-mapping>
+	<servlet-name>Index</servlet-name>
+	<url-pattern>/index</url-pattern>
+</servlet-mapping>
+\end{lstlisting}
 
 Każda klasa Javy, która rozszerza Servlet posiada dwie istotne metody do obsługi
 stron serwera - \texttt{doPost} i \texttt{doGet}, obydwie przyjmuję argument
@@ -551,7 +567,7 @@ Ważną klasą w projekcie jest klasa obsługująca bazę danych. Klasa do obsł
 bazy danych musi składać się z następujących poleceń: załadowanie sterownika
 bazy danych, nawiązanie połączenia z bazą, pobranie/zapisanie danych, zamknięcie
 połączenia. Przykładem obsługi bazy danych jest poniższy listing [listing
-\ref{checkisexistsdeveloper}]. Przedstawiona metoda sprawdza czy istnieje w
+\ref{lst:CheckIsExistsDeveliverer.selectFromDB.java}]. Przedstawiona metoda sprawdza czy istnieje w
 bazie dany kurier. Sprawdzenie istnienia kuriera realizowane jest przez
 zapytanie \texttt{"select * from deli.deliverer where id=" + id}, gdzie id jest
 identyfikatorem kuriera. Po wykonaniu zapytania pod \texttt{ResultSet}
@@ -569,12 +585,12 @@ W momencie wylogowywania kuriera (kiedy aktywność == \texttt{true}) a
 \texttt{logout} wynosi 0 to przygotowywana jest komenda aktualizująca bazę
 danych i pod wskazaną krotkę o numerze id zapisywana wartość 0 dla activ.
 
-\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{id,activ, logout}}
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{id,activ,logout}}
 \begin{lstlisting}[caption=Połączenia z bazą danych na przykładzie metody
 sprawdzającej istnienie kuriera oraz jego stan
-używanej przez aplikację mobilną,label=checkisexistsdeveloper]
+używanej przez aplikację
+mobilną,label=lst:CheckIsExistsDeveliverer.selectFromDB.java]
 Class.forName("com.mysql.jdbc.Driver");
-
 Connection connection = DriverManager.getConnection(
 		"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
 Statement statement = connection.createStatement();
@@ -614,73 +630,81 @@ lokalizacji przesyłki. Do osiągnięcia tego celu użyto zmodyfikowanego przez
 autora darmowego szablonu pobranego z internetu \cite{szablon}. W zakładce
 \texttt{SPRAWDZ PRZESYLKE} wpisywany jest numer przesyłki jaką klient chce
 sprawdzić [rys.
-\ref{sprawdz}]. Wpisany ciąg znaków jest sprawdzany pod kątem poprawności.
+\ref{fig:sprawdz}]. Wpisany ciąg znaków jest sprawdzany pod kątem poprawności.
 Sprawdzane jest czy ciąg w formularzu jest liczbowy i czy istnieje taka
 przesyłka. Gdy w bazie nie istnieje przesyłka pojawia się odpowiedni komunikat
-informujący o nie istniejącej przesyłce [rys. \ref{niema}]. Gdy użytkownik
+informujący o nie istniejącej przesyłce [rys. \ref{fig:niema}]. Gdy użytkownik
 wprowadzi poprawny numer przesyłki zostaną wyświetlone takie informacje, jak
 nadawca, odbiorca, czas nadania i czas odbioru oraz ostanie sczytane położenie
 przesyłki. Ponadto wyświetlana jest mapa pokazująca jak trasę pokona przesyłka -
 znaczniki A - B. Na mapie dodatkowo pokazany jest znacznik, który wyznacza
 pozycję kuriera z daną przesyłką - znacznik ,,kurier''.
 
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=90ex]{sprawdz.png}
-\caption{Diagram ERD zaprojektowanej bazy danych}
-\label{sprawdz}
-\end{figure}
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=90ex]{przyklad.png}
-\caption{Diagram ERD zaprojektowanej bazy danych}
-\label{pokaz}
-\end{figure}
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=90ex]{nieMaPrzesylki.png}
-\caption{Diagram ERD zaprojektowanej bazy danych}
-\label{niema}
-\end{figure}
-
 Istotną częścią projektu było zaprojektowanie strony, na której
 klient może sprawdzać status swojej przesyłki zrealizowane jest to poprzez utworzenie pliku
 *.jsp, i przypisanie jej adresu http. Ogólny zarys pliku sprawdz.jsp jest
-pobrany z szablonu \cite{szablon}, autor zmienił jedynie ciało (main) pliku. Z
-formularza [rys. \ref{sprawdz}] pobierany jest numer poszukiwanej przesyłki
-[listing \ref{sprawdzjsp} linie \ref{sprawdzjsp1}-\ref{sprawdzjsp2}] i ustawiany jako
-post formularza i przesyłany do klasy Java Servletu. W tej klasie po
+pobrany z szablonu \cite{szablon}, autor zmienił jedynie ciało (main) pliku. 
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\textwidth]{sprawdz.png}
+\caption{Widok strony internetowej\texttt{SPRAWDZ} serwisu z zachętą do
+wprowadzenia numeru przesyłki do sprawdzeni}
+\label{fig:sprawdz}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\textwidth]{przyklad.png}
+\caption{Widok strony internetowej \texttt{SPRAWDZ} z wyznaczoną trasą dla
+przykładowej przesylki}
+\label{fig:pokaz}
+\end{figure}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=\textwidth]{nieMaPrzesylki.png}
+\caption{Przykład odpowiedzi serwisu na nieprawidłowe wpisanie numeru przesyłki}
+\label{fig:niema}
+\end{figure}
+
+
+Z formularza [rys. \ref{fig:sprawdz}] pobierany jest numer poszukiwanej
+przesyłki [listing \ref{lst:sprawdz.jsp} linie
+\ref{lst:sprawdz.jsp1}-\ref{lst:sprawdz.jsp2}] i ustawiany jako post formularza i przesyłany do klasy Java Servletu. W tej klasie po
 pobraniu danych z bazy danych zwracane są wartości dotyczące istnienia przesyłki
 o wskazanym id. Najpierw sprawdzane jest, we fragmencie kodu Javy w instrukcji
 warunkowej, czy przesyłka istnieje \texttt{isParcelExists}. Gdy przesyłka
 nie zostanie odnaleziona w bazie lub wpisany ciąg w formularzu jest niepoprawny
-wyświetlana jest wiadomość [listing \ref{sprawdzjsp} linia \ref{sprawdzjsp6}]
-dotycząca błędnego id. Natomiast gdy wpisany id jest bezbłędne w tabeli [rys.
-\ref{pokaz}] zostają wypisane dane dotyczące przesyłki oraz mapa. Linia \ref{sprawdzjsp5}
-listingu \ref{sprawdzjsp} jest miejscem użycia JavySciprt'owego kodu
-google.maps. W danych wejściowych zmienna msg oznacza wiadomość dotyczącą
+wyświetlana jest wiadomość [listing \ref{lst:sprawdz.jsp} linia
+\ref{lst:sprawdz.jsp6}] dotycząca błędnego id. Natomiast gdy wpisany id jest
+bezbłędne w tabeli [rys.
+\ref{fig:pokaz}] zostają wypisane dane dotyczące przesyłki oraz mapa. Linia
+\ref{lst:sprawdz.jsp5} listingu \ref{lst:sprawdz.jsp} jest miejscem użycia
+JavySciprt'owego kodu google.maps. W danych wejściowych zmienna msg oznacza wiadomość dotyczącą
 niepoprawnie wpisanego numeru przesyłki lub jeśli przesyłka została poprawnie
 wpisana, ale jej ostatnie położenie jest zarejestrowane w centrali to w tabeli
 w wierszu ,,Ostatnie zarejestrowane położenie'' pojawia się dodatkowa informacje
 o przebywaniu przesyłki w centrali.
 
+\emph{\color{komentarz}komentarz: zrobić tu jakaś przeorganizowanie, żeby nie
+było tak że zdjęcie obok listingu}
+
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[4]{script,
 div,section,
 table,td,tr,h2,form,input,br},keywords=[5]{width,id,method,action,type,name,value,style}}
 \begin{lstlisting}[caption=Ciało pliku JavaServlet Pages -
-sprawdz.jsp,label=sprawdzjsp] 
-(*@\label{sprawdzjsp1}@*)<h2>Wpisz nr przesylki</h2> 
+sprawdz.jsp,label=lst:sprawdz.jsp] 
+(*@\label{lst:sprawdz.jsp1}@*)<h2>Wpisz nr przesylki</h2> 
 	<form id="formularz" method="post" action=""> 
 	<input type="text" name="nr" /> <input type="submit" value="sprawdz" />
-</form> (*@\label{sprawdzjsp2}@*)
+</form> (*@\label{lst:sprawdz.jsp2}@*)
 (*@\hspace{4ex}{\raisebox{-1pt}[0pt][0pt]{$\vdots$}}@*)
-(*@\label{sprawdzjsp3}@*)<%
+(*@\label{lst:sprawdz.jsp3}@*)<%
 if (request.getAttribute("isParcelExists") != null &&
 request.getAttribute("isParcelExists").equals(true)) {
 %>
-(*@\label{sprawdzjsp4}@*)<table style="width:100%">
+(*@\label{lst:sprawdz.jsp4}@*)<table style="width:100%">
 	<tr>
 		<td><% out.print("Numer przesylki"); %></td>
 		<td>${id}</td>
@@ -709,42 +733,41 @@ request.getAttribute("isParcelExists").equals(true)) {
 	</tr>
 </table>
 (*@\hspace{4ex}{\raisebox{-1pt}[0pt][0pt]{$\vdots$}}@*)
-(*@\label{sprawdzjsp5}@*)<div id="mapka"> </div>
+(*@\label{lst:sprawdz.jsp5}@*)<div id="mapka"> </div>
 (*@\hspace{4ex}{\raisebox{-1pt}[0pt][0pt]{$\vdots$}}@*)
 <%
 }
-(*@\label{sprawdzjsp6}@*)else {
+(*@\label{lst:sprawdz.jsp6}@*)else {
 %>
-(*@\label{sprawdzjsp7}@*)<br> ${msg} ${id}
+(*@\label{lst:sprawdz.jsp7}@*)<br> ${msg} ${id}
 <% 
 }
 %>
 \end{lstlisting}
 
 Natomiast ustawianie parametrów umieszczonych w \$\{\ldots\} zrealizowano
-poprzez klasę rozszerzającą Servlet. Na listingu \ref{sprawdz.java} przedstawiono metodę
-\texttt{doPost()} klasy \texttt{Sprawdz.java}, która odpowiada za uzupełnianie
+poprzez klasę rozszerzającą Servlet. Na listingu \ref{lst:Sprawdz.doPost.java}
+przedstawiono metodę \texttt{doPost()} klasy \texttt{Sprawdz.java}, która odpowiada za uzupełnianie
 pliku JSP \texttt{sprawdz.jsp} danymi dotyczącymi przesyłki, które są
 wyświetlane w widoku strony dla klienta. Klasa \texttt{Sprawdz} tworzy nowy
 obiekt klasy \texttt{SearchParcel} wywołując ją z argumentem id przesyłki.
 Obiekt klasy \texttt{Searchparcel} odczytuje bazę danych i przypisuje
-wartości zmiennym (listing \ref{searchparcel.java}). Następnie sprawdzane jest
-w instrukcji warunkowej if czy taka przesyłka istnieje i wprowadzone znaki są
+wartości zmiennym (listing \ref{lst:SearchParcel.selectFromDB.java}). Następnie sprawdzane
+jest w instrukcji warunkowej if czy taka przesyłka istnieje i wprowadzone znaki są
 typu integer, jeśli nie istniej to w zależności od tego jaki błąd wystąpił
 przygotowywana jest wiadomość zwrotna dotycząca błędu. Natomiast jeśli przesyłka
 istnieje ustawiane są parametry zwrotne
 \texttt{req.setAttribute(``\ldots'',\ldots)}. Warto zwrócić uwagę na to, że
 pierwszy argument \texttt{setAttribute} musi być zgodny z oczekiwaną nazwą
 zmiennej w pliku JSP, w inny wypadku nie zostanie przypisana wartość z klasy
-Javy do JSP. Na przykład argumenty z listingu \ref{sprawdzjsp} z linii
-\ref{sprawdzjsp7} muszą się zgadzać argument z listingu \ref{sprawdz.java} z
-linii \ref{sprawdzjava1}-\ref{sprawdzjava2}.
+Javy do JSP. Na przykład argumenty z listingu \ref{lst:sprawdz.jsp} z linii
+\ref{lst:sprawdz.jsp7} muszą się zgadzać argument z listingu
+\ref{lst:Sprawdz.doPost.java} z linii \ref{lst:Sprawdz.doPost.java1}-\ref{lst:Sprawdz.doPost.java2}.
 
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{}} 
 \begin{lstlisting}[caption=Fragment klasy Sprawdz.Java\,
-metoda doPost(),label=sprawdz.java]
-protected void doPost(HttpServletRequest req, HttpServletResponse resp)
-			throws ServletException, IOException {
+metoda doPost(),label=lst:Sprawdz.doPost.java]
+protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 	String id = req.getParameter("nr");
 	boolean isParcelExists = false;
 	RequestDispatcher view = req.getRequestDispatcher("/sprawdz.jsp");
@@ -773,22 +796,21 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp)
 						+ searchParcel.getCentreNameCentre());
 			}
 		} else {
-			(*@\label{sprawdzjava1}@*)req.setAttribute("msg", "Nie mamy przesylki w bazie
-					o numerze: "); 
-			(*@\label{sprawdzjava2}@*)req.setAttribute("id", id); }
+			(*@\label{lst:Sprawdz.doPost.java1}@*)req.setAttribute("msg", "Nie mamy
+			przesylki w bazie o numerze: ");
+			(*@\label{lst:Sprawdz.doPost.java2}@*)req.setAttribute("id", id); 
 	}
 	if (id == null || (Sth.isInteger(id)) == false)
-		req.setAttribute("msg", "Prosze podac poprawny numer
-		przesylki"); req.setAttribute("isParcelExists", isParcelExists);
+		req.setAttribute("msg", "Prosze podac poprawny numer przesylki"); 
+	req.setAttribute("isParcelExists", isParcelExists);
 	req.removeAttribute("nr");
 	view.forward(req, resp);
 };
 \end{lstlisting}
 
-
-Na podstawie źródła \cite{developer.google.maps} powstał kod, który wyświetla
-mapę ze znacznikami. Z danych metody post pobierane są wartości lat i lon
-(szerokość i długość geograficzna) dla kuriera oraz wartości
+Na podstawie źródła \cite{developer.google.maps} autor utworzył kod,
+który wyświetla mapę ze znacznikami - markerami. Z danych metody post pobierane
+są wartości lat i lon (szerokość i długość geograficzna) dla kuriera oraz wartości
 \texttt{regUserAddr} i \texttt{userAddr} oznaczające adres nadawcy i odbiorcy. W
 skrypcie tworzony jest nowy obiekt klasy DirectionsRenderer, który jest odpowiedzialny
 wypełnienie(renderowanie) wyświetlanej mapy oraz tworzony jest nowy obiekt
@@ -802,7 +824,7 @@ nadawcy a adresem odbiorcy.
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[4]{script,
 div,section, table},morekeywords={var, function},keywords=[5]{id,src}}
 \begin{lstlisting}[caption=Kody JavaScript'owy pobierający mapę z
-serwera Google,label=mapsJS] 
+serwera Google,label=lst:maps.JS] 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script> 
 <script>
 	var lat = "${lat}";
@@ -839,12 +861,13 @@ serwera Google,label=mapsJS]
 Klasa Javy Sprawdz.java obsługująca sprawdz.jsp tworzy nowy obiekt klasy
 SearchParcel i podbiera od niego potrzebne dane do wyświetlenia na stronie i
 przesyła je metodą doPost. Klasa SearchParcel.java przedstawiona jest na
-listingu \ref{searchparcel.java}. Klasa otwiera połączenie z bazą danych,
+listingu \ref{lst:SearchParcel.selectFromDB.java}. Klasa otwiera połączenie z bazą danych,
 następnie wykonując komendy mySQL pobiera dane dotyczące przesyłki, następnie
 posiadając już id kuriera, który przewozi tą przesyłkę, pobiera jego położenie,
 oraz pobiera z bazy informacje o nadawcy (zarejestrowanym użytkowniku). Ostatnim
 krokiem jest zamknięcie połączenia z bazą danych.
 
+\newpage
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{parcelId,
 parcelFromUserId,parcelAddresseeName,parcelAddresseeStreet,
 parcelAddresseeCity,parcelAddresseeCityCode,parcelSendTime,
@@ -852,74 +875,65 @@ parcelDeliveryTime,parcelDeliverer,isParcelExists,delivererId,
 delivererLatitude,delivererLongitude,delivererTimePos,parcelFromUserId,
 registeredUserId,registeredUserNameUser,registeredUserStreetUser,
 registeredUserCityUser,registeredUserCityCodeUser,parcelTimePos}} 
-\begin{lstlisting}[caption=Klasa reprezentująca
-połączenie z bazą danych i pobierająca wszystkie dane o
-przesyłce,label=searchparcel.java]
+\begin{lstlisting}[caption=Klasa SearchParcel.java przedstawiona metoda
+selectFromDB()\, która reprezentuje połączenie z bazą danych oraz pobiera
+wszystkie dane o przesyłce,label=lst:SearchParcel.selectFromDB.java]
 public SearchParcel(int _nrParcel) {
 	selectFromDB(_nrParcel); 
 }
-
 void selectFromDB(int nrParcel) {
 	String strSelect = "";
-	try {
-		Class.forName("com.mysql.jdbc.Driver");
-	} catch (ClassNotFoundException e) {
-		e.printStackTrace();
+	Class.forName("com.mysql.jdbc.Driver");
+	Connection connection = DriverManager.getConnection(
+			"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
+	Statement statement = connection.createStatement();
+	strSelect = "select * from deli.parcel where id=" + nrParcel;
+	ResultSet resultSet = statement.executeQuery(strSelect);
+	while (resultSet.next()) {
+		isParcelExists = true;
+		parcelId = resultSet.getInt("id");
+		parcelFromUserId = resultSet.getInt("fromUserId");
+		parcelAddresseeName = resultSet.getString("addresseeName");req.setAttribute("regUserName",
+				searchParcel.getRegisteredUserNameUser());
+		parcelAddresseeStreet = resultSet.getString("addresseeStreet");
+		parcelAddresseeCity = resultSet.getString("addresseeCity");
+		parcelAddresseeCityCode = resultSet
+				.getString("addresseeCityCode");
+		parcelSendTime = resultSet.getString("sendTime");
+		parcelTimePos = resultSet.getString("timePos");
+		parcelDeliveryTime = resultSet.getString("deliveryTime");
+		parcelDeliverer = resultSet.getInt("deliverer");
 	}
-	try {
-		Connection connection = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
-		Statement statement = connection.createStatement();
-		strSelect = "select * from deli.parcel where id=" + nrParcel;
-		ResultSet resultSet = statement.executeQuery(strSelect);
+	if (isParcelExists == true) {
+		strSelect = "select * from deli.deliverer where id="
+				+ parcelDeliverer;
+		resultSet = statement.executeQuery(strSelect);
 		while (resultSet.next()) {
-			isParcelExists = true;
-			parcelId = resultSet.getInt("id");
-			parcelFromUserId = resultSet.getInt("fromUserId");
-			parcelAddresseeName = resultSet.getString("addresseeName");req.setAttribute("regUserName",
-						searchParcel.getRegisteredUserNameUser());
-			parcelAddresseeStreet = resultSet.getString("addresseeStreet");
-			parcelAddresseeCity = resultSet.getString("addresseeCity");
-			parcelAddresseeCityCode = resultSet
-					.getString("addresseeCityCode");
-			parcelSendTime = resultSet.getString("sendTime");
-			parcelTimePos = resultSet.getString("timePos");
-			parcelDeliveryTime = resultSet.getString("deliveryTime");
-			parcelDeliverer = resultSet.getInt("deliverer");
+			delivererId = resultSet.getInt("id");
+			delivererLatitude = resultSet.getDouble("latitude");
+			delivererLongitude = resultSet.getDouble("longitude");
+			delivererTimePos = resultSet.getString("timePos");
 		}
-		if (isParcelExists == true) {
-			strSelect = "select * from deli.deliverer where id="
-					+ parcelDeliverer;
-			resultSet = statement.executeQuery(strSelect);
-			while (resultSet.next()) {
-				delivererId = resultSet.getInt("id");
-				delivererLatitude = resultSet.getDouble("latitude");
-				delivererLongitude = resultSet.getDouble("longitude");
-				delivererTimePos = resultSet.getString("timePos");
-			}
-			strSelect = "select * from deli.registeredUser where id="
-					+ parcelFromUserId;
-			resultSet = statement.executeQuery(strSelect);
-			while (resultSet.next()) {
-				registeredUserId = resultSet.getInt("id");
-				registeredUserNameUser = resultSet.getString("nameUser");
-				registeredUserStreetUser = resultSet
-						.getString("streetUser");
-				registeredUserCityUser = resultSet.getString("cityUser");
-				registeredUserCityCodeUser = resultSet
-						.getString("cityCodeUser");
-			}
+		strSelect = "select * from deli.registeredUser where id="
+				+ parcelFromUserId;
+		resultSet = statement.executeQuery(strSelect);
+		while (resultSet.next()) {
+			registeredUserId = resultSet.getInt("id");
+			registeredUserNameUser = resultSet.getString("nameUser");
+			registeredUserStreetUser = resultSet
+					.getString("streetUser");
+			registeredUserCityUser = resultSet.getString("cityUser");
+			registeredUserCityCodeUser = resultSet
+					.getString("cityCodeUser");
 		}
-		connection.close();
-		statement.close();
-	} catch (SQLException e) {
-		e.printStackTrace();
 	}
+	connection.close();
+	statement.close();
 }
 \end{lstlisting}
 
-Wyznaczanie przybliżonego czasu dostawy zrealizowano korzystając (to i więcej już
-o servlecie nie trzeba)
+\emph{\color{komentarz}komentarz:Wyznaczanie przybliżonego czasu dostawy
+zrealizowano korzystając (to i więcej już o servlecie nie trzeba)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 W podrozdziale Servlet nie pokazano obsługi wyjątków, a przedstawione listingi
@@ -927,21 +941,23 @@ są kluczowe do zrozumienia działania Servletu. Układ graficzny aplikacji webo
 został pobrany ze strony z darmowymi szablonami
 {\textit{http://templated.co/linear}}.
 
+\newpage
 \section{Baza danych}
 
 W przedstawionym projekcie konieczne było utworzenie bazy danych, która
 przechowuje dane dotyczące kurierów, przesyłek, klientów, centrali kurierskich.
-W tym celu stworzono 4 tabele. 
+W tym celu stworzono 4 tabele: \texttt{parcel}, \texttt{delivrer},
+\texttt{registeredUser} i \texttt{centre}.
 
 \begin{figure}[ht!]
 \centering
-\includegraphics[width=70ex]{ERD.png}
+\includegraphics[width=0.9\textwidth]{ERD.png}
 \caption{Diagram ERD zaprojektowanej bazy danych}
-\label{ERD}
+\label{fig:ERD}
 \end{figure}
 
-Na rysunku \ref{ERD} przedstawiono diagram ERD pokazujący tabele oraz połączenia
-pomiędzy tabelami. Każda z tabel ma swój klucz główny \texttt{id}. Tabela
+Na rysunku \ref{fig:ERD} przedstawiono diagram ERD pokazujący tabele oraz
+połączenia pomiędzy tabelami. Każda z tabel ma swój klucz główny \texttt{id}. Tabela
 \texttt{parcel} (przesyłka) zawiera w sobie dwa obce klucze (\texttt{foreign
 key}) odwołują się one do: \texttt{deliverer.id} - klucz główny
 tabeli kurier oraz \texttt{registeredUser.id} - klucz główny tabeli użytkownika zarejestrowanego,
@@ -950,9 +966,6 @@ zawierać wpisy dotyczące nazwy, ulicy, miasta zawiera w sobie obcy klucz do
 tabeli deliverer. Wybrano takie rozwiązanie ponieważ w tabeli \texttt{deliverer}
 są podawane długość i szerokość geograficzna, które w łatwy sposób powiązano z
 tabelą \texttt{centre}.
-
- Nie tylko GPS do lokalizacji, bo także odbicia
-na czytnikach u kurierów Projekt opiera się 
 
 \chapter{Przygotowanie i uruchomienie aplikacji}
 
@@ -1007,7 +1020,7 @@ wielowątkowy, dynamiczny oraz niezależny od architektury.
     \begin{wrapfigure}{R}{0.3\textwidth}
 	\centering
 	\includegraphics[width=0.18\textwidth]{javaEE.png}
-	\caption{\label{javaEE}Logo Java EE.}
+	\caption{\label{fig:javaEE}Logo Java EE.}
 	\end{wrapfigure}
   Prosty - założeniami autorów języka Java było aby programista bez
   specjalnych szkoleń mógł od razu zacząć pisać w języku Java. Składnia została
@@ -1054,7 +1067,6 @@ powodu można tylko implementować interfejs i nie można utworzyć obiektów te
 typu. Język Java umożliwia pisanie aplikacji stacjonarnych, webowych czy
 mobilnych. Język Java ma rozbudowaną obsługę wyjątków. Posiada dobrze
 rozbudowanego \texttt{GarbageCollector} (odśmieciacza) \cite{java.doc}.
-\subsection{podpodrozdział}
 
 \section{Wzorzec architektoniczny - MVC}
 
@@ -1077,15 +1089,16 @@ przekazuje go do widoku. \cite{java.mvc}
 \centering
 \includegraphics[width=60mm]{jspModel.png}
 \caption{Schemat systemu Model-View-Controller model 2\cite{java.mvc.grafika}}
-\label{MVC2}
+\label{fig:MVC2}
 \end{figure}
 
-Autor w swojej pracy użył modelu MVC2 [rys. \ref{MVC2}]
+Autor w swojej pracy użył modelu MVC2 [rys. \ref{fig:MVC2}]
 Uzasadnieniem użycia tego wzorca jest ułatwiona organizacja aplikacji, w której
 istnieje interfejs graficzny użytkownika. Dzięki niemu w prosty logiczny sposób
-można było rozdzielić logikę, kontrolę i widok. Kontrolerem z [rys. \ref{MVC2}]
-jest opisany w kolejnym podrozdziale Servlet.
+można było rozdzielić logikę, kontrolę i widok. Kontrolerem z [rys.
+\ref{fig:MVC2}] jest opisany w kolejnym podrozdziale Servlet.
 
+\newpage
 \section{Servlet}
 
 Servlet są to aplikacje działające na serwerze WWW korzystające z języka Java.
@@ -1095,17 +1108,16 @@ wykorzystywane są do budowania interaktywnych aplikacji internetowych.
 
 \begin{wrapfigure}{r}{0.3\textwidth}
 \centering
-%\vspace{-10pt}
 \subfigure {
 \includegraphics[width=10ex]{feather.png}
 \includegraphics[width=10ex]{tomcat.png}
 }
-\caption{\label{apache}Logo apache i apache tomcat.}
-%\vspace{-35pt}
+\caption{\label{fig:apache}Logo Apache i Apache Tomcat.}
+\vspace{-35pt}
 \end{wrapfigure}
 
 Serwer Apache obsługuje www za pomocą protokołu. Wybrana w projekcie dystrybucja
-to Servlet Tomcat Apache [rys. \ref{apache}], który jest http, jest otwarty,
+to Servlet Tomcat Apache [rys. \ref{fig:apache}], który jest http, jest otwarty,
 zapewnia wielowątkowość, skalowalność, bezpieczeństwo oraz kontrolę dostępu
 \cite{apache.wiki}.
 
@@ -1121,19 +1133,20 @@ HTML, xml oraz innych. Technologia ta jest kompatybilna z servletami (Apache
 Tomcat, i innymi).
 
 To właśnie wprowadzenie plików JSP wymaga korzystanie z wcześniej
-opisanego modelu MVC [rys. \ref{MVC2}]. W dodatku JSP oprócz użycia języków
+opisanego modelu MVC [rys. \ref{fig:MVC2}]. W dodatku JSP oprócz użycia języków
 skryptowych umożliwia przeplatanie ich z językiem Java. Wtedy kod, który będzie
 napisany w Javie musi być wzięty w znaki <\% \ldots \%>, np. fragment z listingu
-\ref{sprawdzjsp}:
+\ref{lst:sprawdz.jsp}:
 
 \texttt{<\% out.print("Nadawca"); \%> \$\{regUserName\}
 \$\{regUserAddr\}}
+
 Natomiast frazy ujęte w znaki \$\{\ldots\} służą do dostępu (pobrania
 i/lub wysyłania) do danych i funkcji, które powstały w obiektach Javy. Żeby
 przekazać taką wartość z klasy Javy, klasa ta musi rozszerzać Servlet
 (\texttt{extends HttpServlet}) ustawiać taki parametr jaki jest pomiędzy
 nawiasami \{\} korzystając z HttpServletRequest, jako przykład podano fragment z
-listingu \ref{sprawdz.java}:
+listingu \ref{lst:Sprawdz.doPost.java}:
 
 \texttt{req.setAttribute("regUserName",
 						searchParcel.getRegisteredUserNameUser());}
@@ -1167,6 +1180,8 @@ z takich technologii jak:
   aplikacji, która zapewnia komunikację.
   \item \ldots
 \end{itemize}
+
+\newpage
 \section{db - MySQL}
 
 W projekcie do przechowywania danych skorzystano z baz danych. Baza danych
@@ -1243,6 +1258,7 @@ Komendy DML:
 Oprócz wyżej wymienionych MySQL posiada również inne komendy, jednak są one
 znacznie rzadziej wykorzystywane, dlatego nie zostały tutaj przytoczone.
 
+\newpage
 \section{Android}
 
 Android jest systemem wykorzystywanym na platformach mobilnych. Android
@@ -1255,9 +1271,9 @@ Lollipop 5.0.
 
 Rozpoczęcie pracy z Androidem zaczyna się od instalacji środowiska, może to być
 Eclipse z dodatkiem SDK Android lub Android Studio. A samo tworzenie aplikacji
-od projektu interfejsu użytkownika, następnie dopiero oprogramowuje się obsługę
-oraz logikę aplikacji, ostatnim etapem jest testowanie aplikacji.
-\cite{developer.android}. 
+od projektu interfejsu użytkownika, następnie dopiero oprogramowuje się
+obsługę oraz logikę aplikacji, ostatnim etapem jest testowanie aplikacji
+\cite{developer.android}.
 
 System Android składa się z czterech podstawowych elementów. 
 
@@ -1293,6 +1309,10 @@ zrefakturyzowanie(?)/zmianie kodu pod system, który mają tam zainstalowany.
 	Fajnie by było to wrzucić na prawdziwe tablety, można by sprzedawać/zarobić. Ogólnie koszt takiego urządzenia to byłoby tablet/telefon 
 	+ wycena za program.
 	Normalnie kurierzy używają kolektorów danych.
+	
+	
+ Nie tylko GPS do lokalizacji, bo także odbicia
+na czytnikach u kurierów Projekt opiera się 
 
 \chapter{Wnioski i podsumowanie}
 \addcontentsline{toc}{chapter}{Bibliografia} %utworzenie w spisie tresci pozycji Bibliografia
