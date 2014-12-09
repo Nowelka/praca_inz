@@ -46,10 +46,10 @@
 		<div id="nav-wrapper">
 			<!-- Nav -->
 			<nav id="nav">
-				<ul>
 					<div align="right">
 						<a href="logowanie"><font color="#FFFFFF" size="3em">Zaloguj</font></a>
 					</div>
+				<ul>
 					<li><a href="index">Homepage</a></li>
 					<li class="active"><a href="zamowienie">Zlozenie
 							zamowienia</a></li>
@@ -280,14 +280,14 @@
 				title : "Kurier"
 			});
 
-			var request = {
+			var directionsRequest = {
 				origin : start,
 				destination : end,
 				travelMode : google.maps.TravelMode.DRIVING
 			};
-			directionsService.route(request, function(response, status) {
-				if (status == google.maps.DirectionsStatus.OK) {
-					directionsRenderer.setDirections(response);
+			directionsService.route(directionsRequest, function(directionsResult, directionsStatus) {
+				if (directionsStatus == google.maps.DirectionsStatus.OK) {
+					directionsRenderer.setDirections(directionsResult);
 				}
 			});
 

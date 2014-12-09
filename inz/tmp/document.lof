@@ -1,5 +1,4 @@
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces podpisisi\relax }}{2}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Struktura systemu\relax }}{3}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Struktura programu aplikacji Android\relax }}{4}
@@ -10,7 +9,7 @@
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Informacje o niew\IeC {\l }\IeC {\k a}czonym GPS}}}{5}
 \contentsline {subfigure}{\numberline {(e)}{\ignorespaces {System czeka na ustalenie lokalizacji}}}{5}
 \contentsline {subfigure}{\numberline {(f)}{\ignorespaces {System lokalizuje i wy\IeC {\'s}wietla informacje o lokalizacji i czasie odczytu}}}{5}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Informacje o zalogowanym/nieistniej\IeC {\k a}cym id i statusbar\relax }}{6}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Informacje o zalogowanym/nieistniej\IeC {\k a}cym id i status bar\relax }}{6}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {sytuacja gdy jest ju\IeC {\.z} zaj\IeC {\k e}te id lub nie istnieje}}}{6}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {status telefonu}}}{6}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Struktura plik\IeC {\'o}w Servletu\relax }}{8}
