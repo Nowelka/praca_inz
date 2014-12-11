@@ -1,18 +1,18 @@
 \contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p i cel pracy}{2}
-\contentsline {chapter}{\numberline {2}Rozwi\IeC {\k a}zanie - prezentacja wynik\IeC {\'o}w}{3}
-\contentsline {section}{\numberline {2.1}Aplikacja na system Android}{4}
-\contentsline {section}{\numberline {2.2}Serwer}{8}
-\contentsline {section}{\numberline {2.3}Baza danych}{15}
-\contentsline {chapter}{\numberline {3}Przygotowanie i uruchomienie aplikacji}{16}
-\contentsline {chapter}{\numberline {4}Wykorzystane technologie}{17}
-\contentsline {section}{\numberline {4.1}Java}{17}
-\contentsline {section}{\numberline {4.2}Wzorzec architektoniczny - MVC}{18}
-\contentsline {section}{\numberline {4.3}Servlet}{19}
-\contentsline {section}{\numberline {4.4}JSP - Java}{19}
-\contentsline {section}{\numberline {4.5}Technologie internetowe}{19}
-\contentsline {section}{\numberline {4.6}Baza Danych - MySQL}{20}
-\contentsline {section}{\numberline {4.7}Android}{21}
-\contentsline {section}{\numberline {4.8}Google Maps API}{22}
-\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{25}
-\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{26}
-\contentsline {chapter}{Bibliografia}{26}
+\contentsline {chapter}{\numberline {2}Wykorzystane technologie}{3}
+\contentsline {section}{\numberline {2.1}Java}{3}
+\contentsline {section}{\numberline {2.2}Wzorzec architektoniczny -- MVC}{4}
+\contentsline {section}{\numberline {2.3}Servlet}{5}
+\contentsline {section}{\numberline {2.4}JavaServer Pages}{5}
+\contentsline {section}{\numberline {2.5}Technologie internetowe}{5}
+\contentsline {section}{\numberline {2.6}Baza Danych -- MySQL}{6}
+\contentsline {section}{\numberline {2.7}Android}{7}
+\contentsline {section}{\numberline {2.8}Google Maps API}{8}
+\contentsline {chapter}{\numberline {3}Rozwi\IeC {\k a}zanie -- prezentacja wynik\IeC {\'o}w}{11}
+\contentsline {section}{\numberline {3.1}Aplikacja na system Android}{12}
+\contentsline {section}{\numberline {3.2}Serwer}{16}
+\contentsline {section}{\numberline {3.3}Baza danych}{24}
+\contentsline {chapter}{\numberline {4}Przygotowanie i uruchomienie aplikacji}{25}
+\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{26}
+\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{27}
+\contentsline {chapter}{Bibliografia}{27}

@@ -2,9 +2,6 @@ This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
 The top-level auxiliary file: document.aux
 The style file: plabbrv.bst
 Database file #1: bibliografia.bib
-Warning--to sort, need author or key in szablon
-Warning--to sort, need author or key in developer.google.maps
-Warning--to sort, need author or key in eclipse
 Warning--to sort, need author or key in java.doc
 Warning--to sort, need author or key in java.mvc
 Warning--to sort, need author or key in java.mvc.grafika
@@ -14,6 +11,9 @@ Warning--to sort, need author or key in xml.wiki
 Warning--to sort, need author or key in Mysql.com
 Warning--to sort, need author or key in developer.android
 Warning--to sort, need author or key in developer.google
+Warning--to sort, need author or key in szablon
+Warning--to sort, need author or key in developer.google.maps
+Warning--to sort, need author or key in eclipse
 You've used 12 entries,
             2129 wiz_defined-function locations,
             542 strings with 4826 characters,

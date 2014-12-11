@@ -20,15 +20,15 @@
 \newblock \url{https://developer.android.com/sdk/index.html}.
 \newblock \newline[Online; dostęp 11.11.2014].
 
-\bibitem{developer.google.maps}
-{Google}.
-\newblock \url{https://developers.google.com/maps/documentation/webservices/}.
-\newblock \newline[Online; dostęp 16.11.2014].
-
 \bibitem{developer.google}
 {Google}.
 \newblock \url{http://developer.google.com}.
 \newblock [Online; dostęp 16.11.2014].
+
+\bibitem{developer.google.maps}
+{Google}.
+\newblock \url{https://developers.google.com/maps/documentation/webservices/}.
+\newblock \newline[Online; dostęp 16.11.2014].
 
 \bibitem{java.mvc}
 {Java MVC}.

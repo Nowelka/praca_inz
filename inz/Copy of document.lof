@@ -1,0 +1,27 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Logo Java EE.\relax }}{3}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Schemat systemu Model-View-Controller model 2\cite {java.mvc.grafika}\relax }}{4}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Logo Apache i Apache Tomcat.\relax }}{5}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Schemat cyklu \IeC {\.z}ycia aplikacji\cite {developer.android}\relax }}{8}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Struktura systemu\relax }}{11}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Struktura programu aplikacji Android\relax }}{12}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Ekrany Androida \relax }}{13}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {G\IeC {\l }\IeC {\'o}wny ekran aplikacji, oczekuje na wprowadzenie id kuriera}}}{13}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Gdy nie jest w\IeC {\l }\IeC {\k a}czona sie\IeC {\'c} kom\IeC {\'o}rkowa lub WiFi na ekranie pokazuje si\IeC {\k e} komunikat i zostaje zablokowane pole do wprowadzania id}}}{13}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {Komunikat o poprawnie wpisanym id}}}{13}
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces {Informacje o niew\IeC {\l }\IeC {\k a}czonym GPS}}}{13}
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces {System czeka na ustalenie lokalizacji}}}{13}
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces {System lokalizuje i wy\IeC {\'s}wietla informacje o lokalizacji i czasie odczytu}}}{13}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Informacje o zalogowanym/nieistniej\IeC {\k a}cym id i status bar\relax }}{14}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {sytuacja gdy jest ju\IeC {\.z} zaj\IeC {\k e}te id lub nie istnieje}}}{14}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {status telefonu status telefonu\GenericError { }{LaTeX Error: There's no line here to end}{See the LaTeX manual or LaTeX Companion for explanation.}{Your command was ignored.\MessageBreak Type I <command> <return> to replace it with another command,\MessageBreak or <return> to continue without it.}\par \let \reserved@d = *\def \par }}}{14}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Struktura plik\IeC {\'o}w Servletu\relax }}{16}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Widok strony internetowej\texttt {SPRAWDZ} serwisu z zach\IeC {\k e}t\IeC {\k a} do wprowadzenia numeru przesy\IeC {\l }ki do sprawdzeni\relax }}{18}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Widok strony internetowej \texttt {SPRAWDZ} z wyznaczon\IeC {\k a} tras\IeC {\k a} dla przyk\IeC {\l }adowej przesylki\relax }}{19}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Przyk\IeC {\l }ad odpowiedzi serwisu na nieprawid\IeC {\l }owe wpisanie numeru przesy\IeC {\l }ki\relax }}{19}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Diagram ERD zaprojektowanej bazy danych\relax }}{23}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
