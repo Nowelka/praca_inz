@@ -90,7 +90,7 @@ public class DistanceMatrix {
 				&& calendar.get(Calendar.HOUR_OF_DAY) < 12) {
 			calendar.set(Calendar.HOUR_OF_DAY, 15);
 		}
-		// czas pomiedzy dwoma puntami mniejszy niż 1,5h
+		// czas pomiedzy dwoma puntami mniejszy niz 1,5h
 		if (czasPomiedzyDwomaPunktami < 1000) {
 			days--;
 		}

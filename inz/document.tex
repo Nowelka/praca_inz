@@ -151,6 +151,11 @@ dostarczenia jest bardzo niedokładna (ogólna) lub w ogóle jej nie ma.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ref{}
 
+W została zrealizowana aplikacja w systemie Android, która wysyła na serwer jego
+lokalizację, odczytaną z czujników GPS. Odczyt ten jest przetwarzany przez
+serwer i zapisywany do bazy danych. Zaprojektowany serwer obsługuje klientów,
+którzy mają możliwość sprawdzenia aktualnej pozycji przesyłki a także dodanie
+nowego zlecenia przesyłki.  
 
 \emph{\color{komentarz}
 Komentarz: Projekt został zrealizowany z wykorzystaniem takich
@@ -179,7 +184,7 @@ Java jest obiektowym językiem programowania ogólnego przeznaczenia.
 Charakteryzuje się silnym ukierunkowaniem na obiektowość oraz niezależnością od
 architektury sprzętowej i przenośnością aplikacji pomiędzy platformami.
 Oprócz wyżej wymieniowych założeniami języka Java jest prostota, sieciowość,
-niezawodność, bezpieczeństwo, interpretowalność, wysoka wydajność, możliwośc
+niezawodność, bezpieczeństwo, interpretowalność, wysoka wydajność, możliwość
 programowania współbieżnego.
 
 Java to język:
@@ -202,8 +207,8 @@ Java to język:
   umożliwia pracę z protokołami http, TCP/IP, FTP;
   \item Niezawodny --- szczególnie skupiono się na wykrywaniu ewentualnych
   błędów w czasie kompilacji, zapobieganiu sytuacjom, w których błąd może
-  wystąpić oraz obsłudze błędów wczasie działania programu;
-  \item Bezpieczny --- w związku z naciskiem położonym na zastowania sieciowe
+  wystąpić oraz obsłudze błędów w czasie działania programu;
+  \item Bezpieczny --- w związku z naciskiem położonym na zastosowania sieciowe
   zadbano o możliwie najlepsze zabezpieczenie przed wirusami i ingerencją osób
   trzecich;
   \item Niezależny od architektury --- kod źródłowy kompilowany jest do kodu
@@ -221,7 +226,7 @@ Java to język:
   uruchamiany przez interpreter języka;
   \item Wydajny --- istnieje możliwość tłumaczenia kodu bajtowego w locie,
   co zwiększa szybkość ładowania się programu;
-  \item Wielowątkowy --- umożliwia przetwarzanie współbierzne z wykorzystaniem
+  \item Wielowątkowy --- umożliwia przetwarzanie współbieżne z wykorzystaniem
   wątków, a także pracę w czasie rzeczywistym;
   \item Dynamiczny --- obiekty w Javie można zmieniać w zależności od
   zmieniającego się środowiska, a także możliwy jest wgląd we wszystkie obiekty,
@@ -233,7 +238,7 @@ użytecznych funkcji tych języków, a z mniej użytecznych, trudnych w
 implementacji lub często powodujących błędy -- zrezygnowano. Język Java
 umożliwia dziedziczenie, a ponadto wszystkie obiekty Javy są podklasą obiektu
 bazowego. Jednakże Java nie umożliwia dziedziczenia wielobazowego, dlatego wprowadzono interfejsy -
-abstrakcyjny typ, który definijuje jedynie metody bez implementacji i nie
+abstrakcyjny typ, który definiuje jedynie metody bez implementacji i nie
 posiada stanu.Z tego powodu można jedynie implementować
 interfejs lub wykorzystać go do utworzenia klas anonimowych. Język Java
 umożliwia pisanie aplikacji stacjonarnych, webowych czy mobilnych. Duży nacisk
@@ -291,7 +296,7 @@ powodu wykorzystywane są do budowania interaktywnych aplikacji internetowych.
 
 Serwer Apache obsługuje komunikację z klientem za pomocą protokołu HTTP. Wybrana
 w projekcie dystrybucja Tomcat Apache [rys. \ref{fig:apache}] jest projektem o
-otwartym kdozie źródłowym. Wykorzystuje wielowątkowość, jest skalowalny i
+otwartym kodzie źródłowym. Wykorzystuje wielowątkowość, jest skalowalny i
 bezpieczny oraz zapewnia kontrolę dostępu \cite{apache.wiki}.
 
 Wybór Tomcat Apache na serwer podyktowany był przez wybór Javy jako głównego
@@ -471,7 +476,7 @@ System Android składa się z czterech podstawowych elementów:
 	\end{wrapfigure}
   Activites --- reprezentuje ekran użytkownika, przykładem jest aplikacja
   do obsługi emaila, która posiada jedną aktywność do listowania nowych
-  widomości i inną do pisania ich. Aktywności implementuje się używając
+  wiadomości i inną do pisania ich. Aktywności implementuje się używając
   podklasę \texttt{Activity};
   \item Services --- jest to składnik aplikacji, który działa w tle. Przykładem
   \texttt{Services} może być odtwarzacz muzyki, który jest uruchomiony w tle i w
@@ -498,7 +503,7 @@ działalności (ekranu) cofając się, wtedy zdejmowana jest ona ze stosu w taki
 stanie jakim była pozostawiona.
 
 Warty uwagi jest element \texttt{Activity}, reprezentujący ekran użytkownika,
-oferujący współdziałanie z użytkownikiem. Najczęsciej okno aplikacji wypełnia
+oferujący współdziałanie z użytkownikiem. Najczęściej okno aplikacji wypełnia
 cały wyświetlacz, ale może być mniejsze lub pływające na wierzchu innych okien.
 
 Utworzenie aplikacji typu \texttt{Activity} wymaga zaimplementowania podklasy
@@ -521,7 +526,7 @@ zatrzymania system, w przypadku braku pamięci, może zatrzymać aplikację.
 
 Na rysunku \ref{fig:andActivityLifecycle} przedstawiony został cykl życia
 aktywności. Wspomniana metoda \texttt{onCreate()} tworzona jest zawsze wtedy,
-gdy aplikacja jest uruchamiana poraz pierwszy, w tym miejscu tworzone są widoki.
+gdy aplikacja jest uruchamiana po raz pierwszy, w tym miejscu tworzone są widoki.
 Następną wywoływaną metodą jest \texttt{onStart()}, która wywołuje pokazanie się
 aplikacji pod restarcie lub zatrzymaniu aplikacji. Metoda \texttt{onResume()} wywoływana jest
 zawsze po pauzie i rozpoczyna interakcję z użytkownikiem, odpowiada za
@@ -700,26 +705,23 @@ status,origin,address,destination,address,row,element,duration,value,text,distan
 \chapter{Rozwiązanie -- prezentacja wyników}
 
 Zrealizowana aplikacja składa się z dwóch części, tj. aplikacji na Androida oraz
-serwera www. Serwer, czyli Servlet (aplet Javy) łączy się z bazą
+serwera WWW. Serwer, czyli Servlet (aplet Javy) łączy się z bazą
 danych, w której przechowywane są informacje o przesyłce, kurierach i
 klientach. Aplikacja mobilna również łączy się z tą samą bazą danych,
 jednakże połączenie to zrealizowano pośrednio. Aplikacja poprzez zapytania i odpowiedzi z
-serwera uzyskuje informacje o stanie bazy danych. 
+serwera uzyskuje informacje o stanie bazy danych. Ideę systemu zaprezentowano na
+rysunku \ref{StrukturaSystemu}. 
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=100ex]{StrukturaSystemu.png}
+\includegraphics[width=1\textwidth]{StrukturaSystemu.png}
 \caption{Struktura systemu}
 \label{StrukturaSystemu}
 \end{figure}
 
-Ideę systemu zaprezentowano na rysunku \ref{StrukturaSystemu}.
-Aplikację zrealizowano w środowisku programistycznym Eclipse.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\emph{\color{komentarz} komentarz: dopisać pierdół wstępowych}
-\ref{}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Zaprojektowaną aplikację zrealizowano w środowisku programistycznym Eclipse.
+Wybór takie środowiska programistecznego uwarunkowany był dużym wyborem
+dodatków, rozszerzeń i możliwości jaką on oferuje.
 
 \newpage
 \section{Aplikacja na system Android}
@@ -846,7 +848,6 @@ button.setOnClickListener(new View.OnClickListener() {
 \end{lstlisting}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %onDestroy na finish
-\ref{}
 %%%%%%%%%%%%%%%%%%%%%
 
 Na listingu \ref{lst:Main.button.java} widać zmienną \texttt{savedId},
@@ -858,20 +859,21 @@ zmiennej, status aktywności oraz status logowania. Klasa
 \texttt{AuthenticationDeliverer()} dziedziczy po \texttt{AsyncTask} (umożliwia
 tworzenie nowego wątku i pozwala na wykonywanie operacji w tle). 
 
-\begin{figure}[ht]
+\begin{figure}
 \centering
 \captionsetup{justification=centering,margin=1cm}
-\subfigure[sytuacja gdy jest już zajęte id lub nie istnieje]{
-\includegraphics[width=25ex]{andJuzzalog.png}
-\includegraphics[width=25ex]{andNiema.png}
+\subfigure[Sytuacja, w której id jest już zajęte lub nie istnieje]{
+\includegraphics[height=0.35\textheight]{andJuzzalog.png}
+\includegraphics[height=0.35\textheight]{andNiema.png}
 \label{fig:androidViewNOTOK}
 }
-\subfigure[status telefonu]{
-\includegraphics[width=25ex]{andBarNie.png}
-\includegraphics[width=25ex]{andBarZal.png}
+\subfigure[Pasek status telefonu]{
+\includegraphics[height=0.35\textheight]{andBarNie.png}
+\includegraphics[height=0.35\textheight]{andBarZal.png}
 \label{fig:androidViewtask}
 }
-\caption{Informacje o zalogowanym/nieistniejącym id i status bar}
+\caption{Informacje o zalogowanym lub nieistniejącym Id oraz prezentacja
+uruchomionej aplikacji w pasku Statusbar}
 \end{figure}
 
 Parametry z jakimi tworzony jest
@@ -922,10 +924,9 @@ protected String doInBackground(String... params) {
 Po zainicjalizowaniu pola edycji zostaje wywołana na rzecz niego metoda
 \texttt{public void addTextChangedListener(TextWatcher watcher)}, która
 oczekuje, aż w polu tekstowym użytkownik wpisze odpowiedni ciąg znaków -
-dozwolone są tylko cyfry od 0 do 9.
-W tym przypadku wykorzystano metodę \texttt{abstract void
-afterTextChanged(Editable s)} z interfejsu \texttt{TextWatcher}. Po wpisaniu
-przez kuriera czterech cyfr następuje weryfikacja wpisanego id. Po pozytywnym
+dozwolone są tylko cyfry od 0 do 9. W tym przypadku wykorzystano metodę
+\texttt{abstract void afterTextChanged(Editable s)} z interfejsu
+\texttt{TextWatcher}. Po wpisaniu przez kuriera czterech cyfr następuje weryfikacja wpisanego id. Po pozytywnym
 przejściu weryfikacji id kuriera aplikacja sprawdza czy w urządzeniu jest
 włączony moduł GPS. Gdy spełnione zostaną wszystkie warunki uruchamiany jest
 handler, który sczytuje pozycję kuriera i wysyła ją na serwer wraz z datą odczyt. 
@@ -962,9 +963,9 @@ Ostatnią istotną częścią jaka realizowana jest na systemie Android to poł�
 z serwerem. Nim zostanie nawiązane połączenie konieczne jest przygotowanie
 treści wiadomości jaka ma zostać wysłana na adres serwer. Następuje to poprzez
 wpisanie par ciągów znaków do tablicy, z czego jedna jest kluczem identyfikator,
-a druga to jego wartość. Na jej podstawie budowany jest URL \texttt{httpPost}
-i wykonywany do zapytania http (tutaj na Servlecie) typu \texttt{Get}. Taka
-wiadomość może wyglądać w tym przypadku tak:
+a druga to jego wartość. Na jej podstawie budowany jest URL w
+stylu \texttt{httpPost} i wykonywany do zapytania http (tutaj na Servlecie) typu
+\texttt{Get}. Taka wiadomość może wyglądać w tym przypadku tak:
 
 \begin{flushright}
 \texttt{http://192.168.1.2:8080/inzServlet/insert?ID=0130\&longitude=50.3545\&latitude=11.3483
@@ -1022,20 +1023,20 @@ kurierskiej, którzy wpisując numer swojej przesyłki mogli sprawdzić gdzie si
 ona aktualnie znajduje. Oprócz tej funkcji Servlet też jest pośrednikiem
 między aplikacją mobilną, a bazą danych.
 
-\begin{wrapfigure}{r}{0.4\textwidth}
+\begin{wrapfigure}{r}{0.45\textwidth}
 \centering
 \captionsetup{justification=centering,margin=0cm}
 \vspace{-10pt}
-\begin{center}
-\includegraphics[width=.35\textwidth]{strukturaServlet.png}
-\end{center}
-\vspace{-10pt}
+\begin{centering}
+\includegraphics[width=.45\textwidth]{strukturaServlet.png}
+\end{centering}
+%\vspace{-10pt}
   \caption{Struktura plików Servletu}
 \label{fig:servlet}
 \vspace{-60pt}
 \end{wrapfigure}
 
-Rozpoczęcie pracy z servletem wymagało zainstalowania dodatków do środowiska
+Rozpoczęcie pracy z Servletem wymagało zainstalowania dodatków do środowiska
 Eclipse:
 \begin{itemize}
   \item Eclipse Java EE Developer Tools
@@ -1122,7 +1123,7 @@ ustawieniu jego aktywności na stan aktywny (\texttt{true}). Natomiast gdy
 aktywność id kuriera ma wartość logiczną \texttt{true}, a kurier chce się
 zalogować (metoda została wykonana dla zalogowania do systemu) metoda zwraca
 ciąg ,,busy'' -- informuje o zajętości id.
-W momencie wylogowywania kuriera (kiedy aktywność == \texttt{true}) a
+W momencie wylogowywania kuriera (kiedy \texttt{activ == true}) a
 \texttt{logout} wynosi 0 -- to przygotowywana jest komenda aktualizująca bazę
 danych i pod wskazaną krotkę o numerze id zapisywana jest wartość 0 dla
 parametru \texttt{activ}.
@@ -1187,29 +1188,18 @@ klient może sprawdzać status swojej przesyłki. Zrealizowane jest to poprzez
 utworzenie pliku *.jsp, i przypisanie jej adresu http. Ogólny zarys pliku sprawdz.jsp jest
 pobrany z szablonu \cite{szablon}, autor zmienił jedynie ciało pliku. 
 
-\begin{figure}[ht!]
+\begin{figure}
 \centering
-\includegraphics[width=\textwidth]{sprawdz.png}
-\caption{Widok strony internetowej \texttt{SPRAWDZ} serwisu z zachętą do
-wprowadzenia numeru przesyłki do sprawdzeni}
-\label{fig:sprawdz}
+\captionsetup{justification=centering,margin=1cm}
+\subfigure[]{\label{fig:sprawdz}\includegraphics[width=.92\textwidth]{sprawdz.png}}
+\subfigure[]{\label{fig:pokaz}\includegraphics[width=.92\textwidth]{przyklad.png}}
+\subfigure[]{\label{fig:niema}\includegraphics[width=.92\textwidth]{nieMaPrzesylki.png}}
+\caption{Okno aplikacji webowej i jego widoki: \subref{fig:sprawdz} Widok strony
+internetowej \texttt{SPRAWDZ} serwisu z zachętą do wprowadzenia numeru przesyłki do
+sprawdzenia; \subref{fig:pokaz} Widok strony internetowej \texttt{SPRAWDZ} z
+wyznaczoną trasą dla przykładowej przesyłki; \subref{fig:niema} Przykład
+odpowiedzi serwisu na nieprawidłowe wpisanie numeru przesyłki}
 \end{figure}
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=\textwidth]{przyklad.png}
-\caption{Widok strony internetowej \texttt{SPRAWDZ} z wyznaczoną trasą dla
-przykładowej przesylki}
-\label{fig:pokaz}
-\end{figure}
-
-\begin{figure}[ht!]
-\centering
-\includegraphics[width=\textwidth]{nieMaPrzesylki.png}
-\caption{Przykład odpowiedzi serwisu na nieprawidłowe wpisanie numeru przesyłki}
-\label{fig:niema}
-\end{figure}
-
 
 Z formularza [rys. \ref{fig:sprawdz}] pobierany jest numer poszukiwanej
 przesyłki [listing \ref{lst:Sprawdz.jsp} linie
@@ -1228,9 +1218,6 @@ oznacza wiadomość dotyczącą niepoprawnie wpisanego numeru przesyłki, lub je
 przesyłka została poprawnie wpisana, ale jej ostatnie położenie jest
 zarejestrowane w centrali to w tabeli w wierszu ,,Ostatnie zarejestrowane
 położenie'' pojawia się dodatkowa informacje o pobycie przesyłki w centrali.
-
-\emph{\color{komentarz}komentarz: zrobić tu jakaś przeorganizowanie, żeby nie
-było tak że zdjęcie obok listingu}
 
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[4]{script,
 div,section,
@@ -1475,9 +1462,56 @@ void selectFromDB(int nrParcel) {
 \end{lstlisting}
 
 \emph{\color{komentarz}komentarz:Wyznaczanie przybliżonego czasu dostawy
-zrealizowano korzystając (to i więcej już o servlecie nie trzeba)}
+zrealizowano korzystając (to i więcej już o Servlecie nie trzeba)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ref{}
+
+Estymację czasu dostarczenia przesyłki zrealizowano korzystając z usługi Google
+Distance Matrix API, z której dostarczana jest odległość pomiędzy punktem
+nadania i odbioru przesyłki. Wyznaczanie czasu dostarczenia wprowadzono
+równolegle z zapisem przesyłki do bazy danych. Autor nie mógł w inny sposób niż przedstawiony
+tutaj [listning \ref{lst:wyliczCzasDostarczenia.DistanceMatrix.java}], tego
+wykonać z braku rzeczywistych próbek w postaci prawdziwy danych. 
+
+\lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{HOUR_OF_DAY,
+czasPomiedzyDwomaPunktami,DAY_OF_MONTH}} 
+\begin{lstlisting}[caption=Metoda
+wyliczCzasDostarczenia z
+klasy DistanceMatrix,label=lst:wyliczCzasDostarczenia.DistanceMatrix.java]
+public String wyliczCzasDostarczenia(Date sendTime) { 
+	int days = 1;
+	// zamiana inta na date
+	/* String datee = */new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+			.format(new Date(czasPomiedzyDwomaPunktami * 1000L));
+	//
+	// pobranie godziny z daty
+	Calendar calendar = GregorianCalendar.getInstance();
+	calendar.setTime(sendTime);
+	//
+	// ustawienie dni dostarczania
+	// godzina nadania po 18
+	if (calendar.get(Calendar.HOUR_OF_DAY) > 18) {
+		calendar.set(Calendar.HOUR_OF_DAY, 11);
+		days++;
+	}
+	// godzina nadania jest pomiedzy 0 a 12
+	if (calendar.get(Calendar.HOUR_OF_DAY) > 0
+			&& calendar.get(Calendar.HOUR_OF_DAY) < 12) {
+		calendar.set(Calendar.HOUR_OF_DAY, 15);
+	}
+	// czas pomiedzy dwoma puntami mniejszy niz 1.5h
+	if (czasPomiedzyDwomaPunktami < 1000) {
+		days--;
+	}
+	// czas pomiedzy punktami wiecej niz 6,5h
+	if (czasPomiedzyDwomaPunktami > 20000) {
+		days++;
+	}
+	calendar.add(Calendar.DAY_OF_MONTH, days);
+	return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(calendar
+			.getTime());
+	}
+\end{lstlisting}
 
 W podrozdziale Servlet nie pokazano obsługi wyjątków, a przedstawione listingi
 są kluczowe do zrozumienia działania Servletu. Układ graficzny aplikacji webowej
@@ -1525,7 +1559,7 @@ Następnym krokiem jest zainstalowanie serwera Apache Tomcat w IDE Eclipse.
 Dodanie nowe serwera rozpoczyna się od otworzenia zakładki
 \texttt{Window>Preferences>Server>Runtine Enviroment}, gdzie należy dodać
 (\texttt{add}) Apache Tomcat również w najnowszej wersji. Spowoduje to
-dodanie serwera do bierzącej konfiguracji IDE.
+dodanie serwera do bieżącej konfiguracji IDE.
 
 Autor korzysta z systemu operacyjnego Linux dystrybucja Ubuntu, więc zostanie
 opisana instalacja silnika bazy danych \emph{\color{komentarz}\ldots Opisać}
