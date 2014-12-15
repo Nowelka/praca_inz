@@ -1,64 +1,76 @@
 \begin{thebibliography}{10}
 
-\bibitem{developer.android}
-{Android}.
-\newblock \url{http://developer.android.com}.
+\bibitem{java.oracle.ee}
+{Dokumentacja języka Java}.
+\newblock
+  \newline\url{http://www.oracle.com/technetwork/java/javaee/documentation/index.html}.
+\newblock \newline[Online; dostęp 21.11.2014].
+
+\bibitem{javascript.dev}
+{Dokumentacja języka JavaScript}.
+\newblock \url{https://developer.mozilla.org/pl/docs/Web/JavaScript}.
+\newblock [Online; dostęp 06.12.2014].
+
+\bibitem{java.mvc}
+{Dokumentacja modelu Model-Viev-Controller}.
+\newblock
+  \newline\url{http://www.oracle.com/technetwork/articles/javase/index-142890.html}.
+\newblock \newline[Online; dostęp 26.11.2014].
+
+\bibitem{xml.wiki}
+{Język XML}.
+\newblock \url{http://en.wikipedia.org/wiki/XML}.
 \newblock [Online; dostęp 16.11.2014].
 
-\bibitem{apache.wiki}
-{Apache HTTP serwer}.
-\newblock \url{http://en.wikipedia.org/wiki/Apache_HTTP_Server}.
-\newblock \newline[Online; dostęp 16.11.2014].
+\bibitem{java.mvc.grafika}
+{Model MVC, zdjęcie struktury modelu}.
+\newblock \url{http://en.wikipedia.org/wiki/JavaServer_Pages}.
+\newblock \newline[Online; dostęp 26.11.2014].
 
 \bibitem{java.doc}
-{dokumentacj Javy}.
+{Specyfikacja języka Java}.
 \newblock \url{https://docs.oracle.com/javase/specs/jls/se8/html/index.html}.
 \newblock \newline[Online; dostęp 16.11.2014].
 
 \bibitem{eclipse}
-{eclipse with adnroid sdk}.
-\newblock \url{https://developer.android.com/sdk/index.html}.
+{Strona do pobrania IDE Eclipse z dodatkiem Android SDK}.
+\newblock \newline\url{https://developer.android.com/sdk/index.html}.
 \newblock \newline[Online; dostęp 11.11.2014].
 
 \bibitem{developer.google}
-{Google}.
+{Strona domowa deweloperów aplikacji Google}.
 \newblock \url{http://developer.google.com}.
-\newblock [Online; dostęp 16.11.2014].
-
-\bibitem{developer.google.maps}
-{Google}.
-\newblock \url{https://developers.google.com/maps/documentation/webservices/}.
 \newblock \newline[Online; dostęp 16.11.2014].
 
-\bibitem{java.mvc}
-{Java MVC}.
-\newblock
-  \url{http://www.oracle.com/technetwork/articles/javase/index-142890.html}.
-\newblock \newline[Online; dostęp 26.11.2014].
+\bibitem{developer.android}
+{Strona domowa deweloperów systemu Android}.
+\newblock \url{http://developer.android.com}.
+\newblock \newline[Online; dostęp 16.11.2014].
 
-\bibitem{java.mvc.grafika}
-{Java MVC}.
-\newblock \url{http://www.javatpoint.com/model-1-and-model-2-mvc-architecture}.
-\newblock \newline[Online; dostęp 26.11.2014].
-
-\bibitem{javascript.wiki}
-{JavaScript wiki}.
-\newblock \url{http://pl.wikipedia.org/wiki/JavaScript}.
+\bibitem{apache.org}
+{Strona domowa oprogramowania Apache}.
+\newblock \url{http://apache.org/}.
 \newblock [Online; dostęp 16.11.2014].
 
+\bibitem{tomcat.org}
+{Strona domowa Servletu Tomcat}.
+\newblock \url{http://tomcat.apache.org/}.
+\newblock [Online; dostęp 26.11.2014].
+
 \bibitem{Mysql.com}
-{MySQL}.
-\newblock \url{http://dev.mysql.com/doc/refman/5.6/en/introduction.html}.
+{Strona domowa systemu zarządzania bazą danych -- MySQL}.
+\newblock
+  \newline\url{http://dev.mysql.com/doc/refman/5.6/en/introduction.html}.
 \newblock \newline[Online; dostęp 26.11.2014].
 
 \bibitem{szablon}
-{szablon}.
+{Szablon serwisu klienckiego}.
 \newblock \url{http://templated.co/linear}.
 \newblock [Online; dostęp 16.11.2014].
 
-\bibitem{xml.wiki}
-{xml wiki}.
-\newblock \url{http://pl.wikipedia.org/wiki/XML}.
-\newblock [Online; dostęp 16.11.2014].
+\bibitem{developer.google.maps}
+{Witryna Google Maps API Web Services}.
+\newblock \url{https://developers.google.com/maps/documentation/webservices/}.
+\newblock \newline[Online; dostęp 16.11.2014].
 
 \end{thebibliography}

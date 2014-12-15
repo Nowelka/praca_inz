@@ -13,6 +13,5 @@
 \contentsline {section}{\numberline {3.2}Serwer}{17}
 \contentsline {section}{\numberline {3.3}Baza danych}{25}
 \contentsline {chapter}{\numberline {4}Przygotowanie i uruchomienie aplikacji}{26}
-\contentsline {chapter}{\numberline {5}Mo\IeC {\.z}liwo\IeC {\'s}\IeC {\'c} rozwini\IeC {\k e}cia w przysz\IeC {\l }o\IeC {\'s}ci}{27}
-\contentsline {chapter}{\numberline {6}Wnioski i podsumowanie}{28}
-\contentsline {chapter}{Bibliografia}{28}
+\contentsline {chapter}{\numberline {5}Wnioski i podsumowanie}{27}
+\contentsline {chapter}{Bibliografia}{27}
