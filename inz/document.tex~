@@ -12,7 +12,7 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage[usenames,dvipsnames]{xcolor}
-%\usepackage{mathdots}
+%\usepackage{mathdots} 
 
 \definecolor{zielony}{rgb}{0,0.6,0}
 \definecolor{innyZielony}{rgb}{0.5,0.7,0}
@@ -164,7 +164,7 @@ innymi język Java, Servlet, baza danych, system Android. W kolejnym, trzecim
 rozdziale opisano jak działa zaprojektowany system oraz z czego się składa.
 W rozdziale przedstawiono główne, kluczowe dla działania systemu metody klas,
 widok graficzny aplikacji mobilnej i serwisu oraz diagram bazy danych.
-Kolejny rozdział po krótce przedstawia jak należy przygować środowisko do pracy z takim systemem.
+Kolejny rozdział pokrótce przedstawia jak należy przygotować środowisko do pracy z takim systemem.
 
 \chapter{Wykorzystane technologie}
 
@@ -184,7 +184,7 @@ Java jest obiektowym językiem programowania ogólnego przeznaczenia.
 Charakteryzuje się silnym ukierunkowaniem na obiektowość oraz niezależnością od
 architektury sprzętowej i przenośnością aplikacji pomiędzy platformami.
 Oprócz wyżej wymieniowych założeniami języka Java jest prostota, sieciowość,
-niezawodność, bezpieczeństwo, interpretowalność, wysoka wydajność, możliwość
+niezawodność, bezpieczeństwo, interpretowalność, wysoka wydajność czy możliwość
 programowania współbieżnego.
 
 Java to język:
@@ -204,7 +204,7 @@ Java to język:
 	}
   \item Zorientowany obiektowo;
   \item Sieciowy --- posiada wbudowaną bibliotekę, która w przystępny sposób
-  umożliwia pracę z protokołami http, TCP/IP, FTP;
+  umożliwia pracę z protokołami HTTP, TCP/IP, FTP;
   \item Niezawodny --- szczególnie skupiono się na wykrywaniu ewentualnych
   błędów w czasie kompilacji, zapobieganiu sytuacjom, w których błąd może
   wystąpić oraz obsłudze błędów w czasie działania programu;
@@ -216,7 +216,7 @@ Java to język:
   wirtualnej Javy(JVM), dostosowanej do odpowiedniego systemu i platformy sprzętowej. Maszyna
   wirtualna Javy jest zdolna wykonywać program z kodu pośredniego. Z tego powodu język Java
   stosowany jest na wielu urządzeniach oraz różnych systemach operacyjnych.
-  Niestety konsekwencją przenośności kodu jest może być jego suboptymalna
+  Niestety konsekwencją przenośności kodu może być jego suboptymalna
   wydajność, a w konsekwencji wolniejsze działanie;
   \item Przenośny --- posiada ściśle określone rozmiary typów danych i nie ma
   możliwości zmiany ich rozmiaru przez programistę czy np.
@@ -224,13 +224,13 @@ Java to język:
   \item Interpretowany --- program nie jest kompilowany tylko przechowywany w
   postaci kodu bajtowego, podczas uruchomienia zostaje dopiero interpretowany i
   uruchamiany przez interpreter języka;
-  \item Wydajny --- istnieje możliwość tłumaczenia kodu bajtowego w locie,
+  \item Elastyczny --- istnieje możliwość tłumaczenia kodu bajtowego w locie,
   co zwiększa szybkość ładowania się programu;
   \item Wielowątkowy --- umożliwia przetwarzanie współbieżne z wykorzystaniem
   wątków, a także pracę w czasie rzeczywistym;
   \item Dynamiczny --- obiekty w Javie można zmieniać w zależności od
-  zmieniającego się środowiska, a także możliwy jest wgląd we wszystkie obiekty,
-  a nawet dodawać nowe metody;
+  zmieniającego się środowiska, możliwy jest wgląd we wszystkie obiekty i
+  rozszerzenie je o nowe metody;
 \end{itemize}
 
 Język Java wywodzi się z języków C++ i C. Wykorzystuje wiele potrzebnych i
@@ -239,12 +239,13 @@ implementacji lub często powodujących błędy -- zrezygnowano. Język Java
 umożliwia dziedziczenie, a ponadto wszystkie obiekty Javy są podklasą obiektu
 bazowego. Jednakże Java nie umożliwia dziedziczenia wielobazowego, dlatego wprowadzono interfejsy -
 abstrakcyjny typ, który definiuje jedynie metody bez implementacji i nie
-posiada stanu.Z tego powodu można jedynie implementować
+posiada stanu. Z tego powodu można jedynie implementować
 interfejs lub wykorzystać go do utworzenia klas anonimowych. Język Java
 umożliwia pisanie aplikacji stacjonarnych, webowych czy mobilnych. Duży nacisk
 położono na zaprojektowanie systemu wyjątków. Zbieraniem i ponownym
-wykorzystaniem obiektów bez referencji zajmuje się wbudowany
-\texttt{GarbageCollector} (kolektor nieużytków) \cite{java.doc}.
+korzystaniem z zasobów po obiektach bez referencji (nie wykorzystywanych -- bez
+odwołania w kodzie) zajmuje się wbudowany \texttt{GarbageCollector} (kolektor
+nieużytków) \cite{java.doc}.
 
 \section{Wzorzec architektoniczny -- MVC}
 
@@ -255,12 +256,13 @@ systemu. Kolejną częścią składową tej struktury jest Widok, który to jest
 \makebox[\linewidth][s]{odpowiedzialny za funkcje prezentacji
 w ramach interfejsu użytkownika, ale także może posiadać} swoją
 logikę. Ostatnim elementem systemu jest Kontroler, który spaja dwie wcześniejsze
-części. Kontroler odpowiada za przepływ danych od/do użytkownika, reakcję systemu w zależności od zachowania użytkownika,
-kontroler także zarządza Modelem i Widokiem. Takiej strukturze jest jasno
-zdefiniowane, która część systemu pełni jakie funkcje. Taka struktura
-architektoniczna jest najczęściej stosowana w aplikacjach WWW, gdzie widać
+części. Kontroler odpowiada za przepływ danych od/do użytkownika, reakcję
+systemu w zależności od zachowania użytkownika -- zarządza
+takzę Modelem i Widokiem. W takiej strukturze jest jasno zdefiniowane, która
+część systemu pełni jakie funkcje. Ta struktura architektoniczna 
+jest najczęściej stosowana w aplikacjach WWW, gdzie widać
 wyraźną granicę pomiędzy widokiem i modelem, a kontrolerem jest serwer, który
-obsługuje informacje płynące z widoku (z http), odpowiednio formuje model i
+obsługuje informacje płynące z widoku (z HTTP), odpowiednio formuje model i
 przekazuje go do widoku \cite{java.mvc,java.mvc.grafika}.
 
 \begin{figure}[ht!]
@@ -273,17 +275,16 @@ Model-View-Controller model 2 \cite{java.mvc.grafika}}
 
 Autor w swojej pracy użył modelu MVC2 [rys. \ref{fig:MVC2}]
 Uzasadnieniem użycia tego wzorca jest ułatwiona organizacja aplikacji, w której
-istnieje interfejs graficzny użytkownika. Dzięki niemu w prosty logiczny sposób
-można było rozdzielić logikę, kontrolę i widok. Kontrolerem z [rys.
-\ref{fig:MVC2}] jest opisany w kolejnym podrozdziale Servlet.
+istnieje interfejs graficzny użytkownika. Dzięki niemu w prosty i logiczny
+sposób można było rozdzielić logikę, kontrolę i reprezentację. Kontrolerem z
+rysunku \ref{fig:MVC2} jest opisany w kolejnym podrozdziale Servlet.
 
 \newpage
 \section{Servlet}
 
 Serwlety to aplikacje działające na serwerze WWW napisane w języku Java, mające
-zapewnić działanie aplikacji internetowych niezależnie od
-platformy.
-Umożliwia korzystanie z baz danych i obsługę żądań i odpowiedzi HTTP. Z tego
+zapewnić działanie aplikacji internetowych niezależnie od platformy.
+Umożliwiają korzystanie z baz danych i obsługę żądań i odpowiedzi HTTP. Z tego
 powodu wykorzystywane są do budowania interaktywnych aplikacji internetowych.
 
 \begin{wrapfigure}{r}{0.3\textwidth}
@@ -314,7 +315,7 @@ Tomcat i innymi).
 
 To właśnie wprowadzenie plików JSP wymaga korzystania z wcześniej
 opisanego modelu MVC [rys. \ref{fig:MVC2}]. W dodatku JSP oprócz użycia języków
-skryptowych umożliwia przeplatanie ich z językiem Java. Wtedy kod, który będzie
+znaczników umożliwia przeplatanie ich z językiem Java. Wtedy kod, który będzie
 napisany w Javie musi być ujęty w znaki <\% \ldots \%>, np. fragment z listingu
 \ref{lst:Sprawdz.jsp}:
 
@@ -337,28 +338,28 @@ W przedstawionym w tej pracy projekcie korzystano z technologi internetowych,
 które zapewniały interakcję z użytkownikiem oraz obsługę stron WWW. Skorzystano
 z takich technologii jak:
 \begin{itemize}
-  \item JavaScript --- jest to skryptowy język programowania stosowany głównie do
+  \item JavaScript --- skryptowy język programowania stosowany głównie do
   tworzenia stron internetowych, zapewnia interakcję z
   użytkownikiem \cite{javascript.dev}, służy do kontroli przeglądarki, zmiany
   treści strony. Składnia języka JavaScript jest zbudowana na podstawie języka
-  C. Język umożliwia dynamiczne typowanie oraz jest obiektowy;
-  \item HTML --- jest to język znaczników służący do tworzenia stron
+  C. Język ten charakteryzuje się dynamicznym systemem typów oraz obiektowością;
+  \item HTML --- język znaczników służący do tworzenia stron
   internetowych. Język ten składa się z tagów umieszczonych w
   nawiasach trójkątnych (\texttt{<\ldots>}), które mogą zawierać inne
-  elementy HTML lub, np.
-  napisy umieszczane są pomiędzy tagami \texttt{<tag> napis </tag>}, gdzie
-  pierwszy znacznik jest tagiem oznaczającym początek, a drugi -- zamykającym.
+  elementy HTML. Napisy umieszczane są pomiędzy tagami \texttt{<tag> napis
+  </tag>}, gdzie pierwszy znacznik jest tagiem oznaczającym początek, a drugi -- zamykającym.
   HTML jest budulcem strony internetowej opisującym jej strukturę.
   Można go osadzać w takich językach jak JavaScript, a do definiowania wyglądu i
   układu tekstu i innych elementów na stronie można użyć stylów CSS;
-  \item XML --- jest to język znaczników przeznaczony do reprezentowania danych w
+  \item XML --- język znaczników przeznaczony do reprezentowania danych w
   strukturyzowany sposób \cite{xml.wiki}. Tak jak HTML składa się ze znaczników
   \texttt{<\ldots>} i \texttt{</\ldots>} lub samozamykających
   \texttt{<\ldots/>}.
-  \item Protokół HTTP --- jest podstawy protokół komunikacji w internecie służący
+  \item Protokół HTTP --- podstawy protokół komunikacji w internecie służący
   do wymiany informacji. Funkcjonuje w trybie żądanie-odpowiedź w modelu
   klient-serwer, gdzie przykładowo przeglądarka jest klientem, a aplikacja
-  uruchomiona na komputerze serwerem. HTTP jest protokołem warstwy aplikacji, która zapewnia komunikację.
+  uruchomiona na komputerze -- serwerem. HTTP jest protokołem warstwy aplikacji,
+  która zapewnia komunikację.
 \end{itemize}
 
 \newpage
@@ -376,12 +377,13 @@ programów. Przechowywane dane mogą być w dowolnym formacie i strukturze.
 %\vspace{-10pt}
 \end{wrapfigure}
 
-Systemem bazodanowym wykorzystanym w projekcie był MySQL rozwijanym przez
-firmę Oracle. Jest rozwiązanie o otwartym kodzie źródłowym do zarządzania
+Systemem bazodanowym wykorzystanym w projekcie był MySQL rozwijany przez
+firmę Oracle. Jest to rozwiązanie o otwartym kodzie źródłowym do zarządzania
 relacyjnymi bazami danych.
-Charakteryzuje się takimi cechami jak szybki, wielowątkowy dostęp z możliwością obsłużenia dużej ilości użytkowników. Serwer
-MySQL może być stosowany do systemów, w których znajdują się dane o znaczeniu
-krytycznym lub te systemy są mocno obciążane \cite{Mysql.com}. 
+Charakteryzuje się takimi cechami jak szybki, wielowątkowy dostęp z możliwością
+obsłużenia dużej ilości użytkowników. Serwer MySQL może być stosowany do
+systemów, w których znajdują się dane o znaczeniu krytycznym lub te systemy są
+mocno obciążane \cite{Mysql.com}.
 
 Język MySQL posiada takie typy danych jak signed/unsigned int, long, float,
 double, char, varchar, date, time, datetime, enum i inne. Język MySQL składa się
@@ -451,15 +453,15 @@ znacznie rzadziej wykorzystywane, dlatego nie zostały tutaj przytoczone.
 
 Android jest systemem operacyjnym wykorzystywanym na platformach mobilnych,
 zbudowanym w oparciu o jądro Linux. Umożliwia tworzenie aplikacji na wiele
-urządzeń -- dokonywane jest przez optymalizację pliku XML, w którym dostosowuje
-się aplikację do konkretnego urządzenia. System Android ma taką właściwość,
-że każdy włączona aplikacja jest uruchamiana na maszynie
+urządzeń -- dokonywane to jest przez dostowanie pliku XML, w którym
+dostosowuje się aplikację do konkretnej wersji API. System Android ma taką
+właściwość, że każda włączona aplikacja jest uruchamiana na maszynie
 wirtualnej i jest niezależna od pozostałych. Najnowszą wersją systemu
 jest Lollipop 5.0.
 
 Rozpoczęcie pracy deweloperskiej z Androidem zaczyna się od instalacji
 środowiska --- Eclipse z dodatkiem SDK Android lub Android Studio. Po
-zainstalowaniu IDE projektowanie aplikacji zaczyna się od opracowania layout'u
+zainstalowaniu IDE projektowanie aplikacji zaczyna się od opracowania układu
 interfejsu użytkownika, następnie przechodzi się do oprogramowania
 funkcjonalności oraz logiki aplikacji. Po zakończeniu etapu budowania aplikacji
 następuje testowanie jej \cite{developer.android}.
@@ -475,20 +477,20 @@ System Android składa się z czterech podstawowych elementów:
 	\includegraphics[width=0.1\textwidth]{andlogo.png}
 	\caption{\label{fig:andlogo}Logo systemu Android \cite{developer.android}}
 	\end{wrapfigure}
-  Activites --- reprezentuje ekran użytkownika, przykładem jest aplikacja
+  Activity --- reprezentuje ekran użytkownika, przykładem jest aplikacja
   do obsługi emaila, która posiada jedną aktywność do listowania nowych
   wiadomości i inną do pisania ich. Aktywności implementuje się używając
   podklasę \texttt{Activity};
-  \item Services --- jest to składnik aplikacji, który działa w tle. Przykładem
-  \texttt{Services} może być odtwarzacz muzyki, który jest uruchomiony w tle i w
-  tym samym czasie użytkownik może korzystać z innych aplikacji w urządzeniu.
-  Takie własność aplikacji implementuje się za pomocą podklasy \texttt{Service};
+  \item Service --- jest to składnik aplikacji, usługa, która działa w tle.
+  Przykładem takiej usługi \texttt{Services} może być odtwarzacz muzyki, który
+  jest uruchomiony w tle i w tym samym czasie użytkownik może korzystać z innych aplikacji w urządzeniu.
+  Taką własność aplikacji implementuje się za pomocą podklasy \texttt{Service};
 	}
-  \item Content providers --- służy do zarządzania wspólnymi danymi, a także
+  \item Content provider --- służy do zarządzania wspólnymi danymi, a także
   danymi, które są prywatne dla danej aplikacji. Zarządzanie danymi
   implementuje się stosując podklasę \texttt{ContentProvider};
-  \item Broadcast receivers --- komponent systemu, który jest
-  odpowiedzialny za rozgłaszanie informacji po systemie, np. informacja o
+  \item Broadcast receiver --- komponent systemu, który jest
+  odpowiedzialny za rozgłaszanie informacji w systemie, np. informacja o
   niskim stanie baterii jest wyświetlana niezależnie od aktywności w urządzeniu.
   Taką cechę aplikacji uzyskuje się implementując podklasę \texttt{BroadcastReceiver}.
 \end{itemize}
@@ -501,24 +503,24 @@ proces czy działanie. Wtedy przy każdym uruchomieniu nowej działalności
 wcześniejsza jest zatrzymywana i przechowywana na stosie -- LIFO (ang. last in
 first out). Dzięki temu użytkownik ma możliwość wrócić do poprzedniej
 działalności (ekranu) cofając się, wtedy zdejmowana jest ona ze stosu w takim
-stanie jakim była pozostawiona.
+stanie w jakim była pozostawiona.
 
-Warty uwagi jest element \texttt{Activity}, reprezentujący ekran użytkownika,
-oferujący współdziałanie z użytkownikiem. Najczęściej okno aplikacji wypełnia
-cały wyświetlacz, ale może być mniejsze lub pływające na wierzchu innych okien.
+Wart uwagi jest element \texttt{Activity}, reprezentujący ekran użytkownika,
+oferujący interakcję z użytkownikiem. Najczęściej okno aplikacji wypełnia
+cały wyświetlacz, ale może być mniejsze lub pływające na tle innych okien.
 
-Utworzenie aplikacji typu \texttt{Activity} wymaga zaimplementowania podklasy
-\texttt{Activity}, w tej podklasie należy zdefiniować metody, które będą
-określały aplikację pomiędzy różnymi stanami cyklu jej życia. Przez cykl życia
-aplikacji rozumie się jej tworzenie, zatrzymywanie, wznawianie, niszczenie.
-Metoda \texttt{onCreate()} określa stan aplikacji podczas jej tworzenia. Metoda
-\texttt{onPause()} definiuje stan aplikacji w momencie opuszczenia jej przez
-użytkownika. Opuszczenie aplikacji nie musi oznaczać jej zakończenia, typowo
+Utworzenie aplikacji korzystającej z właśności \texttt{Activity} wymaga
+zaimplementowania podklasy \texttt{Activity}, w tej podklasie należy zdefiniować metody, które będą
+określały aktywność pomiędzy różnymi stanami cyklu jej życia. Przez cykl życia
+aktywaności rozumie się jej tworzenie, zatrzymywanie, wznawianie i niszczenie.
+Metoda \texttt{onCreate()} określa stan aktywności podczas jej tworzenia. Metoda
+\texttt{onPause()} definiuje stan aktywności w momencie opuszczenia jej przez
+użytkownika. Opuszczenie aktywności nie musi oznaczać jej zakończenia, typowo
 zachowywany jest aktualny stan.
 
 Z powyższego da się zauważyć, że istotną kwestią jest zarządzanie życiem
-aplikacji. Aktywność może być zatem w jednym z trzech stanów: stan wznawiania,
-wstrzymanie oraz zatrzymania. Stan wznawiania określa stan, w którym aplikacja
+aktywności. Aktywność może być zatem w jednym z trzech stanów: wznowiona, 
+wstrzymana oraz zatrzymana. Stan wznawiania określa stan, w którym aplikacja
 jest włączona i znajduje się na głównym planie ekranu użytkownika. Stan
 wstrzymania dotyczy stanu, w którym aplikacja jest widoczna (włączona), jednak
 nie znajduje się na głównym ekranie. Stan zatrzymania oznacza, że aplikacja jest
@@ -526,16 +528,17 @@ całkowicie przysłonięta przez inne i pracuje w tle. W stanie wstrzymania i
 zatrzymania system, w przypadku braku pamięci, może zatrzymać aplikację.
 
 Na rysunku \ref{fig:andActivityLifecycle} przedstawiony został cykl życia
-aktywności. Wspomniana metoda \texttt{onCreate()} tworzona jest zawsze wtedy,
+aktywności. Wspomniana metoda \texttt{onCreate()} wywoływana jest zawsze wtedy,
 gdy aplikacja jest uruchamiana po raz pierwszy, w tym miejscu tworzone są widoki.
 Następną wywoływaną metodą jest \texttt{onStart()}, która wywołuje pokazanie się
 aplikacji pod restarcie lub zatrzymaniu aplikacji. Metoda \texttt{onResume()} wywoływana jest
 zawsze po pauzie i rozpoczyna interakcję z użytkownikiem, odpowiada za
-przywołanie aplikacji na szczyt stosu. \texttt{onPause()} wywoływana jest w
-momencie rozpoczęcia innej czynności. Metoda \texttt{onStop()} zostaje
+przywołanie aktywności na szczyt stosu. \texttt{onPause()} wywoływana jest w
+momencie wstrzymywania aktualnej aktywności. Metoda \texttt{onStop()} zostaje
 wykonana, gdy aplikacja ma przejść w stan niewidoczny dla użytkownika -- po
-wywołaniu tej metody aplikacja może zostać zniszczona, zamknięta lub zrestartowana.
-Ostatnią metodą przed zniszczeniem aplikacji jest \texttt{onDestroy()} -- zamyka
+wywołaniu tej metody aktywność może zostać zniszczona, zamknięta lub
+zrestartowana.
+Ostatnią metodą przed zniszczeniem aktywności jest \texttt{onDestroy()} -- zamyka
 wszystkie otwarte procesy.
 
 \begin{figure}[ht!]
@@ -549,10 +552,10 @@ wszystkie otwarte procesy.
 
 Firma Google udostępnia korzystanie deweloperom ze swoich produktów
 \cite{developer.google}. W projekcie autor korzysta z Google Maps API. Google
-Maps jest to zbiór interfejsów http usług Google do stosowania w połączeniu z
-mapą. Wysłanie zapytania http o określonym formacie URL o położenie, trasę czy
+Maps jest to zbiór interfejsów HTTP usług Google do stosowania w połączeniu z
+mapą. Wysłanie zapytania HTTP o określonym formacie URL o położenie, trasę czy
 odległość pomiędzy punktami generuje odpowiedź po stronie serwera. Po zapytaniu
-odpowiedz dostarczana jest w formacie JSON lub XML. W projekcie autor korzystał z dwóch
+odpowiedź dostarczana jest w formacie JSON lub XML. W projekcie autor korzystał z dwóch
 usług Google Maps API -- jedną była \texttt{Google Maps JavaScript API v3
 Directions Service}, drugą \texttt{Distance Matrix API}.
 
@@ -567,8 +570,8 @@ Directions Service}, drugą \texttt{Distance Matrix API}.
 
 \texttt{Google Maps JavaScript API v3} jest usługą Google, która oblicza trasę
 pomiędzy dwoma punktami za pomocą obiektu \texttt{DirectionsService}.
-Wspomniany obiekt łączy się z serwisem \texttt{Google Maps API}, uzyskuje
-wskazówki co do żądania obliczenia trasy i zwraca wyniki. Do wyrysowania mapy i
+Wspomniany obiekt łączy się z serwisem \texttt{Google Maps API} i pobiera od niego wynik, uwzględniając wskazówki
+dotyczących obliczenia trasy. Do wyrysowania mapy i
 trasy z uzyskanej odpowiedzi \texttt{DirectionsService} korzysta się z
 \texttt{DirectionsRenderer}. Zapytanie \texttt{JavaScript API V3 Directions
 Service} jest wykonane w języku JavaScript.
@@ -631,7 +634,7 @@ trasa (\texttt{DirectionsResult}) i status odpowiedzi
 (\texttt{DirectionsStatus}). \texttt{DirectionsStatus} może przyjmować między
 innymi takie wartości jak: \texttt{OK}, \texttt{NOT\_FOUND},
 \texttt{UNKNOWN\_ERROR}. Nim przystąpi się
-przed wyświetlaniem trasy należy sprawdzić status odpowiedzi.
+do wyświetlenia trasy należy sprawdzić status odpowiedzi.
 \texttt{DirectionsResult} zawiera wynik zapytania, który zostaje przekazany do obiektu \texttt{DirectionsRenderer} i dopiero w nim
 tworzony jest obraz mapy.
 
@@ -647,9 +650,9 @@ directionsService.route(directionsRequest, function(directionsResult, directions
 
 \texttt{Distance Matrix API} jest podstawową usługą Google Maps API. Wynikiem
 zapytania jest wyznaczenie odległości pomiędzy puntem początkowym i docelowym,
-trasa wyznaczana jest na podstawie zalecanej trasy. W skład odpowiedzi oprócz
+trasa wyznaczana jest na podstawie zalecanej przez serwis Google trasy. W skład odpowiedzi oprócz
 odległości podawany jest czas. Ta usługa nie zawiera szczegółowych informacji.
-Zapytanie tworzone jest na podstawie zapytania http:
+Zapytanie tworzone jest na podstawie zapytania HTTP:
 
 \texttt{https://maps.googleapis.com/maps/api/distancematrix/output?parameters}
 
@@ -721,7 +724,7 @@ rysunku \ref{StrukturaSystemu}.
 \end{figure}
 
 Zaprojektowaną aplikację zrealizowano w środowisku programistycznym Eclipse.
-Wybór takie środowiska programistecznego uwarunkowany był dużym wyborem
+Wybór takie środowiska programistycznego uwarunkowany był dużym wyborem
 dodatków, rozszerzeń i możliwości jaką on oferuje.
 
 \newpage
@@ -732,7 +735,7 @@ pozycji na serwer, który zapisuje ją w bazie danych. Zasada działania aplikac
 polega na odpytaniu kuriera o jego numer id, a następnie sprawdzeniu czy jest
 włączony GPS. Ponadto aplikacja wykrywa czy wprowadzono poprawne id oraz
 zapobiega zalogowaniu się dwóch kurierów na tym samym id. Po wpisaniu poprawnego
-id kuriera aplikacja zapamiętuje go i do automatycznie wysyła swoją pozycję.
+id kuriera aplikacja zapamiętuje go i automatycznie wysyła swoją pozycję na serwer.
 
 \begin{wrapfigure}{r}{0.4\textwidth}
 \vspace{-25pt}
@@ -745,7 +748,7 @@ id kuriera aplikacja zapamiętuje go i do automatycznie wysyła swoją pozycję.
 \label{fig:androidStruktura}
 \end{wrapfigure}
 
-Stworzenie aplikacji na system Android zostało rozpoczęte od instalacji
+Projektowanie aplikacji na system Android zostało rozpoczęte od instalacji
 pluginu ADT (Android Development Tools) dla programu Eclipse. W skład ADT
 wchodzi między innymi Android SDK (Software Development Kit).
 Android SDK zawiera w sobie takie elementy jak Tools -- służy do tworzenia aplikacji niezależnie od
@@ -755,19 +758,19 @@ projektami, modułami czy maszynami wirtualnymi, debugger czy emulator,
 Platform Tools natomiast zawiera biblioteki do systemu Android. Plugin ADT 
 korzysta z funkcji Android SDK i pomaga tworzyć, budować, instalować oraz debugować
 aplikacje na system Android w środowisku Eclipse. W programie Eclipse tworzona
-jest z aplikacją odpowiednia struktura projektu [rys. \ref{fig:androidStruktura}], w
+jest wraz z aplikacją odpowiednia struktura projektu [rys. \ref{fig:androidStruktura}], w
 której jest podział na klasy zawierające logikę aplikacji (src), pliki
 generowane przez kompilator (gen), folder na pliki z zasobami (assets), pliki
 binarne (bin), dodatkowe biblioteki (libs) oraz folder na zasoby (res), który
 odróżnia od assets to, że znajdują się w nim zasoby generowane do pliku R.java
 (nie trzeba podawać lokalizacji zasobu tylko jego nazwę). W katalogu projektu
-ustalana również jest konfiguracja systemu -- ,,AndroidManifest.xml'', layout
+ustalana również jest konfiguracja aplikacji -- ,,AndroidManifest.xml'', layout
 (wygląd i ustawienie elementów na ekranie systemu Android), w podfolderach
 drawable umieszcza się pliki graficzne, w podfolderach values ciągi znaków
 (stringi, kolory i in.) i ustawienia, a w katalogu menu -- dostępne opcje menu.
 
-Projektowanie aplikacji Android zaczyna się od ustawienia layoutu aplikacji
-(/res/layout/activity\_main.xml). Zaprojektowany przez autora layout jest
+Projektowanie aplikacji Android zaczyna się od ustawienia układu graficznego
+(/res/layout/activity\_main.xml). Zaprojektowany przez autora układ graficzny jest
 prosty i przejrzysty, ponieważ ma wykonywać bardzo podstawowe funkcje [rys.
 \ref{fig:androidViewOK}]. I tak, zawiera w sobie pole do wpisywania id kuriera,
 pole wyświetlające komunikaty oraz przycisk wyłączający aplikację. Aplikacja została
@@ -777,10 +780,10 @@ właściwości zostały stworzone z myślą o tym, aby kurier podczas używania 
 sposób mógł ją zamknąć.
 
 Autor przewidział również odpowiednie zachowanie aplikacji, gdy kurier próbuje
-zalogować się na nie istniejące w bazie id lub na id, które jest już zajęte -
+zalogować się na nieistniejące w bazie id lub na id, które jest już zajęte -
 tzn. na które już zalogował się inny kurier [rys. \ref{fig:androidViewNOTOK}]. 
 Oprócz wyżej wymienionych zachowań aplikacji, w pasku statusu na telefonie
-wyświetlana jest ikona podczas włączonej aplikacji a także w
+wyświetlana jest ikona podczas włączonej aplikacji, a także w
 powiadomieniach [rys. \ref{fig:androidViewtask}].
 
 Kolejnym krokiem było nadanie odpowiednich uprawnień aplikacji, do czego służy
@@ -810,13 +813,13 @@ Android w pliku AndroidManifest.xml,label=lst:manifest]
 \subfigure[]{\label{figa4}\includegraphics[height=0.35\textheight]{andGPS.png}}
 \subfigure[]{\label{figa5}\includegraphics[height=0.35\textheight]{andCzeka.png}}
 \subfigure[]{\label{figa6}\includegraphics[height=0.35\textheight]{andLokal.png}}
-\caption{Ekrany systemu Android: \subref{figa1} Główny ekran
+\caption{Ekrany systemu Android: \subref{figa1} główny ekran
 aplikacji, oczekuje na wprowadzenie id
-kuriera; \subref{figa2} Gdy nie jest włączona sieć komórkowa lub WiFi na
+kuriera; \subref{figa2} gdy nie jest włączona sieć komórkowa lub WiFi na
 ekranie pokazuje się komunikat i zostaje zablokowane pole do wprowadzania
-id; \subref{figa3} Komunikat o poprawnie wpisanym id; \subref{figa4} Informacje
-o niewłączonym GPS; \subref{figa5} System czeka na ustalenie lokalizacji;
-\subref{figa6} System lokalizuje i wyświetla informacje o lokalizacji i czasie
+id; \subref{figa3} komunikat o poprawnie wpisanym id; \subref{figa4} informacje
+o niewłączonym GPS; \subref{figa5} system czeka na ustalenie lokalizacji;
+\subref{figa6} system lokalizuje i wyświetla informacje o lokalizacji i czasie
 odczytu}
 \label{fig:androidViewOK}
 \end{figure}
@@ -828,9 +831,9 @@ się obsługą interakcji pomiędzy użytkownikiem a urządzeniem. Klasa ta twor
 oraz na przykład umieszcza ustawione wcześniej przyciski interfejsu użytkownika.
 Znajdują się w niej takie metody jak \texttt{onCreate()}, \texttt{onDestroy()},
 \texttt{onStart()}, \texttt{onStop()} i inne. Metodę \texttt{onCreate()} należy
-przesłonić, jeśli mają być zainicjowane wcześniej wspomniane przyciski i pola z layoutu. Autor w swojej aplikacji nadaje
-właściwość dla przycisku, która ma po kliknięciu go w dowolnym momencie
-działania aplikacji wywołać zamknięcie aplikacji. Takie zachowanie osiąga się
+przesłonić, jeśli mają być zainicjowane wcześniej wspomniane przyciski i pola z layoutu. Autor w swojej aplikacji nadaje taką
+właściwość dla przycisku, która po kliknięciu go w dowolnym momencie
+działania aplikacji wywołać zamknięcie jej. Takie zachowanie osiąga się
 poprzez wywołanie na rzecz niego metody \texttt{public void
 setOnClickListener(View.OnClickListener l)}[listing \ref{lst:Main.button.java}].
 
@@ -851,19 +854,19 @@ button.setOnClickListener(new View.OnClickListener() {
 %onDestroy na finish
 %%%%%%%%%%%%%%%%%%%%%
 
-Na listingu \ref{lst:Main.button.java} widać zmienną \texttt{savedId},
-jest pole klasy, które zapisywane jest wpisanym przez kuriera jego \texttt{id}. Gdy użytkownik wyłącza
+Na listingu \ref{lst:Main.button.java} widać zmienną \texttt{savedId}. 
+Jest to pole klasy, które zapisywane jest wprowadzonym przez kuriera jego \texttt{id}. Gdy użytkownik wyłącza
 aplikację system sprawdza czy \texttt{savedId} nie jest puste i w przypadku gdy
 \texttt{savedId} posiada jakąś wartość tworzony jest nowy obiekt
-\texttt{AuthenticationDeliverer()} z odpowiednimi parametrami -- nazwa
-zmiennej, status aktywności oraz status logowania. Klasa
+\texttt{AuthenticationDeliverer()} z odpowiednimi parametrami -- identyfikator kuriera,
+ status aktywności oraz status logowania. Klasa
 \texttt{AuthenticationDeliverer()} dziedziczy po \texttt{AsyncTask} (umożliwia
 tworzenie nowego wątku i pozwala na wykonywanie operacji w tle). 
 
 \begin{figure}
 \centering
 \captionsetup{justification=centering,margin=1cm}
-\subfigure[Sytuacja, w której id jest już zajęte lub nie istnieje]{
+\subfigure[Sytuacja, w której identyfikator jest już zajęty lub nie istnieje]{
 \includegraphics[height=0.35\textheight]{andJuzzalog.png}
 \includegraphics[height=0.35\textheight]{andNiema.png}
 \label{fig:androidViewNOTOK}
@@ -874,7 +877,7 @@ tworzenie nowego wątku i pozwala na wykonywanie operacji w tle).
 \label{fig:androidViewtask}
 }
 \caption{Ekrany systemu Android: informacja o zalogowanym lub nieistniejącym
-Id oraz prezentacja uruchomionej aplikacji w pasku Statusbar}
+id oraz prezentacja uruchomionej aplikacji w pasku Statusbar}
 \end{figure}
 
 Parametry z jakimi tworzony jest
@@ -932,14 +935,14 @@ dozwolone są tylko cyfry od 0 do 9. W tym przypadku wykorzystano metodę
 \texttt{TextWatcher}. Po wpisaniu przez kuriera czterech cyfr następuje weryfikacja wpisanego id. Po pozytywnym
 przejściu weryfikacji id kuriera aplikacja sprawdza czy w urządzeniu jest
 włączony moduł GPS. Gdy spełnione zostaną wszystkie warunki uruchamiany jest
-handler, który sczytuje pozycję kuriera i wysyła ją na serwer wraz z datą odczyt. 
+handler, który sczytuje pozycję kuriera i wysyła ją na serwer wraz z datą odczytu. 
 
 Odczyt pozycji GPS dostępny jest dzięki użyciu klasy \texttt{LocationManager},
 która zapewnia dostęp do systemowej usługi lokalizacji. \texttt{LocationManager}
 należy zainicjalizować instancją klasy \texttt{Context} (umożliwia dostęp do
 zasobów systemu i informacji o nim), natomiast \texttt{getSystemService} służy
 do kontroli pobierania lokalizacji. Następnie ustawiono z jaką częstotliwością
-ma być odczytywana zmiana pozycji. Po wykonaniu tych czynność następuje
+ma być odczytywana zmiana pozycji. Po wykonaniu tych czynności następuje
 zapytanie o ostatnią znaną pozycję. Całą procedurę odczytu pozycji GPS pokazano
 na listingu \ref{lst:GpsTrack.java}.
 
@@ -964,12 +967,12 @@ public Location getLocation() {
 }
 \end{lstlisting}
 
-Ostatnią istotną częścią jaka realizowana jest na systemie Android to połączenie
+Ostatnią istotną częścią jaka realizowana jest na systemie Android jest połączenie
 z serwerem. Nim zostanie nawiązane połączenie konieczne jest przygotowanie
-treści wiadomości jaka ma zostać wysłana na adres serwer. Następuje to poprzez
-wpisanie par ciągów znaków do tablicy, z czego jedna jest kluczem identyfikator,
-a druga to jego wartość. Na jej podstawie budowany jest URL w
-stylu \texttt{httpPost} i wykonywany do zapytania http (tutaj na Servlecie) typu
+treści wiadomości jaka ma zostać wysłana na adres serwera. Następuje to poprzez
+wpisanie par ciągów znaków do tablicy, z czego jedna jest kluczem -- identyfikatorem,
+a druga to jego wartość. Na jej podstawie budowany jest URL i wykonywany do zapytania
+ HTTP (tutaj na Servlecie) typu
 \texttt{Get}. Taka wiadomość może wyglądać w tym przypadku tak:
 
 \begin{flushright}
@@ -1106,7 +1109,7 @@ Metody mają zapewniać komunikację pomiędzy serwerem i klientem. Argument
 natomiast \texttt{HttpServletResponse} jest odpowiedzią serwera na żądanie
 klienta.
 Wspomniana metoda \texttt{doGet} obsługuje żądania jakie zostały przesłane w
-nagłówku http -- pobiera parametry i przetwarza je. Metoda \texttt{doPost}
+nagłówku HTTP -- pobiera parametry i przetwarza je. Metoda \texttt{doPost}
 również obsługuje żądanie powstałe z uzupełnienia formularza.
 
 Ważną klasą w projekcie jest klasa obsługująca bazę danych. Klasa do obsługi
@@ -1199,7 +1202,7 @@ pozycję kuriera z daną przesyłką -- znacznik ,,kurier''.
 
 Istotną częścią projektu było zaprojektowanie strony, na której
 klient może sprawdzać status swojej przesyłki. Zrealizowane jest to poprzez
-utworzenie pliku *.jsp, i przypisanie jej adresu http. Ogólny zarys pliku sprawdz.jsp jest
+utworzenie pliku *.jsp, i przypisanie jej adresu HTTP. Ogólny zarys pliku sprawdz.jsp jest
 pobrany z szablonu \cite{szablon}, autor zmienił jedynie ciało pliku. 
 
 \begin{figure}
@@ -1308,11 +1311,12 @@ błędu. Jeżeli jednak przesyłka istnieje ustawiane są parametry}
 \makebox[\linewidth][s]{zwrotne \texttt{req.setAttribute(``\ldots'',\ldots)}.
 Warto zwrócić uwagę na to, że pierwszy argument}
 \makebox[\linewidth][s]{\texttt{setAttribute} musi być zgodny z oczekiwaną nazwą
-zmiennej w pliku JSP, w inny wypadku} nie zostanie przypisana wartość z klasy Javy do JSP. Na przykład argumenty z listingu \ref{lst:Sprawdz.jsp} z linii \ref{lst:sprawdz.jsp7} muszą się zgadzać argument z listingu
+zmiennej w pliku JSP, w inny wypadku} 
+nie zostanie przypisana wartość z klasy Javy do JSP. Na przykład argumenty z listingu \ref{lst:Sprawdz.jsp} z linii \ref{lst:sprawdz.jsp7} muszą się zgadzać argument z listingu
 \ref{lst:Sprawdz.doPost.java} z linii \ref{lst:Sprawdz.doPost.java1}-\ref{lst:Sprawdz.doPost.java2}.
 
 \lstset{language=Java,firstnumber=1,stepnumber=1,keywords=[3]{}} 
-\begin{lstlisting}[caption=Fragment klasy Sprawdz.Java\,
+\begin{lstlisting}[caption=Fragment klasy Sprawdz.java\,
 metoda doPost(),label=lst:Sprawdz.doPost.java]
 protected void doPost(HttpServletRequest req, HttpServletResponse resp) {
 	String id = req.getParameter("nr");
@@ -1522,7 +1526,7 @@ public String wyliczCzasDostarczenia(Date sendTime) {
 	}
 \end{lstlisting}
 
-Odległość i czas porzebny do przebycia danej trasy uzyskano
+Odległość i czas potrzebny do przebycia danej trasy uzyskano
 formułując URL do zapytania serwisu Google Api [listing
 \ref{lst:wyliczOdlegloscDistanceMatrix.DistanceMatrix.java}]. Z
 uzyskanej odpowiedzi sprawdzono czy dana trasa istniej. Gdy trasa dane wejściowe
@@ -1615,12 +1619,12 @@ Dodanie nowe serwera rozpoczyna się od otworzenia zakładki
 dodanie serwera do bieżącej konfiguracji IDE.
 
 Autor korzysta z systemu operacyjnego Linux dystrybucja Ubuntu, więc zostanie
-opisana instalacja silnika bazy danych w tym systemie. Do zaisntalowania silnika
-baz danych należy otworzyć okno teminala, w którym trzeba wpisać komendę:
+opisana instalacja silnika bazy danych w tym systemie. Do zainstalowania silnika
+baz danych należy otworzyć okno terminalu, w którym trzeba wpisać komendę:
 
 \texttt{sudo apt-get install mysql-server mysql-client} 
 \newline Następnie należy postępować zgodnie z poleceniami instalatora,
-użytkownik zobowiązany będzie do wpisana hasła dla użtkownika root. Po instalcji
+użytkownik zobowiązany będzie do wpisana hasła dla użytkownika root. Po instalacji
 silnik powinien zostać od razu uruchomiony, w celu sprawdzenia czy baza się
 uruchomiła można wykonać komendę:
 

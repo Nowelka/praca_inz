@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.14)  15 DEC 2014 16:44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.14)  15 DEC 2014 21:28
 entering extended mode
  restricted \write18 enabled.
  Source specials enabled.
@@ -655,24 +655,24 @@ Rozdzia\PlPrIeC {\l } 1.
 
 ]
 Rozdzia\PlPrIeC {\l } 2.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 192.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 193.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 192.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 193.
 
 <javaEE.png, id=18, 103.38625pt x 42.1575pt>
 File: javaEE.png Graphic file (type png)
  <use javaEE.png>
-Package pdftex.def Info: javaEE.png used on input line 203.
+Package pdftex.def Info: javaEE.png used on input line 204.
 (pdftex.def)             Requested size: 81.9406pt x 33.41339pt.
  [3
 
 
  <./javaEE.png>]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 246.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 247.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
@@ -680,53 +680,53 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 <jspModel.png, id=26, 220.825pt x 252.945pt>
 File: jspModel.png Graphic file (type png)
  <use jspModel.png>
-Package pdftex.def Info: jspModel.png used on input line 267.
+Package pdftex.def Info: jspModel.png used on input line 270.
 (pdftex.def)             Requested size: 170.71652pt x 195.5556pt.
  [4 <./jspModel.png>] <feather.png, id=33, 356.33125pt x 111.41624pt>
 File: feather.png Graphic file (type png)
  <use feather.png>
-Package pdftex.def Info: feather.png used on input line 293.
+Package pdftex.def Info: feather.png used on input line 295.
 (pdftex.def)             Requested size: 43.04504pt x 13.45776pt.
 
 <tomcat.png, id=34, 207.174pt x 147.752pt>
 File: tomcat.png Graphic file (type png)
  <use tomcat.png>
-Package pdftex.def Info: tomcat.png used on input line 293.
+Package pdftex.def Info: tomcat.png used on input line 295.
 (pdftex.def)             Requested size: 43.04504pt x 30.69742pt.
  [5 <./feather.png> <./tomcat.png>] <logomysql.png, id=40, 170.6375pt x 115.431
 24pt>
 File: logomysql.png Graphic file (type png)
 
 <use logomysql.png>
-Package pdftex.def Info: logomysql.png used on input line 372.
+Package pdftex.def Info: logomysql.png used on input line 374.
 (pdftex.def)             Requested size: 91.04742pt x 61.59218pt.
  [6 <./logomysql.png>]
 <andlogo.png, id=46, 207.77625pt x 243.91125pt>
 File: andlogo.png Graphic file (type png)
  <use andlogo.png>
-Package pdftex.def Info: andlogo.png used on input line 485.
+Package pdftex.def Info: andlogo.png used on input line 488.
 (pdftex.def)             Requested size: 45.52718pt x 53.44476pt.
 
 <andActivityLifecycle.png, id=47, 514.92375pt x 665.48625pt>
 File: andActivityLifecycle.png Graphic file (type png)
 
 <use andActivityLifecycle.png>
-Package pdftex.def Info: andActivityLifecycle.png used on input line 542.
+Package pdftex.def Info: andActivityLifecycle.png used on input line 546.
 (pdftex.def)             Requested size: 344.36035pt x 445.06111pt.
  [7 <./andlogo.png>]
 <googlelogo.png, id=52, 963.6pt x 231.86626pt>
 File: googlelogo.png Graphic file (type png)
  <use googlelogo.png>
-Package pdftex.def Info: googlelogo.png used on input line 561.
+Package pdftex.def Info: googlelogo.png used on input line 565.
 (pdftex.def)             Requested size: 136.5746pt x 32.86084pt.
 
-Underfull \hbox (badness 7558) in paragraph at lines 567--574
+Underfull \hbox (badness 7558) in paragraph at lines 571--578
 [][][]\T1/cmtt/m/n/10 Google Maps JavaScript API v3 \T1/cmr/m/n/10 jest usªu-g¡
  Go-ogle, któ-ra
  []
 
 
-Underfull \hbox (badness 5331) in paragraph at lines 567--574
+Underfull \hbox (badness 5331) in paragraph at lines 571--578
 \T1/cmr/m/n/10 ob-li-cza tra-s¦ po-mi¦-dzy dwo-ma punk-ta-mi za po-mo-c¡ obiek-
 tu
  []
@@ -737,7 +737,7 @@ Rozdzia\PlPrIeC {\l } 3.
 File: StrukturaSystemu.png Graphic file (type png)
 
 <use StrukturaSystemu.png>
-Package pdftex.def Info: StrukturaSystemu.png used on input line 717.
+Package pdftex.def Info: StrukturaSystemu.png used on input line 721.
 (pdftex.def)             Requested size: 455.24408pt x 278.7897pt.
  [11
 
@@ -747,7 +747,7 @@ Package pdftex.def Info: StrukturaSystemu.png used on input line 717.
 File: struktura_android.png Graphic file (type png)
 
 <use struktura_android.png>
-Package pdftex.def Info: struktura_android.png used on input line 741.
+Package pdftex.def Info: struktura_android.png used on input line 745.
 (pdftex.def)             Requested size: 182.09485pt x 478.23358pt.
 
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -757,70 +757,70 @@ File: lstlang1.sty 2013/08/26 1.5b listings language file
 File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 797.
+(Font)              <8> on input line 801.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 797.
+(Font)              <6> on input line 801.
  [12 <./struktura_android.png>] <andWprowadz.png, id=81, 481.8pt x 803.0pt>
 File: andWprowadz.png Graphic file (type png)
 
 <use andWprowadz.png>
-Package pdftex.def Info: andWprowadz.png used on input line 806.
+Package pdftex.def Info: andWprowadz.png used on input line 810.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
  <andWifi.png, id=82, 481.8pt x 803.0pt>
 File: andWifi.png Graphic file (type png)
 
 <use andWifi.png>
-Package pdftex.def Info: andWifi.png used on input line 807.
+Package pdftex.def Info: andWifi.png used on input line 811.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
  <andID.png, id=83, 481.8pt x 803.0pt>
 File: andID.png Graphic file (type png)
  <use andID.png>
-Package pdftex.def Info: andID.png used on input line 808.
+Package pdftex.def Info: andID.png used on input line 812.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
 
 <andGPS.png, id=84, 481.8pt x 803.0pt>
 File: andGPS.png Graphic file (type png)
  <use andGPS.png>
-Package pdftex.def Info: andGPS.png used on input line 809.
+Package pdftex.def Info: andGPS.png used on input line 813.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
 
 <andCzeka.png, id=85, 481.8pt x 803.0pt>
 File: andCzeka.png Graphic file (type png)
  <use andCzeka.png>
-Package pdftex.def Info: andCzeka.png used on input line 810.
+Package pdftex.def Info: andCzeka.png used on input line 814.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
 
 <andLokal.png, id=86, 481.8pt x 803.0pt>
 File: andLokal.png Graphic file (type png)
  <use andLokal.png>
-Package pdftex.def Info: andLokal.png used on input line 811.
+Package pdftex.def Info: andLokal.png used on input line 815.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
 
 <andJuzzalog.png, id=87, 481.8pt x 803.0pt>
 File: andJuzzalog.png Graphic file (type png)
  <use andJuzzalog.png>
-Package pdftex.def Info: andJuzzalog.png used on input line 869.
+Package pdftex.def Info: andJuzzalog.png used on input line 873.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
 
 <andNiema.png, id=88, 481.8pt x 803.0pt>
 File: andNiema.png Graphic file (type png)
  <use andNiema.png>
-Package pdftex.def Info: andNiema.png used on input line 869.
+Package pdftex.def Info: andNiema.png used on input line 873.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
 
 <andBarNie.png, id=89, 481.8pt x 803.0pt>
 File: andBarNie.png Graphic file (type png)
  <use andBarNie.png>
-Package pdftex.def Info: andBarNie.png used on input line 874.
+Package pdftex.def Info: andBarNie.png used on input line 878.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
 
 <andBarZal.png, id=90, 481.8pt x 803.0pt>
 File: andBarZal.png Graphic file (type png)
  <use andBarZal.png>
-Package pdftex.def Info: andBarZal.png used on input line 874.
+Package pdftex.def Info: andBarZal.png used on input line 878.
 (pdftex.def)             Requested size: 149.37851pt x 248.96594pt.
 
-Underfull \hbox (badness 4366) in paragraph at lines 926--935
+Underfull \hbox (badness 4366) in paragraph at lines 930--939
 [][]\T1/cmr/m/n/10 Po za-ini-cja-li-zo-wa-niu po-la edy-cji zo-sta-je wy-wo-ªa-
 na na rzecz nie-go me-to-da \T1/cmtt/m/n/10 public void
  []
@@ -832,72 +832,148 @@ rNie.png> <./andBarZal.png>] [16]
 File: strukturaServlet.png Graphic file (type png)
 
 <use strukturaServlet.png>
-Package pdftex.def Info: strukturaServlet.png used on input line 1035.
+Package pdftex.def Info: strukturaServlet.png used on input line 1039.
 (pdftex.def)             Requested size: 204.85844pt x 343.39496pt.
 
-Underfull \hbox (badness 1226) in paragraph at lines 1066--1076
+Underfull \hbox (badness 10000) detected at line 1062
+\T1/cmr/m/n/10 Po skonfigurowaniu ±rodowiska mo»na byªo 
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1063
+\T1/cmr/m/n/10 przyst¡pi¢ do utworzenia nowego dynamicznego
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1064
+\T1/cmr/m/n/10 projektu sieciowego (\T1/cmtt/m/n/10 Dynamic Web Project\T1/cmr/
+m/n/10 ).
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1065
+\T1/cmr/m/n/10 W strukturze projektu najwa»niejsze s¡ dwa
+ []
+
+
+Underfull \hbox (badness 4660) detected at line 1067
+\T1/cmr/m/n/10 foldery [rys. 3.5[]]: pierwszy zawieraj¡cy w sobie
+ []
+
+
+Underfull \hbox (badness 6927) detected at line 1069
+\T1/cmr/m/n/10 stron Servletu. W tym»e folderze znajduje si¦
+ []
+
+
+Underfull \hbox (badness 1281) detected at line 1070
+\T1/cmr/m/n/10 plik ,,web.xml'', w którym definiuje si¦ zachowanie
+ []
+
+
+Underfull \hbox (badness 4229) detected at line 1071
+\T1/cmr/m/n/10 serwera w zale»no±ci od tego jaki adres zostaª
+ []
+
+
+Overfull \hbox (15.0pt too wide) in paragraph at lines 1062--1072
+[][][]
+ []
+
+
+Underfull \hbox (badness 1226) in paragraph at lines 1073--1083
 \T1/cmr/m/n/10 cha-mia si¦ stro-na gªów-na apli-ka-cji we-bo-wej -- In-
  []
 
 [17 <./strukturaServlet.png>]
-Underfull \hbox (badness 2310) detected at line 1125
+Underfull \hbox (badness 2310) detected at line 1132
 \T1/cmr/m/n/10 pobrane z bazy danych, z nich wyszukiwane s¡ potrzebne informacj
 e, czyli id kuriera oraz
  []
 
 
-Underfull \hbox (badness 2173) detected at line 1128
+Underfull \hbox (badness 2173) detected at line 1135
 \T1/cmr/m/n/10 niestety nie ma metody dla \T1/cmtt/m/n/10 ResultSet \T1/cmr/m/n
 /10 która sprawdzaªaby czy wynik zapytania jest pusty.
  []
 
 
-Underfull \hbox (badness 4120) detected at line 1131
+Underfull \hbox (badness 4120) detected at line 1138
 \T1/cmr/m/n/10 Po uzyskaniu wyniku, »e kurier istnieje sprawdzana jest jego akt
 ywno±¢. Gdy kurier jest
  []
 
 
-Underfull \hbox (badness 1776) detected at line 1133
+Underfull \hbox (badness 1776) detected at line 1140
 \T1/cmr/m/n/10 nieaktywny a funkcja byªa wywoªywana w celu zalogowania do syste
 mu przygotowywane jest
  []
 
 
-Underfull \hbox (badness 1824) detected at line 1136
+Underfull \hbox (badness 1824) detected at line 1143
 \T1/cmr/m/n/10 Natomiast gdy aktywno±¢ id kuriera ma warto±¢ logiczn¡ \T1/cmtt/
 m/n/10 true\T1/cmr/m/n/10 , a kurier chce si¦ zalogowa¢
  []
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1152.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1159.
 
-[18] <sprawdz.png, id=113, 1472.50125pt x 571.13374pt>
-File: sprawdz.png Graphic file (type png)
- <use sprawdz.png>
-Package pdftex.def Info: sprawdz.png used on input line 1207.
-(pdftex.def)             Requested size: 418.82372pt x 162.44365pt.
+[18]
+Underfull \hbox (badness 6252) detected at line 1193
+\T1/cmr/m/n/10 osi¡gni¦cia tego celu u»yto zmodyfikowanego przez autora darmowe
+go szablonu pobranego
+ []
 
-<przyklad.png, id=114, 1317.92375pt x 702.625pt>
-File: przyklad.png Graphic file (type png)
- <use przyklad.png>
-Package pdftex.def Info: przyklad.png used on input line 1208.
-(pdftex.def)             Requested size: 418.82372pt x 223.2793pt.
 
-<nieMaPrzesylki.png, id=115, 1342.01375pt x 640.3925pt>
-File: nieMaPrzesylki.png Graphic file (type png)
+Underfull \hbox (badness 1762) detected at line 1195
+\T1/cmr/m/n/10 z internetu [[]]. W zakªadce \T1/cmtt/m/n/10 SPRAWDZ PRZESYLKE \
+T1/cmr/m/n/10 wpisywany jest numer przesyªki jak¡ klient
+ []
 
-<use nieMaPrzesylki.png>
-Package pdftex.def Info: nieMaPrzesylki.png used on input line 1209.
-(pdftex.def)             Requested size: 418.82372pt x 199.85832pt.
 
-Underfull \hbox (badness 1199) detected at line 1222
+Underfull \hbox (badness 2680) detected at line 1197
+\T1/cmr/m/n/10 chce sprawdzi¢ [rys. 3.6(a)[]]. Wpisany ci¡g znaków jest sprawdz
+any pod k¡tem poprawno±ci.
+ []
+
+
+Underfull \hbox (badness 1675) detected at line 1199
+\T1/cmr/m/n/10 Sprawdzane jest czy ci¡g w formularzu jest warto±ci¡ liczbow¡ i 
+czy istnieje taka przesyªka.
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1202
+\T1/cmr/m/n/10 przesyªce [rys. 3.6(c)[]]. Gdy u»ytkownik wprowadzi poprawny num
+er przesyªki zostan¡
+ []
+
+
+Underfull \hbox (badness 7649) detected at line 1204
+\T1/cmr/m/n/10 wy±wietlone takie informacje jak: nadawca, odbiorca, czas nadani
+a i czas odbioru oraz
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1206
+\T1/cmr/m/n/10 ostatnio sczytane poªo»enie przesyªki. Ponadto wy±wietlana jest 
+mapa pokazuj¡ca jak¡
+ []
+
+
+Underfull \hbox (badness 1852) detected at line 1213
+\T1/cmr/m/n/10 przesyªki. Zrealizowane jest to poprzez utworzenie pliku *.jsp, 
+i przypisanie jej adresu URL.
+ []
+
+
+Underfull \hbox (badness 1199) detected at line 1220
 \T1/cmr/m/n/10 zwracane s¡ warto±ci dotycz¡ce istnienia przesyªki o wskazanym i
 d. Najpierw sprawdzane jest,
  []
 
 
-Underfull \hbox (badness 2698) detected at line 1224
+Underfull \hbox (badness 2698) detected at line 1222
 \T1/cmr/m/n/10 we fragmencie kodu Javy w instrukcji warunkowej, czy przesyªka i
 stnieje (\T1/cmtt/m/n/10 isParcelExists\T1/cmr/m/n/10 ).
  []
@@ -908,72 +984,173 @@ Underfull \hbox (badness 6825) detected at line 1235
 rmacje o pobycie przesyªki
  []
 
-[19] [20 <./sprawdz.png> <./przyklad.png> <./nieMaPrzesylki.png>]
-Underfull \hbox (badness 4846) detected at line 1295
+[19]
+Underfull \hbox (badness 4846) detected at line 1301
 \T1/cmr/m/n/10 Na listingu 3.9[] przedstawiono metod¦ \T1/cmtt/m/n/10 doPost() 
 \T1/cmr/m/n/10 klasy \T1/cmtt/m/n/10 Sprawdz.java\T1/cmr/m/n/10 , która odpowia
 da za
  []
 
 
-Underfull \hbox (badness 6608) detected at line 1297
+Underfull \hbox (badness 6608) detected at line 1303
 \T1/cmr/m/n/10 uzupeªnianie pliku JSP \T1/cmtt/m/n/10 sprawdz.jsp \T1/cmr/m/n/1
 0 danymi dotycz¡cymi przesyªki, które s¡ wy±wietlane
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1298
+Underfull \hbox (badness 10000) detected at line 1304
 \T1/cmr/m/n/10 w widoku strony dla klienta. Klasa \T1/cmtt/m/n/10 Sprawdz \T1/c
 mr/m/n/10 tworzy nowy obiekt klasy \T1/cmtt/m/n/10 SearchParcel
  []
 
 
-Underfull \hbox (badness 1867) detected at line 1300
+Underfull \hbox (badness 1867) detected at line 1306
 \T1/cmr/m/n/10 wywoªuj¡c j¡ z argumentem id przesyªki. Obiekt klasy \T1/cmtt/m/
 n/10 SearchParcel \T1/cmr/m/n/10 odczytuje baz¦ danych
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1302
+Underfull \hbox (badness 10000) detected at line 1308
 \T1/cmr/m/n/10 i przypisuje warto±ci zmiennym (listing 3.11[]). Nast¦pnie spraw
 dzane jest w instrukcji
  []
 
 
-Underfull \hbox (badness 4779) detected at line 1303
+Underfull \hbox (badness 4779) detected at line 1309
 \T1/cmr/m/n/10 warunkowej if czy taka przesyªka istnieje i wprowadzone znaki s¡
  liczb¡ caªkowit¡. Je±li
  []
 
 
-Underfull \hbox (badness 5316) detected at line 1305
+Underfull \hbox (badness 5316) detected at line 1311
 \T1/cmr/m/n/10 nie istnieje to w zale»no±ci od tego jaki bª¡d wyst¡piª przygoto
 wywana jest wiadomo±¢
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1306
+Underfull \hbox (badness 10000) detected at line 1312
 \T1/cmr/m/n/10 zwrotna dotycz¡ca tego bª¦du. Je»eli jednak przesyªka istnieje u
 stawiane s¡ parametry
  []
 
 
-Underfull \hbox (badness 3657) detected at line 1308
+Underfull \hbox (badness 3657) detected at line 1314
 \T1/cmr/m/n/10 zwrotne \T1/cmtt/m/n/10 req.setAttribute(``...'',...)\T1/cmr/m/n
 /10 . Warto zwróci¢ uwag¦ na to, »e pierwszy argument
  []
 
 
-Underfull \hbox (badness 1189) detected at line 1310
+Underfull \hbox (badness 1189) detected at line 1316
 \T1/cmtt/m/n/10 setAttribute \T1/cmr/m/n/10 musi by¢ zgodny z oczekiwan¡ nazw¡ 
 zmiennej w pliku JSP, w inny wypadku
  []
 
-[21] [22] [23] [24] <ERD.png, id=139, 1068.99374pt x 900.36375pt>
-File: ERD.png Graphic file (type png)
+[20]
+Underfull \hbox (badness 2875) detected at line 1375
+\T1/cmr/m/n/10 wy±wietlanej mapy oraz tworzony jest nowy obiekt \T1/cmtt/m/n/10
+ DirectionsService\T1/cmr/m/n/10 , który wylicza tras¦
+ []
 
-<use ERD.png>
-Package pdftex.def Info: ERD.png used on input line 1583.
+
+Underfull \hbox (badness 10000) detected at line 1377
+\T1/cmr/m/n/10 pomi¦dzy punktami. Do obiektu \T1/cmtt/m/n/10 DirectionsRenderer
+ \T1/cmr/m/n/10 przypisywane jest umiejscowienie
+ []
+
+
+Underfull \hbox (badness 1831) detected at line 1379
+\T1/cmr/m/n/10 elementu w ukªadzie strony przez pobranie jego id oraz mo»liwe j
+est ustawienie parametrów
+ []
+
+
+Underfull \hbox (badness 1221) detected at line 1381
+\T1/cmr/m/n/10 mapy. Kolejnym krokiem jest utworzenie znacznika na pozycji kuri
+era i dodanie go do mapy.
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1382
+\T1/cmr/m/n/10 Ostatnim etapem jest wyliczenie trasy pomi¦dzy dwoma punktami: a
+dresem nadawcy
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1426
+\T1/cmr/m/n/10 niego potrzebne dane do wy±wietlenia na stronie i przesyªa je me
+tod¡ \T1/cmtt/m/n/10 doPost\T1/cmr/m/n/10 .
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1428
+\T1/cmr/m/n/10 Klasa \T1/cmtt/m/n/10 SearchParcel.java \T1/cmr/m/n/10 przedstaw
+iona jest na listingu 3.11[]. Klasa otwiera poª¡czenie
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1430
+\T1/cmr/m/n/10 z baz¡ danych, nast¦pnie wykonuj¡c zapytania SQL pobiera dane do
+tycz¡ce przesyªki,
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1431
+\T1/cmr/m/n/10 a posiadaj¡c ju» id kuriera, który przewozi t¦ przesyªk¦, pobier
+a jego poªo»enie oraz
+ []
+
+<sprawdz.png, id=119, 1472.50125pt x 571.13374pt>
+File: sprawdz.png Graphic file (type png)
+ <use sprawdz.png>
+Package pdftex.def Info: sprawdz.png used on input line 1437.
+(pdftex.def)             Requested size: 418.82372pt x 162.44365pt.
+
+<przyklad.png, id=120, 1317.92375pt x 702.625pt>
+File: przyklad.png Graphic file (type png)
+ <use przyklad.png>
+Package pdftex.def Info: przyklad.png used on input line 1438.
+(pdftex.def)             Requested size: 418.82372pt x 223.2793pt.
+
+<nieMaPrzesylki.png, id=121, 1342.01375pt x 640.3925pt>
+File: nieMaPrzesylki.png Graphic file (type png)
+
+<use nieMaPrzesylki.png>
+Package pdftex.def Info: nieMaPrzesylki.png used on input line 1439.
+(pdftex.def)             Requested size: 418.82372pt x 199.85832pt.
+ [21] [22 <./sprawdz.png> <./przyklad.png> <./nieMaPrzesylki.png>]
+Underfull \hbox (badness 10000) detected at line 1514
+\T1/cmr/m/n/10 Matrix API, z której dostarczana jest odlegªo±¢ pomi¦dzy punktem
+ nadania i odbioru
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1516
+\T1/cmr/m/n/10 przesyªki. Wyznaczanie czasu dostarczenia wprowadzono równolegle
+ z zapisem przesyªki
+ []
+
+
+Underfull \hbox (badness 7362) detected at line 1518
+\T1/cmr/m/n/10 do bazy danych. Autor nie mógª w inny sposób, ni» przedstawiony 
+na listingu 3.12[],
+ []
+
+
+Underfull \hbox (badness 2846) in paragraph at lines 1512--1520
+[][]\T1/cmr/m/n/10 Estymacj¦ cza-su do-star-cze-nia prze-syª-ki zre-ali-zo-wa-n
+o ko-rzy-sta-j¡c z usªu-gi Go-ogle Di-stan-ce
+ []
+
+[23]
+Underfull \hbox (badness 1622) detected at line 1556
+\T1/cmr/m/n/10 serwisu Google Api [listing 3.13[]]. Z uzyskanej odpowiedzi spra
+wdzono czy dana trasa istniej.
+ []
+
+[24] <ERD.png, id=139, 1068.99374pt x 900.36375pt>
+File: ERD.png Graphic file (type png)
+ <use ERD.png>
+Package pdftex.def Info: ERD.png used on input line 1612.
 (pdftex.def)             Requested size: 409.71689pt x 345.0818pt.
  [25 <./ERD.png>]
 Rozdzia\PlPrIeC {\l } 4.
@@ -983,7 +1160,7 @@ Rozdzia\PlPrIeC {\l } 4.
 ]
 Rozdzia\PlPrIeC {\l } 5.
 
-LaTeX Warning: Reference `' on page 27 undefined on input line 1671.
+LaTeX Warning: Reference `' on page 27 undefined on input line 1721.
 
 (./document.bbl [27
 
@@ -1019,11 +1196,11 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  6959 strings out of 494997
  94872 string characters out of 6180841
- 422039 words of memory out of 5000000
+ 426069 words of memory out of 5000000
  10011 multiletter control sequences out of 15000+600000
  24416 words of font info for 58 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
- 36i,15n,49p,676b,1712s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,15n,49p,676b,1713s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/monika/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1000.600pk>{/usr/sh
 are/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-di
 st/fonts/enc/dvips/pl/plmi.enc} </home/monika/.texmf-var/fonts/pk/ljfour/jknapp
@@ -1043,9 +1220,9 @@ dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/pl/plmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
 c/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb>
 
-Output written on document.pdf (31 pages, 1686371 bytes).
+Output written on document.pdf (31 pages, 1688784 bytes).
 PDF statistics:
- 817 PDF objects out of 1000 (max. 8388607)
+ 818 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  126 words of extra memory for PDF output out of 10000 (max. 10000000)
 

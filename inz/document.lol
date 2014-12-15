@@ -9,8 +9,8 @@
 \contentsline {lstlisting}{\numberline {3.6}Fragment pliku web.xml}{17}
 \contentsline {lstlisting}{\numberline {3.7}Po\IeC {\l }\IeC {\k a}czenia z baz\IeC {\k a} danych na przyk\IeC {\l }adzie metody sprawdzaj\IeC {\k a}cej istnienie kuriera oraz jego stan u\IeC {\.z}ywanej przez aplikacj\IeC {\k e} mobiln\IeC {\k a}}{18}
 \contentsline {lstlisting}{\numberline {3.8}Cia\IeC {\l }o pliku JavaServlet Pages - sprawdz.jsp}{19}
-\contentsline {lstlisting}{\numberline {3.9}Fragment klasy Sprawdz.Java\tmspace +\thinmuskip {.1667em} metoda doPost()}{21}
-\contentsline {lstlisting}{\numberline {3.10}Kod JavaScript'owy pobieraj\IeC {\k a}cy map\IeC {\k e} z serwera Google}{22}
-\contentsline {lstlisting}{\numberline {3.11}Klasa SearchParcel.java przedstawiona metoda selectFromDB()\tmspace +\thinmuskip {.1667em} kt\IeC {\'o}ra reprezentuje po\IeC {\l }\IeC {\k a}czenie z baz\IeC {\k a} danych oraz pobiera wszystkie dane o przesy\IeC {\l }ce}{22}
+\contentsline {lstlisting}{\numberline {3.9}Fragment klasy Sprawdz.java\tmspace +\thinmuskip {.1667em} metoda doPost()}{20}
+\contentsline {lstlisting}{\numberline {3.10}Kod JavaScript'owy pobieraj\IeC {\k a}cy map\IeC {\k e} z serwera Google}{21}
+\contentsline {lstlisting}{\numberline {3.11}Klasa SearchParcel.java przedstawiona metoda selectFromDB()\tmspace +\thinmuskip {.1667em} kt\IeC {\'o}ra reprezentuje po\IeC {\l }\IeC {\k a}czenie z baz\IeC {\k a} danych oraz pobiera wszystkie dane o przesy\IeC {\l }ce}{23}
 \contentsline {lstlisting}{\numberline {3.12}Metoda wyliczCzasDostarczenia() z klasy DistanceMatrix}{23}
 \contentsline {lstlisting}{\numberline {3.13}Metoda wyliczOdlegloscDistanceMatrix() z klasy DistanceMatrix}{24}

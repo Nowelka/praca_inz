@@ -10,21 +10,21 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Schemat zaprojektowanego systemu lokalizacji przesy\IeC {\l }ek kurierskich\relax }}{11}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Struktura plik\IeC {\'o}w programu aplikacji mobilnej w systemie Android\relax }}{12}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Ekrany systemu Android: (a)\hbox {} G\IeC {\l }\IeC {\'o}wny ekran aplikacji, oczekuje na wprowadzenie id kuriera; (b)\hbox {} Gdy nie jest w\IeC {\l }\IeC {\k a}czona sie\IeC {\'c} kom\IeC {\'o}rkowa lub WiFi na ekranie pokazuje si\IeC {\k e} komunikat i zostaje zablokowane pole do wprowadzania id; (c)\hbox {} Komunikat o poprawnie wpisanym id; (d)\hbox {} Informacje o niew\IeC {\l }\IeC {\k a}czonym GPS; (e)\hbox {} System czeka na ustalenie lokalizacji; (f)\hbox {} System lokalizuje i wy\IeC {\'s}wietla informacje o lokalizacji i czasie odczytu\relax }}{14}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Ekrany systemu Android: (a)\hbox {} g\IeC {\l }\IeC {\'o}wny ekran aplikacji, oczekuje na wprowadzenie id kuriera; (b)\hbox {} gdy nie jest w\IeC {\l }\IeC {\k a}czona sie\IeC {\'c} kom\IeC {\'o}rkowa lub WiFi na ekranie pokazuje si\IeC {\k e} komunikat i zostaje zablokowane pole do wprowadzania id; (c)\hbox {} komunikat o poprawnie wpisanym id; (d)\hbox {} informacje o niew\IeC {\l }\IeC {\k a}czonym GPS; (e)\hbox {} system czeka na ustalenie lokalizacji; (f)\hbox {} system lokalizuje i wy\IeC {\'s}wietla informacje o lokalizacji i czasie odczytu\relax }}{14}
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{14}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{14}
 \contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{14}
 \contentsline {subfigure}{\numberline {(d)}{\ignorespaces {}}}{14}
 \contentsline {subfigure}{\numberline {(e)}{\ignorespaces {}}}{14}
 \contentsline {subfigure}{\numberline {(f)}{\ignorespaces {}}}{14}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Ekrany systemu Android: informacja o zalogowanym lub nieistniej\IeC {\k a}cym Id oraz prezentacja uruchomionej aplikacji w pasku Statusbar\relax }}{15}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sytuacja, w kt\IeC {\'o}rej id jest ju\IeC {\.z} zaj\IeC {\k e}te lub nie istnieje}}}{15}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Ekrany systemu Android: informacja o zalogowanym lub nieistniej\IeC {\k a}cym id oraz prezentacja uruchomionej aplikacji w pasku Statusbar\relax }}{15}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Sytuacja, w kt\IeC {\'o}rej identyfikator jest ju\IeC {\.z} zaj\IeC {\k e}ty lub nie istnieje}}}{15}
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Pasek status telefonu}}}{15}
 \contentsline {figure}{\numberline {3.5}{\ignorespaces Struktura plik\IeC {\'o}w programu Servletu\relax }}{17}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Okno aplikacji webowej i jego widoki: (a)\hbox {} Widok strony internetowej \texttt {SPRAWDZ} serwisu z zach\IeC {\k e}t\IeC {\k a} do wprowadzenia numeru przesy\IeC {\l }ki do sprawdzenia; (b)\hbox {} Widok strony internetowej \texttt {SPRAWDZ} z wyznaczon\IeC {\k a} tras\IeC {\k a} dla przyk\IeC {\l }adowej przesy\IeC {\l }ki; (c)\hbox {} Przyk\IeC {\l }ad odpowiedzi serwisu na nieprawid\IeC {\l }owe wpisanie numeru przesy\IeC {\l }ki\relax }}{20}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{20}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{20}
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{20}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Okno aplikacji webowej i jego widoki: (a)\hbox {} widok strony internetowej \texttt {SPRAWDZ} serwisu z zach\IeC {\k e}t\IeC {\k a} do wprowadzenia numeru przesy\IeC {\l }ki do sprawdzenia; (b)\hbox {} widok strony internetowej \texttt {SPRAWDZ} z wyznaczon\IeC {\k a} tras\IeC {\k a} dla przyk\IeC {\l }adowej przesy\IeC {\l }ki; (c)\hbox {} przyk\IeC {\l }ad odpowiedzi serwisu na nieprawid\IeC {\l }owe wpisanie numeru przesy\IeC {\l }ki\relax }}{22}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {}}}{22}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {}}}{22}
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces {}}}{22}
 \contentsline {figure}{\numberline {3.7}{\ignorespaces Diagram ERD zaprojektowanej bazy danych\relax }}{25}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
