@@ -48,7 +48,7 @@ public class SearchParcel {
 		// odnalezienie przesylki o id=nrParcel
 		try {
 			Connection connection = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/deli", "root", "sun5flower");
+					"jdbc:mysql://localhost:3306/deli", "root", "pass");
 			Statement statement = connection.createStatement();
 			strSelect = "select * from deli.parcel where id=" + nrParcel;
 			ResultSet resultSet = statement.executeQuery(strSelect);
